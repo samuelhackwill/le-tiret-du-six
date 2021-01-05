@@ -1,11 +1,8 @@
 import { Meteor } from 'meteor/meteor';
-import { Machines } from '../../api/fsm/fsm.js';
-import { insert } from '../../api/fsm/methods.js';
-import '/imports/api/fsm/server/publications.js'
+import { StoryDev } from '../../api/story/story.js';
+import { StoryProd } from '../../api/story/story.js';
+import { insert } from '../../api/story/methods.js';
+import '/imports/api/story/server/publications.js'
 
-Meteor.startup(() => {
-  if (Machines.find().count() === 0) {
-  	console.log("let's fill that mf!")
-  	Machines.insert({message:"youhouu"})
-  }
-});
+// This defines a starting set of data to be loaded if the app is loaded with an empty db.
+import './fixtures.js';
