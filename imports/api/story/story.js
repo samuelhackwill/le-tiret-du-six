@@ -13,13 +13,10 @@ export const storySchema = new SimpleSchema({
 	// instructions to be carried out at the same time
 	// as the text is displayed, as well as other
 	// langages, etc.
-	obj: {
-		type : Object
-	},
-  'obj.line': {
+  line: {
     type: String
   },  
-  'obj.params':{
+  params:{
     type: Object,
   	// is optionnal
   	optional: true,
