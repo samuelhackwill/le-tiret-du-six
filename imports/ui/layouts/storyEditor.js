@@ -5,11 +5,19 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import './storyEditor.html';
 
+// components used inside the template
+import '../components/editorBox.js';
+
+
 Template.storyEditor.onCreated(function storyEditorOnCreated() {
 	// environment can either be "prod" or "dev"
 	environment = FlowRouter.getParam("environment")
-	// either subscribe to dev or prod DB
-  this.subscribe(`story.${environment}`);
+	// either subscribe to dev or prod DB, defaults to dev in case
+	// of erroneous query.
+	if (environment!="dev" && environment!="prod") {
+		environment="dev"
+	}
+	this.subscribe(`story.${environment}`);
 });
 
 Template.storyEditor.helpers({

@@ -6,12 +6,12 @@ export const StoryProd = new Mongo.Collection('storyProd');
 
 export const storySchema = new SimpleSchema({
 	// stories should be an object with at least
-	// a "line" string, which is the text that's going 
+	// one "line" string, which is the text that's going 
 	// to be displayed on people's screens, in french
 
 	// and a params object containing all the optional
 	// instructions to be carried out at the same time
-	// as the text is displayed, as well as other
+	// as that one line of text is displayed, as well as other
 	// langages, etc.
   line: {
     type: String
@@ -20,7 +20,8 @@ export const storySchema = new SimpleSchema({
     type: Object,
   	// is optionnal
   	optional: true,
-  	// do not validate what's in the object
+  	// do not validate what's in the object :
+    // we want it to be open for future development, noSQL style
   	blackbox : true
   }
 }).newContext();

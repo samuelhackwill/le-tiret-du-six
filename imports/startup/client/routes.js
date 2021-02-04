@@ -12,7 +12,7 @@ import '../../ui/layouts/storyEditor.js';
 //   },
 // });
 
-FlowRouter.route('/storyeditor/:environment', {
+FlowRouter.route('/editor/:environment', {
 	name: 'storyEditor',
 	action(params, queryParams){
 		BlazeLayout.render('storyEditor')
