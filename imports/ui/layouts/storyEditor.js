@@ -5,6 +5,7 @@ import { StoryDev } from '../../api/story/story.js';
 import { StoryProd } from '../../api/story/story.js';
 
 import './storyEditor.html';
+import './storyEditor.css';
 
 // components used inside the template
 import '../components/lineComponent.js';
@@ -20,6 +21,22 @@ Template.storyEditor.onCreated(function storyEditorOnCreated() {
 	}
 	this.subscribe(`story.${environment}`);
 });
+
+Template.storyEditor.events({
+
+	'click #🗑'(){
+		alert("delete the story!")
+	},
+
+	'click #⬆'(){
+		alert("upload the story!")
+	},
+
+	'click #⬇'(){
+		alert("download the story!")
+	}
+
+})
 
 Template.storyEditor.helpers({
 

@@ -20,12 +20,11 @@ export const storySchema = new SimpleSchema({
     type: Array,
   	// is optionnal
   	optional: true,
-  	// do not validate what's in the object :
-    // we want it to be open for future development, noSQL style
-  	blackbox : true
   },
   'params.$':{
     type: Object,
     blackbox : true
+    // do not validate what's in the array :
+    // we want it to be open for future development, noSQL style
   }
 }).newContext();

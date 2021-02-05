@@ -1,0 +1,35 @@
+.hud{
+	color:black;
+	margin-left:50px;
+	font-size: 30px;
+	align-self: center;
+	cursor: pointer;
+}
+
+#🗑:hover{
+	background-color:red;
+}
+
+.lineComponentBody{
+	background-color:#272822;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 50vw;
+	border: white;
+	margin-top:10px;
+	margin-bottom:10px;
+	padding-left: 50px;
+}
+
+.flexContainer{
+	background-color:darkgrey;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.title{
+	color:black;
+	align-self: center;
+}

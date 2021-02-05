@@ -3,6 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 
 import './app_body.html';
+import './app_body.css';
 
 Template.App_body.onCreated(function appBodyOnCreated() {
   this.subscribe('story.dev');

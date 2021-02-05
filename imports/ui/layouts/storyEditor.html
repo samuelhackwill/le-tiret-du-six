@@ -1,7 +1,16 @@
 <template name="storyEditor">
-	<h1> {{env}} </h1>
+	<div class="storyEditorBody">
+		<div class="flexContainer">
+			<div class="title"> now editing Story{{env}}. </div>
+			<div class="hud" id="⬆">⬆</div>
+			<div class="hud" id="⬇">⬇</div>
+			<div class="hud" id="🗑">🗑</div>
+		</div>
 
-    <!-- render lineComponent with data loaded here -->	
-	{{> lineComponent story}}
+		<div class="lineComponentBody">
+		    <!-- render lineComponent with data loaded here -->	
+			{{> lineComponent story}}
+		</div>
+	</div>
 
 </template>
