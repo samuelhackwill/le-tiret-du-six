@@ -1,0 +1,31 @@
+<template name="lineComponent">
+	
+	<div class="container">
+		<!-- story contains the data passed on in the inclusion template tag (storyEditor.html)  -->	
+ 		{{#each story}}
+		<div class="lineContainer">
+				<p class="line"> {{line}} </p>
+
+				{{#each params}}
+					<div style="margin-left:50px;">
+					<!-- object to pairs is a global template (app_body.js) that converts "this" into an object with key & value -->
+					{{#each objectToPairs this}}
+						<p class="params">
+							<span style="color:red;">{{key}}</span>
+							<span style="color:blue;">{{value}}</span>
+						</p>
+					{{/each}}
+					</div>
+				{{/each}}
+				
+			</div>
+		{{/each}}
+		
+
+		<button>
+			collapse
+		</button>
+
+	</div>
+
+</template>

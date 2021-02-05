@@ -1,12 +1,13 @@
-import Parser from 'simple-text-parser';
+import { Template } from 'meteor/templating';
+import { FlowRouter } from 'meteor/kadira:flow-router';
+
 import { StoryDev } from '../../api/story/story.js';
 import { StoryProd } from '../../api/story/story.js';
-import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import './storyEditor.html';
 
 // components used inside the template
-import '../components/editorBox.js';
+import '../components/lineComponent.js';
 
 
 Template.storyEditor.onCreated(function storyEditorOnCreated() {
@@ -27,15 +28,27 @@ Template.storyEditor.helpers({
 		return environment
 	},
 
-	lines(){
+
+	// this returns the story from the db
+	story(){
+
 		if (!Template.instance().subscriptionsReady()) {
 			return ["?"]
 		}else{
 			if (environment=="dev") {
-				return StoryDev.find({})
+				console.log(StoryDev.find({}).fetch())
+				return{
+					story:StoryDev.find({})}
 			}else{
-				return StoryProd.find({})
+				return{
+					story:StoryProd.find({})}
 			}
 		}
+	},
+
+	paramsKey(){
+		const paramsKey = yo
+		return paramsKey
 	}
+
 })

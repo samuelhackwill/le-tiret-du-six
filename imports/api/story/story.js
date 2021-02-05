@@ -9,7 +9,7 @@ export const storySchema = new SimpleSchema({
 	// one "line" string, which is the text that's going 
 	// to be displayed on people's screens, in french
 
-	// and a params object containing all the optional
+	// and a params array of objects containing all the optional
 	// instructions to be carried out at the same time
 	// as that one line of text is displayed, as well as other
 	// langages, etc.
@@ -17,11 +17,15 @@ export const storySchema = new SimpleSchema({
     type: String
   },  
   params:{
-    type: Object,
+    type: Array,
   	// is optionnal
   	optional: true,
   	// do not validate what's in the object :
     // we want it to be open for future development, noSQL style
   	blackbox : true
+  },
+  'params.$':{
+    type: Object,
+    blackbox : true
   }
 }).newContext();
