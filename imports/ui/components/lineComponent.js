@@ -16,6 +16,10 @@ Template.lineComponent.onCreated(function(){
 	this.editing = new ReactiveVar(false);
 })
 
+Template.lineComponent.onRendered(function(){
+
+})
+
 Template.lineComponent.events({
 	'click .paramsCollapser'(){
 		docs = document.getElementsByClassName("paramsContainer")
@@ -37,17 +41,39 @@ Template.lineComponent.events({
 	},
 
 	'click .container'(){
-		console.log("ENTERING CONTAINER")
 		Template.instance().editing.set( true );
 	},
 
-	'mouseleave .container'(){
+	'mouseout .textAreaContainer'(){
 		// here you should update the db with any 
 		// changes. ugh! or flash db and insert anew
-
-		// prob call parser
-		console.log("LEAVING CONTAINER")
 		Template.instance().editing.set( false );
+
+		if (document.getElementsByClassName("textAreaContainer")[0].value) {
+			textAreaValue = document.getElementsByClassName("textAreaContainer")[0].value
+			// call parser (../layouts/storyEditor.js)
+			parseAndSendToDb(textAreaValue)
+		}else{
+			console.log("textArea empty.")
+		}
+
+	},
+
+	'keydown .textAreaContainer'(event){
+		// this is to enable indentation with TAB key in the textarea.
+		element = document.getElementsByClassName("textAreaContainer")[0]
+		if (event.key == 'Tab') {
+		    event.preventDefault();
+		    var start = element.selectionStart;
+		    var end = element.selectionEnd;
+
+		    // set textarea value to: text before caret + tab + text after caret
+		    element.value = element.value.substring(0, start) + "\t" + element.value.substring(end);
+
+		    // put caret at right position again
+		    element.selectionStart = element.selectionEnd = start + 1;
+	  }
+
 	}
 })
 

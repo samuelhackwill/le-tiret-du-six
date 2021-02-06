@@ -1,22 +1,396 @@
 salut 
 // INSERT 1
+
 c'est samuel qui parle
 	#bookmark yea
 	#stop
 	#EN it's samuel speaking
 // INSERT 2
+
 je pense que c'est cool
 	#EN i think it's cool
 // INSERT 3
+
 qu'on soit là aujourd'hui
 // INSERT 4
+
 à manger des marshmallows
 	#EN eating marshmallows
 // INSERT 5
+
 ***
-	#EN 
+	#EN the sound of silence
 	#bookmark silence
 // INSERT 6
+
 c'est ça
 	#ES acio
 // INSERT 7
+
+________________________
+
+vous êtes bien arrivé•e•s sur la suite du spectacle de samuel
+
+félicitations.
+
+manifestement Jean-Michel vous a bien conseillé
+
+vous êtes bien connecté•e•s au réseau local
+
+les informations ne vous parviennent plus depuis le mur sur lequel on projettetait des images
+
+mais bien de votre ordinateur personnel.
+
+vous êtes un peu rentré•e•s chez vous quoi.
+
+bienvenue chez vous,
+
+bienvenue.
+
+***
+
+c'est sympa chez vous tiens
+
+ah ouais vous avez des favoris sympas aussi!
+
+et là c'est peut être le moment où vous vous dites
+
+non mais oh c'est qui ce type qui me souhaite la bienvenue chez moi là
+
+et qui met ses pieds sur le canapé
+
+ce type c'est à dire moi
+
+et du coup je serais un peu gêné :
+
+connaissant Jean-Michel, il est surement allé assez vite sur un certain nombre de détails
+
+par exemple je parie qu'il ne vous a pas prévenu que la suite du spectacle c'était moi
+
+bon c'est pas grave hein
+
+bon du coup je me présente, c'est samuel, je suis l'assistant de jean-michel
+
+***
+
+et sinon faut que je vous parle d'un truc
+
+là pour le moment 
+
+ce texte 
+
+il défile tout seul.
+
+***
+
+hop
+
+hop
+
+hop
+
+***
+//  pause, puis les suivants hyper vite
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+***
+// faire une pause 
+
+ i 
+
+like 
+
+ to
+
+move
+
+ it
+
+move 
+
+ it
+
+ i
+
+like
+
+ to
+
+move
+
+ it
+
+move 
+
+ it
+
+ i
+
+like 
+
+ to
+
+MOVE IT
+
+ouais bref
+
+l'avantage de cette methode
+
+c'est que je peux vous faire lire des trucs de manière synchronisée
+
+mais le problème c'est que cette methode de lecture n'est pas adaptée à votre singularité d'être humain
+
+puisqu'il y en a certains parmi vous qui aiment lire super-vite pour frimer
+
+d'autres qui aiment prendre le temps de faire des micro-siestes entre deux phrases
+
+bon hé ben la technologie qu'on utilise en ce moment 
+
+ne permet pas à votre subjectivité de s'exprimer
+
+(alors même que vous êtes chez vous quoi)
+
+donc là, 
+
+dès que vous êtes prêt
+
+vous allez pouvoir identifier mentalement la touche du clavier qu'on appelle communément
+
+"la barre espace"
+
+et appuyer dessus.
+
+et encore
+
+ok
+
+super
+
+si vous lisez ces lignes
+
+c'est que vous maîtrisez cette technologie
+
+sans cela
+
+il aurait été impossible d'arriver ici.
+
+***
+
+j'ai l'impression que je pourrais presque vous dire à nouveau bienvenue
+
+bienvenue donc.
+
+***
+
+pas mal ce nouvel endroit
+
+mouais
+
+c'est une sorte de terrain vague, pas très loin de votre maison, 
+
+et il y a une sorte de gros levier qui sort du sol
+
+(la barre espace)
+
+et quand vous actionez ce levier il y a un petit paquet qui arrive
+
+(ce texte).
+
+***
+
+Cependant on va pas rester ici
+
+parce qu'il y a encore des questions en suspens
+
+namely : où est-on?
+
+et qui suis-je
+
+pour répondre a ces deux questions il faut que je commence par vous expliquer ce qui est en train de se passer présentement, un peu en détail.
+
+***
+
+ce qui se passe donc, c'est que
+
+vous êtes en train d’accéder à un <span id="serveur">serveur</span> 
+
+c'est à dire un ordinateur comme le votre
+
+et la seule différence qu’il y a entre ce qu’on fait maintenant et ce que vous faites quand vous allez sur des vrais sites internet, depuis chez vous
+
+c’est que le <span id="serveur">serveur</span>, donc la machine qui vous envoie des fichiers
+
+se situe dans la même salle que vous 
+
+au lieu d'être, comme c'est d'habitude le cas, dans un pays étranger
+
+par exemple quand vous tapez une requête sur le moteur de recherche Google,
+
+vous accedez aux bases de données de Google qui sont hébergées dans des fermes de serveurs dans le monde entier :
+
+USA, Singapour, Belgique, Finlande, etc.
+
+bref, et là on est dans une configuration dite de "réseau local"
+
+la différence, c'est que le <span id="serveur">serveur</span> est installé ici, parmi vous
+
+alors pour que chacun puisse identifier où il se situe, on va faire un truc
+
+comme le serveur est dans notre cas un ordinateur avec un écran
+
+on va faire en sorte que cet écran fasse des trucs étranges
+
+comme ça vous pourrez repérer de quelle machine il s'agit.
+
+Il peut se trouver derrière vous, devant vous, sur les côtés, alors vous allez devoir vous tourner un peu dans tout les sens.
+#showServer
+
+là normalement le serveur devrait envoyer de la lumière un peu stroboscopique
+
+vous le voyez là?
+
+***
+
+c'est donc d'ici que tout provient
+
+c'est de cette machine que provient le "lieu" où je vous ai accueilli tout à l'heure
+
+c'est aussi cette machine qui dit "je", en quelque sorte
+
+dans cette configuration, on appelle votre machine
+
+un <span id="client">client</span>.
+
+vous faites des requêtes à ma machine.
+
+et ma machine vous envoie du code informatique dans tout les sens.
+
+nous ne sommes même pas connectés à internet
+
+nous sommes juste connectés entre nous.
+
+mais on utilise les mêmes outils et protocoles que sur internet en gros
+
+c’est comme si on avait refait un petit internet.
+#hideServer
+
+***
+
+bon alors je crois qu'il faut que je vous souhaite encore la bienvenue
+
+parce que mine de rien notre perception de l'espace a un peu changé encore
+
+dans notre terrain vague avec le gros levier qui fait venir les paquets
+
+on est allés au bout du terrain vague, on s'est penchés en avant pour voir
+
+d'où venaient les paquets
+
+et là on découvre une espèce de grosse autoroute et un bâtiment au loin
+
+(le <span id="server">serveur</span>)
+
+***
+
+bon et alors je sais pas si vous avez compris le truc de la lumière rouge qui clignote
+
+c'est peut-être allé un peu vite
+
+en gros, soit vous faites partie des gens qui, 
+
+découvrant la technologie de la barre espace, avez tapé comme un malade sur votre clavier
+
+et êtes donc arrivé le premier au paragraphe expliquant ce que c'était qu'un <span id="server">serveur</span>.
+
+vous avez levé la tête au moment où c'était indiqué,
+
+et appuyant sur la barre espace, vous avez vu la lumière de mon ordinateur se mettre à clignoter.
+
+***
+
+Ce qui s'est vraisemblablement passé pour les personnes qui ont un peu plus pris leur temps
+
+c'est que, progressant plus tranquillement dans le texte,
+
+vous avez peut-être commencé à voir des flashes de lumière apparaître dans la salle
+
+de manière complètement inexpliquée
+
+ce qui vous a peut-être au passage encore ralenti (car vous êtes d'une nature plus contemplative)
+
+puis arrivant au passage sur le <span id="server">serveur</span>, vous avez pu faire la connexion entre votre lecture et l'étrange phénomène intervenu un peu plus tôt.
+
+***
+
+alors c'est intéressant
+
+en fonction de votre personnalité, vous avez vécu deux situations un peu différentes
+
+les plus rapides ont probablement ressenti les émotions suivantes :
+
+surprise, impression de puissance, fluidité.
+
+les plus contemplatifs ont probablement ressenti tout autre chose :
+
+suprise également, mais éclatant de manière rétrospective en quelque sorte
+
+légère confusion, empathie, joie de la découverte scientifique.
+
+***
+
+c'est le moment d'apprendre une nouvelle technologie
+
+yes!
+// transition foireuse
+// plutôt faire un truc pour les gens qui sont degs de pas avoir été les plus rapides
+
+après la barre espace,
+
+j'aimerais vous donner accès a un autre outil
+
+qui s'appelle un "formulaire"
+
+en gros c'est une zone dans laquelle vous pouvez cliquer pour y entrer du texte
+
+une barre de texte quoi
+
+quand vous appuyez sur la touche "entrée", ça va envoyer ce texte vers le <span id="server">serveur</span>
+
+qui va ensuite décider ce qu'il doit faire avec ce texte.
+
+c'est un outil extrèmement puissant
+
+un des matériaux sur lequel est bâti l'empire de Google.
+
+***
+
+je vous met en garde cependant,
+
+il est impossible d'utiliser les deux technologies en même temps
+
+c'est à dire que quand vous cliquez dans le formulaire
+
+(que vous êtes "dans" le formulaire)
+
+toutes vos pressions sur la barre espace seront cette fois interprétées comme des espaces typographiques
+
+et non plus comme des pas à effectuer dans le texte.
+
+(ce qui correspond a votre utilisation actuelle de la barre espace)
+
+euh j'espère que vous m'avez compris.
+
+en gros si la technologie de la barre espace semble avoir cessé de fonctionner
+
+cliquez simplement en dehors du formulaire.
+
+***

@@ -11,6 +11,8 @@
 }
 
 .lineComponentBody{
+	transition: opacity .5s;
+
 	background-color:#272822;
 	position: absolute;
 	left: 50%;
@@ -32,4 +34,12 @@
 .title{
 	color:black;
 	align-self: center;
+}
+
+.pleaseWait{
+	color:red;
+	position: absolute;
+	left: 50%;
+	top:50%;
+	transform: translate(-50%,-50%);
 }

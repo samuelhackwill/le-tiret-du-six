@@ -25,16 +25,3 @@ Template.registerHelper("objectToPairs",function(object){
 		};
 	});
 });
-
-
-testInsert = async function(obj, env){
-	try{
-		// get current environment : prod or dev
-		env = FlowRouter._current.params.environment
-		// meteor async call
-		const result = await Meteor.callPromise('storyLineInsert', obj)
-		console.log("finished ! ", result)
-	}catch (error){
-		console.log(error)
-	}
-}
