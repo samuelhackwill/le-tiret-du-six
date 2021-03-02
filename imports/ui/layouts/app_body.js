@@ -10,7 +10,6 @@ Template.App_body.onCreated(function appBodyOnCreated() {
   this.subscribe('story.prod');
 });
 
-
 Template.registerHelper("objectToPairs",function(object){
 	// this register helper is used to render object keys
 	// as HTML. It is used in lineComponents.js, 

@@ -19,6 +19,8 @@ Template.storyEditor.onCreated(function storyEditorOnCreated() {
 		environment="dev"
 	}
 	this.subscribe(`story.${environment}`);
+
+	instance = Template.instance()
 });
 
 Template.storyEditor.events({
@@ -29,6 +31,15 @@ Template.storyEditor.events({
 })
 
 Template.storyEditor.helpers({
+
+	// this is a hack to only show the text when db is ready on load.
+	subscriptionsReady(){
+		if (instance.subscriptionsReady()) {
+			return 1;
+		}else{
+			return 0;
+		}
+	},
 
 	// for the title of the page
 	env(){
@@ -60,14 +71,12 @@ Template.storyEditor.helpers({
 })
 
 parseAndSendToDb = function(obj){
-
-	console.log("obj length", obj.length)
 	//i estimate that the app can insert 2600 chars/s
 	// although the inserting time has certainly more to do
 	// with the number of calls to the db.
 
 	animationFade = 500
-	estimatedTimeToCompletion = obj.length/2.6
+	estimatedTimeToCompletion = obj.length/2
 	document.getElementsByClassName("lineComponentBody")[0].style.opacity = 0.2;
 
 	// we want to start editing after the fadeout
@@ -152,7 +161,7 @@ parseAndSendToDb = function(obj){
 				}
 
 			}
-			storyInsert(insertObj, environment)
+			storyInsert(insertObj)
 		}
 		setTimeout(function(){
 			document.getElementsByClassName("lineComponentBody")[0].style.opacity = 1;
@@ -161,12 +170,12 @@ parseAndSendToDb = function(obj){
 
 }
 
-storyInsert = async function(obj, env){
+storyInsert = async function(obj){
 	try{
 		// get current environment : prod or dev
 		env = FlowRouter._current.params.environment
 		// meteor async call
-		await Meteor.callPromise('storyLineInsert', obj)
+		await Meteor.callPromise('storyLineInsert', obj, env)
 	}catch (error){
 		console.log(error)
 	}

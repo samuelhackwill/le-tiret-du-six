@@ -5,7 +5,6 @@ import { storySchema } from './story.js';
 Meteor.methods({
 	async storyLineInsert(obj, env){
 		// check that object conforms to the schema defined in story.js
-		console.log(obj, env)
 		storySchema.validate(obj);
 
 		// if it's valid, do something and return something when you're done.
