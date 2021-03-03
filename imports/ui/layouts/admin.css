@@ -1,5 +1,17 @@
 .adminEditor{
-	height: 90vh;
+	height: 88vh;
 	width:33%;
 	margin-top:10px;
+	transition: opacity .5s;
+	background-color:#272822;
+}
+
+
+.pleaseWaitAdmin{
+	z-index: -1;
+	color:red;
+	position: absolute;
+	left: 16.66%;
+	top:50%;
+	transform: translate(-50%,-50%);
 }

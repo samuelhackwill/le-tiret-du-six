@@ -1,14 +1,26 @@
 <template name="admin">
-	<div class="storyEditorBody">
-		<div class="flexContainer">
-			<div class="hud">🖥</div>
-			<div class="title"> {{env}} ADMIN. </div>
-			<div class="hud">🖥</div>
+	<div class="flexHudContainer">
+		<div class="hud">🖥</div>
+		<div class="title"> {{env}} ADMIN. </div>
+		<div class="hud">🖥</div>
+	</div>
+
+	<div class="pleaseWaitAdmin">
+		<div>
+		Data loading, please wait...
 		</div>
+	</div>
+
+	<div class="flexAdminContainer">
+
+		<!-- here render tracker component  -->
+
 		<div class="adminEditor" style="opacity:{{subscriptionsReady}};">
 		    <!-- render editor with data loaded here -->	
 			{{> editor story}}
 		</div>
+
+		<!-- here render bookmarks component -->
 
 	</div>
 </template>
