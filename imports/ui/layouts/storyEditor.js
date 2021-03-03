@@ -27,30 +27,32 @@ Template.storyEditor.events({
 
 	'click #🗑'(){
 		Meteor.call("destroyStory", environment)
+	},
+
+	'click .paramsCollapser'(){
+		docs = document.getElementsByClassName("paramsContainer")
+
+		if (collapsed) {
+			for (var i = docs.length - 1; i >= 0; i--) {
+				docs[i].style.display="block"
+				document.getElementsByClassName("paramsCollapser")[0].innerHTML = "collapse params"
+			}
+		}else{
+			for (var i = docs.length - 1; i >= 0; i--) {
+				docs[i].style.display="none"
+				document.getElementsByClassName("paramsCollapser")[0].innerHTML = "show params"
+			}
+		}
+
+		// change status of collapsed
+		collapsed =! collapsed
 	}
 })
 
 Template.storyEditor.helpers({
-
-	// this is a css hack to only show the text when db is ready on load.
-	subscriptionsReady(){
-		if (instance.subscriptionsReady()) {
-			return 1;
-		}else{
-			return 0;
-		}
-	},
-
-	// for the title of the page
-	env(){
-		return environment
-	},
-
-
-	// this returns the story from the db
 	story(){
-
-		if (!Template.instance().subscriptionsReady()) {
+	// this returns the story from the db
+		if (!instance.subscriptionsReady()) {
 			return ["?"]
 		}else{
 			if (environment=="dev") {
@@ -61,11 +63,6 @@ Template.storyEditor.helpers({
 					story:StoryProd.find({})}
 			}
 		}
-	},
-
-	paramsKey(){
-		const paramsKey = yo
-		return paramsKey
 	}
 
 })

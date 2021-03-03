@@ -21,25 +21,6 @@ Template.editor.onRendered(function(){
 })
 
 Template.editor.events({
-	'click .paramsCollapser'(){
-		docs = document.getElementsByClassName("paramsContainer")
-
-		if (collapsed) {
-			for (var i = docs.length - 1; i >= 0; i--) {
-				docs[i].style.display="block"
-				document.getElementsByClassName("paramsCollapser")[0].innerHTML = "collapse params"
-			}
-		}else{
-			for (var i = docs.length - 1; i >= 0; i--) {
-				docs[i].style.display="none"
-				document.getElementsByClassName("paramsCollapser")[0].innerHTML = "show params"
-			}
-		}
-
-		// change status of collapsed
-		collapsed =! collapsed
-	},
-
 	'click .container'(){
 		Template.instance().editing.set( true );
 	},
@@ -56,6 +37,9 @@ Template.editor.events({
 		}else{
 			console.log("textArea empty.")
 		}
+
+		collapsed = false;
+		document.getElementsByClassName("paramsCollapser")[0].innerHTML = "collapse params"
 
 	},
 

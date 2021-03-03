@@ -5,7 +5,7 @@
 
 <!-- no indentation here to remove unwanted whitespace -->
 <textarea class="textAreaContainer">{{#each story}}{{line}}
-{{#each params}}{{#each objectToPairs this}}{{key}} {{value}}{{/each}}
+{{#each params}}{{#each objectToPairs story}}{{key}} {{value}}{{/each}}
 {{/each}}
 {{/each}}</textarea>
 
@@ -31,9 +31,4 @@
 			{{/each}}
 		{{/if}}
 	</div>
-
-	<button class="paramsCollapser">
-		collapse params
-	</button>
-
 </template>

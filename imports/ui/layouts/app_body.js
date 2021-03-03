@@ -1,4 +1,6 @@
 import { StoryDev } from '../../api/story/story.js';
+import { StoryProd } from '../../api/story/story.js';
+
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { _ } from 'meteor/underscore';
 
@@ -24,3 +26,16 @@ Template.registerHelper("objectToPairs",function(object){
 		};
 	});
 });
+
+Template.registerHelper("env", function(){
+	return environment
+})
+
+Template.registerHelper("subscriptionsReady", function(){
+	// this is a css hack to only show the text when db is ready on load.
+		if (instance.subscriptionsReady()) {
+			return 1;
+		}else{
+			return 0;
+		}
+})

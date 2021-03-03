@@ -1,3 +1,9 @@
 <template name="admin">
 	hi i'm the admin now.
+
+	<div class="adminEditor" style="opacity:{{subscriptionsReady}};">
+	    <!-- render editor with data loaded here -->	
+		{{> editor story}}
+	</div>
+
 </template>

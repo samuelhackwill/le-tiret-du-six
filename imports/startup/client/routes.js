@@ -13,9 +13,9 @@ FlowRouter.route('/', {
   },
 });
 
-FlowRouter.route('/admin', {
+FlowRouter.route('/admin/:environment', {
   name: 'admin',
-  action() {
+  action(params, queryParams) {
     BlazeLayout.render('admin');
   },
 });
