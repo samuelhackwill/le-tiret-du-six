@@ -1,9 +1,14 @@
 <template name="admin">
-	hi i'm the admin now.
+	<div class="storyEditorBody">
+		<div class="flexContainer">
+			<div class="hud">🖥</div>
+			<div class="title"> {{env}} ADMIN. </div>
+			<div class="hud">🖥</div>
+		</div>
+		<div class="adminEditor" style="opacity:{{subscriptionsReady}};">
+		    <!-- render editor with data loaded here -->	
+			{{> editor story}}
+		</div>
 
-	<div class="adminEditor" style="opacity:{{subscriptionsReady}};">
-	    <!-- render editor with data loaded here -->	
-		{{> editor story}}
 	</div>
-
 </template>

@@ -1,12 +1,15 @@
 .hud{
 	color:black;
 	margin-left:50px;
+	margin-right:50px;
 	font-size: 30px;
 	align-self: center;
-	cursor: pointer;
 }
 
+
+
 #🗑:hover{
+	cursor: pointer;
 	background-color:red;
 }
 
@@ -22,6 +25,8 @@
 	margin-top:10px;
 	margin-bottom:10px;
 	padding-left: 50px;
+
+	height: 75vh;
 }
 
 .flexContainer{
