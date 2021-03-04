@@ -2,8 +2,12 @@
 	<div class="spacebarControlContainer">
 		<div class=controlsTitleBox>
 			<span>Spacebar</span>
-			<button>ADMIN</button>
-			<button>CLIENTS</button>
+		</div>
+
+		<div class="spacebarBox"> 
+			{{#each global}}
+				<button class="spacebar"> {{spacebar}} </button>
+			{{/each}}
 		</div>
 	</div>
 </template>

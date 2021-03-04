@@ -25,7 +25,9 @@
 		</div>
 
 		<div class="bookmarksLibrary" style="opacity:{{subscriptionsReady}};">
-			{{> spacebarControl}}
+			<!-- when a component needs a global, 
+				get it by name.-->
+			{{> spacebarControl globals "spacebar"}}
 		</div>
 
 	</div>
