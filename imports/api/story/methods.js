@@ -10,7 +10,7 @@ Meteor.methods({
 		// if it's valid, do something and return something when you're done.
 		// if it's not, throw the relevent error stack
 		if(storySchema.isValid()){
-			if (env=="prod") {
+			if (env=="Prod") {
 			  	StoryProd.insert({line:obj.line, params:obj.params})
 			}else{
 			  	StoryDev.insert({line:obj.line, params:obj.params})
@@ -22,7 +22,7 @@ Meteor.methods({
 	},
 
 	destroyStory(env){
-		if (env=="prod") {
+		if (env=="Prod") {
 		  	StoryProd.remove({})
 		}else{
 		  	StoryDev.remove({})

@@ -10,6 +10,7 @@ import './storyEditor.css';
 // components used inside the template
 import '../components/editor.js';
 
+
 Template.storyEditor.onCreated(function storyEditorOnCreated() {
 	// environment can either be "Prod" or "Dev"
 	_environment = FlowRouter.getParam("environment")

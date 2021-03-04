@@ -9,7 +9,7 @@ Meteor.methods({
 
 		// this is pretty redundant and could certainly 
 		// be improved, see issue " Code Bloat #2 "
-		if (env=="prod"){
+		if (env=="Prod"){
 			actual = GlobalsProd.find({"spacebar":{$exists:true}}).fetch()[0]
 			if (actual.spacebar=="client"){
 				_spacebar = "admin"
