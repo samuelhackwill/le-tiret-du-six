@@ -6,8 +6,14 @@
 		{{#each bookmarks}}
 			<div class="bookmarksButtonsBox">
 				{{#each params}}
+					<!-- this helper checks the key
+					of every param to see if it's
+					a #bookmark param (and not an #EN
+					or // etc.) -->
 					{{#if isItABookmark this}}
+					<!-- object to pairs is a global template (app_body.js) that converts "this" into an object with key & value -->
 					{{#each objectToPairs this}}
+						<!-- make a button for every #bookmark -->
 						<button class="bookmarkButton" id={{value}}>
 						{{value}}
 						</button>

@@ -8,6 +8,7 @@ import './bookmarksLibrary.css';
 
 Template.bookmarksLibrary.helpers({
 	isItABookmark:function(obj){
+		// obj is the context passed from the html "this"
 		if (Object.keys(obj)[0]=="#bookmark") {
 			return true
 		}else{

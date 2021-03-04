@@ -1,0 +1,13 @@
+.spacebarControlContainer{
+	border: solid;
+	border-color: #2f2f2f;
+	border-radius: 5px;
+
+	overflow-x: wrap;
+
+	scrollbar-color: darkgrey #2f2f2f;
+	scrollbar-width: thin;
+
+	padding-bottom:10px;
+
+}

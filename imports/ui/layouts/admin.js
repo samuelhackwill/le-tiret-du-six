@@ -10,6 +10,7 @@ import './admin.css';
 // components used inside the template
 import '../components/editor.js';
 import '../components/bookmarksLibrary.js';
+import '../components/spacebarControl.js';
 
 Template.admin.onCreated(function storyEditorOnCreated() {
 	// environment can either be "prod" or "dev"
