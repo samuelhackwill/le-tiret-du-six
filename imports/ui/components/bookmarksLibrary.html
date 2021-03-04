@@ -1,0 +1,20 @@
+<template name="bookmarksLibrary">
+	<div class="bookmarksLibraryContainer">
+		<div class=controlsTitleBox>
+			<span>Bookmarks</span>
+		</div>
+		{{#each bookmarks}}
+			<div class="bookmarksButtonsBox">
+				{{#each params}}
+					{{#if isItABookmark this}}
+					{{#each objectToPairs this}}
+						<button class="bookmarkButton" id={{value}}>
+						{{value}}
+						</button>
+					{{/each}}
+					{{/if}}
+				{{/each}}
+			</div>
+		{{/each}}
+	</div>
+</template>

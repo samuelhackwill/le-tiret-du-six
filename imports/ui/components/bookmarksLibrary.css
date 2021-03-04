@@ -1,0 +1,24 @@
+.bookmarksLibraryContainer{
+	border: solid;
+	border-color: #2f2f2f;
+	border-radius: 5px;
+
+	overflow-x: wrap;
+
+	scrollbar-color: darkgrey #2f2f2f;
+	scrollbar-width: thin;
+
+	padding-bottom:10px;
+
+}
+
+.bookmarksButtonsBox{
+	text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookmarkButton:hover{
+	background-color:red;
+}

@@ -9,6 +9,7 @@ import './admin.css';
 
 // components used inside the template
 import '../components/editor.js';
+import '../components/bookmarksLibrary.js';
 
 Template.admin.onCreated(function storyEditorOnCreated() {
 	// environment can either be "prod" or "dev"
@@ -21,6 +22,8 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	this.subscribe(`story.${environment}`);
 
 	instance = Template.instance()
+
+	testing = StoryDev
 });
 
 Template.admin.helpers({
@@ -37,6 +40,23 @@ Template.admin.helpers({
 					story:StoryProd.find({})}
 			}
 		}
-	}
+	},
 
+	bookmarks(){
+	// this returns only fields of the DB
+	// with one "bookmark" param.
+		if (!instance.subscriptionsReady()) {
+			return ["?"]
+		}else{
+			if (environment=="dev") {
+				return{
+					bookmarks:StoryDev.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
+				}
+			}else{
+				return{
+					bookmarks:StoryProd.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
+				}
+			}
+		}
+	}
 })

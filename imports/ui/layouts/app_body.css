@@ -24,3 +24,15 @@ body{
 	color:black;
 	align-self: center;
 }
+
+.controlsTitleBox{
+	height: 25px;
+	width: 100%;
+	background-color:grey;
+	display: block;
+	margin-bottom: 10px;
+	text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

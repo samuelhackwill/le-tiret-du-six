@@ -15,3 +15,15 @@
 	top:50%;
 	transform: translate(-50%,-50%);
 }
+
+.flexAdminContainer{
+	display: flex;
+	flex-direction: row;
+}
+
+.bookmarksLibrary{
+	width:15%;
+	margin:10px;
+	transition: opacity .5s;
+	background-color:#272822;
+}

@@ -20,7 +20,9 @@
 			{{> editor story}}
 		</div>
 
-		<!-- here render bookmarks component -->
+		<div class="bookmarksLibrary" style="opacity:{{subscriptionsReady}};">
+			{{> bookmarksLibrary bookmarks}}
+		</div>
 
 	</div>
 </template>

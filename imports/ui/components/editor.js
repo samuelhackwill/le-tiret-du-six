@@ -21,7 +21,7 @@ Template.editor.onRendered(function(){
 })
 
 Template.editor.events({
-	'click .container'(){
+	'click .editorContainer'(){
 		// if you're admin, editing is forbidden.
 		// that's to avoid misclicking during the show.
 		if(FlowRouter.current().route.name=="admin"){
@@ -32,12 +32,6 @@ Template.editor.events({
 	},
 
 	'mouseout .textAreaContainer'(){
-		// if you're admin, editing is forbidden.
-		// that's to avoid misclicking during the show.
-		if(FlowRouter.current().route.name=="admin"){
-			return
-		}
-
 		// here you should update the db with any 
 		// changes. ugh! or flash db and insert anew
 		Template.instance().editing.set( false );
@@ -56,12 +50,6 @@ Template.editor.events({
 	},
 
 	'keydown .textAreaContainer'(event){
-		// if you're admin, editing is forbidden.
-		// that's to avoid misclicking during the show.
-		if(FlowRouter.current().route.name=="admin"){
-			return
-		}
-
 		// this is to enable indentation with TAB key in the textarea.
 		element = document.getElementsByClassName("textAreaContainer")[0]
 		if (event.key == 'Tab') {
