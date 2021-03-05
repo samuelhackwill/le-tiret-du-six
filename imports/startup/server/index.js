@@ -11,8 +11,7 @@ import { GlobalsPred } from '../../api/globals/globals.js';
 import { spacebarInvert } from '../../api/globals/methods.js'
 
 import '/imports/api/players/server/publications.js'
-import { PlayersDev } from '../../api/players/players.js';
-import { PlayersPred } from '../../api/players/players.js';
+import { Players } from '../../api/players/players.js';
 
 // This defines a starting set of data to be loaded if the app is loaded with an empty db.
 import './fixtures.js';

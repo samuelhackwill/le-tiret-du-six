@@ -28,6 +28,7 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	this.subscribe(`globals.${environment}`);
 
 	instance = Template.instance()
+	testing = StoryDev
 });
 
 Template.admin.helpers({

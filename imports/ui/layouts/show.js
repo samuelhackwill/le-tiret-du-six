@@ -5,8 +5,7 @@ import { StoryDev } from '../../api/story/story.js';
 import { StoryProd } from '../../api/story/story.js';
 import { GlobalsDev } from '../../api/globals/globals.js';
 import { GlobalsProd } from '../../api/globals/globals.js';
-import { PlayersDev } from '../../api/players/players.js';
-import { PlayersProd } from '../../api/players/players.js';
+import { Players } from '../../api/players/players.js';
 
 import './show.html';
 import './show.css';

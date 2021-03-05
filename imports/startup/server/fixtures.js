@@ -6,6 +6,8 @@ import { StoryProd } from '../../api/story/story.js';
 import { GlobalsDev } from '../../api/globals/globals.js';
 import { GlobalsProd } from '../../api/globals/globals.js';
 
+import { Players } from '../../api/players/players.js';
+
 Meteor.startup(() => {
   if (StoryDev.find().count() === 0) {
   	console.log("StoryDev db is empty, inserting document to avoid errors")
