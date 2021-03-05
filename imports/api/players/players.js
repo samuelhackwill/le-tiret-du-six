@@ -5,7 +5,7 @@ export const Players = new Mongo.Collection('players');
 
 // probably for debugging purposes, assign a name i know to 
 // every player. (will help identifying a computer in 
-// debug mode maybe?)
+// debug mode maybe?).
 const aiguebenames = ["Michèle Planche", "Julien Montfalcon", 
 "Lydia Guhl", "Régis Montfalcon", "Chantal Montfalcon", 
 "Roger Bologne", "Silvia Cremonte", "Dominique Sommeveille", 
@@ -20,18 +20,11 @@ const aiguebenames = ["Michèle Planche", "Julien Montfalcon",
  "Solange Barret", "Jacky Duport", "Michel Gatellier"]
 
 export const playersSchema = new SimpleSchema({
-  aiguebename: {
-    type: String
-  },  
-  params:{
-    type: Array,
-  	// is optionnal
-  	optional: true,
-  },
-  'params.$':{
-    type: Object,
-    blackbox : true
-    // do not validate what's in the array :
-    // we want it to be open for future development, noSQL style
+  aiguebename: { 
+  		type:String,
+  		autoValue:function() {  
+      		console.log(this)
+      		return "agagaga"
+  	}
   }
 }).newContext();
