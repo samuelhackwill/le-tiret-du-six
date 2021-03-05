@@ -4,12 +4,13 @@ import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import '../../ui/layouts/app_body.js';
 import '../../ui/layouts/storyEditor.js';
 import '../../ui/layouts/admin.js';
+import '../../ui/layouts/show.js';
 
 
 FlowRouter.route('/', {
-  name: 'App.home',
+  name: 'show',
   action() {
-    BlazeLayout.render('App_body');
+    BlazeLayout.render('show');
   },
 });
 
