@@ -20,11 +20,27 @@ const aiguebenames = ["Michèle Planche", "Julien Montfalcon",
  "Solange Barret", "Jacky Duport", "Michel Gatellier"]
 
 export const playersSchema = new SimpleSchema({
-  aiguebename: { 
+	env : {
+		type : String,
+	    allowedValues: ['Dev', 'Prod']
+		},
+	// players : { type: Object },
+
+	players : {
+		type : Array
+	},
+
+	'players.$':{
+	type: Object,
+	blackbox : true
+	// do not validate what's in the array for the moment :
+	// we want it to be open for future development, noSQL style
+	},
+
+	'players.$.aiguebename':{
   		type:String,
-  		autoValue:function() {  
-      		console.log(this)
-      		return "agagaga"
-  	}
-  }
+		autoValue: function(){
+		return "Hello, " + this.field('name').value;
+		}
+	}
 }).newContext();

@@ -28,4 +28,10 @@ Meteor.startup(() => {
   	console.log("GlobalsProd db is empty, inserting document to avoid errors")
   	GlobalsProd.insert({spacebar:"client"})
   }
+
+  if (Players.find().count() === 0) {
+    Players.insert({env:"Dev", players:{}})
+    Players.insert({env:"Prod", players:{}})
+  }
+
 });

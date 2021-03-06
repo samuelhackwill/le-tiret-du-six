@@ -6,10 +6,27 @@ import '../../ui/layouts/storyEditor.js';
 import '../../ui/layouts/admin.js';
 import '../../ui/layouts/show.js';
 
+const defaultToProd = function(context){
+  // we're running this function to make the
+  // root URL default to the "Prod" environment.
+  if (context.params=={}) {
+    return
+  }else{
+    context.params={environment:"Prod"}
+  }
+}
 
 FlowRouter.route('/', {
+  name: 'root',
+  triggersEnter: [defaultToProd],
+  action(params) {
+    BlazeLayout.render('show');
+  },
+});
+
+FlowRouter.route('/show/:environment', {
   name: 'show',
-  action() {
+  action(params, queryParams) {
     BlazeLayout.render('show');
   },
 });
