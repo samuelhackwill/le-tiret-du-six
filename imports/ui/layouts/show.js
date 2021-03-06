@@ -17,6 +17,15 @@ import './show.css';
 import '../components/reader.js';
 
 Template.show.onCreated(function(){
+	// environment can either be "Prod" or "Dev"
+	_environment = FlowRouter.getParam("environment")
+	environment = _environment.charAt(0).toUpperCase()+_environment.slice(1)
+	// either subscribe to dev or prod DB, defaults to dev in case
+	// of erroneous query.
+	if (environment!="Dev" && environment!="Prod") {
+		environment="Dev"
+	}
+	this.subscribe('players');
 
 // for testing purposes
 	_playersSchema = playersSchema

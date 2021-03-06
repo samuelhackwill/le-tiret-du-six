@@ -40,7 +40,8 @@ export const playersSchema = new SimpleSchema({
 	'players.$.aiguebename':{
   		type:String,
 		autoValue: function(){
-		return "Hello, " + this.field('name').value;
+			collectionSize = Players.find({env:"Dev"}).fetch().length
+		return aiguebenames[collectionSize-1];
 		}
 	}
 }).newContext();
