@@ -25,14 +25,28 @@ Template.show.onCreated(function(){
 	if (environment!="Dev" && environment!="Prod") {
 		environment="Dev"
 	}
+
 	this.subscribe('players');
+	this.subscribe(`story.${environment}`);
+	this.subscribe(`globals.${environment}`);
 
 // for testing purposes
-	_playersSchema = playersSchema
+//	_playersSchema = playersSchema
 
 })
 
-
+Template.show.helpers({
+	story(){
+	// this returns the story from the db
+		if (environment=="Dev") {
+			return{
+				story:StoryDev.find({})}
+		}else{
+			return{
+				story:StoryProd.find({})}
+		}
+	}
+})
 
 playerInsert = async function(obj){
 	try{

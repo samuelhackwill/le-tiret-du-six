@@ -8,3 +8,6 @@ import './reader.css';
 
 import { playerInsert } from '../../api/players/methods.js'
 
+Template.reader.onCreated(function(){
+	testing = this.data
+})
