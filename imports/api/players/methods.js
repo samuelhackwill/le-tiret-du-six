@@ -3,15 +3,13 @@ import { playersSchema } from './players.js';
 
 Meteor.methods({
 	async playerInsert(_env, obj){
-		// check that object conforms to the schema defined in players.js
-		playersSchema.validate(obj);
+		// clean modifies the object, adding an aiguebename
+		// and atIndex = 0 objects.
+		cleanedObj = playersSchema.clean(obj)
 
-		console.log("player insert ",_env, obj)
-
-		// if it's valid, do something and return something when you're done.
-		// if it's not, throw the relevent error stack
+		console.log("validation ? ",playersSchema.isValid())
 		if(playersSchema.isValid()){
-			Players.update({env:_env},{ $push: { players: obj } })
+			Players.update({env:_env},{ $push: { players: cleanedObj.players[0] } })
 			return "sucessful db insertion"
 		}else{
 			throw new Meteor.Error("validation error during db insert", playersSchema.validationErrors())

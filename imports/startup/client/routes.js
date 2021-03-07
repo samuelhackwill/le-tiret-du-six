@@ -7,7 +7,7 @@ import '../../ui/layouts/admin.js';
 import '../../ui/layouts/show.js';
 
 const defaultToProd = function(context){
-  // we're running this function to make the
+  // we're running this hook to make the
   // root URL default to the "Prod" environment.
   if (context.params=={}) {
     return
@@ -18,6 +18,8 @@ const defaultToProd = function(context){
 
 FlowRouter.route('/', {
   name: 'root',
+  // call hook to generate the appropriate
+  // params without input from the user.
   triggersEnter: [defaultToProd],
   action(params) {
     BlazeLayout.render('show');
@@ -25,6 +27,9 @@ FlowRouter.route('/', {
 });
 
 FlowRouter.route('/show/:environment', {
+  // this is a route to manually access
+  // the show with the "Dev" or "Prod"
+  // environment.
   name: 'show',
   action(params, queryParams) {
     BlazeLayout.render('show');
@@ -32,6 +37,9 @@ FlowRouter.route('/show/:environment', {
 });
 
 FlowRouter.route('/admin/:environment', {
+  // this is the route for controlling
+  // the show, by the admin. Should add
+  // some layer of security at some point.
   name: 'admin',
   action(params, queryParams) {
     BlazeLayout.render('admin');
@@ -39,6 +47,8 @@ FlowRouter.route('/admin/:environment', {
 });
 
 FlowRouter.route('/editor/:environment', {
+  // this is the route for editing
+  // the show's text & content.
 	name: 'storyEditor',
 	action(params, queryParams){
 		BlazeLayout.render('storyEditor')

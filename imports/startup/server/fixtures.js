@@ -9,6 +9,8 @@ import { GlobalsProd } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
 Meteor.startup(() => {
+  // insert vital stuff in the dbs at startup
+  // if the dbs are empty.
   if (StoryDev.find().count() === 0) {
   	console.log("StoryDev db is empty, inserting document to avoid errors")
   	StoryDev.insert({line:"test", params:[{"EN": "uk test"},{"#bookmark":"texte début"}]})
@@ -30,8 +32,9 @@ Meteor.startup(() => {
   }
 
   if (Players.find().count() === 0) {
-    Players.insert({env:"Dev", players:{}})
-    Players.insert({env:"Prod", players:{}})
+    console.log("Players is empty, inserting document to avoid errors")
+    Players.insert({env:"Dev", players:[]})
+    Players.insert({env:"Prod", players:[]})
   }
 
 });

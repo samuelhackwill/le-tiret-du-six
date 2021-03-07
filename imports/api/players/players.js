@@ -20,28 +20,42 @@ const aiguebenames = ["Michèle Planche", "Julien Montfalcon",
  "Solange Barret", "Jacky Duport", "Michel Gatellier"]
 
 export const playersSchema = new SimpleSchema({
+	// we have exactly two items in the collection,
+	// dev & prod.
 	env : {
 		type : String,
 	    allowedValues: ['Dev', 'Prod']
 		},
-	// players : { type: Object },
 
+	// these items both have a players array,
+	// containing "players" objects.
 	players : {
 		type : Array
 	},
 
+	// we are not strictly validating what's inside
+	// of the players objects yet, as we want it 
+	// open for future developpement.
 	'players.$':{
 	type: Object,
 	blackbox : true
-	// do not validate what's in the array for the moment :
-	// we want it to be open for future development, noSQL style
 	},
 
 	'players.$.aiguebename':{
   		type:String,
 		autoValue: function(){
-			collectionSize = Players.find({env:"Dev"}).fetch().length
-		return aiguebenames[collectionSize-1];
+			// autovalue's job is to assign an aiguebename on
+			// insert without input from the client.
+			collectionSize = Players.find({env:"Dev"}).fetch()[0].players.length
+			// return the appropriate aiguebename or the default string
+			return aiguebenames[collectionSize] || "Aiguebnames exhausted.";
+		}
+	},
+
+	'players.$.atIndex':{
+		type:Number,
+		autoValue: function(){
+			return 0;
 		}
 	}
 }).newContext();
