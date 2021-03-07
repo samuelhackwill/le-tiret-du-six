@@ -27,7 +27,9 @@ Template.show.onCreated(function(){
 	}
 
 	this.subscribe('players');
-	this.subscribe(`story.${environment}`);
+	this.subscribe(`story.${environment}`, () => {
+		grabStory();
+	});
 	this.subscribe(`globals.${environment}`);
 
 // for testing purposes
@@ -37,7 +39,7 @@ Template.show.onCreated(function(){
 
 Template.show.helpers({
 	story(){
-	// this returns the story from the db
+	// this returns the story from the db and sends
 		if (environment=="Dev") {
 			return{
 				story:StoryDev.find({})}
