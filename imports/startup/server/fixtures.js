@@ -36,5 +36,4 @@ Meteor.startup(() => {
     Players.insert({env:"Dev", players:[]})
     Players.insert({env:"Prod", players:[]})
   }
-
 });

@@ -1,0 +1,12 @@
+.readerContainer{
+
+}
+
+.centeredText{
+	position: absolute;
+	margin-top:50px;
+	width: 40%;
+	height: auto;
+	left: 50%;
+	transform: translateX(-50%);
+}
