@@ -6,6 +6,16 @@ export const GlobalsDev = new Mongo.Collection('globalsDev');
 
 export const globalsSchema = new SimpleSchema({
   spacebar: {
-    type: String
+    type: Object
+  },
+
+  'spacebar.$': Object,
+
+  'spacebar.$.control' : {
+  	type: String
+  },
+
+  'spacebar.$.adminAtIndex' : {
+  	type : Number
   }
 }).newContext();

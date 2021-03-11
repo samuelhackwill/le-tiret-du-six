@@ -25,61 +25,51 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	}
 
 	this.subscribe(`story.${environment}`);
-	this.subscribe(`globals.${environment}`);
+	this.subscribe(`globals.${environment}`,()=>{
+		// sync local atIndex to DB when arriving
+		instance.data.adminAtIndex = instance.data.global.collection.find({}).fetch()[0].spacebar.adminAtIndex
+	});
 
-	instance = Template.instance()
+	instance = this
 	testing = StoryDev
 });
 
 Template.admin.helpers({
 	story(){
-	// this returns the story from the db
-		if (!instance.subscriptionsReady()) {
-			return ["?"]
+		if (environment=="Dev") {
+			return{
+				story:StoryDev.find({})}
 		}else{
-			if (environment=="Dev") {
-				return{
-					story:StoryDev.find({})}
-			}else{
-				return{
-					story:StoryProd.find({})}
-			}
+			return{
+				story:StoryProd.find({})}
 		}
 	},
 
 	bookmarks(){
 	// this returns only fields of the DB
 	// with one "bookmark" param.
-		if (!instance.subscriptionsReady()) {
-			return ["?"]
+		if (environment=="Dev") {
+			return{
+				bookmarks:StoryDev.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
+			}
 		}else{
-			if (environment=="Dev") {
-				return{
-					bookmarks:StoryDev.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
-				}
-			}else{
-				return{
-					bookmarks:StoryProd.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
-				}
+			return{
+				bookmarks:StoryProd.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
 			}
 		}
 	},
 
 	globals(name){
 	// this returns one named global (passed from the HTML)
-		if (!instance.subscriptionsReady()) {
-			return ["?"]
+		if (environment=="Dev") {
+			return{
+				// in order to use a variable as key argument
+				// you have to cast it in brackets [].
+				global:GlobalsDev.find({[name]:{$exists:true}})
+			}
 		}else{
-			if (environment=="Dev") {
-				return{
-					// in order to use a variable as key argument
-					// you have to cast it in brackets [].
-					global:GlobalsDev.find({[name]:{$exists:true}})
-				}
-			}else{
-				return{
-					global:GlobalsProd.find({[name]:{$exists:true}})
-				}
+			return{
+				global:GlobalsProd.find({[name]:{$exists:true}})
 			}
 		}
 	}

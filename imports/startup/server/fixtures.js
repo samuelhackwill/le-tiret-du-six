@@ -23,12 +23,12 @@ Meteor.startup(() => {
 
   if (GlobalsDev.find().count() === 0) {
   	console.log("GlobalsDev db is empty, inserting document to avoid errors")
-  	GlobalsDev.insert({spacebar:"client"})
+    GlobalsDev.insert({spacebar:{"control":"client", "adminAtIndex":0}})
   }
 
   if (GlobalsProd.find().count() === 0) {
   	console.log("GlobalsProd db is empty, inserting document to avoid errors")
-  	GlobalsProd.insert({spacebar:"client"})
+  	GlobalsProd.insert({spacebar:{"control":"client", "adminAtIndex":0}})
   }
 
   if (Players.find().count() === 0) {

@@ -13,6 +13,9 @@ import './show.css';
 // components
 import '../components/reader.js';
 
+// this is triggered when a change is made
+// on the GlobalsDev collection
+
 Template.show.onCreated(function(){
 	// environment can either be "Prod" or "Dev"
 	_environment = FlowRouter.getParam("environment")
@@ -27,35 +30,30 @@ Template.show.onCreated(function(){
 		// insert a new player
 		playerInit()
 	});
-	this.subscribe(`story.${environment}`, () => {
-		// load the story data in a global var
-		grabStory();
-	});
+	this.subscribe(`story.${environment}`);
 	this.subscribe(`globals.${environment}`);
-
-// for testing purposes
-//	_playersSchema = playersSchema
-
 })
 
 Template.show.onRendered(function(){
 	window.addEventListener("beforeunload", function (e) {
-	// when the window is closed, remove player from db.
-	playerRm()
+		// when the window is closed, remove player from db.
+		playerRm()
 	});
 })
 
 Template.show.helpers({
-	story(){
+	showData(){
 		// this returns the story from the db and sends
 		if (environment=="Dev") {
-			return{
-				story:StoryDev.find({})}
+			let obj = {
+				story : StoryDev.find({}),
+				globals : GlobalsDev.find({})
+			}
+			return{obj}
 		}else{
-			return{
-				story:StoryProd.find({})}
+			return{obj}
 		}
-	}
+	},
 })
 
 playerInit = async function(obj){
