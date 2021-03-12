@@ -6,8 +6,7 @@ import { StoryProd } from '../../api/story/story.js';
 import { destroyStory } from '../../api/story/methods.js'
 
 import '/imports/api/globals/server/publications.js'
-import { GlobalsDev } from '../../api/globals/globals.js';
-import { GlobalsPred } from '../../api/globals/globals.js';
+import { Globals } from '../../api/globals/globals.js';
 import { spacebarInvert } from '../../api/globals/methods.js'
 
 import '/imports/api/players/server/publications.js'

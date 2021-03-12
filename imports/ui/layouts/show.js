@@ -3,8 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { StoryDev } from '../../api/story/story.js';
 import { StoryProd } from '../../api/story/story.js';
-import { GlobalsDev } from '../../api/globals/globals.js';
-import { GlobalsProd } from '../../api/globals/globals.js';
+import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
 import './show.html';
@@ -31,7 +30,7 @@ Template.show.onCreated(function(){
 		playerInit()
 	});
 	this.subscribe(`story.${environment}`);
-	this.subscribe(`globals.${environment}`);
+	this.subscribe(`globals`);
 })
 
 Template.show.onRendered(function(){
@@ -44,15 +43,11 @@ Template.show.onRendered(function(){
 Template.show.helpers({
 	showData(){
 		// this returns the story from the db and sends
-		if (environment=="Dev") {
-			let obj = {
-				story : StoryDev.find({}),
-				globals : GlobalsDev.find({})
-			}
-			return{obj}
-		}else{
-			return{obj}
+		let obj = {
+			story : StoryDev.find({}),
+			globals : Globals.find({env:environment})
 		}
+		return{obj}
 	},
 })
 

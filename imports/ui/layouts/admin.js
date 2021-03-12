@@ -3,8 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { StoryDev } from '../../api/story/story.js';
 import { StoryProd } from '../../api/story/story.js';
-import { GlobalsDev } from '../../api/globals/globals.js';
-import { GlobalsProd } from '../../api/globals/globals.js';
+import { Globals } from '../../api/globals/globals.js';
 
 import './admin.html';
 import './admin.css';
@@ -25,9 +24,9 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	}
 
 	this.subscribe(`story.${environment}`);
-	this.subscribe(`globals.${environment}`,()=>{
+	this.subscribe('globals',()=>{
 		// sync local atIndex to DB when arriving
-		instance.data.adminAtIndex = instance.data.global.collection.find({}).fetch()[0].spacebar.adminAtIndex
+		// instance.data.adminAtIndex = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.adminAtIndex
 	});
 
 	instance = this
@@ -61,16 +60,8 @@ Template.admin.helpers({
 
 	globals(name){
 	// this returns one named global (passed from the HTML)
-		if (environment=="Dev") {
-			return{
-				// in order to use a variable as key argument
-				// you have to cast it in brackets [].
-				global:GlobalsDev.find({[name]:{$exists:true}})
-			}
-		}else{
-			return{
-				global:GlobalsProd.find({[name]:{$exists:true}})
-			}
+		return{
+			global:Globals.find({env:environment, [name]:{$exists:true}})
 		}
 	}
 })

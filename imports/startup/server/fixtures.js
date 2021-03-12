@@ -3,8 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { StoryDev } from '../../api/story/story.js';
 import { StoryProd } from '../../api/story/story.js';
 
-import { GlobalsDev } from '../../api/globals/globals.js';
-import { GlobalsProd } from '../../api/globals/globals.js';
+import { Globals } from '../../api/globals/globals.js';
 
 import { Players } from '../../api/players/players.js';
 
@@ -21,15 +20,12 @@ Meteor.startup(() => {
   	StoryProd.insert({line:"test", params:[{"EN": "uk test"},{"#bookmark":"texte début"}]})
   } 
 
-  if (GlobalsDev.find().count() === 0) {
-  	console.log("GlobalsDev db is empty, inserting document to avoid errors")
-    GlobalsDev.insert({spacebar:{"control":"client", "adminAtIndex":0}})
+  if (Globals.find().count() === 0) {
+  	console.log("Globals db is empty, inserting document to avoid errors")
+    Globals.insert({env:"Dev", spacebar:{"control":"client", "adminAtIndex":0}})
+    Globals.insert({env:"Prod", spacebar:{"control":"client", "adminAtIndex":0}})
   }
 
-  if (GlobalsProd.find().count() === 0) {
-  	console.log("GlobalsProd db is empty, inserting document to avoid errors")
-  	GlobalsProd.insert({spacebar:{"control":"client", "adminAtIndex":0}})
-  }
 
   if (Players.find().count() === 0) {
     console.log("Players is empty, inserting document to avoid errors")
