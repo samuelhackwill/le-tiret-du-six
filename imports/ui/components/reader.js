@@ -23,16 +23,17 @@ Template.reader.onCreated(function(){
 	globalsHandle.observe({
 		// if anything changes in that object, run the following
 		changed:function(newDocument){
-			whoHasControl = newDocument.spacebar.control
-			console.log(newDocument.spacebar.adminAtIndex)
-			_adminAtIndex = newDocument.spacebar.adminAtIndex
-			_localIndex = instance.data.obj._atIndex
-			if (whoHasControl=="admin" && _localIndex != _adminAtIndex) {
-				console.log("GO!")
-				adminNext(_adminAtIndex);
-			}else{
-				return
-			}
+			console.log("this method does not work at high rate.")
+		// 	whoHasControl = newDocument.spacebar.control
+		// 	console.log(newDocument.spacebar.adminAtIndex)
+		// 	_adminAtIndex = newDocument.spacebar.adminAtIndex
+		// 	_localIndex = instance.data.obj._atIndex
+		// 	if (whoHasControl=="admin" && _localIndex != _adminAtIndex) {
+		// 		console.log("GO!")
+		// 		adminNext(_adminAtIndex);
+		// 	}else{
+		// 		return
+		// 	}
 		}
 	})
 })
@@ -67,5 +68,4 @@ adminNext = function(_adminAtIndex){
 	let _Story = instance.data.obj.story.collection.find({}).fetch()
 	loadText(_Story, _adminAtIndex)
 	console.log("admin next, biatch")
-	// instance.data.obj.globals.collection.find({}).fetch()[0].spacebar.control
 }
