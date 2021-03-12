@@ -6,6 +6,9 @@ import { StoryProd } from '../../api/story/story.js';
 import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
+// streamer is for fast paced interactivity
+import '../../api/streamer/streamer.js';
+
 import './show.html';
 import './show.css';
 

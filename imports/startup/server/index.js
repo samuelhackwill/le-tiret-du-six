@@ -14,7 +14,9 @@ import { Players } from '../../api/players/players.js';
 import { playerInsert } from '../../api/players/methods.js'
 import { playerDestroy } from '../../api/players/methods.js'
 
+import '/imports/api/streamer/server/publications.js'
+
 // This defines a starting set of data to be loaded if the app is loaded with an empty db.
 import './fixtures.js';
 
-//ss
+//Sssss

@@ -22,11 +22,13 @@ Meteor.methods({
 		    } })
 	},
 
-	spacebarAdmin(_atIndex){
+	spacebarAdmin(_env, _atIndex){
 		object = Globals.find({env:_env}).fetch()[0]
 		Globals.update(object._id, { $set: {
 		    spacebar:{control: object.spacebar.control, adminAtIndex:_atIndex}
 		}})
+
+		sendMessage({action:"adminSpacebarPress", adminAtIndex:_atIndex})
 	}
 
 });

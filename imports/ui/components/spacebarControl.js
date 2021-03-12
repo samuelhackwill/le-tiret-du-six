@@ -20,7 +20,7 @@ Template.spacebarControl.events({
 	"click button.spacebar"(){
 		// change status of spacebar
 		Meteor.call("spacebarInvert", environment)
-	}	
+	}
 
 })
 
@@ -42,6 +42,5 @@ adminSpaceBarPress = function(){
 
 	// call method
 	console.log("calling method ", _adminAtIndex)
-	Meteor.call("spacebarAdmin", _adminAtIndex)
-
+	Meteor.call("spacebarAdmin", environment, _adminAtIndex)
 }

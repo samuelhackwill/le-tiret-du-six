@@ -22,8 +22,8 @@ Meteor.startup(() => {
 
   if (Globals.find().count() === 0) {
   	console.log("Globals db is empty, inserting document to avoid errors")
-    Globals.insert({env:"Dev", spacebar:{"control":"client", "adminAtIndex":0}})
-    Globals.insert({env:"Prod", spacebar:{"control":"client", "adminAtIndex":0}})
+    Globals.insert({env:"Dev", spacebar:{"control":"client", "adminAtIndex":-1}})
+    Globals.insert({env:"Prod", spacebar:{"control":"client", "adminAtIndex":-1}})
   }
 
 
