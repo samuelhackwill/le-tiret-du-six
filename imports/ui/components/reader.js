@@ -42,19 +42,14 @@ spaceBarPress = function(){
 	if (_atIndex < _Story.length){
 		// client is responsible for updating index
 		instance.data.obj._atIndex = _atIndex +1
+		// load text
 		loadText(_Story, instance.data.obj._atIndex)
+		// method call to update players db
+		Meteor.call("spacebarPlayer", environment, instance.aiguebename, instance.data.obj._atIndex)
 	}else{
 		console.log("No more text!")
 		return
 	}
-
-}
-
-loadText = function(_Story, index){
-	console.log(_Story[index])
-
-    $('#textColumn').append($('<ul/>').html(_Story[index].line))
-    // $('#srt').scrollTop($('#srt')[0].scrollHeight);
 
 }
  
@@ -71,3 +66,9 @@ adminNext = function(_adminAtIndex) {
 		return
 	}
 };
+
+loadText = function(_Story, index){
+    $('#textColumn').append($('<ul/>').html(_Story[index].line))
+    // $('#srt').scrollTop($('#srt')[0].scrollHeight);
+
+}

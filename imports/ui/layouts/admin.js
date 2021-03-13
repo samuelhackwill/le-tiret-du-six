@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { StoryDev } from '../../api/story/story.js';
 import { StoryProd } from '../../api/story/story.js';
 import { Globals } from '../../api/globals/globals.js';
+import { Players } from '../../api/players/players.js';
 
 import './admin.html';
 import './admin.css';
@@ -27,9 +28,14 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	this.subscribe('globals',()=>{
 		// sync local atIndex to DB when arriving
 		instance.data.adminAtIndex = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.adminAtIndex
+	});	
+	this.subscribe('players',()=>{
+		// sync local atIndex to DB when arriving
+		testing = Players.find({})
 	});
 
 	instance = this
+
 });
 
 Template.admin.helpers({

@@ -21,6 +21,12 @@ Meteor.methods({
 		Players.update({env:_env},{ $pull: { players: {aiguebename:_aiguebename} } })
 		return {msg : "removing player : ", who : _aiguebename}
 	},
+
+	spacebarPlayer(_env, _aiguebename, _atIndex){
+		console.log(_env, _aiguebename, _atIndex)
+		// update player's index so we can track it elsewhere.
+		// i'm using a positional argument "$" here to update the one field.
+		Players.update({env:_env, "players.aiguebename":_aiguebename}, {$set : {"players.$.atIndex" : _atIndex} })
+
+	}
 });
-
-
