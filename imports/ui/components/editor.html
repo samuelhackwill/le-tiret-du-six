@@ -13,7 +13,7 @@
 		{{else}}
 	 		{{#each story}}
 				<div class="lineContainer">
-					<p class="line"> {{line}} </p>
+					<p class="line"><span class="lineIndex">{{@index}}</span> {{line}} </p>
 					<div class="paramsContainer">
 						{{#each params}}
 							<div class="lineParams">
@@ -21,7 +21,7 @@
 							{{#each objectToPairs this}}
 								<p class="params">
 									<span class="lineKey {{key}}">{{key}}</span>
-									<span class="lineValue">{{value}}</span>
+									<span class="lineValue" id={{key}}.{{value}}>{{value}}</span>
 								</p>
 							{{/each}}
 							</div>

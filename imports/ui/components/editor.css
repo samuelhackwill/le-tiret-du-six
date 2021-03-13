@@ -11,6 +11,11 @@
 	scrollbar-width: thin;
 }
 
+.lineIndex{
+	font-size: x-small;
+	color: grey;
+}
+
 .lineContainer{
 	margin-left:10px;
 }

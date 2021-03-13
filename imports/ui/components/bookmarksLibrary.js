@@ -15,5 +15,17 @@ Template.bookmarksLibrary.helpers({
 			return false
 		}
 	}
+})
 
+Template.bookmarksLibrary.events({
+	"click .bookmarkButton"(e){
+		bookmarkTargetId = e.target.id
+		// get index of line from the rendered HTML.
+		// might be a bit hacky
+		_targetIndex = Number(document.getElementById("#bookmark."+bookmarkTargetId).parentNode.parentNode.parentNode.parentNode.childNodes[1].childNodes[0].innerHTML)
+		// update local admin value
+		instance.data.adminAtIndex = _targetIndex
+		// and sync all clients.
+		Meteor.call("spacebarAdmin", environment, _targetIndex)
+	}
 })

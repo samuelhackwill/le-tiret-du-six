@@ -6,6 +6,15 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './reader.html';
 import './reader.css';
 
+import { streamer } from '../../api/streamer/streamer.js';
+
+streamer.on('message', function(message) {
+	// only run if from template reader. Didn't find another way of doing it
+	// as streamer seems to be a global object and runs everywhere.
+	if (message.action=="adminSpacebarPress" && instance.view.template.viewName == "Template.reader"){
+		adminNext(message.adminAtIndex)
+	}
+});
 
 Template.reader.onCreated(function(){
 	// this makes the instance accessible globally.
@@ -26,10 +35,12 @@ Template.reader.onRendered(function(){
 })
 
 spaceBarPress = function(){
+	// get local index from instance data.
 	let _atIndex = instance.data.obj._atIndex
 	let _Story = instance.data.obj.story.collection.find({}).fetch()
 
 	if (_atIndex < _Story.length){
+		// client is responsible for updating index
 		instance.data.obj._atIndex = _atIndex +1
 		loadText(_Story, instance.data.obj._atIndex)
 	}else{
@@ -39,7 +50,13 @@ spaceBarPress = function(){
 
 }
 
-adminNext = function(_adminAtIndex){
+loadText = function(_Story, index){
+	console.log(_Story[index])
+}
+ 
+adminNext = function(_adminAtIndex) {
+	// update instance_atIndex from function argument
+	// admin is responsible for updating everybody's index
 	instance.data.obj._atIndex = _adminAtIndex
 	let _Story = instance.data.obj.story.collection.find({}).fetch()
 
@@ -49,8 +66,4 @@ adminNext = function(_adminAtIndex){
 		console.log("No more text!")
 		return
 	}
-}
-
-loadText = function(_Story, index){
-	console.log(_Story[index])
-}
+};
