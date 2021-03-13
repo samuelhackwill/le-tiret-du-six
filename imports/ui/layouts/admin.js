@@ -30,7 +30,6 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	});
 
 	instance = this
-	testing = StoryDev
 });
 
 Template.admin.helpers({
@@ -49,11 +48,13 @@ Template.admin.helpers({
 	// with one "bookmark" param.
 		if (environment=="Dev") {
 			return{
-				bookmarks:StoryDev.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
+				bookmarks:StoryDev.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}}),
+				story:StoryDev.find({})
 			}
 		}else{
 			return{
-				bookmarks:StoryProd.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}})
+				bookmarks:StoryProd.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}}),
+				story:StoryDev.find({})
 			}
 		}
 	},

@@ -52,6 +52,10 @@ spaceBarPress = function(){
 
 loadText = function(_Story, index){
 	console.log(_Story[index])
+
+    $('#textColumn').append($('<ul/>').html(_Story[index].line))
+    // $('#srt').scrollTop($('#srt')[0].scrollHeight);
+
 }
  
 adminNext = function(_adminAtIndex) {

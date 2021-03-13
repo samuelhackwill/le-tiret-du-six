@@ -8,15 +8,13 @@ import { Players } from '../../api/players/players.js';
 
 // streamer is for fast paced interactivity
 import '../../api/streamer/streamer.js';
+import '../../api/streamer/client/streamer.js';
 
 import './show.html';
 import './show.css';
 
 // components
 import '../components/reader.js';
-
-// this is triggered when a change is made
-// on the GlobalsDev collection
 
 Template.show.onCreated(function(){
 	// environment can either be "Prod" or "Dev"
