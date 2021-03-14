@@ -48,7 +48,7 @@ Template.admin.helpers({
 	// with one "bookmark" param.
 		return{
 			bookmarks:Story.find({env:"Dev", 'data.params':{$elemMatch:{"#bookmark":{$exists:true}}} }),
-			story:Story.find({})
+			story:Story.find({env: environment})
 		}
 	},
 
@@ -62,7 +62,8 @@ Template.admin.helpers({
 	players(){
 	// this returns one named global (passed from the HTML)
 		return{
-			players:Players.find({env:environment})
+			players:Players.find({env:environment}),
+			story:Story.find({env: environment})
 		}
 	},
 })

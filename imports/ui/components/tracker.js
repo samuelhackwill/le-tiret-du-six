@@ -8,6 +8,15 @@ import './tracker.css';
 
 Template.tracker.onCreated(function(){
 
+	var query = this.data.story.collection.find();
+	query.observeChanges({
+		added:function(){
+
+		console.log("added!")
+
+		}
+	})
+
 	// i'm sorry but i'm going to have to observe changes
 	// which means i'm going to have to refactor the story db. sorry
 
