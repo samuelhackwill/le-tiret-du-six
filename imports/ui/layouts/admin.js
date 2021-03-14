@@ -13,6 +13,7 @@ import './admin.css';
 import '../components/editor.js';
 import '../components/bookmarksLibrary.js';
 import '../components/spacebarControl.js';
+import '../components/tracker.js';
 
 Template.admin.onCreated(function storyEditorOnCreated() {
 	// environment can either be "prod" or "Dev"
@@ -24,17 +25,15 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 		environment="Dev"
 	}
 
-	this.subscribe(`story.${environment}`);
+	this.subscribe(`story.${environment}`)
 	this.subscribe('globals',()=>{
 		// sync local atIndex to DB when arriving
 		instance.data.adminAtIndex = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.adminAtIndex
 	});	
-	this.subscribe('players',()=>{
-		// sync local atIndex to DB when arriving
-		testing = Players.find({})
-	});
-
+	this.subscribe('players')
+	
 	instance = this
+
 
 });
 
@@ -70,5 +69,12 @@ Template.admin.helpers({
 		return{
 			global:Globals.find({env:environment, [name]:{$exists:true}})
 		}
-	}
+	},
+
+	players(){
+	// this returns one named global (passed from the HTML)
+		return{
+			players:Players.find({env:environment})
+		}
+	},
 })
