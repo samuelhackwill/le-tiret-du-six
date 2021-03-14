@@ -1,8 +1,7 @@
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import { StoryDev } from '../../api/story/story.js';
-import { StoryProd } from '../../api/story/story.js';
+import { Story } from '../../api/story/story.js';
 
 import './storyEditor.html';
 import './storyEditor.css';
@@ -20,7 +19,8 @@ Template.storyEditor.onCreated(function storyEditorOnCreated() {
 	if (environment!="Dev" && environment!="Prod") {
 		environment="Dev"
 	}
-	this.subscribe(`story.${environment}`);
+
+	this.subscribe('story');
 
 	instance = Template.instance()
 });
@@ -55,15 +55,9 @@ Template.storyEditor.helpers({
 	story(){
 	// this returns the story from the db
 		if (!instance.subscriptionsReady()) {
-			return ["?"]
 		}else{
-			if (environment=="Dev") {
-				return{
-					story:StoryDev.find({})}
-			}else{
-				return{
-					story:StoryProd.find({})}
-			}
+			return{
+				story:Story.find({env:environment})}
 		}
 	}
 

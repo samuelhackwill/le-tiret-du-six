@@ -1,8 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 import '/imports/api/story/server/publications.js'
-import { StoryDev } from '../../api/story/story.js';
-import { StoryProd } from '../../api/story/story.js';
+import { Story } from '../../api/story/story.js';
 import { destroyStory } from '../../api/story/methods.js'
 
 import '/imports/api/globals/server/publications.js'

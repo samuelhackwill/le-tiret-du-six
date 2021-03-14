@@ -4,30 +4,30 @@
 		{{#if editMode}}
 
 <!-- no indentation here to remove unwanted whitespace -->
-<textarea class="textAreaContainer">{{#each story}}{{line}}
+<textarea class="textAreaContainer">{{#each story}}{{#each data}}{{line}}
 {{#each params}}{{#each objectToPairs this}}{{key}} {{value}}{{/each}}
-{{/each}}
+{{/each}}{{/each}}
 {{/each}}</textarea>
-
-
 		{{else}}
 	 		{{#each story}}
-				<div class="lineContainer">
-					<p class="line"><span class="lineIndex">{{@index}}</span> {{line}} </p>
-					<div class="paramsContainer">
-						{{#each params}}
-							<div class="lineParams">
-							<!-- object to pairs is a global template (app_body.js) that converts "this" into an object with key & value -->
-							{{#each objectToPairs this}}
-								<p class="params">
-									<span class="lineKey {{key}}">{{key}}</span>
-									<span class="lineValue" id={{key}}.{{value}}>{{value}}</span>
-								</p>
+		 		{{#each data}}
+					<div class="lineContainer">
+						<p class="line"><span class="lineIndex">{{@index}}</span> {{line}} </p>
+						<div class="paramsContainer">
+							{{#each params}}
+								<div class="lineParams">
+								<!-- object to pairs is a global template (app_body.js) that converts "this" into an object with key & value -->
+								{{#each objectToPairs this}}
+									<p class="params">
+										<span class="lineKey {{key}}">{{key}}</span>
+										<span class="lineValue" id={{key}}.{{value}}>{{value}}</span>
+									</p>
+								{{/each}}
+								</div>
 							{{/each}}
-							</div>
-						{{/each}}
+						</div>
 					</div>
-				</div>
+				{{/each}}
 			{{/each}}
 		{{/if}}
 	</div>

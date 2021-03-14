@@ -1,8 +1,7 @@
 import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import { StoryDev } from '../../api/story/story.js';
-import { StoryProd } from '../../api/story/story.js';
+import { Story } from '../../api/story/story.js';
 import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
@@ -25,7 +24,7 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 		environment="Dev"
 	}
 
-	this.subscribe(`story.${environment}`)
+	this.subscribe('story')
 	this.subscribe('globals',()=>{
 		// sync local atIndex to DB when arriving
 		instance.data.adminAtIndex = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.adminAtIndex
@@ -39,28 +38,17 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 
 Template.admin.helpers({
 	story(){
-		if (environment=="Dev") {
-			return{
-				story:StoryDev.find({})}
-		}else{
-			return{
-				story:StoryProd.find({})}
+		return{
+			story:Story.find({env: environment})
 		}
 	},
 
 	bookmarks(){
 	// this returns only fields of the DB
 	// with one "bookmark" param.
-		if (environment=="Dev") {
-			return{
-				bookmarks:StoryDev.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}}),
-				story:StoryDev.find({})
-			}
-		}else{
-			return{
-				bookmarks:StoryProd.find({params: {$elemMatch: {"#bookmark": { $exists: true}}}}),
-				story:StoryDev.find({})
-			}
+		return{
+			bookmarks:Story.find({env:"Dev", 'data.params':{$elemMatch:{"#bookmark":{$exists:true}}} }),
+			story:Story.find({})
 		}
 	},
 

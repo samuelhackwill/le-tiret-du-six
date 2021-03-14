@@ -37,7 +37,9 @@ Template.reader.onRendered(function(){
 spaceBarPress = function(){
 	// get local index from instance data.
 	let _atIndex = instance.data.obj._atIndex
-	let _Story = instance.data.obj.story.collection.find({}).fetch()
+	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
+
+	console.log(_Story)
 
 	if (_atIndex < _Story.length){
 		// client is responsible for updating index
@@ -57,7 +59,7 @@ adminNext = function(_adminAtIndex) {
 	// update instance_atIndex from function argument
 	// admin is responsible for updating everybody's index
 	instance.data.obj._atIndex = _adminAtIndex
-	let _Story = instance.data.obj.story.collection.find({}).fetch()
+	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
 
 	if (_adminAtIndex < _Story.length){
 		loadText(_Story, _adminAtIndex)
