@@ -9,6 +9,10 @@
 
 	scrollbar-color: darkgrey #2f2f2f;
 	scrollbar-width: thin;
+
+	/*this is to make the offset top
+	relative to this parent.*/
+	position: relative;
 }
 
 .lineIndex{

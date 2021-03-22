@@ -11,22 +11,25 @@ Template.tracker.onCreated(function(){
 	var query = this.data.story.collection.find();
 	query.observeChanges({
 		added:function(){
-
-		console.log("added!")
-
+			  Tracker.afterFlush(function () {
+			  	// only launch the function after tracker flush.
+			  	// I'm not 100% sure that it ensures that the 
+			  	// DOM is ready but it seems good enough.
+				offsetsGetter()
+			});
 		}
 	})
-
-	// i'm sorry but i'm going to have to observe changes
-	// which means i'm going to have to refactor the story db. sorry
-
 })
 
 
 Template.tracker.helpers({
 
-	calculatePosition(){
-		console.log(this)
+	nthRow(){
+		// we need to align each cursor with the appropriate row
+		// but as every line hasn't got a fixed height,
+		// instance.data.offsets contain the exact offsetTop
+		// of every line.
+		return instance.data.offsets[this.atIndex]
 	}
 })
 
@@ -34,7 +37,8 @@ function offsetsGetter(){
 	offsets = []
 	everyLine = document.getElementsByClassName("line")
 
-	for(i=0; i> everyLine.length; i++){
+
+	for(i=0; i<everyLine.length; i++){
 		offsets.push(everyLine[i].offsetTop)
 	}
 

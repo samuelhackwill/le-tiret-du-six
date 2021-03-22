@@ -22,5 +22,6 @@
 }
 
 .playerPositionMarker{
+	position: relative;
 	margin-left: -4px;
 }

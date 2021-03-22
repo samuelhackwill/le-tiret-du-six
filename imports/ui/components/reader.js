@@ -39,8 +39,6 @@ spaceBarPress = function(){
 	let _atIndex = instance.data.obj._atIndex
 	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
 
-	console.log(_Story)
-
 	if (_atIndex < _Story.length){
 		// client is responsible for updating index
 		instance.data.obj._atIndex = _atIndex +1

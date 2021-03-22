@@ -4,5 +4,5 @@ streamer.allowRead('all');
 streamer.allowWrite('all');
 
 streamer.on('message', function(message) {
-	console.log('server message : ', message);
+	// console.log('server message : ', message);
 })
