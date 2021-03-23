@@ -1,9 +1,11 @@
 <template name="tracker">
-	<div class="trackerContainer">
-		{{#each players}}
+	<div class="trackerContainer scrollBinder">
+		<div id="trackerTH">
 			{{#each players}}
-				<span class="playerPositionMarker" style="top:{{nthRow}}px;"> | </span>
+				{{#each players}}
+					<span class="playerPositionMarker" style="top:{{nthRow}}px;"> | </span>
+				{{/each}}
 			{{/each}}
-		{{/each}}
+		</div>
 	</div>
 </template>

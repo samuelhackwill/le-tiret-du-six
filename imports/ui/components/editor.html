@@ -1,5 +1,6 @@
 <template name="editor">
-	<div class="editorContainer">
+	<div class="editorContainer scrollBinder">
+		<div id="editorTH">
 		<!-- story contains the data passed on in the inclusion template tag (storyEditor.html)  -->	
 		{{#if editMode}}
 
@@ -30,5 +31,6 @@
 				{{/each}}
 			{{/each}}
 		{{/if}}
+		</div>
 	</div>
 </template>

@@ -43,4 +43,11 @@ function offsetsGetter(){
 	}
 
 	instance.data.offsets = offsets
+
+	// we need to modify the total height of tracker div
+	// so that we get the same total scroll height for both divs.
+	// (or else the cursors won't be aligned any more)
+	masterHeight = document.getElementById("editorTH").offsetHeight
+	console.log(masterHeight)
+	document.getElementById("trackerTH").style.height = masterHeight+"px"
 }

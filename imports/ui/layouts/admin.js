@@ -32,9 +32,19 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	this.subscribe('players')
 	
 	instance = this
-
-
 });
+
+Template.admin.onRendered(function(){
+	// we need to bind the scrolling of the tracker component
+	// with the scrolling of the editor component, or else
+	// the lines won't be aligned with the cursors.
+	elems = document.getElementsByClassName("scrollBinder");
+
+	for (i = 0; i < elems.length; i++) {
+	    elems[i].addEventListener("scroll", doubleScroll);
+	}
+})
+
 
 Template.admin.helpers({
 	story(){
@@ -67,3 +77,12 @@ Template.admin.helpers({
 		}
 	},
 })
+
+// this function is called to bind the scrolling of two divs together.
+doubleScroll = function() {
+    var top = this.scrollTop;
+
+    for (i = 0; i < elems.length; i++) {
+        elems[i].scrollTop=top;
+    }
+}

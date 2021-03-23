@@ -24,4 +24,9 @@
 .playerPositionMarker{
 	position: relative;
 	margin-left: -4px;
+
+	/*we need to align perfectly with the linecontainer
+	element in the editor, which has a padding-bottom of 
+	15px also.*/
+	padding-bottom: 15px;
 }
