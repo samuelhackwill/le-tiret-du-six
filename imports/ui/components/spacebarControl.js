@@ -33,6 +33,11 @@ Template.spacebarControl.onRendered(function(){
 
 })
 
+/**
+ * @todo UI : Scroll with fastest/slowest player
+ * @body we need a function to help admin track the progress of players, by scrolling in the tracker/editor divs
+ */
+
 adminSpaceBarPress = function(){
 	// we need to check if admin has control first
 	_spacebarctrl = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.control
