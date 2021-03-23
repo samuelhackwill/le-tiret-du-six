@@ -35,6 +35,14 @@ Template.reader.onRendered(function(){
 })
 
 spaceBarPress = function(){
+	// we need to check if admin has control first
+	let _spacebarctrl = instance.data.obj.globals.collection.find({env:environment}).fetch()[0].spacebar.control
+	// if he has control, just return and don't do anything else.
+	if (_spacebarctrl == "admin") {
+		console.log("admin owns the spacebar, not moving.")
+		return
+	}
+
 	// get local index from instance data.
 	let _atIndex = instance.data.obj._atIndex
 	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data

@@ -34,6 +34,14 @@ Template.spacebarControl.onRendered(function(){
 })
 
 adminSpaceBarPress = function(){
+	// we need to check if admin has control first
+	_spacebarctrl = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.control
+	// if it's not the case, simply return.
+	if (_spacebarctrl == "client") {
+		console.log("admin does not own spacebar! returning")
+		return
+	}
+
 	// get local index
 	let _adminAtIndex = instance.data.adminAtIndex
 	// increment

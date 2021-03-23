@@ -6,8 +6,6 @@ Meteor.methods({
 		// which is used to track who can fetch text
 		// during the performance.
 
-		// this is pretty redundant and could certainly 
-		// be improved, see issue " Code Bloat #2 "
 			object = Globals.find({env:_env}).fetch()[0]
 			spacebar = object.spacebar
 
