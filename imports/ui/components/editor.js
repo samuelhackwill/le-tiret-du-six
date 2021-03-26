@@ -137,8 +137,6 @@ parseAndSendToDb = function(obj){
 			// then remove trailing whitespace
 			let paramsFiltered2 = paramsFiltered1.replace(/\s{0,}$/, "")
 
-			console.log(paramsFiltered2)
-
 			// then run this diabolical regex which evaluates 
 			// three different scenarios : a param can be a comment
 			// 		// comment

@@ -92,7 +92,9 @@ loadText = function(_Story, index, rawText){
 	// sometimes we want to use loadText to print text
 	// which has nothing to do with the show's text,
 	// for instance status messages like score messages.
+	console.log(rawText)
 	if (rawText) {
+		console.log("ZOOOB")
 	    $('#textColumn').append($('<ul/>').html(rawText))
 		return
 	}
@@ -109,9 +111,6 @@ clientActions = function(_params){
 
 	for (var i = _params.length - 1; i >= 0; i--) {
 		for (var i = _params.length - 1; i >= 0; i--) {
-			
-			console.log(Object.keys(_params[i])[0])
-
 			switch (Object.keys(_params[i])[0]){
 				case "#stop" :
 				console.log("going into parking.")
@@ -132,8 +131,12 @@ clientActions = function(_params){
 				this.instance.data.race1.finish = new Date()
 				break;
 
-				case "race1resultsLeft" :
-				loadText(undefined, undefined, "Salut les tweetos")
+				case "#race1resultsLeft" :
+				loadText(undefined, undefined, "Salut la gauche")
+				break;
+
+				case "#race1resultsRight" :
+				loadText(undefined, undefined, "Salut la droite")
 				break;
 
 				default :
