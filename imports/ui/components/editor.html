@@ -1,6 +1,5 @@
 <template name="editor">
 	<div class="editorContainer scrollBinder">
-		<div id="editorTH">
 		<!-- story contains the data passed on in the inclusion template tag (storyEditor.html)  -->	
 		{{#if editMode}}
 
@@ -10,6 +9,7 @@
 {{/each}}
 {{/each}}{{/each}}</textarea>
 		{{else}}
+		<div id="editorTH">
 	 		{{#each story}}
 		 		{{#each data}}
 					<div class="lineContainer">
@@ -30,7 +30,7 @@
 					</div>
 				{{/each}}
 			{{/each}}
-		{{/if}}
 		</div>
+		{{/if}}
 	</div>
 </template>

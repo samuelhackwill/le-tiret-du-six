@@ -29,17 +29,23 @@ Template.reader.onCreated(function(){
 Template.reader.onRendered(function(){
 	document.onkeyup = function(event){
 		if (event.keyCode==32) {
-			spaceBarPress()
+			clientNext()
 		}
 	}
 })
 
-spaceBarPress = function(){
+clientNext = function(){
 	// we need to check if admin has control first
 	let _spacebarctrl = instance.data.obj.globals.collection.find({env:environment}).fetch()[0].spacebar.control
 	// if he has control, just return and don't do anything else.
 	if (_spacebarctrl == "admin") {
 		console.log("admin owns the spacebar, not moving.")
+		return
+	}
+
+	// if the player has triggered a stop action, he should remain where he is.
+	if (this.instance.data.stopped){
+		console.log("currently in parking, not moving")
 		return
 	}
 
@@ -67,6 +73,10 @@ adminNext = function(_adminAtIndex) {
 	instance.data.obj._atIndex = _adminAtIndex
 	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
 
+	if (this.instance.data.stopped==true) {
+		this.instance.data.stopped=false
+	}
+
 	if (_adminAtIndex < _Story.length){
 		loadText(_Story, _adminAtIndex)
 	}else{
@@ -76,7 +86,29 @@ adminNext = function(_adminAtIndex) {
 };
 
 loadText = function(_Story, index){
+	// execute actions if there are any
+	clientActions(_Story[index].params)
+
+	// append text to body
     $('#textColumn').append($('<ul/>').html(_Story[index].line))
-    // $('#srt').scrollTop($('#srt')[0].scrollHeight);
+}
+
+clientActions = function(_params){
+
+	for (var i = _params.length - 1; i >= 0; i--) {
+		for (var i = _params.length - 1; i >= 0; i--) {
+			switch (Object.keys(_params[i])[0]){
+				case "#stop" :
+				console.log("going into parking.")
+				this.instance.data.stopped = true
+				break;
+
+				default :
+				console.log(Object.keys(_params[i]))
+				break;
+			}
+		}
+	}
+
 
 }
