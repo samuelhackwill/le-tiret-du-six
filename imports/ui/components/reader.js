@@ -8,6 +8,9 @@ import './reader.css';
 
 import { streamer } from '../../api/streamer/streamer.js';
 
+// this is the text displayed at the end of race 1 (secret solo race)
+const finishMessageStrings = ["La personne de ", " a mis ", " secondes à parcourir le texte."]
+
 streamer.on('message', function(message) {
 	// only run if from template reader. Didn't find another way of doing it
 	// as streamer seems to be a global object and runs everywhere.
@@ -85,7 +88,15 @@ adminNext = function(_adminAtIndex) {
 	}
 };
 
-loadText = function(_Story, index){
+loadText = function(_Story, index, rawText){
+	// sometimes we want to use loadText to print text
+	// which has nothing to do with the show's text,
+	// for instance status messages like score messages.
+	if (rawText) {
+	    $('#textColumn').append($('<ul/>').html(rawText))
+		return
+	}
+
 	// execute actions if there are any
 	clientActions(_Story[index].params)
 
@@ -95,12 +106,34 @@ loadText = function(_Story, index){
 
 clientActions = function(_params){
 
+
 	for (var i = _params.length - 1; i >= 0; i--) {
 		for (var i = _params.length - 1; i >= 0; i--) {
+			
+			console.log(Object.keys(_params[i])[0])
+
 			switch (Object.keys(_params[i])[0]){
 				case "#stop" :
 				console.log("going into parking.")
 				this.instance.data.stopped = true
+				break;
+
+				case "#race1start" :
+				console.log("starting secret race")
+				// defining all the race data on the client
+				// side is definitely not safe. But who's 
+				// going to cheat?
+				this.instance.data.race1 = {}
+				this.instance.data.race1.start = new Date()
+				break;
+
+				case "#race1finish" :
+				console.log("finishing secret race")
+				this.instance.data.race1.finish = new Date()
+				break;
+
+				case "race1resultsLeft" :
+				loadText(undefined, undefined, "Salut les tweetos")
 				break;
 
 				default :

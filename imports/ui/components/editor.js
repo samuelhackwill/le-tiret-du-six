@@ -133,7 +133,11 @@ parseAndSendToDb = function(obj){
 		// the remaining items of the tempArray.
 		for(var q = 0; q < tempArray.length; q++){
 			// first remove leading whitespace (tabs)
-			let paramsFiltered = tempArray[q].replace(/^\s/, "")
+			let paramsFiltered1 = tempArray[q].replace(/^\s/, "")
+			// then remove trailing whitespace
+			let paramsFiltered2 = paramsFiltered1.replace(/\s{0,}$/, "")
+
+			console.log(paramsFiltered2)
 
 			// then run this diabolical regex which evaluates 
 			// three different scenarios : a param can be a comment
@@ -142,7 +146,7 @@ parseAndSendToDb = function(obj){
 			// 		#stop
 			// or a complex instruction
 			// 		#bookmark textBegining
-			let paramsArray = paramsFiltered.match(/([/]{2})\s(.+)|([#]\S+)\s(.+)|([#].+)/)
+			let paramsArray = paramsFiltered2.match(/([/]{2})\s(.+)|([#]\S+)\s(.+)|([#].+)/)
 
 			if(paramsArray){
 				// shortcut evaluations to define key & value.
