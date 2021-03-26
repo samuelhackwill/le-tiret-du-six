@@ -35,14 +35,10 @@ Meteor.methods({
 		// we're looking for a score.start field in the player document.
 		// if one exists, it's that the race is already started and that
 		// the method was called to log the finish time.
+		isRaceStarted = _.findWhere(Players.find({env:_env},{"players.aiguebename": _aiguebename}).fetch()[0].players, {aiguebename:_aiguebename}).score?.[_whichRace]?.start
 
-		/* @todo convoluted code : refactor query
-  		* @body this query is pretty convoluted and could prob be simplified with a better mongo query 
-  		*/ 
-		alreadyStarted = Players.find({env:_env, "players.aiguebename":_aiguebename}).fetch()[0].players[0].score?.[_whichRace]?.start
-
-		console.log("is alreadyStarted false?", alreadyStarted)
-		startOrFinish = alreadyStarted ? "finish" : "start"
+		console.log("is alreadyStarted undefined?", isRaceStarted==undefined)
+		startOrFinish = isRaceStarted ? "finish" : "start"
 
 		Players.update({env:_env, "players.aiguebename":_aiguebename}, {$set : {["players.$.score."+_whichRace+"."+startOrFinish] : time} })
 
