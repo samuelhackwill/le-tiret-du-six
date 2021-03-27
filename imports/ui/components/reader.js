@@ -89,9 +89,9 @@ adminNext = function(_adminAtIndex) {
 };
 
 loadText = function(_Story, index, rawText){
-	// sometimes we want to use loadText to print text
-	// which has nothing to do with the show's text,
-	// for instance status messages like score messages.
+	// sometimes we want to use loadText to print additional
+	// text rather than what's in the db (Story),
+	// for instance status messages or score messages.
 	if (rawText) {
 		console.log("ZOOOB")
 	    $('#textColumn').append($('<ul/>').html(rawText))
@@ -103,6 +103,14 @@ loadText = function(_Story, index, rawText){
 
 	// append text to body
     $('#textColumn').append($('<ul/>').html(_Story[index].line))
+
+    /* @todo Add a statement to replace "***" by empty <ul/>
+		@body as was the case in the former codebase.
+    */
+
+    /* @todo Add a function to scroll to bottom of div when new text is appended
+    	@body as was the case in the former codebase.
+    */
 }
 
 clientActions = function(_params){
@@ -110,29 +118,30 @@ clientActions = function(_params){
 	for (var i = _params.length - 1; i >= 0; i--) {
 	// first get the optional argument of the param.
 		_arg = Object.values(_params[i])[0]
+		_key = Object.keys(_params[i])[0]
 
 		// then decide what to do according to the action name.
-		switch (Object.keys(_params[i])[0]){
+		switch (_key){
 			case "#stop" :
 			console.log("going into parking.")
 			this.instance.data.stopped = true
 			break;
 
 			case "#logtime" :
-			console.log("starting race ", _arg)
+			console.log("logging time for ", _arg)
 			// we are only using one method, which first saves the
 			// start time of the race, then the finish time.
 			Meteor.call("playerLogTime", environment, instance.aiguebename, _arg)
 			break;
 
 			case "#race1results" :
-			console.log("results of race1 personne de ", _params[i])
+			console.log("results of race1 personne de ", _arg)
 			// call method
 			loadText(undefined, undefined, `Salut la ${_arg}`)
 			break;
 
 			default :
-			console.log(Object.keys(_params[i]))
+			console.log(_key)
 			break;
 		}
 	}

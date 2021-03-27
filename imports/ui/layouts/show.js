@@ -41,7 +41,6 @@ Template.show.onRendered(function(){
 
 Template.show.helpers({
 	showData(){
-		console.log(Story.find({"env":environment}).fetch())
 		/* @todo why is the component rendering with too much data?
 		* @body I don't understand why i can access the "Prod" object 
 		*/
