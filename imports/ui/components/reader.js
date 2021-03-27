@@ -23,7 +23,7 @@ Template.reader.onCreated(function(){
 	// this makes the instance accessible globally.
 	// (because i'm not going to use helpers to display
 	// text this time.)
-	instance = this
+	instance = Template.instance()
 	// i guess it would be better to pull this number
 	// from DB to avoid fatal disconnections
 	instance.data.obj._atIndex = -1

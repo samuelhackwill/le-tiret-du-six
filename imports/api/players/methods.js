@@ -5,7 +5,9 @@ Meteor.methods({
 	async playerInsert(_env, obj){
 		// clean modifies the object, adding an aiguebename
 		// and atIndex = 0 objects.
-		cleanedObj = playersSchema.clean(obj)
+		// we're also passing the "env" parameter to the autovalue function
+		// wich is useful for aiguebename selection.
+		cleanedObj = playersSchema.clean(obj, {extendAutoValueContext:{"env":_env}})
 		console.log("new player : ", cleanedObj.players[0].aiguebename)
 
 		if(playersSchema.isValid()){

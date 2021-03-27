@@ -41,10 +41,15 @@ Template.show.onRendered(function(){
 
 Template.show.helpers({
 	showData(){
+		console.log(Story.find({"env":environment}).fetch())
+		/* @todo why is the component rendering with too much data?
+		* @body I don't understand why i can access the "Prod" object 
+		*/
 		// this returns the story from the db and sends
 		let obj = {
-			story : Story.find({env:environment}),
-			globals : Globals.find({env:environment})
+			story : Story.find({"env":environment}),
+			globals : Globals.find({"env":environment}),
+			players : Players.find({"env":environment})
 		}
 		return{obj}
 	},

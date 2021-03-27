@@ -46,7 +46,8 @@ export const playersSchema = new SimpleSchema({
 		autoValue: function(){
 			// autovalue's job is to assign an aiguebename on
 			// insert without input from the client.
-			collectionSize = Players.find({env:"Dev"}).fetch()[0].players.length
+			// this.env is passed to the clean() function which is used in methods.
+			collectionSize = Players.find({env:this.env}).fetch()[0].players.length
 			// return the appropriate aiguebename or the default string
 			return aiguebenames[collectionSize] || "Aiguebnames exhausted.";
 		}
