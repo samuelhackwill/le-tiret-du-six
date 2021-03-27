@@ -47,8 +47,7 @@ Template.show.helpers({
 		// this returns the story from the db and sends
 		let obj = {
 			story : Story.find({"env":environment}),
-			globals : Globals.find({"env":environment}),
-			players : Players.find({"env":environment})
+			globals : Globals.find({"env":environment})
 		}
 		return{obj}
 	},

@@ -10,11 +10,18 @@ import { streamer } from '../../api/streamer/streamer.js';
 
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de ", " a mis ", " secondes à parcourir le texte."]
+// aiguebenames are attributed in sequence : the first client to load
+// will always be "Michèle Planche", and the second "Julien Montfalcon".
+// so if we always open the website on each computers in the same order, player on the 
+// left (as seen from the audience) will always be Michèle, and on the right Julien.
+// (left = jardin).
+const firstClientSeated = "left"
+
 
 streamer.on('message', function(message) {
 	// only run if from template reader. Didn't find another way of doing it
 	// as streamer seems to be a global object and runs everywhere.
-	if (message.action=="adminSpacebarPress" && instance.view.template.viewName == "Template.reader"){
+	if (message.action=="adminSpacebarPress" && instance.view.template.viewName == "Template.reader" && message.env == environment){
 		adminNext(message.adminAtIndex)
 	}
 });
@@ -93,7 +100,6 @@ loadText = function(_Story, index, rawText){
 	// text rather than what's in the db (Story),
 	// for instance status messages or score messages.
 	if (rawText) {
-		console.log("ZOOOB")
 	    $('#textColumn').append($('<ul/>').html(rawText))
 		return
 	}
@@ -135,9 +141,22 @@ clientActions = function(_params){
 			break;
 
 			case "#race1results" :
+			// _arg is either left or right. The player seated left
+			// should be Michèle Planche, and on the right Julien Montfalcon.
+			// see lines 13-18 of reader.js for further information.
 			console.log("results of race1 personne de ", _arg)
-			// call method
-			loadText(undefined, undefined, `Salut la ${_arg}`)
+
+			if (firstClientSeated=="left") {
+				_who = _arg=="left" ? "Michèle Planche" : "Julien Montfalcon"
+			}else{
+				_who = _arg=="left" ? "Julien Montfalcon" : "Michèle Planche"
+			}
+
+			// get score from method with callback.
+			Meteor.call("calculateRaceDuration", environment, "race1", _who, 
+				(error, result) =>{
+					loadText(undefined, undefined, result)
+				})
 			break;
 
 			default :
@@ -145,6 +164,4 @@ clientActions = function(_params){
 			break;
 		}
 	}
-
-
 }

@@ -30,3 +30,12 @@
 .paramsCollapser{
 	margin-top:25px;
 }
+
+.editorGuidelines{
+	position: fixed;
+	right: 5vw;
+	width: 10vw;
+	font-size: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+}

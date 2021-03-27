@@ -22,6 +22,6 @@ Meteor.methods({
 		// because that's what is watched by the tracker component.
 		Players.update({env:_env}, {$set : {"players.$[].atIndex" : _atIndex} })
 
-		sendMessage({action:"adminSpacebarPress", adminAtIndex:_atIndex})
+		sendMessage({action:"adminSpacebarPress", adminAtIndex:_atIndex, env:_env})
 	}
 })
