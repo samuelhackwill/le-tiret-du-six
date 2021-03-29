@@ -12,6 +12,7 @@ import './admin.css';
 import '../components/editor.js';
 import '../components/bookmarksLibrary.js';
 import '../components/spacebarControl.js';
+import '../components/rebootControl.js';
 import '../components/tracker.js';
 
 Template.admin.onCreated(function storyEditorOnCreated() {
@@ -70,11 +71,12 @@ Template.admin.helpers({
 		}
 	},
 
-	players(){
+	allData(){
 	// this returns one named global (passed from the HTML)
 		return{
 			players:Players.find({env:environment}),
-			story:Story.find({env: environment})
+			story:Story.find({env: environment}),
+			globals:Globals.find({env:environment})
 		}
 	},
 })

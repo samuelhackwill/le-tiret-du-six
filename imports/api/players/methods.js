@@ -43,6 +43,5 @@ Meteor.methods({
 		startOrFinish = isRaceStarted ? "finish" : "start"
 
 		Players.update({env:_env, "players.aiguebename":_aiguebename}, {$set : {["players.$.score."+_whichRace+"."+startOrFinish] : time} })
-
 	}
 });

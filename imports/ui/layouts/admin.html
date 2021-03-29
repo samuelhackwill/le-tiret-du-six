@@ -15,7 +15,7 @@
 
 		<!-- here render tracker component  -->
 		<div class="tracker" style="opacity:{{subscriptionsReady}};">
-			{{> tracker players}}
+			{{> tracker allData}}
 		</div>
 
 		<div class="adminEditor" style="opacity:{{subscriptionsReady}};">
@@ -23,14 +23,20 @@
 			{{> editor story}}
 		</div>
 
-		<div class="bookmarksLibrary" style="opacity:{{subscriptionsReady}};">
+		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
 			{{> bookmarksLibrary bookmarks}}
 		</div>
 
-		<div class="bookmarksLibrary" style="opacity:{{subscriptionsReady}};">
+		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
 			<!-- when a component needs a global, 
 				get it by name.-->
 			{{> spacebarControl globals "spacebar"}}
+		</div>
+
+		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
+			<!-- when a component needs a global, 
+				get it by name.-->
+			{{> rebootControl allData}}
 		</div>
 
 	</div>

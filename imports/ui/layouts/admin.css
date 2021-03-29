@@ -21,7 +21,7 @@
 	flex-direction: row;
 }
 
-.bookmarksLibrary{
+.adminWidget{
 	width:15%;
 	margin:10px;
 	transition: opacity .5s;

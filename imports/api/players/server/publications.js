@@ -29,5 +29,14 @@ Meteor.methods({
 
 	return "Vous avez parcouru le texte en " + diffTimeS + " secondes et " + diffTimeD + " dixièmes."
 
+	},
+
+	rebootCall(_env){
+		console.log("calling reboot")
+		// first clear DB
+		Players.remove({env:_env})
+
+		// then make new fixtures
+		initiatePlayers(_env)
 	}
 })

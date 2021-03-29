@@ -1,0 +1,26 @@
+.rebootControlContainer{
+	border: solid;
+	border-color: red;
+	border-radius: 5px;
+
+	overflow-x: wrap;
+
+	scrollbar-color: darkgrey #2f2f2f;
+	scrollbar-width: thin;
+
+	padding-bottom:10px;
+
+}
+
+.rebootBox{
+	text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.reboot{
+	font-weight: italic;
+	color:red;
+	background-color:#2f2f2f;
+}

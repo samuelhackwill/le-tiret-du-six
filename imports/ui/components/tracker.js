@@ -30,6 +30,26 @@ Template.tracker.helpers({
 		// instance.data.offsets contain the exact offsetTop
 		// of every line.
 		return instance.data.offsets[this.atIndex]
+	},
+
+	cursorColor(){
+		// we want to see if michèle & julien are here and
+		// have completed the race, because if not it may
+		// cause bugs.
+		switch(this.aiguebename){
+			case "Michèle Planche":
+			return "#FD971F"
+			break;
+
+			case "Julien Montfalcon":
+			return "#AE81FF"
+
+			default:
+			return "white"
+
+			break;
+		}
+
 	}
 })
 
