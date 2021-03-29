@@ -15,22 +15,27 @@ administrators of the show should access the webapp through one of :
 
 /Dev/ and /Prod/ defines which environment is going to be affected by the administrator's actions.
 
-#### /admin
+### /admin
 the **/admin** route is used during the show to monitor the audience's activities and interact with them.
 
 On this page, admins can :
 - monitor which line of text is being read by each invididual client in real time, by looking at the *tracker* component (on the left of the screen), which displays pipes (|) in front of each line of text. Two pipes (|) are coloured orange and violet. These represent the current position of the two first players to connect to the webapp. They are singled out because we need to make sure they both exist before starting the first race (at the beggining of the show).
+
 - read the text of the show by looking at the *editor* component.
+
 - click on the *bookmarksLibrary* component, which will take all the players to the index of that particular bookmark (check the editor section below for more details)
+
 - click on the "admin"/"client" button of the *spacebarControl* component, which will either activate or deactivate the players' spacebar, which is used to fetch new lines of text during the show.
 - press the spacebar, which will read the local index of the admin (instance.data.adminAtIndex), increment it by one, and broadcast it to every player. This will only work if the *spacebarControl* component is set to "admin".
+
 - click on the "reboot!" button of the *rebootControl* component, which will remove all players of the current environment and reinitialize that database.
 
-#### editor
+### /editor
 the **/editor** route is used before the show, to review and modify the text which will be displayed on the players' screens and what local events will be triggered on each computer.
 
 On this page, admins can :
 - review the text of the show by looking at the *editor* component.
+
 - double-click on the text to make modifications. Moving the cursor away from the text will erase the current Story mongodb collection (in the current environment only), parse the text and insert it in the collection. 
 
 - The text should look something like this :
@@ -60,7 +65,7 @@ On this page, admins can :
 ```
 
   - every block of instructions should always start with a line of text (which will be displayed on the screens of the players), followed by optional statements like :
-  - #bookmark <name of bookmark>
+  - ```#bookmark <name of bookmark>```
     *bookmarks are used by the admins to make all the players jump to that line of text.*
   - #stop
     *a player can't go pass this line with his spacebar.*
@@ -71,7 +76,9 @@ On this page, admins can :
   - //<comment>
     *a comment.*
   - and in any case, terminated by two carriage returns.
+
 - click on the "collapse params"/"show params" button, which will show or hide the latter optional statements.
+
 - click on the dustbin emoji, which will delete the whole collection.
 
 
