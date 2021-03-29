@@ -1,5 +1,7 @@
 # Le tiret du six
 
+(current version ```0.1.0```)
+
 this repository contains the meteor.js web application used in Samuel Hackwill's show "le tiret du six", a performance for an audience of 30 players and their laptops.
 
 3 types of users are going to access the webapp :
