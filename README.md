@@ -15,6 +15,7 @@ administrators of the show should access the webapp through one of :
 
 /Dev/ and /Prod/ defines which environment is going to be affected by the administrator's actions.
 
+#### /admin
 the **/admin** route is used during the show to monitor the audience's activities and interact with them.
 
 On this page, admins can :
@@ -25,6 +26,7 @@ On this page, admins can :
 - press the spacebar, which will read the local index of the admin (instance.data.adminAtIndex), increment it by one, and broadcast it to every player. This will only work if the *spacebarControl* component is set to "admin".
 - click on the "reboot!" button of the *rebootControl* component, which will remove all players of the current environment and reinitialize that database.
 
+#### editor
 the **/editor** route is used before the show, to review and modify the text which will be displayed on the players' screens and what local events will be triggered on each computer.
 
 On this page, admins can :
@@ -33,6 +35,7 @@ On this page, admins can :
 
 - The text should look something like this :
 
+```
     salut 
     // toï toï
 
@@ -54,6 +57,7 @@ On this page, admins can :
         #race1results left
 
     ***
+```
 
   - every block of instructions should always start with a line of text (which will be displayed on the screens of the players), followed by optional statements like :
   - #bookmark <name of bookmark>
@@ -68,13 +72,8 @@ On this page, admins can :
     *a comment.*
   - and in any case, terminated by two carriage returns.
 - click on the "collapse params"/"show params" button, which will show or hide the latter optional statements.
-- click on the dustbin emoji, which will delete the database.
+- click on the dustbin emoji, which will delete the whole collection.
 
-## Players
-
-the members of the audience will access the webapp through :
-
-    <local ip of computer hosting the app>:3000/
 
 ## Testers
 
@@ -84,4 +83,18 @@ an admin or anyone wanting to test stuff should access the webapp trhough one of
     <local ip of computer hosting the app>:3000/show/Prod/
 
 depending on the environment they are working on.
+
+
+## Players
+
+the members of the audience will access the webapp through :
+
+    <local ip of computer hosting the app>:3000/
+
+which renders in the "Prod" environment. (same as /show/Prod)
+
+the two first players can :
+- read the text
+- press the spacebar to fetch new lines of text (only when it's permitted by the admins)
+- read the results of the first (secret) race.
 
