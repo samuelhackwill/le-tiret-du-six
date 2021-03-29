@@ -16,9 +16,5 @@ Meteor.methods({
 		}else{
 			throw new Meteor.Error("validation error during db insert", storySchema.validationErrors())
 		}
-	},
-
-	destroyStory(_env){
-	  	Story.remove({env:_env})
 	}
 });

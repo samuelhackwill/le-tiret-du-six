@@ -8,7 +8,7 @@ import './editor.html';
 import './editor.css';
 
 // memory for the collapse button
-let collapsed = false
+collapsed = false
 
 Template.editor.onCreated(function(){
 	this.editing = new ReactiveVar(false);
