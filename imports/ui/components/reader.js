@@ -9,7 +9,7 @@ import './reader.css';
 import { streamer } from '../../api/streamer/streamer.js';
 
 // this is the text displayed at the end of race 1 (secret solo race)
-const finishMessageStrings = ["La personne de ", " a mis ", " secondes à parcourir le texte."]
+const finishMessageStrings = ["La personne de ", " a mis ", " secondes et ", " dixièmes à parcourir le texte."]
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
 // so if we always open the website on each computers in the same order, player on the 
@@ -155,7 +155,15 @@ clientActions = function(_params){
 			// get score from method with callback.
 			Meteor.call("calculateRaceDuration", environment, "race1", _who, 
 				(error, result) =>{
-					loadText(undefined, undefined, result)
+					loadText(undefined, undefined, 
+						// la personne de xxx (gauche/droite)
+						finishMessageStrings[0]+ _arg+ 
+						// à mis xxx 
+						finishMessageStrings[1]+ result.diffTimeS+ 
+						// secondes et xxx 
+						finishMessageStrings[2]+ result.diffTimeD+
+						// dizièmes à parcourir le texte.
+						finishMessageStrings[3])
 				})
 			break;
 

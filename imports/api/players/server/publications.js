@@ -21,13 +21,12 @@ Meteor.methods({
 		for (var i = what.length - 1; i >= 0; i--) {
 			if (what[i].env == _env) {
 				raceTimes = what[i].players[0].score[_race]
-				diffTimeS = Math.floor((raceTimes.finish - raceTimes.start)/1000);
-				diffTimeD = Math.floor((raceTimes.finish - raceTimes.start)/100);
-				console.log("vous avez parcouru le text en ",diffTimeS, " secondes et ", diffTimeD, " dixièmes.")
+				_diffTimeS = Math.floor((raceTimes.finish - raceTimes.start)/1000);
+				_diffTimeD = Math.floor((raceTimes.finish - raceTimes.start)/100);
 			}
 		}
 
-	return "Vous avez parcouru le texte en " + diffTimeS + " secondes et " + diffTimeD + " dixièmes."
+	return {"diffTimeS" : _diffTimeS, "diffTimeD" : _diffTimeD}
 
 	},
 

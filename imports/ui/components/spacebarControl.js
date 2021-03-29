@@ -33,6 +33,17 @@ Template.spacebarControl.onRendered(function(){
 
 })
 
+Template.spacebarControl.helpers({
+	buttonColorChanger(){
+		if (this.spacebar.control=="admin") {
+			return "color:white;background-color:black"
+		}else{
+			return
+		}
+	}
+
+})
+
 /**
  * @todo UI : Scroll with fastest/slowest player
  * @body we need a function to help admin track the progress of players, by scrolling in the tracker/editor divs
@@ -54,6 +65,5 @@ adminSpaceBarPress = function(){
 	instance.data.adminAtIndex = _adminAtIndex
 
 	// call method
-	console.log("calling method ", _adminAtIndex)
 	Meteor.call("spacebarAdmin", environment, _adminAtIndex)
 }

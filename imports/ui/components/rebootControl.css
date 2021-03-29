@@ -1,6 +1,6 @@
 .rebootControlContainer{
 	border: solid;
-	border-color: red;
+	border-color: white;
 	border-radius: 5px;
 
 	overflow-x: wrap;
@@ -17,10 +17,4 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-button.reboot{
-	font-weight: italic;
-	color:red;
-	background-color:#2f2f2f;
 }
