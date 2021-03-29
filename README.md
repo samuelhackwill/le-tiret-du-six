@@ -64,7 +64,7 @@ On this page, admins can :
     ***
 ```
 
-- every block of instructions should always start with a line of text (which will be displayed on the screens of the players), followed by optional statements like :
+every block of instructions should always start with a line of text (which will be displayed on the screens of the players), followed by optional statements like :
   - ```#bookmark``` ```<name of bookmark>``` *(bookmarks are used by the admins to make all the players jump to that line of text.)*
   - ```#stop``` *(a player can't go pass this line with his spacebar.)*
   - ```#logtime``` ```race1``` *(this is used **twice** during the first race, to log the starting & finishing times of the two players involved.)*
