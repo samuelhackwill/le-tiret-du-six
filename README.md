@@ -64,18 +64,14 @@ On this page, admins can :
     ***
 ```
 
-  - every block of instructions should always start with a line of text (which will be displayed on the screens of the players), followed by optional statements like :
-  - ```#bookmark``` ```<name of bookmark>```
-    *bookmarks are used by the admins to make all the players jump to that line of text.*
-  - ```#stop```
-    *a player can't go pass this line with his spacebar.*
-  - ```#logtime``` ```race1```
-    *this is used **twice** during the first race, to log the starting & finishing times of the two players involved.*
-  - ```#race1results``` ```<left>``` or ```<right>```
-    *this is used to print the results of the race. Left is supposed to show the score of the person seated on the "left", which should always be the player with instance.aiguebename="Michèle Planche". This name is always attributed to _the first player to load the webapp_.* 
-  - ```//``` ```<comment>```
+    - every block of instructions should always start with a line of text (which will be displayed on the screens of the players), followed by optional statements like :
+    - ```#bookmark``` ```<name of bookmark>``` *(bookmarks are used by the admins to make all the players jump to that line of text.)*
+    - ```#stop``` *(a player can't go pass this line with his spacebar.)*
+    - ```#logtime``` ```race1``` *(this is used **twice** during the first race, to log the starting & finishing times of the two players involved.)*
+    - ```#race1results``` ```<left>``` or ```<right>``` *(this is used to print the results of the race. Left is supposed to show the score of the person seated on the "left", which should always be the player with instance.aiguebename="Michèle Planche". This name is always attributed to the first player to load the webapp.)* 
+    - ```//``` ```<comment>```
     *a comment.*
-  - and in any case, terminated by two carriage returns.
+    - and in any case, a block of instructions must always be terminated by two carriage returns.
 
 - click on the "collapse params"/"show params" button, which will show or hide the latter optional statements.
 
