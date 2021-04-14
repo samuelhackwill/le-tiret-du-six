@@ -11,8 +11,5 @@ Meteor.methods({
 	destroyStory(_env){
 		// delete story
 	  	Story.remove({env:_env})
-
-		// then make new fixtures
-		initiateStory(_env)
 	}
 })
