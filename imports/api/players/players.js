@@ -9,15 +9,15 @@ export const Players = new Mongo.Collection('players');
 const aiguebenames = ["Michèle Planche", "Julien Montfalcon", 
 "Lydia Guhl", "Régis Montfalcon", "Chantal Montfalcon", 
 "Roger Bologne", "Silvia Cremonte", "Dominique Sommeveille", 
-"Anna Karin Tabarand", "Gerald Fillias", "Madeleine Curtaud", 
+"Karin Tabarand", "Gerald Fillias", "Madeleine Curtaud", 
 "Daniel Duval", "Joelle Rollin", "André Guillet", 
 "Colette Lasherme", "Jeremy Bottan", "Claire Roussey-Simon",
 "Julian Boutin", "Ginette", "Anthelme Branche", "Romain Chavet",
 "Yvette Regnier", "Le Biclou", "Patricia François",
  "Jean-Jacques Amouyal", "Raymond Gentil-Beccot", 
  "Pamela Hermant", "Véronique Chatard", "Cyrille Colombier",
- "Florian Montfalcon", "Anna-Karin Tabarand", 
- "Solange Barret", "Jacky Duport", "Michel Gatellier"]
+ "Florian Montfalcon", "Solange Barret", "Jacky Duport", 
+ "Michel Gatellier", "Olivier Collomb", "Thierry Bonnamour"]
 
 export const playersSchema = new SimpleSchema({
 	// we have exactly two items in the collection,
