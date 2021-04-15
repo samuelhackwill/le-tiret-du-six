@@ -3,6 +3,8 @@
 }
 
 .readerColumn{
+	font-size: 14px;
+
 	position: absolute;
 	margin-top: 0px;
 	width: 35%;
@@ -14,9 +16,13 @@
 }
 
 ul:last-child{
+	color:white;
 	margin-bottom:300px;
 }
 
 ul{
+	color:#d9d9d9;
 	padding-right: 40px;
+	margin-top: 6px;
+	margin-bottom: 6px;
 }

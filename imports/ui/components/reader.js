@@ -39,7 +39,16 @@ Template.reader.onCreated(function(){
 Template.reader.onRendered(function(){
 	document.onkeyup = function(event){
 		if (event.keyCode==32) {
+			// call clientNext() when someone presses spacebar
 			clientNext()
+		}
+	}
+
+	document.onkeydown = function(event){
+		if (event.keyCode==32){
+			// we need to prevent default spacebar scroll as we're already
+			// scrolling with javascript.
+			event.preventDefault()
 		}
 	}
 })
@@ -114,9 +123,7 @@ loadText = function(_Story, index, rawText){
 		@body as was the case in the former codebase.
     */
 
-    /* @todo Add a function to scroll to bottom of div when new text is appended
-    	@body as was the case in the former codebase.
-    */
+	scrollText()
 }
 
 clientActions = function(_params){
@@ -172,4 +179,8 @@ clientActions = function(_params){
 			break;
 		}
 	}
+}
+
+scrollText = function(){
+	$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
 }

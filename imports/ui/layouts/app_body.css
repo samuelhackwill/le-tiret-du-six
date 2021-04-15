@@ -1,6 +1,23 @@
+@font-face {
+  font-family: inconsolataLight;
+  src: url(/fonts/inconsolataLight.ttf);
+}
+@font-face {
+  font-family: ubuntu;
+  src: url(/fonts/ubuntu.ttf);
+}
+@font-face {
+  font-family: victorMonoLight;
+  src: url(/fonts/victorMonoLight.ttf);
+}
+@font-face {
+  font-family: firaCodeLight;
+  src: url(/fonts/firaCodeLight.ttf);
+}
+
 body{
 	background-color: #272822;
-	font-family: sans-serif;
+	font-family: "firaCodeLight", sans-serif;
 	color: white;
 }
 
