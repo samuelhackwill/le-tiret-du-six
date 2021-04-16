@@ -4,7 +4,7 @@ Test OK
 // avec les bonhommes qui courent, et l'un d'entre eux a gagné.
 // là on a sans doute fait la chasse au trésor IP
 // et ils viennent d'arriver sur le site web.
-#bookmark part2beginning
+#bookmark II-0-debut
 
 bravo vous avez trouvé la barre espace!
 
@@ -25,13 +25,13 @@ Monsieur et madame Ervitemonslip ont un fils, comment s'appelle-t-il?
 > Jean-Philippe
 
 bon voilà en fait c'est ma seule blague.
-#stop
 
 Je l'ai lue dans une BD de Lewis Trondheim. Je sais pas si c'est lui qui a inventé la blague.
+#stop
 // le texte ci-dessus n'est accessible que pour celles ceux qui vont appuyer sur la barre espace dès leur arrivée. (achievement?)
 
 super, a priori tout le monde est bien arrivé ici!
-#bookmark part2resync
+#bookmark II-0-resync
 
 bienvenue à toutes celles et ceux qui nous rejoignent
 
@@ -112,7 +112,7 @@ vous allez pouvoir à votre tour identifier mentalement la touche qu'on appelle 
 "la barre espace"
 
 et <span id="serveur">appuyer dessus</span>.
-// release the spacebar!
+// CUE = release the spacebar!
 
 et encore
 
@@ -145,6 +145,7 @@ ligne par ligne
 par la barre espace.
 
 ***
+#bookmark II-1-debut
 
 concrètement, ça marche de la façon suivante :
 
@@ -164,20 +165,16 @@ au lieu d'être, comme c'est d'habitude le cas, dans un datacentre,
 
 (c'est à dire une usine pleine d'ordinateurs)
 
-comme par exemple celui qui a brûlé à Strasbourg au mois de Mars.
-
-(les personnes qui y hébergaient leur site web ont été bien embêté.e.s).
-
 or là on est dans une configuration dite de "réseau local"
 
 ce qui veut dire que le serveur est installé ici, parmi nous,
 
-plutôt que dans une usine à Strasbourg.
+plutôt que dans une usine d'ordinateurs, mettons, à Strasbourg.
 // showServer
 
-alors pour que chacun puisse identifier où il se situe, on va faire un truc
+alors pour que chacun puisse identifier où notre serveur se situe, on va faire un truc
 
-comme le serveur est dans notre cas un ordinateur muni d'un écran
+comme, dans notre cas, c'est un ordinateur muni d'un écran
 
 (ce n'est d'habitude pas le cas)
 
@@ -185,7 +182,7 @@ on va faire en sorte que cet écran fasse des trucs étranges
 
 comme ça vous pourrez repérer de quelle machine il s'agit.
 
-Il peut se trouver derrière vous, devant vous, sur les côtés, alors vous allez devoir vous tourner un peu dans tout les sens.
+Il peut se trouver derrière vous, devant vous, sur les côtés, alors vous allez devoir vous tourner un peu dans tout les sens si vous voulez l'identifier.
 
 là normalement le serveur devrait envoyer de la lumière un peu stroboscopique
 
@@ -193,13 +190,17 @@ vous le voyez là?
 
 ***
 
-c'est donc d'ici que tout provient
+c'est donc de lui que tout provient
+
+si cet ordinateur s'éteint, plante ou boude, on sera bien embêté.e.s
+
+pour faire fonctionner le spectacle,
 
 c’est comme si on avait refait un petit internet là
 
-juste pour nous,
+juste pour nous, 
 
-dans cette salle.
+niché dans cette salle.
 // hideServer
 
 ***
@@ -253,6 +254,7 @@ voilà bravo vous avez fini de naviguer dans le texte.
 félicitations pour votre lecture assidue.
 
 vous décidez maintenant de vous mettre en route pour le cabinet du docteur Sommeveille.
+#bookmark II-2-debut
 
 gauche
 
@@ -719,14 +721,19 @@ droite
 gauche
 
 droite
-// au pire je le teste en A/B testing de playtesting la
-#choice 1
-// en fin de compte, vous n'aimez vraiment pas courir
-#choice 2
-// chaque pression de vos pieds sur le sol vous rappelle tout à a fois : que la terre tourne, que votre corps est une merveille, que vous êtes shootés à la dopamine, que tout cela est beau
+
+***
+// QCM : deux réponses possibles apparaissent : les joueurs joueuses en sélectionnent une, ce qui leur donne accès à la portion de texte correspondante.
+// on mouseover sur le 1., on voit apparaître le brassard de la team sieste
+// on mouseover sur le 2., on voit appraître le brassard des spacebar atheletes.
+#QCM 1
+// 1. après réflexion, je n'aime vraiment pas courir
+// 2. chaque pression de mes pieds sur le sol me rappelle tout à a fois : que la terre tourne, que mon corps est une merveille, que je suis shooté à la dopamine, que tout cela est beau
+
+après réflexion, vous n'aimez vraiment pas courir
+// réponse 1
 
 bien que vous soyez content.e 
-// réponse 1
 
 de constater la capacité de vos membres inférieurs
 
@@ -750,10 +757,12 @@ rêveurs, introvertis,
 
 secrets et amoureux.
 
-chez vous,
+chaque pression de vos pieds sur le sol vous rappelle tout à a fois : que la terre tourne, que votre corps est une merveille, que vous êtes shooté à la dopamine, que tout cela est beau
 // réponse 2
 
-c'est surtout "chez" votre corps
+vous êtes chez vous dans votre corps 
+
+corps
 
 dont vous n'êtes pas simplement locataire
 
@@ -780,6 +789,8 @@ vous êtes en meilleure forme,
 vous êtes un spacebar athelete.
 
 ***
+// là le but ça va être de faire une course de poule.
+// faut réécrire les bails.
 
 eeet alors là
 
