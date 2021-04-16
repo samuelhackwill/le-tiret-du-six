@@ -1,0 +1,444 @@
+vous êtes bien arrivé sur la suite de la performance de samuel
+
+félicitations
+
+ce que j'aime bien dans cette séquence
+
+c'est que le silence revient dans la salle
+
+on entend juste les ordinateurs et les videoprojecteurs qui soufflent
+
+quelque part ça me rappèle peut être
+
+les fins de consultation chez dominique sommeveille
+
+...
+
+bon bien en tout cas bienvenue sur le plateau
+
+samuel est juste à côté de vous si jamais vous avez besoin d'aide
+
+enfin
+
+je dis "samuel" comme si c'était pas moi qui vous parlait
+
+mais bon vous aurez compris que c'était moi qui faisait défiler le texte
+
+en appuyant sur une touche de mon clavier
+
+nan? regardez 
+
+hop
+
+***
+
+hop
+
+***
+
+hop
+
+***
+
+hop
+
+***
+
+hop
+
+***
+
+hop
+
+***
+
+hop
+
+***
+
+hop
+
+***
+
+l'avantage de cette methode
+
+c'est que je peux vous faire lire des trucs de manière synchronisée
+
+mais le problème c'est que cette methode de lecture n'est pas adaptée à votre singularité d'être humain
+
+puisqu'il y en a certains parmi vous qui aiment lire super-vite pour frimer
+
+d'autres qui aiment prendre le temps de faire des micro-siestes entre deux phrases
+
+bon hé ben la technologie qu'on utilise en ce moment 
+
+ne permet pas à votre subjectivité de s'exprimer
+
+donc là, 
+
+dès que vous êtes prêt•e
+
+vous allez pouvoir identifier mentalement la touche du clavier qu'on appelle communément
+
+"la barre espace"
+
+et <span id="serveur">appuyer dessus</span>.
+
+et encore
+
+ok
+
+super
+
+si vous lisez ces lignes
+
+c'est que vous maîtrisez cette technologie
+
+sans cela
+
+il aurait été impossible d'arriver ici.
+
+d'ailleurs vous êtes où actuellement?
+
+ben on a qu'à se dire que vous êtes dans l'avant-pays savoyard
+
+vous étiez sur l'autoroute entre Lyon et Chambéry
+
+vous avez trouvé un coin de baignade peinard 
+
+non loin de la sortie d'autoroute n°12 indiquant le "lac d'aiguebelette"
+
+et là vous avez un petit creux
+
+donc vous cherchez de quoi manger un bout
+
+vous vous mettez en chemin, tranquillement, les cheveux encore mouillés
+
+un pied après l'autre
+
+#logtime race1
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+là 
+
+sur
+
+votre
+
+droite
+
+il y a 
+
+un champ
+
+d'arbres
+
+très droits
+
+sans 
+
+doute
+
+des
+
+peupliers
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+une 
+
+voiture 
+
+vient 
+
+de vous 
+
+dépasser 
+
+avec 
+
+la musique
+
+très fort
+
+elle était 
+
+complètement 
+
+remplie 
+
+de gens
+
+et
+
+immatriculée
+
+73
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+oula 
+
+mais 
+
+il 
+
+se 
+
+passe 
+
+un 
+
+truc 
+
+là bas
+
+droite
+
+gauche
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+droite
+
+gauche
+
+gauche
+
+droite
+
+gauche
+#logtime race1
+
+droite
+
+on 
+
+dirait 
+
+bien 
+
+qu'il y a 
+
+le feu 
+
+chez 
+
+quelqu'un
+
+la maison
+
+est complètement 
+
+prise dans les flammes
+
+il y a quelques personnes autour 
+
+mais visiblement les secours ne sont pas encore arrivés
+
+vous vous rapprochez
+
+vous distinguez une plaque devant la porte d'entrée, encore intacte :
+
+plissant les yeux, vous lisez
+
+Cabinet de médecine générale 
+
+sur rendez-vous uniquement
+
+Dominique Sommeveille
+
+... (patientez un moment svp)
+#stop
+#bookmark texteFin
+
+Ok alors pause
+
+bon en fait pardon 
+
+faut que je vous dise un truc
+
+(c'est à nouveau samuel qui parle)
+
+je vous ai pas prévenu
+
+mais en fait vous étiez en train de jouer à un jeu
+
+euh que j'ai dénommé sobrement
+
+super mario barre espace
+
+pis bon ben vous faisiez la course l'un.e contre l'autre
+
+ça a commencé au moment où la première personne a appuyé sur la barre espace
+
+bon j'avoue c'est un peu abusé de pas vous avoir prévenu
+
+donc vos scores, ce sont les suivants :
+
+***
+
+bravo
+
+bon comme c'était un peu déloyal
+
+je vous propose qu'on refasse la course
+
+mais cette fois vous êtes au courant
+
+vous pouvez remettre votre titre en jeu
+
+pis comme ça on pourra un peu continuer l'histoire
+
+vous êtes prêt.e.s?
+
+3
+
+2
+
+1
+
+Go
+
+***
+
+***
+
+***
+#bookmark Fin2
+
+***
+
+ok
+
+donc après un petit délai,
+
+le temps de faire vos deux courses :
+
+la première, secrète
+
+la seconde, plus "pro"
+
+vous voici arrivé.e.s devant le cabinet médical en proie aux flammes.
+
+vous vous sentez tout à fait démuni.e.s devant le spectacle de destruction qui s'offre à vos yeux.
+
+vous avez besoin d'aide.
+// a modifier/transitioner
+// disons que pour l'instant, l'excuse ça serait qu'on a besoin des
+// gens pour venir sauver dominique sommeveille par exemple
