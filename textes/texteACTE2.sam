@@ -172,7 +172,137 @@ ce qui veut dire que le serveur est installé ici, parmi nous,
 plutôt que dans une usine d'ordinateurs, mettons, à Strasbourg.
 // showServer
 
-alors pour que chacun puisse identifier où notre serveur se situe, on va faire un truc
+je dis "à Strasbourg" parce qu'il y a justement un datacentre à Strasbourg
+
+qui a brûlé récemment :
+
+hélas.
+
+***
+
+vous en avez peut-être entendu parler.
+
+(plus de 2 millions de sites web ont été impactés)
+
+(dont approximativement 2% de l'internet français)
+
+(c'est-à-dire, 2% de la totalité des sites dont l'adresse finit en .fr)
+
+(ont brûlé.)
+
+(par exemple :)
+
+(le site de l'aéroport de Strasbourg)
+
+(le site du centre pompidou)
+
+(le site du club de rugby de Clermont-Ferrand)
+
+(ou encore le site du parti de Jean Lassalle)
+
+(vous voyez pas? mais si, le mec, avec le nez là)
+
+(oui je l'affiche en parlant de son nez plutôt qu'en écrivant un truc à propos de ses prises de position politiques)
+
+(en même temps pardon mais le dialogue politique en France ça vole pas très haut)
+
+(je vois pas pourquoi *moi* j'aurais pas aussi le droit de parler du nez de Jean Lassalle)
+
+(donc)
+
+(voilà à quoi ressemble mon nez)
+
+(je sais qu'il faut pas comparer mais c'est pour que vous voyez qui c'est)
+
+\
+
+  \
+
+   \
+
+_    \
+
+\_____\
+
+(donc ça c'était mon nez.)
+
+(et voilà à quoi ressemble le nez de Jean Lasalle)
+
+____
+
+	\
+
+	\
+
+	\
+
+	\
+
+	\
+
+	\
+
+|____|
+
+(vous voyez maintenant?)
+
+(bon bref)
+
+(j'avoue en plus je vous ai menti)
+
+(c'est pas le site de Jean Lassalle qui a brûlé,)
+
+(mais celui d'un autre candidat malheureux de la présidentielle de 2017 en France,)
+
+(François Asselineau.)
+
+(initialement quand j'avais vu que le site de François Asselineau avait brûlé, j'ai eu l'image de Jean Lassale dans la tête)
+
+(en fait je confonds souvent ces deux personnes)
+
+(je vois pas trop pourquoi d'ailleurs)
+
+(peut-être parce qu'elles ont fait à peu près le même score aux dites élections?)
+
+(c'est-à-dire,)
+
+(environ 1% des suffrages exprimés.)
+
+*** 
+
+(comme le site de François Asselineau,)
+
+(certains sites ont complètement roti dans les flammes,)
+
+(d'autres s'en sont sorti avec les poils roussis)
+
+(pour les plus malchanceux,)
+
+(toutes les *données*)
+
+(c'est à dire : par exemple,)
+
+(toutes les notes et appréciations scolaires produites par un lycée pendant des années)
+
+(ou toutes les sauvegardes des joueurs d'un jeu vidéo en ligne)
+ 
+(sont parties en fumée)
+
+(sans retour)
+
+(entre le 9 et le 10 Mars 2021).
+
+***
+
+alors pour que chacun puisse identifier où notre serveur se situe, 
+
+puisqu'il n'est pas dans un datacentre mais ici dans 
+
+la salle,
+
+...
+
+on va faire un truc
 
 comme, dans notre cas, c'est un ordinateur muni d'un écran
 
@@ -584,7 +714,9 @@ d'essayer un coup
 
 juste pour voir 
 
-si votre corps fonctionne toujours comme prévu.
+si votre corps 
+
+fonctionne toujours comme prévu.
 
 gauche
 
@@ -628,19 +760,33 @@ droite
 
 et oui c'est un fait
 
-vous savez toujours courir
+vous savez toujours 
 
-c'est rassurant.
+courir
 
-vous êtes même étonné.e
+c'est 
 
-de trouver ça agréable
+rassurant.
 
-de courir comme ça côte à côte
+vous êtes 
+
+même étonné.e
+
+de trouver ça 
+
+agréable
+
+de courir comme ça 
+
+côte à côte
 
 avec un.e étranger étrangère.
 
-ça vous étonne d'autant plus que
+ça vous étonne 
+
+d'autant plus 
+
+que
 
 vous n'avez
 
@@ -656,9 +802,13 @@ ou alors
 
 au contraire
 
-ça ne vous étonne absolument pas
+ça ne vous étonne 
 
-parce que vous 
+absolument pas
+
+parce que 
+
+vous 
 
 a-do-rez 
 
@@ -670,17 +820,27 @@ de courir
 
 à quatre poumons
 
-vous est tout à fait
+vous est 
+
+tout à fait
 
 familière,
 
-et que cette familiarité
+et que cette 
 
-c'est rassurant :
+familiarité
 
-où que vous couriez
+est rassurante :
 
-vous vous sentirez toujours à la maison.
+où que vous 
+
+couriez
+
+vous vous sentirez 
+
+toujours 
+
+à la maison.
 
 gauche
 
@@ -724,69 +884,26 @@ droite
 
 ***
 // QCM : deux réponses possibles apparaissent : les joueurs joueuses en sélectionnent une, ce qui leur donne accès à la portion de texte correspondante.
-// on mouseover sur le 1., on voit apparaître le brassard de la team sieste
-// on mouseover sur le 2., on voit appraître le brassard des spacebar atheletes.
-#QCM 1
+// jean-michel explique à voix haute que 
 // 1. après réflexion, je n'aime vraiment pas courir
 // 2. chaque pression de mes pieds sur le sol me rappelle tout à a fois : que la terre tourne, que mon corps est une merveille, que je suis shooté à la dopamine, que tout cela est beau
+// on mouseover sur le 1., on voit apparaître le brassard de la team sieste
+// on mouseover sur le 2., on voit appraître le brassard des spacebar atheletes.
+// abréviations pour le dossard en fonction du nombre de lettres lol.
+// SIEST
+// TSST
+// TEA
+// et
+// SBATH
+// ATHL
+// SBA
+#QCM 1
 
-après réflexion, vous n'aimez vraiment pas courir
+Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste.
 // réponse 1
 
-bien que vous soyez content.e 
-
-de constater la capacité de vos membres inférieurs
-
-à s'agiter de manière séquencée
-
-vous vous êtes aussi rappelé.e 
-
-pourquoi vous n'aimiez pas du tout ça
-
-ça n'est même pas tant que vous ne pouvez pas courir vite
-
-vous n'aimez simplement pas le *rituel* de la course à pied, 
-
-ce qu'il peut avoir de criard et d'individualiste.
-
-Vous faites décidemment partie de la team sieste
-
-de ceux.celles qui ont le temps avec eux
-
-rêveurs, introvertis,
-
-secrets et amoureux.
-
-chaque pression de vos pieds sur le sol vous rappelle tout à a fois : que la terre tourne, que votre corps est une merveille, que vous êtes shooté à la dopamine, que tout cela est beau
+Vous êtes chez vous dans votre corps. Chez vous : pas dans le cadre d'un bail locatif, mais plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete.
 // réponse 2
-
-vous êtes chez vous dans votre corps 
-
-corps
-
-dont vous n'êtes pas simplement locataire
-
-mais tout à fait propriétaire
-
-la puissance fibreuse de vos cuisses
-
-vos muscles tendus et dociles,
-
-votre respiration parfaitement rythmée, machinique
-
-cela vous appartient.
-
-vous n'avez même pas besoin de regarder autour de vous
-
-pour en avoir le coeur net
-
-vous le savez
-
-vous êtes plus rapide,
-
-vous êtes en meilleure forme,
-
-vous êtes un spacebar athelete.
 
 ***
 // là le but ça va être de faire une course de poule.
