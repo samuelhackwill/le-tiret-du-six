@@ -3,7 +3,9 @@
 
 maintenant que chaque personne est dans son équipe,
 
-je vous propose qu'on refasse une course.
+je vous propose qu'on refasse une course
+
+cette fois pas tellement un sprint, mais plutôt une course d'endurence.
 
 le.la gagnant.e dans chaque équipe aura une récompense.
 // > course de poule : condition pour gagner la barre espace
@@ -619,96 +621,77 @@ a
 soigné.
 
 ***
-// peut être que ça devrait être au moment où j'ai confié la barre espace à chaque personne du groupe.
+#stop
+// do that "turn screen in color of team when you've completed the race" thing, so that people can look around them as they're waiting.
 
-une
+bravo à toutes et à tous!
 
-des
+je vous propose maintenant qu'on regarde qui a gagné, équipe par équipe.
 
-personnes
+Dans l'équipe des spacebar atheletes,
 
-du
+l'écran de la personne la plus rapide va s'aclairer maintenant :
 
-groupe
+Félicitations!
+#show winner
 
-s'est
+pour les spacebar atheletes,
 
-soudain
+comme ce qui est important c'est d'être stimulé par la compétition
 
-mis.e
+l'émulation de groupe,
 
-à
+on va aussi montrer les personnes arrivées en seconde & troisième position.
 
-parler
+cette personne est arrivée deuxième.
 
-:
+la prochaine fois c'est la bonne!
 
-mes
+et cette personne est arrivée troisième.
 
-ami.e.s
+Pas mal!
 
-comme
+du côté de la team sieste,
 
-vous
+ce qui est important ce sont les individualités et comment elles s'expriment librement
 
-j'ai
+on va donc montrer qui est arrivé en première position :
 
-été
+c'est cette personne,
 
-traumatisé.e
+félicitations!
 
-par
+mais dans la team sieste on considère que la personne qui a mis le plus de temps à parcourir le texte est tout aussi méritante.
 
-mon
+c'est cette personne,
 
-cross
+félicitations!
 
-du
+au terme de cette première course,
 
-collège
+qui est notre première course de poule,
 
-mais
+je vais vous faire un cadeau.
 
-vous
+pendant que vous couriez, j'ai créé une nouvelle barre espace, que je vais vous confier maintenant.
 
-m'avez
+à la personne la plus rapide des space bar atheletes,
 
-guéri.e
+et à une personne au hasard dans la team sieste.
+// qui peut éventuellement la repasser à quelqu'un.e d'autre?
 
-nous
+voilà c'est fait
 
-sommes
+vous pouvez maintenant identifier mentalement la barre espace
 
-toutes
+et appuyer dessus.
 
-et
+et encore?
 
-tous
+voilà, 
 
-guéri.e.s.
+si vous lisez ce texte c'est que vous maitrisez cette technologie.
+// next séquence : cette personne s'addresse au groupe en son nom.
+// une des personnes du groupe s'est soudain mis.e à parler : "mes ami.e.s, comme vous j'ai été traumatisé.e par mon cross du collège. Mais vous m'avez guéri.e nous sommes toutes et tous guéri.e.s. que nous courions ou que nous ne courions pas nous sommes libres désormais."
 
-que
 
-nous
-
-courions
-
-ou
-
-que
-
-nous
-
-ne
-
-courions
-
-pas
-
-nous
-
-sommes
-
-libres
-
-désormais.
