@@ -21,5 +21,8 @@ export const globalsSchema = new SimpleSchema({
 
   'spacebar.$.adminAtIndex' : {
   	type : Number
-  }
+  },
+
+  'serverIp' : Number
+  
 }).newContext();

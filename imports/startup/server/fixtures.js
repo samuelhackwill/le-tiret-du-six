@@ -4,6 +4,9 @@ import { Story } from '../../api/story/story.js';
 import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
+var os = require('os')
+// we're using this lib to get the server's IP
+
 Meteor.startup(() => {
   // insert vital stuff in the dbs at startup
   // if the dbs are empty.
@@ -21,6 +24,15 @@ Meteor.startup(() => {
   if (Players.find().count() === 0) {
     initiatePlayers()
   }
+
+  // flush the temp database
+  Globals.remove({env:"Temp"})
+  Globals.insert({env:"Temp"})
+
+  // populate the temp database with the ip of the machine 
+  // hosting the meteor app (for the "showServer" sequence)
+  getIp()
+
 });
 
 initiatePlayers = function(_env){
@@ -49,3 +61,26 @@ initiateStory = function(_env){
     Story.insert({env:"Prod", data:[{line:"test", params:[{"EN": "uk test"},{"#bookmark":"texte début"}]}]})
   }      
 }
+
+getIp = function() {
+  // Get interfaces
+  var netInterfaces = os.networkInterfaces();
+  // Result
+  var result = [];
+  for (var id in netInterfaces) {
+    var netFace = netInterfaces[id];
+
+    for (var i = 0; i < netFace.length; i++) {
+      var ip = netFace[i];
+      if (ip.internal === false && ip.family === 'IPv4') {
+        result.push(ip);
+      }
+    }
+  }
+
+  console.log(result)
+
+  // push result to temp collection
+  Globals.update({env:"Temp"},{ $push: { "serverIp": result[0].address } })
+
+};
