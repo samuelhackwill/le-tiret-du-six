@@ -420,6 +420,10 @@ garçons
 
 considérées
 
+par 
+
+vous,
+
 à 
 
 tort
@@ -428,7 +432,7 @@ ou
 
 à
 
-raison
+raison,
 
 comme
 
@@ -620,7 +624,7 @@ soigné.
 
 ***
 #stop
-// do that "turn screen in color of team when you've completed the race" thing, so that people can look around them as they're waiting.
+// do that "turn screen in color of team when you've completed the race" thing, so that people can look around them as they're waiting. You don't have to explain it again : videogameeeeee tutorial toussa;
 
 bravo à toutes et à tous!
 #bookmark III-0-resync
@@ -674,7 +678,9 @@ félicitations!
 
 félicitations!
 
-pendant que les spacebar atheletes se permettent parfois un petit sourire en coin.
+pendant que les spacebar atheletes, assistant à la scène,
+
+se permettent parfois un petit sourire en coin.
 
 au terme de cette première course,
 
@@ -687,9 +693,9 @@ pendant que vous couriez, j'ai créé une nouvelle barre espace, que je vais vou
 à la personne la plus rapide des space bar atheletes,
 
 et à une personne au hasard dans la team sieste.
-// qui peut éventuellement la repasser à quelqu'un.e d'autre?
+// qui peut éventuellement la repasser à quelqu'un.e d'autre? si elle veut pas assumer cette pression.
 
-voilà c'est fait, la personne de la team sieste qui a tirée au sort a également la possibilité de passer la barre espace à quelqu'un d'autre si c'est une responsabilité qu'elle ne veut pas assumer.
+voilà c'est fait, la personne de la team sieste qui a été tirée au sort a également la possibilité de passer la barre espace à quelqu'un d'autre si c'est une responsabilité qu'elle ne veut pas assumer.
 
 si vous n'avez vu aucun message apparaître sur votre écran en rouge, inutile d'appuyer sur la barre espace pour le moment.
 
@@ -726,4 +732,4 @@ une des personnes de votre groupe se met soudain à parler :
 "nous sommes libres désormais."
 // plusieurs choses : j'aimerais qu'il y ait une sorte de tournoi. mais bon y'a que deux équipes en l'occurence donc bon
 // ensuite : j'aimerais consulter les gens sur leur nom d'équipe dans le dossard (nombre de lettres)
-//
+// enfin : j'ai aucune idée de où ça va cette histoire
