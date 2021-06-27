@@ -6,7 +6,7 @@ export const Globals = new Mongo.Collection('globals');
 export const globalsSchema = new SimpleSchema({
   env : {
   type : String,
-    allowedValues: ['Dev', 'Prod']
+    allowedValues: ['Dev', 'Prod', 'Temp']
   },
 
   spacebar: {
@@ -23,6 +23,8 @@ export const globalsSchema = new SimpleSchema({
   	type : Number
   },
 
-  'serverIp' : Number
-  
+  // this is a state-tracking boolean, which causes the admin view (flexHudContainer)
+  // to flash red lights, in order to attract attention in the room.
+  showServerStrobe : Boolean
+
 }).newContext();

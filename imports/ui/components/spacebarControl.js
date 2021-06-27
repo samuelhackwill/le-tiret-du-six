@@ -65,5 +65,6 @@ adminSpaceBarPress = function(){
 	instance.data.adminAtIndex = _adminAtIndex
 
 	// call method
+	// spacebarAdmin is located in /imports/api/story/server/publications
 	Meteor.call("spacebarAdmin", environment, _adminAtIndex)
 }

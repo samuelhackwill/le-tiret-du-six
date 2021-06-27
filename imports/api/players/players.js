@@ -59,4 +59,9 @@ export const playersSchema = new SimpleSchema({
 			return 0;
 		}
 	}
+
+	// the two first player's score during the first race is
+	// logged in score.race1.start / finish
+
+
 }).newContext();

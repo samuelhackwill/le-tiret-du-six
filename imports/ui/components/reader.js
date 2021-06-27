@@ -21,8 +21,12 @@ const firstClientSeated = "left"
 streamer.on('message', function(message) {
 	// only run if from template reader. Didn't find another way of doing it
 	// as streamer seems to be a global object and runs everywhere.
-	if (message.action=="adminSpacebarPress" && instance.view.template.viewName == "Template.reader" && message.env == environment){
-		adminNext(message.adminAtIndex)
+	if( instance.view.template.viewName == "Template.reader" && message.env == environment){
+		switch (message.action){
+			case "adminSpacebarPress":
+			adminNext(message.adminAtIndex)
+			break;
+		}
 	}
 });
 

@@ -6,6 +6,20 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './tracker.html';
 import './tracker.css';
 
+import { streamer } from '../../api/streamer/streamer.js';
+
+streamer.on('message', function(message) {
+	// only run if from template tracker. Didn't find another way of doing it
+	// as streamer seems to be a global object and runs everywhere.
+	if( instance.view.template.viewName == "Template.tracker" && message.env == environment){
+		switch (message.action){
+			case "showServerCall":
+			console.log(message.strobeSwitch)
+			break;
+		}
+	}
+});
+
 Template.tracker.onCreated(function(){
 
 	var query = this.data.story.collection.find();
@@ -68,6 +82,5 @@ function offsetsGetter(){
 	// so that we get the same total scroll height for both divs.
 	// (or else the cursors won't be aligned any more)
 	masterHeight = document.getElementById("editorTH").offsetHeight
-	console.log(masterHeight)
 	document.getElementById("trackerTH").style.height = masterHeight+"px"
 }

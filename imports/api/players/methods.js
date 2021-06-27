@@ -1,6 +1,8 @@
 import { Players } from './players.js';
 import { playersSchema } from './players.js';
 
+const playersCounter = 0
+
 Meteor.methods({
 	async playerInsert(_env, obj){
 		// clean modifies the object, adding an aiguebename
@@ -43,5 +45,30 @@ Meteor.methods({
 		startOrFinish = isRaceStarted ? "finish" : "start"
 
 		Players.update({env:_env, "players.aiguebename":_aiguebename}, {$set : {["players.$.score."+_whichRace+"."+startOrFinish] : time} })
+	},
+
+	showServerCall(_env){
+		if (playersCounter<1) {
+			// if playersCounter hasn't been updated yet,
+			// it means that it's the first time showServerCall is triggered,
+			// and that it should make the admin screen strobe.
+
+			sendMessage({action:"showServerCall", strobeSwitch:true, env:_env})
+		}
+		
+		// we want to track the number of players who have 
+		// already called the function so that the last player
+		// will toggle the strobe off.
+		playersCounter = playersCounter +1
+
+		if (playersCounter == Players.find({env :_env}).fetch().length) {
+			// finaly, if this was the last player to call the function,
+			// terminate the strobe effect on the admin screen.
+
+			sendMessage({action:"showServerCall", strobeSwitch:false, env:_env})
+			return
+		}
+		
+	
 	}
 });

@@ -17,8 +17,8 @@ Meteor.startup(() => {
 
   if (Globals.find().count() === 0) {
   	console.log("Globals db is empty, inserting document to avoid errors")
-    Globals.insert({env:"Dev", spacebar:{"control":"client", "adminAtIndex":-1}})
-    Globals.insert({env:"Prod", spacebar:{"control":"client", "adminAtIndex":-1}})
+    Globals.insert({env:"Dev", spacebar:{"control":"client", "adminAtIndex":-1}, showServerStrobe:false})
+    Globals.insert({env:"Prod", spacebar:{"control":"client", "adminAtIndex":-1}, showServerStrobe:false})
   }
 
   if (Players.find().count() === 0) {
@@ -77,8 +77,6 @@ getIp = function() {
       }
     }
   }
-
-  console.log(result)
 
   // push result to temp collection
   Globals.update({env:"Temp"},{ $push: { "serverIp": result[0].address } })
