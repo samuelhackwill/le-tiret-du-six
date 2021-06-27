@@ -50,12 +50,10 @@ Meteor.methods({
 	},
 
 	showServerCall(_env){
-		console.log("there are currently ", Players.find({env :_env}).fetch()[0].players.length, "players, and the counter is at ", playersCounter[_env])
 		if (playersCounter[_env]<1) {
 			// if playersCounter hasn't been updated yet,
 			// it means that it's the first time showServerCall is triggered,
 			// and that it should make the admin screen strobe.
-			console.log("this is the first player, launching strobe now!")
 			sendMessage({action:"showServerCall", strobeSwitch:true, env:_env})
 		}
 		
@@ -67,7 +65,6 @@ Meteor.methods({
 		if (playersCounter[_env] == Players.find({env :_env}).fetch()[0].players.length) {
 			// finaly, if this was the last player to call the function,
 			// terminate the strobe effect on the admin screen.
-			console.log("this is the last player, stop strobe now!")
 			sendMessage({action:"showServerCall", strobeSwitch:false, env:_env})
 			return
 		}

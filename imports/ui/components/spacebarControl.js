@@ -12,7 +12,6 @@ import './spacebarControl.css';
 import { streamer } from '../../api/streamer/streamer.js';
 
 streamer.on('message', function(message) {
-	console.log("spacebarControl recieving message", instance.view.template.viewName)
 	// only run if from template spacebarControl. Didn't find another way of doing it
 	// as streamer seems to be a global object and runs everywhere.
 	// I have no idea why it's the spacebar control template which gets
@@ -23,14 +22,14 @@ streamer.on('message', function(message) {
 			// the message.strobeSwitch will be "true" when 
 			// the first player calls the strobe, and "false",
 			// when the last players calls the strobe. we add
-			// a little bit of delay just so the last player can also
-			// see the strobe in the room.
+			// a little bit of delay (10 seconds) just so the last 
+			// player can also see the strobe in the room.
 			if (message.strobeSwitch) {
 				document.getElementsByClassName("flexAdminContainer")[0].classList.add("strobe")
 			}else{
 				Meteor.setTimeout(function() {
 					document.getElementsByClassName("flexAdminContainer")[0].classList.remove("strobe")
-				}, 5000);
+				}, 10000);
 			}
 			break;
 		}
