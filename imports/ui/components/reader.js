@@ -138,6 +138,7 @@ clientActions = function(_params){
 		_key = Object.keys(_params[i])[0]
 
 		// then decide what to do according to the action name.
+		// actions are sorted by chronological appearance during the show.
 		switch (_key){
 			case "#stop" :
 			console.log("going into parking.")
@@ -176,6 +177,10 @@ clientActions = function(_params){
 						// dizièmes à parcourir le texte.
 						finishMessageStrings[3])
 				})
+			break;
+
+			case "#serverstrobe":
+			Meteor.call("showServerCall", environment)
 			break;
 
 			default :
