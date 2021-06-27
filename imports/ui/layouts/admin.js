@@ -33,7 +33,6 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	this.subscribe('players')
 	
 	instance = this
-	testing = Players
 });
 
 Template.admin.onRendered(function(){

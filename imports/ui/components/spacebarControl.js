@@ -9,6 +9,24 @@ import { spacebarInvert } from '../../api/globals/methods.js'
 import './spacebarControl.html';
 import './spacebarControl.css';
 
+import { streamer } from '../../api/streamer/streamer.js';
+
+streamer.on('message', function(message) {
+	console.log("spacebarControl recieving message", instance.view.template.viewName)
+	// only run if from template spacebarControl. Didn't find another way of doing it
+	// as streamer seems to be a global object and runs everywhere.
+	// I have no idea why it's the spacebar control template which gets
+	// triggered by the showserver method calls. Will it be consistent?
+	if( instance.view.template.viewName == "Template.spacebarControl" && message.env == environment){
+		switch (message.action){
+			case "showServerCall":
+			console.log(message.strobeSwitch)
+			break;
+		}
+	}
+});
+
+
 
 Template.spacebarControl.onCreated(function(){
 	// pull adminAtIndex from DB when joining

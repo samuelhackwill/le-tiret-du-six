@@ -1,6 +1,8 @@
 import { Players } from './players.js';
 import { playersSchema } from './players.js';
 
+// this should not be here : it will only be 
+// set when server starts.
 playersCounter = {"Dev":0, "Prod":0}
 
 Meteor.methods({
@@ -48,7 +50,7 @@ Meteor.methods({
 	},
 
 	showServerCall(_env){
-		console.log("there are currently ", Players.find({env :_env}).fetch()[0].players.length, "players")
+		console.log("there are currently ", Players.find({env :_env}).fetch()[0].players.length, "players, and the counter is at ", playersCounter[_env])
 		if (playersCounter[_env]<1) {
 			// if playersCounter hasn't been updated yet,
 			// it means that it's the first time showServerCall is triggered,
