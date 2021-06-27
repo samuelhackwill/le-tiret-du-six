@@ -20,7 +20,18 @@ streamer.on('message', function(message) {
 	if( instance.view.template.viewName == "Template.spacebarControl" && message.env == environment){
 		switch (message.action){
 			case "showServerCall":
-			console.log(message.strobeSwitch)
+			// the message.strobeSwitch will be "true" when 
+			// the first player calls the strobe, and "false",
+			// when the last players calls the strobe. we add
+			// a little bit of delay just so the last player can also
+			// see the strobe in the room.
+			if (message.strobeSwitch) {
+				document.getElementsByClassName("flexAdminContainer")[0].classList.add("strobe")
+			}else{
+				Meteor.setTimeout(function() {
+					document.getElementsByClassName("flexAdminContainer")[0].classList.remove("strobe")
+				}, 5000);
+			}
 			break;
 		}
 	}

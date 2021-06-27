@@ -27,3 +27,17 @@
 	transition: opacity .5s;
 	background-color:#272822;
 }
+
+.strobe{
+	animation: strobe 1s infinite ;
+}
+
+@keyframes strobe {
+  0%, 100% {
+    background-color:red;
+  }
+
+  50% {
+    background-color:#272822;
+  }
+}
