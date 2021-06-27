@@ -7,6 +7,16 @@ import { Players } from '../../api/players/players.js';
 var os = require('os')
 // we're using this lib to get the server's IP
 
+// we need this counter for the showServerCall (api/players/methods)
+// which counts the number of players who have triggered
+// it, in order to toggle the admin strobe when the first player
+// calls the method, and toggles the strobe off when the last player
+// calls the method. Unfortunately it only resets the counter when
+// the server reboots ; maybe store it in the "Temp" document in the Globals
+// collection instead?
+playersCounter = {"Dev":0, "Prod":0}
+
+
 Meteor.startup(() => {
   // insert vital stuff in the dbs at startup
   // if the dbs are empty.

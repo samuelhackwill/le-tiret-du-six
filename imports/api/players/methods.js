@@ -1,10 +1,6 @@
 import { Players } from './players.js';
 import { playersSchema } from './players.js';
 
-// this should not be here : it will only be 
-// set when server starts.
-playersCounter = {"Dev":0, "Prod":0}
-
 Meteor.methods({
 	async playerInsert(_env, obj){
 		// clean modifies the object, adding an aiguebename
