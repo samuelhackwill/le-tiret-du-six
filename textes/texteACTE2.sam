@@ -281,7 +281,7 @@ peut-être parce qu'elles ont fait à peu près le même score aux dites électi
 
 c'est-à-dire,
 
-~1%.
+~1% des suffrages exprimés (entre 300 et 400 mille voix).
 
 *** 
 
@@ -951,11 +951,15 @@ mais vous y êtes arrivé.e :
 
 vous avez choisi.
 
-vous avez cliqué sur la petite phrase rouge,
+vous avez cliqué sur la petite phrase rouge.
 
-peut être en imaginant déjà les rouages électroniques que ce clic allait mettre en mouvement sur le serveur
+Peut être avez-vous eu un pressentiment :
 
-les conclusions plus ou moins stupides que mon code allait tirer sur vous,
+l'intuition des rouages électroniques que ce clic allait mettre en mouvement sur le serveur.
+
+Peut être avez vous ressenti une pointe de défiance par anticipation :
+
+au diable les conclusions machiniques plus ou moins stupides que mon code allait tirer sur vous,
 
 en fonction de votre choix
 
@@ -973,7 +977,7 @@ avec plus ou moins d'hésitations.
 
 Aussi, j'ai pris la liberté de faire la chose suivante :
 
-comme la question qui nous anime ici est aussi celle de 
+comme la question qui nous anime ici est celle de 
 
 la vitesse
 
@@ -1023,17 +1027,23 @@ je vous propose de prendre ces données en considération, puis je vous demander
 
 bon clairement si vous faites partie du 1er décile,
 
+(c'est à dire que 90% des personnes ici présentes ont plus hésité que vous)
+
 hop,
 
 spacebar athelete direct
 
 à moins que ça soit un truc politique pour vous de ne pas aimer le jogging, malgré votre présidsposition naturelle à la vitesse ; ce que je respecte tout à fait
 
-quand à ceux qui font partie du 9e décile, bon je pense que vous serez plus chez vous dans la team sieste
+quand à ceux qui font partie du 9e décile, 
+
+(90% des personnes ici présentes ont moins hésité que vous)
+
+bon je pense que vous serez plus chez vous dans la team sieste
 
 mais bon finalement c'est pareil, il ne faut certes pas prendre de conclusions hatives ; vous avez peut-être des réflexes hors du commun, mais également le goût de la pondération.
 
-comme disait M. Blanc-Coquand, mon professeur de sport au lycée :
+comme disait M. Blanc-Coquand, mon professeur de sport au lycée à Chambéry:
 
 (qui m'a le premier fait aimer le sport)
 
@@ -1044,14 +1054,14 @@ je vous laisse décider en âme et conscience.
 ***
 #show hésitation
 // on montre les résultats, un à un (genre autonext), puis on repose la question.
-// 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que me conforter dans mon choix. Je persiste et signe.
+// 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que conforter mon choix. Je persiste et signe.
 //		R: Ok, vous faites maintenant partie des * *
 // 2. laissez-moi sortir je veux aller dans l'autre équipe
 //		R: Ok, vous faites maintenant partie des * *
 // 3. Je n'ai pas changé d'avis mais j'aimerais juste voir le message que les autres ont vu quand ils ont choisi l'autre équipe.
 //		R: * display that message *
 // 4. Je trouve que le moment est bien choisi pour vous signaler que ce site ne respecte pas le RGPD (Règlement Général pour la Protection des Données) et que je vais vous faire un procès.
-//		R: en soi je ne suis pas tout à fait convaincu que la CNIL puisse me condamner pour avoir mesuré votre indice d'hésitation, mais c'est une excellente question à poser à un spécialiste de la question. Blague à part aucune "donnée personnelle" n'est collectée pendant ce spectacle, je vais juste garder votre score à la fin mais je vous recommanderai d'utiliser un pseudonyme.
+//		R: en soi je ne suis pas tout à fait convaincu que la CNIL puisse me condamner pour avoir mesuré votre indice d'hésitation, mais c'est une excellente question à poser à un spécialiste de la question. Blague à part aucune "donnée personnelle" n'est collectée pendant cette performance, je vais juste garder votre score à la fin mais je vous recommanderai d'utiliser un pseudonyme.
 
 booon
 
