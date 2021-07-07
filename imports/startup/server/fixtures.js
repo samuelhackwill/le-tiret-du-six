@@ -16,6 +16,20 @@ var os = require('os')
 // collection instead?
 playersCounter = {"Dev":0, "Prod":0}
 
+// this is the stuff we need to initialize the stepper, which is 
+// used in the race at the end of ACTE I (second 1v1 race).
+stepQueue = []
+// stepQueue will contain aiguebenames of the players who
+// have pressed the spacebar during the race.
+timerStepsInterval = 500
+// timerStepsInterval defines the rythm at which the server updates
+// the position of every player. Here, at 12 times a second (83).
+timerSteps = '';
+// timerSteps is the setInterval object, which is cleared at the
+// end of the race.
+posTable = {}
+// posTable contains the X position of every player.
+
 
 Meteor.startup(() => {
   // insert vital stuff in the dbs at startup

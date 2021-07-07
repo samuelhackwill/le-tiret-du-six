@@ -70,5 +70,74 @@ Meteor.methods({
 		}
 		
 	
-	}
+	},
+
+	stepperStartCall(_env){
+		if (playersCounter[_env]<1) {
+		console.log("stepperStartCall launching stepper!")
+		// i'm re-using playersCounter, which doesn't sound very safe.
+		// on the other hand the two sequences during
+		// which it's used don't overlap (showServerCall is during ACTE II
+		// and stepperStartCall is during ACTE I and probably ACTE IV)
+
+		timerSteps = Meteor.setInterval(function(){
+			// initialize the function which updates the position
+			// of every player 12 times a second.  
+			if(stepQueue.length > 0) {
+				console.log("updating position of these players :", stepQueue)
+				Meteor.call('stepServerSide')
+			}else{
+				console.log("stepQueue is empty, returning!")
+				return
+			}
+		},timerStepsInterval);
+
+
+		}else{
+			console.log("stepper is already running!")
+			return
+		}
+
+		// we want to track the number of players who have 
+		// already called the function so that the second
+		// player won't trigger a new stepper call.
+		playersCounter[_env] = playersCounter[_env] +1
+
+	},
+
+	stepperStopCall(_env){
+		if (playersCounter[_env]>0) {
+			// the first player to call the function
+			// terminates the timeStep loop.
+			console.log("stop stepper now!")
+			Meteor.clearInterval(timerSteps)
+		}else{
+			// the next players don't trigger anything.
+			console.log("stepper is already stopped, do nothing!")
+			return
+		}
+		playersCounter[_env] = 0
+	},
+
+  stepServerSide(){
+    	// stepServerSide updates the posTable
+    	// which contains the position of every runner
+    	// during race 2 of ACTE I.
+      console.log("updating position of players!")
+      updates = 0;
+      for (var i = 0; i < stepQueue.length; i++) {
+      	// stepQueue contains all the calls that were made 
+      	// by players to update their position on the screen.
+      	// 1 call = 1 step.
+        stepQueue[i]
+        typeof posTable[stepQueue[i]] === 'undefined' ? posTable[stepQueue[i]] = 1 : posTable[stepQueue[i]]++;
+        // if posTable of <aiguebename> does not exist, create an entry
+        // at position 1.
+        updates++;
+      }
+      stepQueue = []
+      console.log("send message! "+updates+" positions updated")
+  		sendMessage({action:"raceStep", _posTable:posTable})
+    },
+
 });

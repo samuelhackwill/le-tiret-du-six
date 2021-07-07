@@ -17,7 +17,6 @@ const finishMessageStrings = ["La personne de ", " a mis ", " secondes et ", " d
 // (left = jardin).
 const firstClientSeated = "left"
 
-
 streamer.on('message', function(message) {
 	// only run if from template reader. Didn't find another way of doing it
 	// as streamer seems to be a global object and runs everywhere.
@@ -141,50 +140,61 @@ clientActions = function(_params){
 		// actions are sorted by chronological appearance during the show.
 		switch (_key){
 			case "#stop" :
-			console.log("going into parking.")
-			this.instance.data.stopped = true
+				console.log("going into parking.")
+				this.instance.data.stopped = true
 			break;
 
 			case "#logtime" :
-			console.log("logging time for ", _arg)
-			// we are only using one method, which first saves the
-			// start time of the race, then the finish time.
-			Meteor.call("playerLogTime", environment, instance.aiguebename, _arg)
+				console.log("logging time for ", _arg)
+				// we are only using one method, which first saves the
+				// start time of the race, then the finish time.
+				Meteor.call("playerLogTime", environment, instance.aiguebename, _arg)
 			break;
 
 			case "#race1results" :
-			// _arg is either left or right. The player seated left
-			// should be Michèle Planche, and on the right Julien Montfalcon.
-			// see lines 13-18 of reader.js for further information.
-			console.log("results of race1 personne de ", _arg)
+				// _arg is either left or right. The player seated left
+				// should be Michèle Planche, and on the right Julien Montfalcon.
+				// see lines 13-18 of reader.js for further information.
+				console.log("results of race1 personne de ", _arg)
 
-			if (firstClientSeated=="left") {
-				_who = _arg=="left" ? "Michèle Planche" : "Julien Montfalcon"
-			}else{
-				_who = _arg=="left" ? "Julien Montfalcon" : "Michèle Planche"
-			}
+				if (firstClientSeated=="left") {
+					_who = _arg=="left" ? "Michèle Planche" : "Julien Montfalcon"
+				}else{
+					_who = _arg=="left" ? "Julien Montfalcon" : "Michèle Planche"
+				}
 
-			// get score from method with callback.
-			Meteor.call("calculateRaceDuration", environment, "race1", _who, 
-				(error, result) =>{
-					loadText(undefined, undefined, 
-						// la personne de xxx (gauche/droite)
-						finishMessageStrings[0]+ _arg+ 
-						// à mis xxx 
-						finishMessageStrings[1]+ result.diffTimeS+ 
-						// secondes et xxx 
-						finishMessageStrings[2]+ result.diffTimeD+
-						// dizièmes à parcourir le texte.
-						finishMessageStrings[3])
+				// get score from method with callback.
+				Meteor.call("calculateRaceDuration", environment, "race1", _who, 
+					(error, result) =>{
+						loadText(undefined, undefined, 
+							// la personne de xxx (gauche/droite)
+							finishMessageStrings[0]+ _arg+ 
+							// à mis xxx 
+							finishMessageStrings[1]+ result.diffTimeS+ 
+							// secondes et xxx 
+							finishMessageStrings[2]+ result.diffTimeD+
+							// dizièmes à parcourir le texte.
+							finishMessageStrings[3])
 				})
 			break;
 
 			case "#serverstrobe":
-			Meteor.call("showServerCall", environment)
+				// players.methods
+				Meteor.call("showServerCall", environment)
+			break;
+
+			case "#stepperstart":
+				// players.methods
+				Meteor.call("stepperStartCall", environment)
+			break;
+
+			case "#stepperstop":
+				// players.methods
+				Meteor.call("stepperStopCall", environment)
 			break;
 
 			default :
-			console.log(_key)
+				console.log(_key)
 			break;
 		}
 	}

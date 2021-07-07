@@ -13,6 +13,7 @@ import './show.css';
 
 // components
 import '../components/reader.js';
+import '../components/racer.js';
 
 Template.show.onCreated(function(){
 	// environment can either be "Prod" or "Dev"
