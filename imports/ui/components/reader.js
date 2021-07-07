@@ -25,23 +25,6 @@ Template.reader.onCreated(function(){
 	instance.data.obj._atIndex = -1
 })
 
-Template.reader.onRendered(function(){
-	document.onkeyup = function(event){
-		if (event.keyCode==32) {
-			// call clientNext() when someone presses spacebar
-			clientNext()
-		}
-	}
-
-	document.onkeydown = function(event){
-		if (event.keyCode==32){
-			// we need to prevent default spacebar scroll as we're already
-			// scrolling with javascript.
-			event.preventDefault()
-		}
-	}
-})
-
 clientNext = function(){
 	// we need to check if admin has control first
 	let _spacebarctrl = instance.data.obj.globals.collection.find({env:environment}).fetch()[0].spacebar.control

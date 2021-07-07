@@ -18,11 +18,9 @@ import '../components/rebootControl.js';
 import '../components/tracker.js';
 
 streamer.on('message', function(message) {
-	// only run if from template spacebarControl. Didn't find another way of doing it
+	// only run if from admin layout. Didn't find another way of doing it
 	// as streamer seems to be a global object and runs everywhere.
-	// I have no idea why it's the spacebar control template which gets
-	// triggered by the showserver method calls. Will it be consistent?
-	if( instance.view.template.viewName == "Template.spacebarControl" && message.env == environment){
+	if(FlowRouter.getRouteName() == "admin" && message.env == environment){
 		switch (message.action){
 			case "showServerCall":
 			// the message.strobeSwitch will be "true" when 

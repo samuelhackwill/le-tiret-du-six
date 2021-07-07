@@ -16,9 +16,9 @@ import '../components/reader.js';
 import '../components/racer.js';
 
 streamer.on('message', function(message) {
-	// only run if from template reader. Didn't find another way of doing it
+	// only run if from show layout. Didn't find another way of doing it
 	// as streamer seems to be a global object and runs everywhere.
-	if( instance.view.template.viewName == "Template.reader" && message.env == environment){
+	if(FlowRouter.getRouteName() == "show" && message.env == environment){
 		switch (message.action){
 			case "adminSpacebarPress":
 			adminNext(message.adminAtIndex)
@@ -51,6 +51,22 @@ Template.show.onRendered(function(){
 		// when the window is closed, remove player from db.
 		playerRm()
 	});
+
+	document.onkeyup = function(event){
+		if (event.keyCode==32) {
+			// call clientNext() when someone presses spacebar
+			clientNext()
+		}
+	}
+
+	document.onkeydown = function(event){
+		if (event.keyCode==32){
+			// we need to prevent default spacebar scroll as we're already
+			// scrolling with javascript.
+			event.preventDefault()
+		}
+	}
+
 })
 
 Template.show.helpers({
