@@ -64,6 +64,8 @@ Meteor.methods({
 			// terminate the strobe effect on the admin screen.
 			console.log("showServerCall terminating strobe in 10 seconds.")
 			sendMessage({action:"showServerCall", strobeSwitch:false, env:_env})
+			// reinitialize playersCounter for the next round!
+			playersCounter[_env] = 0
 			return
 		}
 		
