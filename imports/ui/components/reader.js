@@ -156,8 +156,15 @@ clientActions = function(_params){
 				if (_arg=="stop") {
 					// players.methods
 					Meteor.call("stepperStopCall", environment)
+					// we want to stop the stepper in order to save memory
+					instance.data.obj.spaceBarStatus = "reader"
+					// and make the spacebar go to the default mode, in which
+					// it's used to get new lines of text.	
 				}else{
-					Meteor.call("stepperStartCall", environment)					
+					// or else we want to start the stepper and make
+					// the spacebar change behaviour
+					Meteor.call("stepperStartCall", environment)
+					instance.data.obj.spaceBarStatus = "racer"					
 				}
 			break;
 

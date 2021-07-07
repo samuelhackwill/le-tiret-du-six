@@ -23,6 +23,15 @@ streamer.on('message', function(message) {
 			case "adminSpacebarPress":
 			adminNext(message.adminAtIndex)
 			break;
+
+			case "updateRunners":
+			console.log(message._posTable)
+			break;
+
+			case "endRace":
+			console.log(message.winner, " is the winner of race 2 of ACTE I!")
+			instance.data.obj.spaceBarStatus="reader"
+			break;
 		}
 	}
 });
@@ -52,10 +61,28 @@ Template.show.onRendered(function(){
 		playerRm()
 	});
 
+	instance.data.obj.spaceBarStatus = "reader"
+	// spacebar status defaults to "reader" mode, 
+	// in which it is used to fetch text.
+
 	document.onkeyup = function(event){
 		if (event.keyCode==32) {
-			// call clientNext() when someone presses spacebar
-			clientNext()
+			// keyCode == 32 is the spacebar.
+			switch(instance.data.obj.spaceBarStatus){
+			    // check what the spacebar is used for at the moment
+				case "racer":
+					// if the second race at the end of ACTE I has started,
+					// spacebar should be used to update the posTable on
+					// the server.
+					Meteor.call("requestStepServerSide", instance.aiguebename)
+				break;
+
+				default:
+					// most of the time though, spacebar is used to
+					// fetch new lines of text.
+					clientNext()
+				break;
+			}
 		}
 	}
 

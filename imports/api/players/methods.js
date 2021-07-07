@@ -85,7 +85,7 @@ Meteor.methods({
 			// of every player 12 times a second.  
 			if(stepQueue.length > 0) {
 				console.log("updating position of these players :", stepQueue)
-				Meteor.call('stepServerSide')
+				Meteor.call('stepServerSide', _env = _env)
 			}else{
 				console.log("stepQueue is empty, returning!")
 				return
@@ -119,25 +119,44 @@ Meteor.methods({
 		playersCounter[_env] = 0
 	},
 
-  stepServerSide(){
-    	// stepServerSide updates the posTable
-    	// which contains the position of every runner
-    	// during race 2 of ACTE I.
-      console.log("updating position of players!")
-      updates = 0;
-      for (var i = 0; i < stepQueue.length; i++) {
-      	// stepQueue contains all the calls that were made 
-      	// by players to update their position on the screen.
-      	// 1 call = 1 step.
-        stepQueue[i]
-        typeof posTable[stepQueue[i]] === 'undefined' ? posTable[stepQueue[i]] = 1 : posTable[stepQueue[i]]++;
-        // if posTable of <aiguebename> does not exist, create an entry
-        // at position 1.
-        updates++;
+  stepServerSide(_env){
+  	// stepServerSide updates the posTable
+  	// which contains the position of every runner
+  	// during race 2 of ACTE I.
+    console.log("updating position of players!")
+    updates = 0;
+    for (var i = 0; i < stepQueue.length; i++) {
+    	// stepQueue contains all the calls that were made 
+    	// by players to update their position on the screen.
+    	// 1 call = 1 step.
+      typeof posTable[stepQueue[i]] === 'undefined' ? posTable[stepQueue[i]] = 1 : posTable[stepQueue[i]]++;
+      // if posTable of <aiguebename> does not exist, create an entry
+      // at position 1.
+
+      if (posTable[stepQueue[i]]==100) {
+      	// as soon as someone reaches 100 spacebar presses, that means
+      	// the race is finished.
+				Meteor.call('stepperStopCall', _env = _env)
+				// stop stepper and also send message to all clients
+				// to make the spacebar go back to default behaviour.
+				sendMessage({action:"endRace", env:_env, winner:stepQueue[i]})
+				// also we need to erase the posTable immediatly
+				// for further racing.
+				posTable = {}
+				return
       }
-      stepQueue = []
-      console.log("send message! "+updates+" positions updated")
-  		sendMessage({action:"raceStep", _posTable:posTable})
-    },
+      updates++;
+    }
+    stepQueue = []
+    console.log("send message! "+updates+" positions updated")
+		sendMessage({action:"updateRunners", _posTable:posTable, env:_env})
+  },
+
+  requestStepServerSide: function(who){
+  	// every spacebar press of a player during race 2 of ACTE I is 
+  	// registered in the stepQueue array.
+    stepQueue.push(who);
+
+  }
 
 });
