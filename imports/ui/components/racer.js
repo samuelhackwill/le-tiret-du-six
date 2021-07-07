@@ -6,16 +6,49 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './racer.html';
 import './racer.css';
 
-import { streamer } from '../../api/streamer/streamer.js';
+cyclerCount = 1;
 
-streamer.on('message', function(message) {
-	// only run if from template reader. Didn't find another way of doing it
-	// as streamer seems to be a global object and runs everywhere.
-	if( instance.view.template.viewName == "Template.racer" && message.env == environment){
-		switch (message.action){
-			case "raceStep":
-			console.log("raceStep ", message._posTable)
-			break;
+Template.racer.helpers({
+	players(){
+		if (!this.obj.players.collection.find({env:environment}).fetch().length) {
+			// do nothing, array is empty
+		}else{
+			return this.obj.players.collection.find({env:environment}).fetch()[0].players
 		}
-	}
-});
+	},
+
+	vous(){
+	    if(instance.aiguebename===this.aiguebename){
+	      return "V"
+	    }else{
+	      return
+    	}
+	},
+})
+
+redrawPlayers=function(posTable){
+    $.each(posTable, function(key, value){
+        var doesPlayerExist = document.getElementById(""+key)
+
+        if(doesPlayerExist!==null){
+			doesPlayerExist.style.transform="translateX("+value+"vw)"
+        }
+    })
+};
+
+
+imageCycler = function(who){
+
+  domelements = document.getElementById(who).children[0]
+  domelements.children[cyclerCount].style.opacity=0
+  domelements.children[cyclerCount+1].style.opacity=1
+
+  if(cyclerCount<10){
+    if(cyclerCount==1){
+      domelements.children[11].style.opacity=0
+    }
+    cyclerCount ++
+  }else{
+    cyclerCount = 1;
+  }
+}

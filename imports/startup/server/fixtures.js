@@ -21,7 +21,7 @@ playersCounter = {"Dev":0, "Prod":0}
 stepQueue = []
 // stepQueue will contain aiguebenames of the players who
 // have pressed the spacebar during the race.
-timerStepsInterval = 500
+timerStepsInterval = 83
 // timerStepsInterval defines the rythm at which the server updates
 // the position of every player. Here, at 12 times a second (83).
 timerSteps = '';

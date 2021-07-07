@@ -1,7 +1,30 @@
 <template name="racer">
 
 	<div class="racerContainer">
-			
+	{{#each players}}
+		<div class="runner" id={{aiguebename}}>
+			<div class="personne">
+				<div class="sprite{{vous}}1"></div>	
+				<div class="sprite{{vous}}2"></div>	
+				<div class="sprite{{vous}}3"></div>	
+				<div class="sprite{{vous}}4"></div>	
+				<div class="sprite{{vous}}5"></div>	
+				<div class="sprite{{vous}}6"></div>	
+				<div class="sprite{{vous}}7"></div>	
+				<div class="sprite{{vous}}8"></div>	
+				<div class="sprite{{vous}}9"></div>	
+				<div class="sprite{{vous}}10"></div>	
+				<div class="sprite{{vous}}11"></div>	
+				<div class="sprite{{vous}}12"></div>
+			</div>
+
+		 	<span id="arr{{@index}}" class="arr{{vous}}"> &larr; vous</span>
+
+		</div>
+	{{/each}}
 	</div>
 
+	<div class="winner">
+		🏁 personne de ... wins! 🏁
+	</div>
 </template>

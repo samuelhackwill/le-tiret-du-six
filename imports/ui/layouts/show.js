@@ -25,12 +25,26 @@ streamer.on('message', function(message) {
 			break;
 
 			case "updateRunners":
-			console.log(message._posTable)
+			// redrawPlayers is located in racer.js
+		    redrawPlayers(message._posTable);
 			break;
 
 			case "endRace":
-			console.log(message.winner, " is the winner of race 2 of ACTE I!")
-			instance.data.obj.spaceBarStatus="reader"
+			// at the end of the race, we want to hide the running peeps,
+			// change the winner text according to results of race (Michèle Planche
+			// should be seated left (jardin) and show the winner div.
+			document.getElementsByClassName("racerContainer")[0].style.opacity=0
+			displayMessage = message.winner == "Michèle Planche" ? "gauche" : "droite"
+			document.getElementsByClassName("winner")[0].innerHTML = "🏁 personne de "+ displayMessage + " wins! 🏁"
+			document.getElementsByClassName("winner")[0].style.opacity=1
+			document.getElementsByClassName("winner")[0].style.transform = "translate(-50%,-50%) scale(200%)"
+
+			Meteor.setTimeout(function(){
+				// shortly after the race has ended, hide the winner div
+				// and make the spacebar capable of fetching text again.
+				instance.data.obj.spaceBarStatus="reader"
+				document.getElementsByClassName("winner")[0].style.opacity=0
+			},5000)
 			break;
 		}
 	}
@@ -75,6 +89,8 @@ Template.show.onRendered(function(){
 					// spacebar should be used to update the posTable on
 					// the server.
 					Meteor.call("requestStepServerSide", instance.aiguebename)
+					// image cycler is located in racer.js
+					imageCycler(instance.aiguebename)
 				break;
 
 				default:
@@ -104,7 +120,8 @@ Template.show.helpers({
 		// this returns the story from the db and sends
 		let obj = {
 			story : Story.find({"env":environment}),
-			globals : Globals.find({"env":environment})
+			globals : Globals.find({"env":environment}),
+			players : Players.find({"env":environment})
 		}
 		return{obj}
 	},

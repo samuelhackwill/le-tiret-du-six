@@ -165,6 +165,7 @@ clientActions = function(_params){
 					// the spacebar change behaviour
 					Meteor.call("stepperStartCall", environment)
 					instance.data.obj.spaceBarStatus = "racer"					
+					document.getElementsByClassName("racerContainer")[0].style.opacity=1
 				}
 			break;
 

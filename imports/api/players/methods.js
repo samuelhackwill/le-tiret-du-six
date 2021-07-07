@@ -133,8 +133,8 @@ Meteor.methods({
       // if posTable of <aiguebename> does not exist, create an entry
       // at position 1.
 
-      if (posTable[stepQueue[i]]==100) {
-      	// as soon as someone reaches 100 spacebar presses, that means
+      if (posTable[stepQueue[i]]==98) {
+      	// as soon as someone reaches 98 spacebar presses, that means
       	// the race is finished.
 				Meteor.call('stepperStopCall', _env = _env)
 				// stop stepper and also send message to all clients
