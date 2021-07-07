@@ -6,7 +6,7 @@ import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
 // streamer is for fast paced interactivity
-import '../../api/streamer/streamer.js';
+import { streamer } from '../../api/streamer/streamer.js';
 
 import './show.html';
 import './show.css';
@@ -14,6 +14,19 @@ import './show.css';
 // components
 import '../components/reader.js';
 import '../components/racer.js';
+
+streamer.on('message', function(message) {
+	// only run if from template reader. Didn't find another way of doing it
+	// as streamer seems to be a global object and runs everywhere.
+	if( instance.view.template.viewName == "Template.reader" && message.env == environment){
+		switch (message.action){
+			case "adminSpacebarPress":
+			adminNext(message.adminAtIndex)
+			break;
+		}
+	}
+});
+
 
 Template.show.onCreated(function(){
 	// environment can either be "Prod" or "Dev"

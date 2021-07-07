@@ -9,33 +9,6 @@ import { spacebarInvert } from '../../api/globals/methods.js'
 import './spacebarControl.html';
 import './spacebarControl.css';
 
-import { streamer } from '../../api/streamer/streamer.js';
-
-streamer.on('message', function(message) {
-	// only run if from template spacebarControl. Didn't find another way of doing it
-	// as streamer seems to be a global object and runs everywhere.
-	// I have no idea why it's the spacebar control template which gets
-	// triggered by the showserver method calls. Will it be consistent?
-	if( instance.view.template.viewName == "Template.spacebarControl" && message.env == environment){
-		switch (message.action){
-			case "showServerCall":
-			// the message.strobeSwitch will be "true" when 
-			// the first player calls the strobe, and "false",
-			// when the last players calls the strobe. we add
-			// a little bit of delay (10 seconds) just so the last 
-			// player can also see the strobe in the room.
-			if (message.strobeSwitch) {
-				document.getElementsByClassName("flexAdminContainer")[0].classList.add("strobe")
-			}else{
-				Meteor.setTimeout(function() {
-					document.getElementsByClassName("flexAdminContainer")[0].classList.remove("strobe")
-				}, 10000);
-			}
-			break;
-		}
-	}
-});
-
 
 
 Template.spacebarControl.onCreated(function(){

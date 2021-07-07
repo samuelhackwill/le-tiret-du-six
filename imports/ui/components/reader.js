@@ -6,8 +6,6 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './reader.html';
 import './reader.css';
 
-import { streamer } from '../../api/streamer/streamer.js';
-
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de ", " a mis ", " secondes et ", " dixièmes à parcourir le texte."]
 // aiguebenames are attributed in sequence : the first client to load
@@ -16,18 +14,6 @@ const finishMessageStrings = ["La personne de ", " a mis ", " secondes et ", " d
 // left (as seen from the audience) will always be Michèle, and on the right Julien.
 // (left = jardin).
 const firstClientSeated = "left"
-
-streamer.on('message', function(message) {
-	// only run if from template reader. Didn't find another way of doing it
-	// as streamer seems to be a global object and runs everywhere.
-	if( instance.view.template.viewName == "Template.reader" && message.env == environment){
-		switch (message.action){
-			case "adminSpacebarPress":
-			adminNext(message.adminAtIndex)
-			break;
-		}
-	}
-});
 
 Template.reader.onCreated(function(){
 	// this makes the instance accessible globally.
