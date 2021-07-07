@@ -22,7 +22,7 @@ Meteor.methods({
 			if (what[i].env == _env) {
 				raceTimes = what[i].players[0].score[_race]
 				_diffTimeS = Math.floor((raceTimes.finish - raceTimes.start)/1000);
-				_diffTimeD = Math.floor((raceTimes.finish - raceTimes.start)/100);
+				_diffTimeD = Math.floor(((raceTimes.finish - raceTimes.start)%1000)/ 10);
 			}
 		}
 
