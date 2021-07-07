@@ -78,7 +78,8 @@ On this page, admins can :
   - ```#stop``` *(a player can't go pass this line with his spacebar.)*
   - ```#logtime``` ```race1``` *(this is used **twice** during the first race, to log the starting & finishing times of the two players involved.)*
   - ```#race1results``` ```<left>``` or ```<right>``` *(this is used to print the results of the race. Left is supposed to show the score of the person seated on the "left", which should always be the player with instance.aiguebename="Michèle Planche". This name is always attributed to the first player to load the webapp.)* 
-  - ```#serverstrobe``` *The first time a player comes across this keyword, it will trigger a strobe effect on the admin's screen. The last player to come across this keyword will disable the strobe effect after 10 seconds.*
+  - ```#serverstrobe``` *(The first time a player comes across this keyword, it will trigger a strobe effect on the admin's screen. The last player to come across this keyword will disable the strobe effect after 10 seconds.)*
+  - ```#stepper``` ```<start>``` or ```<stop>``` *(This launches or terminates a loop on the server side which uses the streamer to update the position of the two runners during the second race at the end of ACTE I several times per second.)*
   - ```//``` ```<comment>``` *(a comment.)*
   - and in any case, a block of instructions must always be terminated by two carriage returns.
 

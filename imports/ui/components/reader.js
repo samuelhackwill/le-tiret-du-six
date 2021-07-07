@@ -183,14 +183,13 @@ clientActions = function(_params){
 				Meteor.call("showServerCall", environment)
 			break;
 
-			case "#stepperstart":
-				// players.methods
-				Meteor.call("stepperStartCall", environment)
-			break;
-
-			case "#stepperstop":
-				// players.methods
-				Meteor.call("stepperStopCall", environment)
+			case "#stepper":
+				if (_arg=="stop") {
+					// players.methods
+					Meteor.call("stepperStopCall", environment)
+				}else{
+					Meteor.call("stepperStartCall", environment)					
+				}
 			break;
 
 			default :
