@@ -85,16 +85,21 @@ loadText = function(_Story, index, rawText){
 		return
 	}
 
-	// execute actions if there are any
-	clientActions(_Story[index].params)
-
 	// append text to body
     $('#textColumn').append($('<ul/>').html(_Story[index].line))
+
+	// execute actions if there are any
+	clientActions(_Story[index].params)
 
     /* @todo Add a statement to replace "***" by empty <ul/>
 		@body as was the case in the former codebase.
     */
 
+	scrollText()
+}
+
+loadQcm = function(rawText){
+    $('#textColumn').append($('<ul class="qcmRes"/>').html(rawText))
 	scrollText()
 }
 
@@ -184,6 +189,7 @@ clientActions = function(_params){
 
 			case "#rep":
 			// load text as response nr 1
+			loadQcm(_arg)
 			break;
 			
 			case "#res":
