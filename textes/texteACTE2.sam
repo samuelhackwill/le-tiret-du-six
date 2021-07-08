@@ -908,7 +908,7 @@ droite
 
 ***
 #logtime race3
-#qcm 
+#qcm 1
 #rep 1. après réflexion, je n'aime vraiment pas courir
 #res Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste.
 #act #logtime race3
@@ -1059,21 +1059,19 @@ je vous laisse décider en âme et conscience.
 // Une durée de xx secondes et xx dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu (pour mémoire, l'indice médian était à xx secondes et xx dixièmes).
 
 ***
-#qcm
-#rep 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que conforter mon choix. Je persiste et signe.
-#res Ok, vous faites maintenant partie
-// des spacebar athletes/ de la team sieste.
-#act ***
-#rep 2. laissez-moi sortir je veux aller dans l'autre équipe
-#res Ok, vous faites maintenant partie
-// des spacebar athletes/ de la team sieste.
-#act ***
-#rep 3. Je n'ai pas changé d'avis mais j'aimerais juste voir le message que les autres ont vu quand ils ont choisi l'autre équipe.
-#res Ok, les autres ont vu ce message =
-#act ***
-#rep 4. Je trouve que le moment est bien choisi pour vous signaler que ce site ne respecte pas le RGPD (Règlement Général pour la Protection des Données) et que je vais vous faire un procès.
-#res en soi je ne suis pas tout à fait convaincu que la CNIL puisse me condamner pour avoir mesuré votre indice d'hésitation, mais c'est une excellente question à poser à un spécialiste de la question. Blague à part aucune "donnée personnelle" n'est collectée pendant cette performance, je vais juste garder votre score à la fin mais je vous recommanderai d'utiliser un pseudonyme.
-#act ***
+#qcm 2
+	#rep 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que conforter mon choix. Je persiste et signe.
+		#res Ok, vous faites maintenant partie
+			#act #stayWithTeam
+	#rep 2. laissez-moi sortir je veux aller dans l'autre équipe
+		#res Ok, vous faites maintenant partie
+			#act #changeTeam
+	#rep 3. Je n'ai pas changé d'avis mais j'aimerais juste voir le message que les autres ont vu quand ils ont choisi l'autre équipe.
+		#res Ok, les autres ont vu ce message =
+			#act #showAlternateMessage
+	#rep 4. Je trouve que le moment est bien choisi pour vous signaler que ce site ne respecte pas le RGPD (Règlement Général pour la Protection des Données) et que je vais vous faire un procès.
+		#res en soi je ne suis pas tout à fait convaincu que la CNIL puisse me condamner pour avoir mesuré votre indice d'hésitation, mais c'est une excellente question à poser à un spécialiste de la question. Blague à part aucune "donnée personnelle" n'est collectée pendant cette performance, je vais juste garder votre score à la fin mais je vous recommanderai d'utiliser un pseudonyme.
+			#act #bookmark nothing
 
 booon
 
@@ -1119,6 +1117,7 @@ essayer de deviner qui sera la prochaine personne à être éclairée
 faire des pronostics sur la couleur que vous allez voir baigner son visage.
 
 et puis si ça dure trop longtemps et que vous en avez envie, vous pouvez même aller vous dégourdir les jambes dans la salle si vous voulez. Les écrans se mettront à clignoter un peu avant le début de la prochaine séquence pour vous prévenir.
+#showTeam
 
 ***
 // fin de l'acte 2

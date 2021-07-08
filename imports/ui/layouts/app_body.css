@@ -16,6 +16,7 @@
 }
 
 body{
+	transition: background-color 1s;
 	background-color: #272822;
 	font-family: "firaCodeLight", sans-serif;
 	color: white;

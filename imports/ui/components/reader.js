@@ -30,6 +30,9 @@ Template.reader.onCreated(function(){
 	// i guess it would be better to pull this number
 	// from DB to avoid fatal disconnections
 	instance.data.obj._atIndex = -1
+	// this is where we're going to store all the 
+	// qcm answers of players
+	instance.data.obj.answered = []
 })
 
 Template.reader.events({
@@ -40,6 +43,9 @@ Template.reader.events({
 		// this regex is to get index of answer, which is contained
 		// in e.currentTarget.textContent ("1. réponse numéro une")
 		var index = regex.exec(e.currentTarget.textContent)[0] -1
+
+		// here we are saving the answer locally
+		instance.data.obj.answered[instance.data.obj.answered.length-1]=index+1
 
 		var allAnswers = document.getElementsByClassName("qcmResponse")
 
@@ -237,6 +243,9 @@ clientActions = function(_params){
 				// we also need an object to store the "client actions" which
 				// going to be launched on qcm response.
 				qcmActions = []
+				// what's more, we need to store the player's answers somewhere
+				instance.data.obj.answered.push("")
+
 				// we also want to stop the spacebar until question is answered.
 				console.log("going into parking.")
 				this.instance.data.stopped = true
@@ -269,17 +278,17 @@ clientActions = function(_params){
 				switch(_arg){
 
 					case "get":
-					Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename, 
-						(error, result) =>{
-							instance.data.obj.race3 = {
-								"mediane":result.mediane,
-								"decile1":result.decile1,
-								"decile9":result.decile9,
-								"scoreSecs":result.diffTimeS,
-								"scoreDecs":result.diffTimeD,
-								"scoreRaw":result.diffTime
-							}
-					})
+						Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename, 
+							(error, result) =>{
+								instance.data.obj.race3 = {
+									"mediane":result.mediane,
+									"decile1":result.decile1,
+									"decile9":result.decile9,
+									"scoreSecs":result.diffTimeS,
+									"scoreDecs":result.diffTimeD,
+									"scoreRaw":result.diffTime
+								}
+						})
 					break;
 
 					case "1":
@@ -368,10 +377,60 @@ clientActions = function(_params){
 							race3MessageStrings4[2]
 						)
 					break;
+				}
+			break;
 
-					default :
+			case "#stayWithTeam":
+				previousAnswer = instance.data.obj.answered[0]
+				if (previousAnswer==1) {
+					instance.data.obj.team="teamSieste"
+					loadText(undefined, undefined, 
+"De la Team sieste."
+					)
 
-					break;
+				}else{
+					instance.data.obj.team="spacebarAthletes"
+					loadText(undefined, undefined, 
+"Des Spacebar athletes."
+					)
+				}
+			break;
+
+			case "#changeTeam":
+				previousAnswer = instance.data.obj.answered[0]
+				if (previousAnswer==2) {
+					instance.data.obj.team="teamSieste"
+					loadText(undefined, undefined, 
+"De la Team sieste."
+					)
+				}else{
+					instance.data.obj.team="spacebarAthletes"
+					loadText(undefined, undefined, 
+"Des Spacebar athletes."
+					)
+				}
+			break;
+
+			case "#showAlternateMessage":
+				previousAnswer = instance.data.obj.answered[0]
+				if (previousAnswer==2) {
+					instance.data.obj.team="spacebarAthletes"
+					loadText(undefined, undefined, 
+"Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste."
+					)
+				}else{
+					instance.data.obj.team="teamSieste"
+					loadText(undefined, undefined, 
+"Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete."
+					)						
+				}
+			break;
+
+			case "#showTeam":
+				if (instance.data.obj.team=="teamSieste") {
+					document.body.style.backgroundColor = "#1cff00"
+				}else{
+					document.body.style.backgroundColor = "red"
 				}
 			break;
 
