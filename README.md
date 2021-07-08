@@ -80,6 +80,7 @@ On this page, admins can :
   - ```#race1results``` ```<left>``` or ```<right>``` *(this is used to print the results of the race. Left is supposed to show the score of the person seated on the "left", which should always be the player with instance.aiguebename="Michèle Planche". This name is always attributed to the first player to load the webapp.)* 
   - ```#serverstrobe``` *(The first time a player comes across this keyword, it will trigger a strobe effect on the admin's screen. The last player to come across this keyword will disable the strobe effect after 10 seconds.)*
   - ```#stepper``` ```<start>``` or ```<stop>``` *(This launches or terminates a loop on the server side which uses the streamer to update the position of the two runners during the second race at the end of ACTE I several times per second.)*
+  - ```#qcm``` *(This starts a new QCM session. This keyword must always be followed by at least one #rep line and one #res line, in this order.)* ```#rep``` ```<1. answer number one>``` *(This is one of the possible answers that the player will be able to chose in the qcm. The argument must always contain a number, starting at 1.)* ```#res``` ```<response number one>``` *(This is the text which will be displayed when the players clicks on the corresponding answer.)*
   - ```//``` ```<comment>``` *(a comment.)*
   - and in any case, a block of instructions must always be terminated by two carriage returns.
 
