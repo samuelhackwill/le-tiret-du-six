@@ -911,8 +911,10 @@ droite
 #qcm 
 #rep 1. après réflexion, je n'aime vraiment pas courir
 #res Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste.
+#act #logtime race3
 #rep 2. chaque pression de mes pieds sur le sol me rappelle tout à a fois : que la terre tourne, que mon corps est une merveille, que je suis shooté à la dopamine, que tout cela est beau
 #res Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete.
+#act #logtime race3
 
 ***
 #bookmark II-3-debut
@@ -1038,18 +1040,40 @@ comme disait M. Blanc-Coquand, mon professeur de sport au lycée à Chambéry:
 je vous laisse décider en âme et conscience.
 
 ***
-#show hésitation
-// on montre les résultats, un à un (genre autonext), puis on repose la question.
+#race3results get
 
 ***
-// 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que conforter mon choix. Je persiste et signe.
-//		R: Ok, vous faites maintenant partie des * *
-// 2. laissez-moi sortir je veux aller dans l'autre équipe
-//		R: Ok, vous faites maintenant partie des * *
-// 3. Je n'ai pas changé d'avis mais j'aimerais juste voir le message que les autres ont vu quand ils ont choisi l'autre équipe.
-//		R: * display that message *
-// 4. Je trouve que le moment est bien choisi pour vous signaler que ce site ne respecte pas le RGPD (Règlement Général pour la Protection des Données) et que je vais vous faire un procès.
-//		R: en soi je ne suis pas tout à fait convaincu que la CNIL puisse me condamner pour avoir mesuré votre indice d'hésitation, mais c'est une excellente question à poser à un spécialiste de la question. Blague à part aucune "donnée personnelle" n'est collectée pendant cette performance, je vais juste garder votre score à la fin mais je vous recommanderai d'utiliser un pseudonyme.
+#race3results 1
+// l'indice d'hésitation médian dans la salle est de xx secondes et xx dixièmes (l'indice médian est la valeur qui sépare notre groupe exactement en deux : la moitié des personnes présentes ici ont moins hésité que xx secondes et xx dixièmes, alors que l'autre moitié à plus hésité que xx secondes et xx dixièmes.)
+
+***
+#race3results 2
+// le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, comprend toutes les personnes qui ont hésité moins de xx secondes et xx dixièmes // Vous (ne) faites (pas) partie du dernier décile.
+
+***
+#race3results 3
+// le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité au moins xx secondes et xx dixièmes // Vous (ne) faites (pas) partie du premier décile.
+
+***
+#race3results 4
+// Une durée de xx secondes et xx dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu (pour mémoire, l'indice médian était à xx secondes et xx dixièmes).
+
+***
+#qcm
+#rep 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que conforter mon choix. Je persiste et signe.
+#res Ok, vous faites maintenant partie
+// des spacebar athletes/ de la team sieste.
+#act ***
+#rep 2. laissez-moi sortir je veux aller dans l'autre équipe
+#res Ok, vous faites maintenant partie
+// des spacebar athletes/ de la team sieste.
+#act ***
+#rep 3. Je n'ai pas changé d'avis mais j'aimerais juste voir le message que les autres ont vu quand ils ont choisi l'autre équipe.
+#res Ok, les autres ont vu ce message =
+#act ***
+#rep 4. Je trouve que le moment est bien choisi pour vous signaler que ce site ne respecte pas le RGPD (Règlement Général pour la Protection des Données) et que je vais vous faire un procès.
+#res en soi je ne suis pas tout à fait convaincu que la CNIL puisse me condamner pour avoir mesuré votre indice d'hésitation, mais c'est une excellente question à poser à un spécialiste de la question. Blague à part aucune "donnée personnelle" n'est collectée pendant cette performance, je vais juste garder votre score à la fin mais je vous recommanderai d'utiliser un pseudonyme.
+#act ***
 
 booon
 
