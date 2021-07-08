@@ -44,6 +44,7 @@ streamer.on('message', function(message) {
 				// and make the spacebar capable of fetching text again.
 				instance.data.obj.spaceBarStatus="reader"
 				document.getElementsByClassName("winner")[0].style.opacity=0
+				document.getElementsByClassName("readerContainer")[0].style.opacity=1
 			},5000)
 			break;
 		}

@@ -1,5 +1,5 @@
 .readerContainer{
-
+	transition: opacity 1s;
 }
 
 .readerColumn{

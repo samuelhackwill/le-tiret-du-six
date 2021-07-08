@@ -100,7 +100,7 @@ loadText = function(_Story, index, rawText){
 
 clientActions = function(_params){
 
-	for (var i = _params.length - 1; i >= 0; i--) {
+	for (var i = 0; i < _params.length; i++) {
 	// first get the optional argument of the param.
 		_arg = Object.values(_params[i])[0]
 		_key = Object.keys(_params[i])[0]
@@ -108,6 +108,9 @@ clientActions = function(_params){
 		// then decide what to do according to the action name.
 		// actions are sorted by chronological appearance during the show.
 		switch (_key){
+			case "#bookmark":
+			break;
+
 			case "#stop" :
 				console.log("going into parking.")
 				this.instance.data.stopped = true
@@ -166,11 +169,30 @@ clientActions = function(_params){
 					Meteor.call("stepperStartCall", environment)
 					instance.data.obj.spaceBarStatus = "racer"					
 					document.getElementsByClassName("racerContainer")[0].style.opacity=1
+					document.getElementsByClassName("readerContainer")[0].style.opacity=0
 				}
 			break;
 
+			case "#qcm":
+			// we need an empty array to store the text which is going to
+			// appear when someone answers to a question
+			qcmResponses = []
+			// we also want to stop the spacebar until question is answered.
+			console.log("going into parking.")
+			this.instance.data.stopped = true
+			break;
+
+			case "#rep":
+			// load text as response nr 1
+			break;
+			
+			case "#res":
+			// load response in response array
+			qcmResponses.push(_arg)
+			break;
+
 			default :
-				console.log(_key)
+				console.log(_key, "maybe missing a # before keyword?")
 			break;
 		}
 	}
