@@ -907,27 +907,12 @@ gauche
 droite
 
 ***
-// QCM : deux réponses possibles apparaissent : les joueurs joueuses en sélectionnent une, ce qui leur donne accès à la portion de texte correspondante.
-// jean-michel explique à voix haute que 
-// 1. après réflexion, je n'aime vraiment pas courir
-// 2. chaque pression de mes pieds sur le sol me rappelle tout à a fois : que la terre tourne, que mon corps est une merveille, que je suis shooté à la dopamine, que tout cela est beau
-// on mouseover sur le 1., on voit apparaître le brassard de la team sieste
-// on mouseover sur le 2., on voit appraître le brassard des spacebar atheletes.
-// abréviations pour le dossard en fonction du nombre de lettres lol.
-// SIEST
-// TSST
-// TEA
-// et
-// SBATH
-// ATHL
-// SBA
-#QCM 1
-
-Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste.
-// réponse 1
-
-Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete.
-// réponse 2
+#logtime race3
+#qcm 
+#rep 1. après réflexion, je n'aime vraiment pas courir
+#res Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste.
+#rep 2. chaque pression de mes pieds sur le sol me rappelle tout à a fois : que la terre tourne, que mon corps est une merveille, que je suis shooté à la dopamine, que tout cela est beau
+#res Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete.
 
 ***
 #bookmark II-3-debut
@@ -1055,6 +1040,8 @@ je vous laisse décider en âme et conscience.
 ***
 #show hésitation
 // on montre les résultats, un à un (genre autonext), puis on repose la question.
+
+***
 // 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que conforter mon choix. Je persiste et signe.
 //		R: Ok, vous faites maintenant partie des * *
 // 2. laissez-moi sortir je veux aller dans l'autre équipe

@@ -54,6 +54,13 @@ Template.reader.events({
 			loadText(undefined, undefined, qcmResponses[index])
 			// also unstop the spacebar.
 			this.instance.data.stopped=false
+			// also run the client action defined in the qcmActions array
+			console.log("client action ", qcmActions[index])
+			// here we need to conform to the data structure of 
+			// clientActions which is expecting an array of objects
+			_params = []
+			_params.push(qcmActions[index])
+			clientActions(_params)
 		},500)
 
 	}
@@ -220,6 +227,9 @@ clientActions = function(_params){
 				// we need an empty array to store the text which is going to
 				// appear when someone answers to a question
 				qcmResponses = []
+				// we also need an object to store the "client actions" which
+				// going to be launched on qcm response.
+				qcmActions = []
 				// we also want to stop the spacebar until question is answered.
 				console.log("going into parking.")
 				this.instance.data.stopped = true
@@ -235,7 +245,18 @@ clientActions = function(_params){
 				qcmResponses.push(_arg)
 			break;
 
-			default :
+			case "#act":
+				// load action in actions array
+				regex = /(^\S+)\s(\S+$)/
+				// group 1 = <#logtime> (client actions key)
+				// group 2 = <race3> (client actions _arg)
+				_result = regex.exec(_arg)
+				_obj = {}
+				_obj[_result[1]]=_result[2]
+				qcmActions.push(_obj)
+			break;
+
+			default:
 				console.log(_key, "maybe missing a # before keyword?")
 			break;
 		}
