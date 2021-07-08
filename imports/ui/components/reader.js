@@ -25,6 +25,42 @@ Template.reader.onCreated(function(){
 	instance.data.obj._atIndex = -1
 })
 
+Template.reader.events({
+	"click .qcmResponseClickable"(e){
+		// when someone clicks on a qcm answer, we need to get
+		// the answer from the qcmResponses array (see client Actions).
+		var regex = /\d/;
+		// this regex is to get index of answer, which is contained
+		// in e.currentTarget.textContent ("1. réponse numéro une")
+		var index = regex.exec(e.currentTarget.textContent)[0] -1
+
+		var allAnswers = document.getElementsByClassName("qcmResponse")
+
+		for (var i = allAnswers.length - 1; i >= 0; i--) {
+			// hide all answers but the one that's just been chosen
+			if (i!==index) {
+				allAnswers[i].style.opacity = 0
+			}
+		}
+
+		for (var i = allAnswers.length - 1; i >= 0; i--) {
+			// also make these answers unclickable
+			allAnswers[i].classList.remove("qcmResponseClickable")
+		}
+
+		Meteor.setTimeout(function(){
+			// we're loading the answer which loadText which takes raw text
+			// after two undefined args.
+			loadText(undefined, undefined, qcmResponses[index])
+			// also unstop the spacebar.
+			this.instance.data.stopped=false
+		},500)
+
+	}
+
+
+})
+
 clientNext = function(){
 	// we need to check if admin has control first
 	let _spacebarctrl = instance.data.obj.globals.collection.find({env:environment}).fetch()[0].spacebar.control
@@ -99,8 +135,10 @@ loadText = function(_Story, index, rawText){
 }
 
 loadQcm = function(rawText){
-    $('#textColumn').append($('<ul class="qcmRes"/>').html(rawText))
+    $('#textColumn').append($('<ul class="qcmResponse qcmResponseClickable"/>').html(rawText))
 	scrollText()
+	endOfArray = document.getElementsByClassName("qcmResponse").length -1
+	document.getElementsByClassName("qcmResponse")[endOfArray].style.opacity=1
 }
 
 clientActions = function(_params){
@@ -179,22 +217,22 @@ clientActions = function(_params){
 			break;
 
 			case "#qcm":
-			// we need an empty array to store the text which is going to
-			// appear when someone answers to a question
-			qcmResponses = []
-			// we also want to stop the spacebar until question is answered.
-			console.log("going into parking.")
-			this.instance.data.stopped = true
+				// we need an empty array to store the text which is going to
+				// appear when someone answers to a question
+				qcmResponses = []
+				// we also want to stop the spacebar until question is answered.
+				console.log("going into parking.")
+				this.instance.data.stopped = true
 			break;
 
 			case "#rep":
-			// load text as response nr 1
-			loadQcm(_arg)
+				// load text as response nr 1
+				loadQcm(_arg)
 			break;
 			
 			case "#res":
-			// load response in response array
-			qcmResponses.push(_arg)
+				// load response in response array
+				qcmResponses.push(_arg)
 			break;
 
 			default :
