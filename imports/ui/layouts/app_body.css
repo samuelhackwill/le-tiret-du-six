@@ -16,7 +16,9 @@
 }
 
 body{
-	transition: background-color 1s;
+/*	remove this line asap  */	
+transition: background-color 1s;
+
 	background-color: #272822;
 	font-family: "firaCodeLight", sans-serif;
 	color: white;

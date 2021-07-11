@@ -4,7 +4,7 @@ Test OK
 // avec les bonhommes qui courent, et l'un d'entre eux a gagné.
 // là on a sans doute fait la chasse au trésor IP
 // et ils viennent d'arriver sur le site web.
-#bookmark II-0-debut
+#bookmark startofACTEII
 
 bravo vous avez trouvé la barre espace!
 
@@ -31,7 +31,7 @@ Je l'ai lue dans une BD de Lewis Trondheim il y a longtemps. Je sais pas si c'es
 // le texte ci-dessus n'est accessible que pour celles ceux qui vont appuyer sur la barre espace dès leur arrivée. (achievement?
 
 super, a priori tout le monde est bien arrivé ici!
-#bookmark II-0-resync
+#bookmark resyncStart
 
 bienvenue à toutes celles et ceux qui nous rejoignent
 
@@ -145,7 +145,6 @@ ligne par ligne
 par la barre espace.
 
 ***
-#bookmark II-1-debut
 
 concrètement, ça marche de la façon suivante :
 
@@ -207,19 +206,7 @@ Jean Lassalle, vous voyez pas? mais si, le mec, avec le nez là
 
 le gros nez
 
-oui je l'affiche en parlant de son nez 
-
-en même temps pardon mais le dialogue politique par chez nous ça vole pas très haut
-
-je vois pas pourquoi, pendant que des chroniqueurs politiques en soient venus à dire qu'Emmanuel Macron avait plus de 2000 ans d'expérience 
-
-parce qu'il avait lu des livres 
-
-dont certains avaient été écrits à l'antiquité (donc il y a plus de 2000 ans).
-
-(c'était pendant la présidentielle)
-
-je vois pas pourquoi *moi* j'aurais pas aussi le droit de considérer le nez de Jean Lassalle comme un vrai sujet de conversation
+oui je l'affiche en parlant de son nez je sais c'est pas très classe 
 
 donc
 
@@ -318,6 +305,7 @@ il n'est pas dans un datacentre
 mais ici dans la salle,
 
 ...
+#bookmark serverStrobe
 
 on va faire un truc
 
@@ -408,7 +396,6 @@ voilà bravo vous avez fini de naviguer dans le texte.
 félicitations pour votre lecture assidue.
 
 vous décidez maintenant de vous mettre en route pour le cabinet du docteur Sommeveille.
-#bookmark II-2-debut
 
 gauche
 
@@ -907,6 +894,7 @@ gauche
 droite
 
 ***
+#bookmark hesitationRace
 #logtime race3
 #qcm 1
 #rep 1. après réflexion, je n'aime vraiment pas courir
@@ -917,7 +905,6 @@ droite
 #act #logtime race3
 
 ***
-#bookmark II-3-debut
 
 je ne sais pas si vous avez beaucoup hésité avant de choisir votre réponse
 
@@ -1058,17 +1045,17 @@ je vous laisse décider en âme et conscience.
 #race3results 4
 // Une durée de xx secondes et xx dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu (pour mémoire, l'indice médian était à xx secondes et xx dixièmes).
 
-***
+Alors?
 #qcm 2
 	#rep 1. J'ai décidé de ne pas attacher de sens particulier à mon indice d'hésitation, ou alors celui-ci ne fait que conforter mon choix. Je persiste et signe.
 		#res Ok, vous faites maintenant partie
-			#act #stayWithTeam
+			#act #stayWithTeam null
 	#rep 2. laissez-moi sortir je veux aller dans l'autre équipe
 		#res Ok, vous faites maintenant partie
-			#act #changeTeam
+			#act #changeTeam null
 	#rep 3. Je n'ai pas changé d'avis mais j'aimerais juste voir le message que les autres ont vu quand ils ont choisi l'autre équipe.
 		#res Ok, les autres ont vu ce message =
-			#act #showAlternateMessage
+			#act #showAlternateMessage null
 	#rep 4. Je trouve que le moment est bien choisi pour vous signaler que ce site ne respecte pas le RGPD (Règlement Général pour la Protection des Données) et que je vais vous faire un procès.
 		#res en soi je ne suis pas tout à fait convaincu que la CNIL puisse me condamner pour avoir mesuré votre indice d'hésitation, mais c'est une excellente question à poser à un spécialiste de la question. Blague à part aucune "donnée personnelle" n'est collectée pendant cette performance, je vais juste garder votre score à la fin mais je vous recommanderai d'utiliser un pseudonyme.
 			#act #bookmark nothing

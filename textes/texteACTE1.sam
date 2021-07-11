@@ -1,4 +1,5 @@
-vous êtes bien arrivé sur la suite de la performance de samuel
+vous êtes bien arrivé.e sur la suite de la performance de samuel
+#bookmark startofACTEI
 
 félicitations
 
@@ -8,11 +9,11 @@ c'est que le silence revient dans la salle
 
 on entend juste les ordinateurs et les videoprojecteurs qui soufflent
 
-quelque part ça me rappèle peut être
+quelque part ça me rapelle peut être
 
 les fins de consultation chez dominique sommeveille
 
-...
+***
 
 bon bien en tout cas bienvenue sur le plateau
 
@@ -116,9 +117,8 @@ vous vous mettez en chemin, tranquillement, les cheveux encore mouillés
 
 un pied après l'autre
 
-#logtime race1
-
 droite
+#logtime race1
 
 gauche
 
@@ -365,9 +365,9 @@ Dominique Sommeveille
 
 ... (patientez un moment svp)
 #stop
-#bookmark texteFin
 
 Ok alors pause
+#bookmark ResyncLastRace
 
 bon en fait pardon 
 
@@ -392,6 +392,10 @@ bon j'avoue c'est un peu abusé de pas vous avoir prévenu
 donc vos scores, ce sont les suivants :
 
 ***
+#race1results left
+
+***
+#race1results right
 
 bravo
 
@@ -414,13 +418,10 @@ vous êtes prêt.e.s?
 1
 
 Go
+#stepper start
 
 ***
-
-***
-
-***
-#bookmark Fin2
+#bookmark ResyncEndOfACTEI
 
 ***
 
