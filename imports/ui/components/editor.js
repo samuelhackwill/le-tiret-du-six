@@ -36,7 +36,6 @@ Template.editor.events({
 			//add event listener on window with namespace to remove event listener easily
 			$(window).on('click.outsideTextarea', function(e){
 
-				console.log(e.target, $(e.target).hasClass('textAreaContainer'));
 				// check if it is not the textarea and if editing is enabled
 				if(!$(e.target).hasClass('textAreaContainer') && templateInstance.editing.get() == true) {
 
@@ -45,6 +44,8 @@ Template.editor.events({
 					//remove event listener on window
 					$(window).off('click.outsideTextarea')
 
+					// here you should update the db with any
+					// changes. ugh! or flash db and insert anew
 					if (document.getElementsByClassName("textAreaContainer")[0].value) {
 						textAreaValue = document.getElementsByClassName("textAreaContainer")[0].value
 						// call parser (../layouts/storyEditor.js)
@@ -58,27 +59,6 @@ Template.editor.events({
 				}
 			});
 		}
-	},
-	'click window'(){
-	// 'mouseout .textAreaContainer'(){
-		// here you should update the db with any
-		// changes. ugh! or flash db and insert anew
-		if(Template.instance().editing.get() == true) {
-
-			Template.instance().editing.set( false );
-
-			if (document.getElementsByClassName("textAreaContainer")[0].value) {
-				textAreaValue = document.getElementsByClassName("textAreaContainer")[0].value
-				// call parser (../layouts/storyEditor.js)
-				parseAndSendToDb(textAreaValue)
-			}else{
-				console.log("textArea empty.")
-			}
-
-			collapsed = false;
-			document.getElementsByClassName("paramsCollapser")[0].innerHTML = "collapse params"
-		}
-
 	},
 
 	'keydown .textAreaContainer'(event){
