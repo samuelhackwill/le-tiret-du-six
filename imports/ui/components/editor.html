@@ -1,7 +1,7 @@
 <template name="editor">
 
 	<div class="editorContainer scrollBinder">
-		<!-- story contains the data passed on in the inclusion template tag (storyEditor.html)  -->	
+		<!-- story contains the data passed on in the inclusion template tag (storyEditor.html)  -->
 		{{#if editMode}}
 
 <!-- no indentation here to remove unwanted whitespace -->
@@ -14,7 +14,7 @@
 	 		{{#each story}}
 		 		{{#each data}}
 					<div class="lineContainer">
-						<p class="line"><span class="lineIndex">{{@index}}</span> {{line}} </p>
+						<p class="line"><span class="lineIndex" data-lineIndex="{{@index}}">{{@index}}</span> {{line}} </p>
 						<div class="paramsContainer">
 							{{#each params}}
 								<div class="lineParams">

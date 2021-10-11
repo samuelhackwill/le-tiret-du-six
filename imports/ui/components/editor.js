@@ -19,32 +19,46 @@ Template.editor.onRendered(function(){
 })
 
 Template.editor.events({
-	'click .editorContainer'(){
+	'click .editorContainer'(e){
 		// if you're admin, editing is forbidden.
 		// that's to avoid misclicking during the show.
 		if(FlowRouter.current().route.name=="admin"){
 			return
 		}
+		if(Template.instance().editing.get() == false) {
 
-		Template.instance().editing.set( true );
-	},
+			e.stopPropagation()
 
-	'mouseout .textAreaContainer'(){
-		// here you should update the db with any 
-		// changes. ugh! or flash db and insert anew
-		Template.instance().editing.set( false );
+			Template.instance().editing.set( true )
 
-		if (document.getElementsByClassName("textAreaContainer")[0].value) {
-			textAreaValue = document.getElementsByClassName("textAreaContainer")[0].value
-			// call parser (../layouts/storyEditor.js)
-			parseAndSendToDb(textAreaValue)
-		}else{
-			console.log("textArea empty.")
+			let templateInstance = Template.instance()
+
+			//add event listener on window with namespace to remove event listener easily
+			$(window).on('click.outsideTextarea', function(e){
+
+				// check if it is not the textarea and if editing is enabled
+				if(!$(e.target).hasClass('textAreaContainer') && templateInstance.editing.get() == true) {
+
+					templateInstance.editing.set( false );
+
+					//remove event listener on window
+					$(window).off('click.outsideTextarea')
+
+					// here you should update the db with any
+					// changes. ugh! or flash db and insert anew
+					if (document.getElementsByClassName("textAreaContainer")[0].value) {
+						textAreaValue = document.getElementsByClassName("textAreaContainer")[0].value
+						// call parser (../layouts/storyEditor.js)
+						parseAndSendToDb(textAreaValue)
+					}else{
+						console.log("textArea empty.")
+					}
+
+					collapsed = false;
+					document.getElementsByClassName("paramsCollapser")[0].innerHTML = "collapse params"
+				}
+			});
 		}
-
-		collapsed = false;
-		document.getElementsByClassName("paramsCollapser")[0].innerHTML = "collapse params"
-
 	},
 
 	'keydown .textAreaContainer'(event){
@@ -75,12 +89,12 @@ Template.editor.helpers({
 parseAndSendToDb = function(obj){
 	// temp array we're going to fill up then send to the db
 	_data = []
-	
+
 	// remove previous collection
 	Meteor.call("destroyStory", environment)
 
-	// the first thing to do is to clear excessive carriage returns 
-	// as we're going to use the double carriage return as a delimiter 
+	// the first thing to do is to clear excessive carriage returns
+	// as we're going to use the double carriage return as a delimiter
 	// between instruction blocks.
 	let firstPass = /\n{3,}/g;
 	// we want to replace all triple returns+ with double returns.
@@ -90,21 +104,21 @@ parseAndSendToDb = function(obj){
 	// between distinct instruction blocks.
 	let secondPass = /\n{2,}/g;
 	instructionBlocksArray = filteredObj.split(secondPass)
-	// now we should have 
+	// now we should have
 	// instructionBlocksArray[0]
 	// > "salut\n
 	// > // INSERT 1"
 
 	// now let's make a bidimentionnal array, so that
 	// we separate to-be "lines" and to-be "params" before insertion
-	// in the database (see the validation schema in 
+	// in the database (see the validation schema in
 	// ../../api/story/server/story.js)
 	let thirdPass = /\n{1,}/g;
 	instructionsArray = []
 
 	for (var i = 0; i < instructionBlocksArray.length; i++) {
 		instructionsArray.push(instructionBlocksArray[i].split(thirdPass))
-		// now we should have 
+		// now we should have
 		// instructionsArray[0]
 		// > [0]: salut
 		// > [1]: // INSERT 1
@@ -129,7 +143,7 @@ parseAndSendToDb = function(obj){
 		insertObj.params = []
 		insertObj.line = tempArray.shift()
 
-		// then we need to push the params, which are 
+		// then we need to push the params, which are
 		// the remaining items of the tempArray.
 		for(var q = 0; q < tempArray.length; q++){
 			// first remove leading whitespace (tabs)
@@ -137,7 +151,7 @@ parseAndSendToDb = function(obj){
 			// then remove trailing whitespace
 			let paramsFiltered2 = paramsFiltered1.replace(/\s{0,}$/, "")
 
-			// then run this diabolical regex which evaluates 
+			// then run this diabolical regex which evaluates
 			// three different scenarios : a param can be a comment
 			// 		// comment
 			// or a simple instruction
@@ -148,7 +162,7 @@ parseAndSendToDb = function(obj){
 
 			if(paramsArray){
 				// shortcut evaluations to define key & value.
-				let key = paramsArray[5] || paramsArray[3] || paramsArray[1] 
+				let key = paramsArray[5] || paramsArray[3] || paramsArray[1]
 				let value = paramsArray[4] || paramsArray[2] || null
 
 				param = {[key]:value}
