@@ -16,15 +16,15 @@
 }
 
 ul:last-child{
-	color:white;
-	margin-bottom:300px;
+/*	color:white;
+*/	margin-bottom:300px;
 }
 
 ul{
 	transition: color 1s linear;
-	color:#2f2f2f;
+	color:white;
 	padding-right: 40px;
-	margin-top: 6px;
+	margin-top: 12px;
 	margin-bottom: 6px;
 }
 

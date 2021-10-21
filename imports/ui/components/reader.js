@@ -21,6 +21,10 @@ const race3MessageStrings2 = ["Le premier décile, c'est à dire les 10% de pers
 const race3MessageStrings3 = ["Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité exactement "," secondes et "," dixièmes ou plus. Vous "," faites "," partie du dernier décile."]
 const race3MessageStrings4 = ["Une durée de "," secondes et "," dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
 
+// this defines the direction of text
+let chronologicalReading = true
+// false = antécrhonologique
+// true = chronologique
 
 Template.reader.onCreated(function(){
 	// this makes the instance accessible globally.
@@ -36,6 +40,11 @@ Template.reader.onCreated(function(){
 })
 
 Template.reader.events({
+	"click .invertReadingDir"(){
+		chronologicalReading =! chronologicalReading
+		console.log(chronologicalReading)
+	},
+
 	"click .qcmResponseClickable"(e){
 		// when someone clicks on a qcm answer, we need to get
 		// the answer from the qcmResponses array (see client Actions).
@@ -137,13 +146,20 @@ loadText = function(_Story, index, rawText){
 	// text rather than what's in the db (Story),
 	// for instance status messages or score messages.
 	if (rawText) {
-	    $('#textColumn').append($('<ul/>').html(rawText))
+		if(chronologicalReading){
+		    $('#textColumn').append($('<ul/>').html(rawText))
+		}else{
+		    $('#textColumn').prepend($('<ul/>').html(rawText))
+		}
 		return
 	}
 
 	// append text to body
-    $('#textColumn').append($('<ul/>').html(_Story[index].line))
-
+	if(chronologicalReading){
+	    $('#textColumn').append($('<ul/>').html(_Story[index].line))
+	}else{
+	    $('#textColumn').prepend($('<ul/>').html(_Story[index].line))
+	}
 	// execute actions if there are any
 	clientActions(_Story[index].params)
 
@@ -442,5 +458,9 @@ clientActions = function(_params){
 }
 
 scrollText = function(){
-	$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
+	if (chronologicalReading) {
+		$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
+	}else{
+		$('#textColumn').scrollTop($('#textColumn')[0])	
+	}
 }
