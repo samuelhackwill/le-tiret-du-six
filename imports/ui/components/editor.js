@@ -16,10 +16,18 @@ Template.editor.onCreated(function(){
 
 Template.editor.onRendered(function(){
 
+	elems = document.getElementsByClassName("scrollBinder");
+	if(elems.length > 1) {
+		for (i = 0; i < elems.length; i++) {
+			elems[i].addEventListener("scroll", doubleScroll);
+		}
+	}
+
 })
 
 Template.editor.events({
-	'click .editorContainer'(e){
+	// 'click .editorContainer'(e){
+	'click #editorTH'(e){
 		// if you're admin, editing is forbidden.
 		// that's to avoid misclicking during the show.
 		if(FlowRouter.current().route.name=="admin"){
@@ -29,23 +37,103 @@ Template.editor.events({
 
 			e.stopPropagation()
 
+			let range;
+			let textNode;
+			let offset;
+			// get caret position or caret range, textNode clicked and offset
+			if (document.caretPositionFromPoint) {
+				range = document.caretPositionFromPoint(e.clientX, e.clientY);
+				textNode = range.offsetNode;
+				offset = range.offset;
+				// console.log('caretPositionFromPoint range', range, 'textNode', textNode, 'offset', offset);
+			} else if (document.caretRangeFromPoint) {
+				range = document.caretRangeFromPoint(e.clientX, e.clientY);
+				textNode = range.startContainer;
+				offset = range.startOffset;
+				// console.log('caretRangeFromPoint range', range, 'textNode', textNode, 'offset', offset);
+			}
+
+			regex = /.+\n/gm; // regex to count lines of text inside textarea
+			let m;
+			let element = document.getElementsByClassName("textAreaContainer")[0];
+			let str = element.value;
+			// get lineIndex from data attribute on parent of textNode clicked
+			let lineIndexClicked = parseInt($(textNode.parentNode).find('span.lineIndex').attr('data-lineindex'));
+			// console.log('lineIndexClicked', lineIndexClicked);
+
+			// count params in text before the lineIndexClicked (to add later)
+			let paramsUntilLineIndexClicked = 0;
+			$('.lineContainer').each(function(i,lineContainer){
+				if(i < lineIndexClicked) {
+					if($(lineContainer).find('.lineParams').length) { // lineParams found
+						paramsUntilLineIndexClicked++;
+					}
+				}
+			});
+			// console.log('paramsUntilLineIndexClicked', paramsUntilLineIndexClicked);
+
+			// let's iterate the lines of text
+			// set up counters for lines and characters
+			let counterLines = 0;
+			let counterChars = 0;
+			while ((m = regex.exec(str)) !== null) {
+				// This is necessary to avoid infinite loops with zero-width matches
+				if (m.index === regex.lastIndex) {
+					regex.lastIndex++;
+				}
+
+				// The result can be accessed through the `m`-variable.
+				m.forEach((match, groupIndex) => {
+					// console.log(`Found match, group ${groupIndex}: ${match}`);
+					// console.log('counterLines', counterLines, (lineIndexClicked+paramsUntilLineIndexClicked));
+					// check if this line is the one that was clicked
+					if(counterLines == (lineIndexClicked+paramsUntilLineIndexClicked)) {
+						// console.log('line found', offset, offset+1);
+
+						// set caret position at offset
+						element.setSelectionRange( counterChars+offset, counterChars+offset );
+						setTimeout( () => element.focus(), 0 );
+						// TODO: caret position not accurate when lots of text -> do a better count of characters of lineParams and/or carriage returns maybe?
+
+					}
+					// increment counters
+					counterLines++;
+					counterChars += match.length + 1;
+
+				});
+			}
+
 			Template.instance().editing.set( true )
+
+			$('.textAreaContainer').prop('disabled', false)
 
 			let templateInstance = Template.instance()
 
 			//add event listener on window with namespace to remove event listener easily
 			$(window).on('click.outsideTextarea', function(e){
 
+				// console.log('click.outsideTextarea?', e.target);
 				// check if it is not the textarea and if editing is enabled
 				if(!$(e.target).hasClass('textAreaContainer') && templateInstance.editing.get() == true) {
 
+					//store scrollTop of editor
+					let textareaScrollTop = $('.textAreaContainer').get(0).scrollTop
+					// console.log('textareaScrollTop', textareaScrollTop);
+
 					templateInstance.editing.set( false );
+
+					$('.textAreaContainer').prop('disabled', true)
+					//set same scrollTop for textarea
+					setTimeout(function () {
+						$('.editorContainer').get(0).scrollTop = textareaScrollTop
+					}, 100)
 
 					//remove event listener on window
 					$(window).off('click.outsideTextarea')
 
 					// here you should update the db with any
 					// changes. ugh! or flash db and insert anew
+					console.log('click outside', document.getElementsByClassName("textAreaContainer")[0].value);
 					if (document.getElementsByClassName("textAreaContainer")[0].value) {
 						textAreaValue = document.getElementsByClassName("textAreaContainer")[0].value
 						// call parser (../layouts/storyEditor.js)
@@ -82,6 +170,36 @@ Template.editor.events({
 Template.editor.helpers({
 	editMode(){
 	    return Template.instance().editing.get();
+	},
+
+	lineHasPlayers(lineIndex){
+		console.log('lineHasPlayers', this.aiguebename, this.atIndex, lineIndex);
+		return this.atIndex == lineIndex;
+	},
+
+	cursorColor(){
+		// we want to see if michèle & julien are here and
+		// have completed the race, because if not it may
+		// cause bugs.
+		console.log('this?', this);
+		switch(this.aiguebename){
+			case "Michèle Planche":
+			return "#FD971F"
+			break;
+
+			case "Julien Montfalcon":
+			return "#AE81FF"
+
+			default:
+			return "white"
+
+			break;
+		}
+
+	},
+
+	isEditor(){
+		return FlowRouter.current().route.name=="storyEditor";
 	}
 })
 

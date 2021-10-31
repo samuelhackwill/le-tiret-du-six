@@ -14,13 +14,13 @@
 	<div class="flexAdminContainer">
 
 		<!-- here render tracker component  -->
-		<div class="tracker" style="opacity:{{subscriptionsReady}};">
+		<!--<div class="tracker" style="opacity:{{subscriptionsReady}};">
 			{{> tracker allData}}
-		</div>
+		</div>-->
 
 		<div class="adminEditor" style="opacity:{{subscriptionsReady}};">
-		    <!-- render editor with data loaded here -->	
-			{{> editor story}}
+		    <!-- render editor with data loaded here -->
+			{{> editor allData}}
 		</div>
 
 		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
@@ -28,13 +28,13 @@
 		</div>
 
 		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
-			<!-- when a component needs a global, 
+			<!-- when a component needs a global,
 				get it by name.-->
 			{{> spacebarControl globals "spacebar"}}
 		</div>
 
 		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
-			<!-- when a component needs a global, 
+			<!-- when a component needs a global,
 				get it by name.-->
 			{{> rebootControl allData}}
 		</div>

@@ -3,6 +3,7 @@
 	border-color: #2f2f2f;
 	border-radius: 5px;
 
+	position: relative;
 	height: 100%;
 	overflow-y: scroll;
 	overflow-x: wrap;
@@ -26,7 +27,13 @@
 	margin-left: -4px;
 
 	/*we need to align perfectly with the linecontainer
-	element in the editor, which has a padding-bottom of 
+	element in the editor, which has a padding-bottom of
 	15px also.*/
 	padding-bottom: 15px;
+}
+#trackerTH {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
 }

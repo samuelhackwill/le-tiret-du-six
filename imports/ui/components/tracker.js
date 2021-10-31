@@ -12,6 +12,10 @@ Template.tracker.onCreated(function(){
 	queryPlayers.observeChanges({
 		changed: function(id, fields){
 			Tracker.afterFlush(function () {
+
+				console.log('editorTH?', $('#editorTH').height());
+				$('.trackerDummy').css('height', $('#editorTH').height());
+
 				$('.playerPositionMarker').each(function(i,playerPositionMarker){
 					let playerAtIndex = $(playerPositionMarker).attr('data-atIndex')
 					$(playerPositionMarker).css('top', $('#editorTH span.lineIndex[data-lineIndex="'+playerAtIndex+'"]').get(0).offsetTop)
@@ -21,6 +25,7 @@ Template.tracker.onCreated(function(){
 	})
 
 })
+
 
 
 Template.tracker.helpers({

@@ -1,20 +1,34 @@
 <template name="editor">
 
-	<div class="editorContainer scrollBinder">
-		<!-- story contains the data passed on in the inclusion template tag (storyEditor.html)  -->
-		{{#if editMode}}
+
 
 <!-- no indentation here to remove unwanted whitespace -->
-<textarea class="textAreaContainer">{{#each story}}{{#each data}}{{line}}
+{{#if isEditor}}
+<textarea class="textAreaContainer scrollBinder" disabled="{{!editMode}}">{{#each story}}{{#each data}}{{line}}
 {{#each params}}{{#each objectToPairs this}}{{key}} {{value}}{{/each}}
 {{/each}}
 {{/each}}{{/each}}</textarea>
-		{{else}}
+{{/if}}
+<div class="editorContainer scrollBinder">
+	<!-- story contains the data passed on in the inclusion template tag (storyEditor.html)  -->
+
 		<div id="editorTH">
 	 		{{#each story}}
 		 		{{#each data}}
 					<div class="lineContainer">
 						<p class="line"><span class="lineIndex" data-lineIndex="{{@index}}">{{@index}}</span> {{line}} </p>
+
+						<div class="playersContainer">
+							{{#let lineIndex = @index}}
+								{{#each ../../players}}
+									{{#each players}}
+										{{#if lineHasPlayers lineIndex}}
+										<span class="playerPositionMarker" title="{{aiguebename}}" data-atIndex="{{lineIndex}}" style=" color: {{cursorColor}}"> | </span>
+										{{/if}}
+									{{/each}}
+								{{/each}}
+							{{/let}}
+						</div>
 						<div class="paramsContainer">
 							{{#each params}}
 								<div class="lineParams">
@@ -32,6 +46,5 @@
 				{{/each}}
 			{{/each}}
 		</div>
-		{{/if}}
 	</div>
 </template>

@@ -23,10 +23,10 @@ streamer.on('message', function(message) {
 	if(FlowRouter.getRouteName() == "admin" && message.env == environment){
 		switch (message.action){
 			case "showServerCall":
-			// the message.strobeSwitch will be "true" when 
+			// the message.strobeSwitch will be "true" when
 			// the first player calls the strobe, and "false",
 			// when the last players calls the strobe. we add
-			// a little bit of delay (10 seconds) just so the last 
+			// a little bit of delay (10 seconds) just so the last
 			// player can also see the strobe in the room.
 			if (message.strobeSwitch) {
 				document.getElementsByClassName("flexAdminContainer")[0].classList.add("strobe")
@@ -54,9 +54,9 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 	this.subscribe('globals',()=>{
 		// sync local atIndex to DB when arriving
 		instance.data.adminAtIndex = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.adminAtIndex
-	});	
+	});
 	this.subscribe('players')
-	
+
 	instance = this
 });
 
@@ -65,10 +65,17 @@ Template.admin.onRendered(function(){
 	// with the scrolling of the editor component, or else
 	// the lines won't be aligned with the cursors.
 	elems = document.getElementsByClassName("scrollBinder");
+	console.log('elems?', elems);
+	if(elems.length > 1) {
 
-	for (i = 0; i < elems.length; i++) {
-	    elems[i].addEventListener("scroll", doubleScroll);
+		for (i = 0; i < elems.length; i++) {
+			elems[i].addEventListener("scroll", doubleScroll);
+		}
+		console.log('editorTH', $('#editorTH').height());
+		$('.trackerDummy').css('height', $('#editorTH').height());
+
 	}
+
 })
 
 
@@ -103,12 +110,13 @@ Template.admin.helpers({
 			globals:Globals.find({env:environment})
 		}
 	},
+
 })
 
 // this function is called to bind the scrolling of two divs together.
 doubleScroll = function() {
     var top = this.scrollTop;
-
+		console.log('kikoo doubleScroll!');
     for (i = 0; i < elems.length; i++) {
         elems[i].scrollTop=top;
     }
