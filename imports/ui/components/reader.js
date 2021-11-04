@@ -40,30 +40,6 @@ Template.reader.onCreated(function(){
 })
 
 Template.reader.events({
-	"click .invertReadingDir"(){
-		chronologicalReading =! chronologicalReading
-		console.log(chronologicalReading)
-
-	var styles = `
-
-	ul:last-child{
-		color:#2f2f2f;
-	}
-
-	ul:first-child{
-		padding-top:100px;
-		color:white;
-		margin-bottom:20px;
-	}
-
-	`
-
-	var styleSheet = document.createElement("style")
-	styleSheet.type = "text/css"
-	styleSheet.innerText = styles
-	document.head.appendChild(styleSheet)
-
-	},
 
 	"click .qcmResponseClickable"(e){
 		// when someone clicks on a qcm answer, we need to get
