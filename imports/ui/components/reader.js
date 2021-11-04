@@ -22,7 +22,7 @@ const race3MessageStrings3 = ["Le dernier décile, c'est à dire les 10% de pers
 const race3MessageStrings4 = ["Une durée de "," secondes et "," dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
 
 // this defines the direction of text
-let chronologicalReading = true
+let chronologicalReading = false
 // false = antécrhonologique
 // true = chronologique
 
