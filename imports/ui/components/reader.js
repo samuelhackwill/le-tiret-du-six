@@ -10,7 +10,7 @@ import './reader.css';
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
-// so if we always open the website on each computers in the same order, player on the 
+// so if we always open the website on each computers in the same order, player on the
 // left (as seen from the audience) will always be Michèle, and on the right Julien.
 // (left = jardin).
 const firstClientSeated = "left"
@@ -22,7 +22,7 @@ const race3MessageStrings3 = ["Le dernier décile, c'est à dire les 10% de pers
 const race3MessageStrings4 = ["Une durée de "," secondes et "," dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
 
 // this defines the direction of text
-let chronologicalReading = true
+let chronologicalReading = false
 // false = antécrhonologique
 // true = chronologique
 
@@ -34,34 +34,31 @@ Template.reader.onCreated(function(){
 	// i guess it would be better to pull this number
 	// from DB to avoid fatal disconnections
 	instance.data.obj._atIndex = -1
-	// this is where we're going to store all the 
+	// this is where we're going to store all the
 	// qcm answers of players
 	instance.data.obj.answered = []
-})
+
+});
+
+Template.reader.onRendered(function(){
+
+		setTimeout(function(){
+
+			adjustText({
+				elements: document.querySelectorAll('.answersColumn'),
+			});
+
+		}, 1000);
+
+});
 
 Template.reader.events({
 	"click .invertReadingDir"(){
 		chronologicalReading =! chronologicalReading
 		console.log(chronologicalReading)
 
-	var styles = `
+	$('#textColumn').toggleClass('antiChronologicalReading')
 
-	ul:last-child{
-		color:#2f2f2f;
-	}
-
-	ul:first-child{
-		padding-top:100px;
-		color:white;
-		margin-bottom:20px;
-	}
-
-	`
-
-	var styleSheet = document.createElement("style")
-	styleSheet.type = "text/css"
-	styleSheet.innerText = styles
-	document.head.appendChild(styleSheet)
 
 	},
 
@@ -71,8 +68,9 @@ Template.reader.events({
 		var regex = /\d/;
 		// this regex is to get index of answer, which is contained
 		// in e.currentTarget.textContent ("1. réponse numéro une")
-		var index = regex.exec(e.currentTarget.textContent)[0] -1
-
+		// var index = regex.exec(e.currentTarget.textContent)[0] -1
+		var index = e.currentTarget.dataset.answerId
+		console.log('answer index', index);
 		// here we are saving the answer locally
 		instance.data.obj.answered[instance.data.obj.answered.length-1]=index+1
 
@@ -98,7 +96,7 @@ Template.reader.events({
 			this.instance.data.stopped=false
 			// also run the client action defined in the qcmActions array
 			console.log("client action ", qcmActions[index])
-			// here we need to conform to the data structure of 
+			// here we need to conform to the data structure of
 			// clientActions which is expecting an array of objects
 			_params = []
 			_params.push(qcmActions[index])
@@ -142,7 +140,7 @@ clientNext = function(){
 	}
 
 }
- 
+
 adminNext = function(_adminAtIndex) {
 	// update instance_atIndex from function argument
 	// admin is responsible for updating everybody's index
@@ -235,14 +233,14 @@ clientActions = function(_params){
 				}
 
 				// get score from method with callback.
-				Meteor.call("calculateRaceDuration", environment, "race1", _who, 
+				Meteor.call("calculateRaceDuration", environment, "race1", _who,
 					(error, result) =>{
-						loadText(undefined, undefined, 
+						loadText(undefined, undefined,
 							// la personne de xxx (gauche/droite)
-							finishMessageStrings[0]+ _arg+ 
-							// à mis xxx 
-							finishMessageStrings[1]+ result.diffTimeS+ 
-							// secondes et xxx 
+							finishMessageStrings[0]+ _arg+
+							// à mis xxx
+							finishMessageStrings[1]+ result.diffTimeS+
+							// secondes et xxx
 							finishMessageStrings[2]+ result.diffTimeD+
 							// dizièmes à parcourir le texte.
 							finishMessageStrings[3])
@@ -261,12 +259,12 @@ clientActions = function(_params){
 					// we want to stop the stepper in order to save memory
 					instance.data.obj.spaceBarStatus = "reader"
 					// and make the spacebar go to the default mode, in which
-					// it's used to get new lines of text.	
+					// it's used to get new lines of text.
 				}else{
 					// or else we want to start the stepper and make
 					// the spacebar change behaviour
 					Meteor.call("stepperStartCall", environment)
-					instance.data.obj.spaceBarStatus = "racer"					
+					instance.data.obj.spaceBarStatus = "racer"
 					document.getElementsByClassName("racerContainer")[0].style.opacity=1
 					document.getElementsByClassName("readerContainer")[0].style.opacity=0
 				}
@@ -291,7 +289,7 @@ clientActions = function(_params){
 				// load text as response nr 1
 				loadQcm(_arg)
 			break;
-			
+
 			case "#res":
 				// load response in response array
 				qcmResponses.push(_arg)
@@ -314,7 +312,7 @@ clientActions = function(_params){
 				switch(_arg){
 
 					case "get":
-						Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename, 
+						Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename,
 							(error, result) =>{
 								instance.data.obj.race3 = {
 									"mediane":result.mediane,
@@ -331,14 +329,14 @@ clientActions = function(_params){
 						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
 						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
 
-						loadText(undefined, undefined, 
-							// L'indice d'hésitation médian dans la salle est de 
-							race3MessageStrings1[0]+timeSecs+ 
+						loadText(undefined, undefined,
+							// L'indice d'hésitation médian dans la salle est de
+							race3MessageStrings1[0]+timeSecs+
 							// secondes et
-							race3MessageStrings1[1]+timeDecs+ 
+							race3MessageStrings1[1]+timeDecs+
 							// dixièmes (l'indice médian est la valeur qui sépare notre groupe exactement en deux : la moitié des personnes présentes ici ont moins hésité que
 							race3MessageStrings1[2]+timeSecs+
-							// secondes et 
+							// secondes et
 							race3MessageStrings1[3]+timeDecs+
 							// dixièmes, alors que l'autre moitié à plus hésité que
 							race3MessageStrings1[4]+timeSecs+
@@ -360,11 +358,11 @@ clientActions = function(_params){
 							not2 = "pas"
 						}
 
-						loadText(undefined, undefined, 
+						loadText(undefined, undefined,
 							// Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, comprend toutes les personnes qui ont hésité moins de
-							race3MessageStrings2[0]+Dec1Secs+ 
+							race3MessageStrings2[0]+Dec1Secs+
 							// secondes et
-							race3MessageStrings2[1]+Dec1Decs+ 
+							race3MessageStrings2[1]+Dec1Decs+
 							// dixièmes. Vous
 							race3MessageStrings2[2] + not1 +
 							// faites
@@ -385,14 +383,14 @@ clientActions = function(_params){
 							not4 = "pas"
 						}
 
-						loadText(undefined, undefined, 
-							// Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité au moins 
-							race3MessageStrings3[0]+Dec9Secs+ 
+						loadText(undefined, undefined,
+							// Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité au moins
+							race3MessageStrings3[0]+Dec9Secs+
 							// secondes et
-							race3MessageStrings3[1]+Dec9Decs+ 
+							race3MessageStrings3[1]+Dec9Decs+
 							// dixièmes. Vous
 							race3MessageStrings3[2] + not3 +
-							// faites 
+							// faites
 							race3MessageStrings3[3] + not4 +
 							// partie du premier décile.
  							race3MessageStrings3[4]
@@ -404,11 +402,11 @@ clientActions = function(_params){
 					let scoreSec = instance.data.obj.race3.scoreSecs
 					let scoreDec = instance.data.obj.race3.scoreDecs
 
-						loadText(undefined, undefined, 
-							//Une durée de 
-							race3MessageStrings4[0]+scoreSec+ 
-							//secondes et 
-							race3MessageStrings4[1]+scoreDec+ 
+						loadText(undefined, undefined,
+							//Une durée de
+							race3MessageStrings4[0]+scoreSec+
+							//secondes et
+							race3MessageStrings4[1]+scoreDec+
 							//dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
 							race3MessageStrings4[2]
 						)
@@ -420,13 +418,13 @@ clientActions = function(_params){
 				previousAnswer = instance.data.obj.answered[0]
 				if (previousAnswer==1) {
 					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "De la Team sieste."
 					)
 
 				}else{
 					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Des Spacebar athletes."
 					)
 				}
@@ -436,12 +434,12 @@ clientActions = function(_params){
 				previousAnswer = instance.data.obj.answered[0]
 				if (previousAnswer==2) {
 					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "De la Team sieste."
 					)
 				}else{
 					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Des Spacebar athletes."
 					)
 				}
@@ -451,14 +449,14 @@ clientActions = function(_params){
 				previousAnswer = instance.data.obj.answered[0]
 				if (previousAnswer==2) {
 					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste."
 					)
 				}else{
 					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete."
-					)						
+					)
 				}
 			break;
 
@@ -481,6 +479,32 @@ scrollText = function(){
 	if (chronologicalReading) {
 		$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
 	}else{
-		$('#textColumn').scrollTop($('#textColumn')[0])	
+		$('#textColumn').scrollTop($('#textColumn')[0])
 	}
+}
+
+const isOverflown = ({ clientHeight, scrollHeight }) => {
+		console.log(this, scrollHeight, clientHeight);
+	return scrollHeight > clientHeight
+}
+
+const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.01, unit = 'vw' }) => {
+  (elements || [element]).forEach(el => {
+    let i = maxSize
+
+		let overflow = isOverflown(el);
+
+
+		while (overflow && i > minSize) {
+        console.log('overflow?', overflow, `${i}${unit}`);
+        el.style.fontSize = `${i}${unit}`
+        overflow = isOverflown(el)
+
+      if (overflow) i -= step
+			i = parseFloat(i).toFixed(2)
+    }
+
+    // revert to last state where overflow happened
+    // el.style.fontSize = `${i - step}${unit}`
+  })
 }

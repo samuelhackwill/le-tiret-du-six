@@ -14,6 +14,7 @@ import './show.css';
 // components
 import '../components/reader.js';
 import '../components/racer.js';
+import '../components/wordsBank.js';
 
 streamer.on('message', function(message) {
 	// only run if from show layout. Didn't find another way of doing it
@@ -77,7 +78,7 @@ Template.show.onRendered(function(){
 	});
 
 	instance.data.obj.spaceBarStatus = "reader"
-	// spacebar status defaults to "reader" mode, 
+	// spacebar status defaults to "reader" mode,
 	// in which it is used to fetch text.
 
 	document.onkeyup = function(event){
@@ -116,7 +117,7 @@ Template.show.onRendered(function(){
 Template.show.helpers({
 	showData(){
 		/* @todo why is the component rendering with too much data?
-		* @body I don't understand why i can access the "Prod" object 
+		* @body I don't understand why i can access the "Prod" object
 		*/
 		// this returns the story from the db and sends
 		let obj = {

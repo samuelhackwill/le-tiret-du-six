@@ -14,14 +14,21 @@
   font-family: firaCodeLight;
   src: url(/fonts/firaCodeLight.ttf);
 }
-
+html {
+  height: 100%;
+  width: 100%;
+}
 body{
-/*	remove this line asap  */	
+/*	remove this line asap  */
 transition: background-color 1s;
 
+  height: 100%;
+  width: 100%;
 	background-color: #272822;
-	font-family: "firaCodeLight", sans-serif;
+	/* font-family: "firaCodeLight", sans-serif; */
+	font-family: "ubuntu", sans-serif;
 	color: white;
+  margin: 0;
 }
 
 /* shared admin & storyeditor markup */

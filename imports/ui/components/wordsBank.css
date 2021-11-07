@@ -1,0 +1,199 @@
+.wordsBank {
+  font-family: 'Ubuntu Mono';
+	line-height: 1.2;
+}
+.wordsBankContainer {
+  /* border: 4px solid orchid; */
+  position: fixed;
+  height: 100vh;
+  width: calc(100vw - 90px);
+  width: calc(100vw - (90 / 1024 * 100vw));
+  display: flex;
+  /* align-items: center; */
+  transform: translate3d(calc(-100%),0,0);
+  transition: transform 0.8s ease-in-out;
+  box-sizing: border-box;
+  z-index: 1;
+  background-color: #1B1464;
+  flex: 1 1 auto;
+  padding-bottom: 100px;
+  padding-bottom: calc(100 / 600 * 100vh);
+}
+.wordsBankContainer.is-open {
+  transform: translate3d(0,0,0);
+}
+.wordsBankContainer > * {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out -0.4s;
+}
+.wordsBankContainer.is-open > * {
+  opacity: 1;
+  transition: opacity 0.8s ease-in-out 0.4s;
+}
+.toggleWordsBank {
+  font-family: 'ubuntu';
+  position: absolute;
+  top: 0;
+  left: -100vh;
+  transform: rotate(-90deg);
+  transform-origin: top right;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  height: calc(50 / 1024 * 100vw);
+  width: 100vh;
+  background: transparent;
+  color: #666666;
+  cursor: pointer;
+  z-index: 10;
+  border: 0;
+  transition: color 0.8s;
+  font-size: 2vw;
+  font-size: 26px;
+  font-size: 1.82073vw;
+  font-size: calc(18 / 1024 * 100vw);
+}
+.toggleWordsBankBG {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  width: calc(50 / 1024 * 100vw);;
+  height: 100%;
+  /* border: 4px solid orange; */
+  box-sizing: border-box;
+  background: transparent;
+  z-index: 2;
+  mix-blend-mode: multiply;
+  transition: background-color 0.8s;
+}
+
+.toggleWordsBank.is-open {
+  color: #98C12A;
+}
+.toggleWordsBank.is-open + .toggleWordsBankBG {
+  background-color: #CCCCCC;
+}
+
+.toggleWordsBank img {
+  margin-left: 5px;
+  transform: rotate(90deg);
+  mix-blend-mode: multiply;
+}
+
+.closeWordsBank {
+  position: absolute;
+  top: 14px;
+  top: calc(14 / 600 * 100vh);
+  right: 15px;
+  right: calc(15 / 1024 * 100vw);
+  background: linear-gradient(to top left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) calc(50% - 2px), rgba(255,255,255,1) 50%, rgba(0,0,0,0) calc(50% + 2px), rgba(0,0,0,0) 100%), linear-gradient(to top right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) calc(50% - 2px), rgba(255,255,255,1) 50%, rgba(0,0,0,0) calc(50% + 2px), rgba(0,0,0,0) 100%), #272822;
+  border: 3px solid #272822;
+  box-sizing: border-box;
+  width: 23px;
+  height: 23px;
+  /* width: calc(23 / 1024 * 100vw);
+  height: calc(23 / 1024 * 100vw); */
+  padding: 0;
+  cursor: pointer;
+}
+.closeWordsBank:hover,
+.closeWordsBank:focus {
+  outline: 1px solid #98C12A;
+  /* border: 3px solid #98C12A; */
+}
+
+.words {
+  flex-basis: 38%;
+  /* border: 3px solid blue; */
+  box-sizing: border-box;
+  padding-left: 120px;
+  padding-right: 60px;
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(22 / 1024 * 100vw);
+  font-style: italic;
+}
+.words ul {
+  margin-bottom: 0;
+  margin-top: 0;
+  list-style: none;
+  text-align: center;
+}
+.words ul li a {
+  text-decoration: none;
+  color: #666666;
+}
+.words ul li a.is-active {
+  color: white;
+}
+.words ul li a:hover {
+  color: #FFFF00;
+}
+.wordDetails {
+  /* border: 3px solid green; */
+  box-sizing: border-box;
+  padding-right: 130px;
+  flex-basis: auto;
+  font-size: calc(22 / 1024 * 100vw);
+}
+.wordTitle {
+  font-family: 'Avara';
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 20px;
+  font-size: calc(30 / 1024 * 100vw);
+}
+.wordDefinition {
+  color: #FFFF00;
+  text-indent: 80px;
+}
+.wordCitation {
+  color: white;
+  margin: 0;
+}
+.wordCitation blockquote {
+  margin-left: 0;
+  font-style: italic;
+  margin-bottom: 0;
+}
+.wordCitation blockquote p {
+  margin-bottom: 0;
+}
+.wordCitation blockquote p:before,
+.wordCitation blockquote p:after {
+  content: '"';
+}
+.wordCitation figcaption {
+  color: #666666;
+}
+.wordCitation figcaption:before {
+  content: '(';
+}
+.wordCitation figcaption:after {
+  content: ')';
+}
+.wordsBankDetails {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  /* border: 3px solid cyan; */
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: 100px;
+  padding-left: calc(100 / 1024 * 100vw);
+  padding-right: 75px;
+  padding-right: calc(75 / 1024 * 100vw);
+  color: #666666;
+  font-size: calc(18 / 1024 * 100vw);
+  font-style: italic;
+
+}
+#wordsCountPlayer {
+  color: #FFFF00;
+}
