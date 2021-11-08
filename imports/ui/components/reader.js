@@ -470,8 +470,11 @@ scrollText = function(){
 }
 
 startMining = function(){
-	// get all clickable words.
-	_words = allClickableWords
+	// get all clickable words and make them regexps.
+	for (var i = allClickableWords.length - 1; i >= 0; i--) {
+		_words.push("/"+allClickableWords[i]+"/")
+	}
+
 	// get all text lines from reader.
 	_lines = document.getElementsByClassName("readerColumn")[0].children
 
@@ -479,6 +482,8 @@ startMining = function(){
 		// for every line, run a regexp from the words array
 		// update the array when there's a match
 		// and rebuild html as you go.
-		console.log(_lines[i].innerHTML)
+		text = _lines[i].innerHTML
+
+		console.log(_words.every(rx => rx.test(text)))
 	}
 }
