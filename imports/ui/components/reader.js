@@ -6,6 +6,10 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './reader.html';
 import './reader.css';
 
+// for prototyping purposes, we are storing the list of all minable words 
+// in an array rather than in the db
+const allClickableWords = ["de", "eaux", "savoyard", "vous"]
+
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
 // aiguebenames are attributed in sequence : the first client to load
@@ -183,7 +187,11 @@ clientActions = function(_params){
 		// then decide what to do according to the action name.
 		// actions are sorted by chronological appearance during the show.
 		switch (_key){
-			case "#bookmark":
+			case "#bookmark" :
+			break;
+
+			case "#mining" :
+			startMining()
 			break;
 
 			case "#stop" :
@@ -458,5 +466,19 @@ scrollText = function(){
 		$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
 	}else{
 		$('#textColumn').scrollTop($('#textColumn')[0])	
+	}
+}
+
+startMining = function(){
+	// get all clickable words.
+	_words = allClickableWords
+	// get all text lines from reader.
+	_lines = document.getElementsByClassName("readerColumn")[0].children
+
+	for (var i = _lines.length - 1; i >= 0; i--) {
+		// for every line, run a regexp from the words array
+		// update the array when there's a match
+		// and rebuild html as you go.
+		console.log(_lines[i].innerHTML)
 	}
 }
