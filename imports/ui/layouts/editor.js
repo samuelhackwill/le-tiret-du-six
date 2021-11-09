@@ -2,12 +2,14 @@ import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { Story } from '../../api/story/story.js';
+import { Words } from '../../api/words/words.js';
 
 import './editor.html';
 import './editor.css';
 
 // components used inside the template
 import '../components/storyEditor.js';
+import '../components/wordsEditor.js';
 
 
 Template.editor.onCreated(function editorOnCreated() {
@@ -21,6 +23,7 @@ Template.editor.onCreated(function editorOnCreated() {
 	}
 
 	this.subscribe('story');
+	this.subscribe('words');
 
 	instance = Template.instance()
 });
@@ -57,8 +60,18 @@ Template.editor.helpers({
 		if (!instance.subscriptionsReady()) {
 		}else{
 			return{
-				story:Story.find({env:environment})}
+				story:Story.find({env:environment})
+			}
 		}
+	},
+
+	words(){
+		if (!instance.subscriptionsReady()) {
+		}else{
+			return{
+				words:Words.find({env:environment})
+			}
+		}	
 	}
 
 })

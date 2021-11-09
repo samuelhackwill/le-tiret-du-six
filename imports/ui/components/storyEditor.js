@@ -15,7 +15,6 @@ Template.storyEditor.onCreated(function(){
 })
 
 Template.storyEditor.onRendered(function(){
-
 })
 
 Template.storyEditor.events({

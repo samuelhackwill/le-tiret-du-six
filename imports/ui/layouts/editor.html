@@ -1,5 +1,5 @@
 <template name="editor">
-	<div class="editorBody">
+	<div class="editorView">
 		<div class="flexHudContainer">
 			<div class="hud">✍</div>
 			<div class="title"> now editing Story{{env}}. </div>
@@ -12,22 +12,22 @@
 			</div>
 		</div>
 
-		<div class="editorBody" style="opacity:{{subscriptionsReady}};">
-		    <!-- render editor with data loaded here -->	
-			{{> storyEditor story}}
+		<div class="flexEditorContainer">
 
-			<button class="paramsCollapser">
-				collapse params
-			</button>
+			<div class="editorComp" style="opacity:{{subscriptionsReady}};">
+			    <!-- render editor with data loaded here -->	
+				{{> storyEditor story}}
+				<button class="paramsCollapser">
+					collapse params
+				</button>
+			</div>
+
+			<div class="editorComp" style="opacity:{{subscriptionsReady}};">
+				{{> wordsEditor words}}
+			</div>
+			
 		</div>
 
-	</div>
-
-	<div class="editorGuidelines">
-		writing guidelines :
-		<ol> 
-		<li>params arguments should always have a lower-case first letter & camelcase.</li>
-		</ol>
 	</div>
 
 </template>

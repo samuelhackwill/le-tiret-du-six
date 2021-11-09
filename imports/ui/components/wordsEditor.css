@@ -1,4 +1,4 @@
-.storyEditorContainer{
+.wordsEditorContainer{
 	border: solid;
 	border-color: #2f2f2f;
 	background-color:#272822;
@@ -14,47 +14,20 @@
 	/*this is to make the offset top
 	relative to this parent.*/
 	position: relative;
+
+	padding: 10px;
 }
 
-.lineIndex{
-	font-size: x-small;
-	color: grey;
-}
-
-.lineContainer{
-	margin-left:10px;
-}
-
-.paramsContainer{
-	margin-bottom: 15px;
-}
-
-.textAreaContainer{
+.wordsTextAreaContainer{
 	width: 100%;
 	height: 100%;
 }
 
-.lineParams{
-	margin-left:50px;
+.wordsEditorName{
+	color: red;
 }
 
-.params{
-	margin:0px;
-}
-
-.line{
-	margin:0px;
-}
-
-.lineKey{
-	color:red;
-}
-
-.lineValue{
-	color:red;
-}
-
-.bookmark{
-	text-decoration: underline;
+.wordsEditorCitation{
 	font-style: italic;
+	color: #CFCFC2;
 }

@@ -3,18 +3,22 @@
 	background-color:red;
 }
 
-.editorBody{
+.editorView{
+	width: 99vw;
+}
+
+.flexEditorContainer{
+	display: flex;
+	flex-direction: row;
+}
+
+.editorComp{
 	transition: opacity .5s;
 
 	background-color:#272822;
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
 	width: 50vw;
 	border: white;
-	margin-top:10px;
-	margin-bottom:10px;
-	padding-left: 50px;
+	margin:10px;
 
 	height: 75vh;
 }
@@ -22,9 +26,9 @@
 .pleaseWait{
 	color:red;
 	position: absolute;
-	left: 50%;
+	left: 25%;
 	top:50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-25%,-50%);
 }
 
 .paramsCollapser{
