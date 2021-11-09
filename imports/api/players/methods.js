@@ -1,5 +1,5 @@
 import { Players } from './players.js';
-import { playersSchema } from './players.js';
+import { playersSchema } from './players.js';
 
 Meteor.methods({
 	async playerInsert(_env, obj){
