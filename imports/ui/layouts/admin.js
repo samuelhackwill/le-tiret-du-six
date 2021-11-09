@@ -11,7 +11,7 @@ import './admin.html';
 import './admin.css';
 
 // components used inside the template
-import '../components/editor.js';
+import '../components/storyEditor.js';
 import '../components/bookmarksLibrary.js';
 import '../components/spacebarControl.js';
 import '../components/superControl.js';

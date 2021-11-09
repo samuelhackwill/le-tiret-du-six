@@ -1,5 +1,5 @@
-<template name="storyEditor">
-	<div class="storyEditorBody">
+<template name="editor">
+	<div class="editorBody">
 		<div class="flexHudContainer">
 			<div class="hud">✍</div>
 			<div class="title"> now editing Story{{env}}. </div>
@@ -14,7 +14,7 @@
 
 		<div class="editorBody" style="opacity:{{subscriptionsReady}};">
 		    <!-- render editor with data loaded here -->	
-			{{> editor story}}
+			{{> storyEditor story}}
 
 			<button class="paramsCollapser">
 				collapse params

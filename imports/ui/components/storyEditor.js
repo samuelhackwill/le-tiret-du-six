@@ -4,22 +4,22 @@ import { Mongo } from 'meteor/mongo';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { ReactiveVar } from 'meteor/reactive-var';
 
-import './editor.html';
-import './editor.css';
+import './storyEditor.html';
+import './storyEditor.css';
 
 // memory for the collapse button
 collapsed = false
 
-Template.editor.onCreated(function(){
+Template.storyEditor.onCreated(function(){
 	this.editing = new ReactiveVar(false);
 })
 
-Template.editor.onRendered(function(){
+Template.storyEditor.onRendered(function(){
 
 })
 
-Template.editor.events({
-	'click .editorContainer'(e){
+Template.storyEditor.events({
+	'click .storyEditorContainer'(e){
 		// if you're admin, editing is forbidden.
 		// that's to avoid misclicking during the show.
 		if(FlowRouter.current().route.name=="admin"){
@@ -48,7 +48,7 @@ Template.editor.events({
 					// changes. ugh! or flash db and insert anew
 					if (document.getElementsByClassName("textAreaContainer")[0].value) {
 						textAreaValue = document.getElementsByClassName("textAreaContainer")[0].value
-						// call parser (../layouts/storyEditor.js)
+						// call parser (../layouts/storystoryEditor.js)
 						parseAndSendToDb(textAreaValue)
 					}else{
 						console.log("textArea empty.")
@@ -79,7 +79,7 @@ Template.editor.events({
 	}
 })
 
-Template.editor.helpers({
+Template.storyEditor.helpers({
 	editMode(){
 	    return Template.instance().editing.get();
 	}
