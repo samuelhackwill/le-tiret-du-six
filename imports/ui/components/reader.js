@@ -7,8 +7,8 @@ import './reader.html';
 import './reader.css';
 
 // for prototyping purposes, we are storing the list of all minable words 
-// in an array rather than in the db
-const allClickableWords = ["de", "eaux", "savoyard", "vous"]
+// in an array rather than in the db. NOTE! THIS IS CASE SENSITIVE!!!
+const allClickableWords = ["de", "zorg", "zurnjd", "bonjour", "bonsoir"]
 
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
@@ -469,21 +469,40 @@ scrollText = function(){
 	}
 }
 
+
 startMining = function(){
 	// get all clickable words and make them regexps.
-	for (var i = allClickableWords.length - 1; i >= 0; i--) {
-		_words.push("/"+allClickableWords[i]+"/")
+	_words = []
+	for (var k = allClickableWords.length - 1; k >= 0; k--) {
+		_words.push(new RegExp(allClickableWords[k]))
 	}
+
+	console.log("words", _words)
 
 	// get all text lines from reader.
 	_lines = document.getElementsByClassName("readerColumn")[0].children
 
-	for (var i = _lines.length - 1; i >= 0; i--) {
-		// for every line, run a regexp from the words array
-		// update the array when there's a match
-		// and rebuild html as you go.
-		text = _lines[i].innerHTML
+	console.log("lines", _lines)
 
-		console.log(_words.every(rx => rx.test(text)))
+	for (var i = _lines.length - 1; i >= 0; i--) {
+		newLine = []
+		for (var z = _words.length - 1; z >= 0; z--) {
+			let theLine = _lines[i].innerHTML
+			let theWord = _words[z].source
+			let isMatch = theLine.match(_words[z])
+			if (isMatch!=null) {
+				console.log("got a match line ", i, " with word ", theWord)
+				textBefore = theLine.substring(0, (theLine.indexOf(theWord)-theWord.length))
+				textAfter = theLine.substring((theLine.indexOf(theWord))+theWord.length)
+				// let every line know where they are going to have to rebuild
+				newLine.push({textBefore, theWord, textAfter})
+				// as soon as we get a match, we delete the word of the
+				// array so that we're not going to have copies 
+				// of a clickable word.
+				_words.splice(z, 1)
+			}
+		}
+				
+		console.log(newLine)
 	}
 }
