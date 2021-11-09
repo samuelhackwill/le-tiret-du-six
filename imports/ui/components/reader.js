@@ -471,7 +471,14 @@ scrollText = function(){
 
 
 startMining = function(){
-	// get all clickable words and make them regexps.
+	// startmining is called at the beggining of the word mining minigame
+	// locally (via a clientaction). This function parses HTML to subsitute
+	// spans of text with spans containing both intert text and words which
+	// players can click on. These words are spans of spans of letters,
+	// which have different CSS rules and onclick events associated.
+
+	// first get list of words we're going to convert to clickable words
+	// from the DB
 	_words = []
 	for (var k = allClickableWords.length - 1; k >= 0; k--) {
 		_words.push(allClickableWords[k])
@@ -479,26 +486,24 @@ startMining = function(){
 
 	console.log("words", _words)
 
-	// get all text lines from reader.
+	// get all text lines from the HTML.
 	_lines = document.getElementsByClassName("readerColumn")[0].children
 
 	for (var i = _lines.length - 1; i >= 0; i--) {
 		// we need an array of words rather than a string
 		// to use functions like indexOf
 		let theLine = _lines[i].innerHTML.split(/([^A-zÀ-ÿ])/g)
-		// make an empty array in which we're going to store
-		// words of interest
-		let splicedWords = []
+
 		for (var z = _words.length - 1; z >= 0; z--) {
-			// for every word still present in the list of seeked words,
+			// for every word still present in the list of words we want
+			// to make cickable,
 			// check if it's present in the current line of text.
 			let theWord = _words[z]
 			let isMatch = theLine.indexOf(_words[z])
-			// indexOf non-matches return -1
+
 			if (isMatch!=-1) {
+			// if it's the case, replace relevant HTML
 				console.log("got a match line ", i, " with word ", theWord)
-				// store the match in one array per line.
-				// MODIFY THE HTML MOTHER FUCKER
 				theSpanOfSpans = ""
 				for (var g = 0; g < theWord.length; g++) {
 					markupBefore = "<span class='letter'>"
@@ -510,9 +515,9 @@ startMining = function(){
 
 				_lines[i].innerHTML = _lines[i].innerHTML.replace(theWord, "<span class='minable'>"+theSpanOfSpans+"</span>")
 				console.log("modify the HTML of ",_lines[i])
-				splicedWords.push(theWord)
-				// as soon as we get a match, we delete the word of the
-				// array so that we only have one copy of every clickable
+				// and lastly, delete the word of the
+				// array of words we still want to make clickable,
+				// so that we only have one copy of every clickable
 				// word.
 				_words.splice(z, 1)
 			}

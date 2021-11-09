@@ -3,13 +3,17 @@ import { Template } from 'meteor/templating';
 import { Mongo } from 'meteor/mongo';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
-import './rebootControl.html';
-import './rebootControl.css';
+import './superControl.html';
+import './superControl.css';
 
-Template.rebootControl.events({
+Template.superControl.events({
 
 	'click .reboot'(){
 		Meteor.call("rebootCall", environment)
+	}	
+
+	'click .stopMining'(){
+		Meteor.call("stopMiningCall", environment)
 	}	
 
 })

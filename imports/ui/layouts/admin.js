@@ -14,7 +14,7 @@ import './admin.css';
 import '../components/editor.js';
 import '../components/bookmarksLibrary.js';
 import '../components/spacebarControl.js';
-import '../components/rebootControl.js';
+import '../components/superControl.js';
 import '../components/tracker.js';
 
 streamer.on('message', function(message) {
