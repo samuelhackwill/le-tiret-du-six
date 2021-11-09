@@ -8,7 +8,7 @@ import './reader.css';
 
 // for prototyping purposes, we are storing the list of all minable words 
 // in an array rather than in the db. NOTE! THIS IS CASE SENSITIVE!!!
-const allClickableWords = ["de", "zorg", "zurnjd", "bonjour", "bonsoir"]
+const allClickableWords = ["de", "zorg", "zurnjd", "bonjour", "bonsoir", "samuel"]
 
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
@@ -474,7 +474,7 @@ startMining = function(){
 	// get all clickable words and make them regexps.
 	_words = []
 	for (var k = allClickableWords.length - 1; k >= 0; k--) {
-		_words.push(new RegExp(allClickableWords[k]))
+		_words.push(allClickableWords[k])
 	}
 
 	console.log("words", _words)
@@ -482,27 +482,40 @@ startMining = function(){
 	// get all text lines from reader.
 	_lines = document.getElementsByClassName("readerColumn")[0].children
 
-	console.log("lines", _lines)
-
 	for (var i = _lines.length - 1; i >= 0; i--) {
-		newLine = []
+		// we need an array of words rather than a string
+		// to use functions like indexOf
+		let theLine = _lines[i].innerHTML.split(/([^A-zÀ-ÿ])/g)
+		// make an empty array in which we're going to store
+		// words of interest
+		let splicedWords = []
 		for (var z = _words.length - 1; z >= 0; z--) {
-			let theLine = _lines[i].innerHTML
-			let theWord = _words[z].source
-			let isMatch = theLine.match(_words[z])
-			if (isMatch!=null) {
+			// for every word still present in the list of seeked words,
+			// check if it's present in the current line of text.
+			let theWord = _words[z]
+			let isMatch = theLine.indexOf(_words[z])
+			// indexOf non-matches return -1
+			if (isMatch!=-1) {
 				console.log("got a match line ", i, " with word ", theWord)
-				textBefore = theLine.substring(0, (theLine.indexOf(theWord)-theWord.length))
-				textAfter = theLine.substring((theLine.indexOf(theWord))+theWord.length)
-				// let every line know where they are going to have to rebuild
-				newLine.push({textBefore, theWord, textAfter})
+				// store the match in one array per line.
+				// MODIFY THE HTML MOTHER FUCKER
+				theSpanOfSpans = ""
+				for (var g = 0; g < theWord.length; g++) {
+					markupBefore = "<span class='letter'>"
+					markupAfter = "</span>"
+					theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
+					theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
+					theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+				}
+
+				_lines[i].innerHTML = _lines[i].innerHTML.replace(theWord, "<span class='minable'>"+theSpanOfSpans+"</span>")
+				console.log("modify the HTML of ",_lines[i])
+				splicedWords.push(theWord)
 				// as soon as we get a match, we delete the word of the
-				// array so that we're not going to have copies 
-				// of a clickable word.
+				// array so that we only have one copy of every clickable
+				// word.
 				_words.splice(z, 1)
 			}
 		}
-				
-		console.log(newLine)
 	}
 }

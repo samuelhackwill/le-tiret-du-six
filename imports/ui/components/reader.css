@@ -25,6 +25,18 @@ ul:first-child{
 	margin-bottom:20px;
 }
 
+.minable{
+	color: red!important;
+}
+
+.letter{
+	cursor: pointer;
+}
+
+.letter:hover{
+	color: purple!important;
+}
+
 ul{
 	transition: color 4s ease-out;
 	color:#2f2f2f;
