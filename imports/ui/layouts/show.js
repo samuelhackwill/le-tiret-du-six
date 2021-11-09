@@ -47,6 +47,9 @@ streamer.on('message', function(message) {
 				document.getElementsByClassName("readerContainer")[0].style.opacity=1
 			},5000)
 			break;
+
+			case "stopMining":
+			stopMining();
 		}
 	}
 });

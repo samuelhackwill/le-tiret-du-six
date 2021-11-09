@@ -9,11 +9,11 @@ import './superControl.css';
 Template.superControl.events({
 
 	'click .reboot'(){
-		Meteor.call("rebootCall", environment)
-	}	
+		Meteor.call("rebootAdmin", environment)
+	},
 
 	'click .stopMining'(){
-		Meteor.call("stopMiningCall", environment)
+		Meteor.call("stopMiningAdmin", environment)
 	}	
 
 })

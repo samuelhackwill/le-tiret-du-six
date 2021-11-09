@@ -524,3 +524,18 @@ startMining = function(){
 		}
 	}
 }
+
+stopMining = function(){
+	// when we want to terminate the mining game, all we want
+	// to do is remove classes to spans.
+	allMinables = document.getElementsByClassName("minable")
+	allLetters = document.getElementsByClassName("letter")
+
+	for (var i = allMinables.length - 1; i >= 0; i--) {
+		allMinables[i].classList.remove("minable")
+	}
+
+	for (var i = allLetters.length - 1; i >= 0; i--) {
+		allLetters[i].classList.remove("letter")
+	}
+}
