@@ -68,11 +68,11 @@ initiateWords = function(_env){
     __env = _env || null
   if (__env) {
     console.log("Words."+ __env," is empty, inserting document to avoid errors")
-    Words.insert({env:__env, data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)" }]})
+    Words.insert({env:__env, data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)", harvestedLetters:[]}]})
   }else{
     console.log("Words is empty, inserting document to avoid errors")
-    Words.insert({env:"Prod", data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)" }]})
-    Words.insert({env:"Dev", data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)" }]})
+    Words.insert({env:"Prod", data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)", harvestedLetters:[]}]})
+    Words.insert({env:"Dev", data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)", harvestedLetters:[]}]})
   }      
 }
 

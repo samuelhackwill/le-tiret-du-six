@@ -26,20 +26,31 @@ export const wordsSchema = new SimpleSchema({
     blackbox : true
   },
 
-  'data.$.name': {
+  'data.$.name':{
     type: String
   },
 
-  'data.$.text': {
+  'data.$.text':{
     type: String
   },
 
-  'data.$.citation': {
+  'data.$.citation':{
     type: String
   },
 
-  'data.$.author': {
+  'data.$.author':{
     type: String
-  }
+  },
+
+  'data.$.harvestedLetters':{
+    type: Array
+  },
+
+  'data.$.harvestedLetters.$':{
+    type: String,
+    blackbox : true
+  },
+
+
 
 }).newContext();

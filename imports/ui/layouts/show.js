@@ -21,6 +21,14 @@ streamer.on('message', function(message) {
 	// as streamer seems to be a global object and runs everywhere.
 	if(FlowRouter.getRouteName() == "show" && message.env == environment){
 		switch (message.action){
+			case "killLetter":
+			// killLetter(letterId, local)
+			// the first argument is the id of the letter to fade out,
+			// the second argument is false when it's a server call (like now)
+			// and true when the function was called by a click event (locally).
+			killLetter(message.letterId, false)
+			break;
+
 			case "adminSpacebarPress":
 			adminNext(message.adminAtIndex)
 			break;

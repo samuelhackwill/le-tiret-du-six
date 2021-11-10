@@ -120,7 +120,7 @@ parseWordsAndSendToDb = function(obj){
 		insertObj.text = tempArray.shift()
 		insertObj.citation = tempArray.shift()
 		insertObj.author = tempArray.shift()
-
+		insertObj.harvestedLetters = []
 
 		_data.push(insertObj)
 		// push in _data array. When complete, call method.

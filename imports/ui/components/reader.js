@@ -8,7 +8,7 @@ import './reader.css';
 
 // this is the number of clicks someone has to do on a letter
 // to harvest it during the mining game.
-const maxHP = 8
+const maxHP = 24
 
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
@@ -57,7 +57,7 @@ Template.reader.events({
 		}else{
 			e.currentTarget.dataset.hp = hp -1
 			if (hp==0) {
-				console.log("harvest that MF!")
+				killLetter(e.currentTarget.id, true)
 				return
 			}
 		}
@@ -529,7 +529,10 @@ startMining = function(){
 				console.log("got a match line ", i, " with word ", theWord)
 				theSpanOfSpans = ""
 				for (var g = 0; g < theWord.length; g++) {
-					markupBefore = "<span class='letter'>"
+					// id is <word>.<letter>.<index>
+					// for example, for the second "l" in "Elle"
+					// Elle.l.2
+					markupBefore = "<span class='letter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
 					markupAfter = "</span>"
 					theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
 					theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
@@ -546,6 +549,27 @@ startMining = function(){
 			}
 		}
 	}
+}
+
+killLetter = function(letterId, local){
+
+	local = local || false
+
+
+	if (local==true) {
+		// if letter is being killed locally, tell the server
+		// to warn the others!
+		document.getElementById(letterId).classList.remove("letter")
+		document.getElementById(letterId).classList.add("collectedLetter")
+		Meteor.call("letterHarvestCall", environment, letterId)
+	}else{
+		// if the letter is being killed at a distance,
+		// then only do the css modifications but you mustn't
+		// tell the server (he's the one telling us in the first place)
+		document.getElementById(letterId).classList.remove("letter")
+		document.getElementById(letterId).classList.add("collectedLetter")
+	}
+
 }
 
 stopMining = function(){

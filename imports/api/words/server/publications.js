@@ -11,5 +11,10 @@ Meteor.methods({
 	destroyWords(_env){
 		// delete story
 	  	Words.remove({env:_env})
+	},
+
+
+	letterHarvestCall(_env, _letterId){
+		sendMessage({action:"killLetter", letterId:_letterId, env:_env})
 	}
 })
