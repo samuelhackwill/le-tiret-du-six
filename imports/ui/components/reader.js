@@ -10,10 +10,6 @@ import './reader.css';
 // to harvest it during the mining game.
 const maxHP = 8
 
-// for prototyping purposes, we are storing the list of all minable words 
-// in an array rather than in the db. NOTE! THIS IS CASE SENSITIVE!!!
-const allClickableWords = ["pesky", "break", "unbreak", "bonjour", "bonsoir", "samuel"]
-
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
 // aiguebenames are attributed in sequence : the first client to load
@@ -500,10 +496,15 @@ startMining = function(){
 	// which have different CSS rules and onclick events associated.
 
 	// first get list of words we're going to convert to clickable words
-	// from the DB
-	_words = []
-	for (var k = allClickableWords.length - 1; k >= 0; k--) {
-		_words.push(allClickableWords[k])
+	// from the DB. !!! NOTE = WORDS ARE CASE SENSITIVE !!! so if we want
+	// to mine Bonjour, we need a full caps B. if we want to mine a bonjour,
+	// we have to push is as such in the DB.
+
+	const _wordsCollection = this.instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
+	let _words = []
+
+	for (var i = _wordsCollection.length - 1; i >= 0; i--) {
+		_words.push(_wordsCollection[i].name)
 	}
 
 	console.log("words", _words)

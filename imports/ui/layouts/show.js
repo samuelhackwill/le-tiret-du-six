@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { Story } from '../../api/story/story.js';
+import { Words } from '../../api/words/words.js';
 import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
@@ -69,6 +70,7 @@ Template.show.onCreated(function(){
 		// insert a new player
 		playerInit()
 	});
+	this.subscribe('words');
 	this.subscribe('story');
 	this.subscribe('globals');
 })
@@ -124,6 +126,7 @@ Template.show.helpers({
 		// this returns the story from the db and sends
 		let obj = {
 			story : Story.find({"env":environment}),
+			words : Words.find({"env":environment}),
 			globals : Globals.find({"env":environment}),
 			players : Players.find({"env":environment})
 		}
