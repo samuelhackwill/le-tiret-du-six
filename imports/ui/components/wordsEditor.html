@@ -1,24 +1,30 @@
 <template name="wordsEditor">
 	<div class="wordsEditorContainer">
 		{{#if editMode}}
-			<textarea class="wordsTextAreaContainer">{{#each words}}{{#each data}}{{name}}
+<textarea class="wordsTextAreaContainer">{{#each words}}{{#each data}}{{name}}
 {{text}}
 {{citation}}
-{{author}}{{/each}}{{/each}}</textarea>
+{{author}}
+
+{{/each}}
+{{/each}}
+</textarea>
 		{{else}}
 			{{#each words}}
 				{{#each data}}
-					<div class="wordsEditorName">
-						{{name}}
-					</div>
-					<div class="wordsEditorText">
-						{{text}}
-					</div>
-					<div class="wordsEditorCitation">
-						"{{citation}}"
-					</div>
-					<div class="wordsEditorAuthor">
-						{{author}}
+					<div class="wordContainer">
+						<div class="wordsEditorName">
+							{{name}}
+						</div>
+						<div class="wordsEditorText">
+							{{text}}
+						</div>
+						<div class="wordsEditorCitation">
+							{{citation}}
+						</div>
+						<div class="wordsEditorAuthor">
+							{{author}}
+						</div>	
 					</div>
 				{{/each}}
 			{{/each}}

@@ -2,7 +2,7 @@ import { Words } from './words.js';
 import { wordsSchema } from './words.js';
 
 Meteor.methods({
-	async wordsInsert(_obj, _env){
+	async wordsLineInsert(_obj, _env){
 		obj = {env:_env, data:_obj}
 		wordsSchema.validate(obj);
 
