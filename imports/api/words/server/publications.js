@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Words } from '../words.js';
+import { Players } from '../../players/players.js';
 
 Meteor.publish('words', function() {
   return Words.find({});
@@ -14,13 +15,22 @@ Meteor.methods({
 	},
 
 
-	letterHarvestCall(_env, _letterId){
-		_params = _letterId.match(/([A-zÀ-ÿ]+)\W([A-zÀ-ÿ])/)
-		_word = _params[1]
-		_letter = _params[2]
-
+	letterHarvestCall(_env, _letterId ,_word, _letter, _aiguebename){
 		Words.update({env:_env, "data.name":_word}, {$push : {"data.$.harvestedLetters" : _letter} })
 
-		sendMessage({action:"killLetter", letterId:_letterId, env:_env})
+		inventory = Words.find({env:_env}).fetch()[0].data
+		const result = inventory.find( ({ name }) => name === _word );
+
+		console.log("word", _word.length, _word)
+		console.log("harvest", result.harvestedLetters.length, result.harvestedLetters)
+
+		if (result.harvestedLetters.length == _word.length) {
+			console.log("GOTTA KILL DAT WORD")
+			Players.update({env:_env, "players.aiguebename":_aiguebename}, {$push : {["players.$.score.harvest"] : _word}})
+			sendMessage({action:"killLetter", letterId:_letterId, env:_env, lastLetter : true})
+		}else{
+			sendMessage({action:"killLetter", letterId:_letterId, env:_env})
+		}
+
 	}
 })

@@ -26,7 +26,10 @@ streamer.on('message', function(message) {
 			// the first argument is the id of the letter to fade out,
 			// the second argument is false when it's a server call (like now)
 			// and true when the function was called by a click event (locally).
-			killLetter(message.letterId, false)
+			// the third argument is true or false, it's to know when it's 
+			// the last letter which was harvested and thus we must kill the whole
+			// word.
+			killLetter(message.letterId, false, message.lastLetter)
 			break;
 
 			case "adminSpacebarPress":

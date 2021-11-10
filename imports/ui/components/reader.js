@@ -8,7 +8,7 @@ import './reader.css';
 
 // this is the number of clicks someone has to do on a letter
 // to harvest it during the mining game.
-const maxHP = 24
+const maxHP = 3
 
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
@@ -49,8 +49,6 @@ Template.reader.events({
 		const partOfWord = e.currentTarget.parentNode.textContent
 		const letter = e.currentTarget.textContent
 		const hp = e.currentTarget.dataset.hp || null
-
-		console.log(partOfWord, letter, hp)
 
 		if (hp==null){
 			e.currentTarget.dataset.hp = maxHP -1
@@ -551,23 +549,31 @@ startMining = function(){
 	}
 }
 
-killLetter = function(letterId, local){
+killLetter = function(letterId, local, lastLetter){
 
 	local = local || false
+	lastLetter = lastLetter || false
 
+	_params = letterId.match(/([A-zÀ-ÿ]+)\W([A-zÀ-ÿ])/)
+	_word = _params[1]
+	_letter = _params[2]
+
+	document.getElementById(letterId).classList.remove("letter")
+	document.getElementById(letterId).classList.add("collectedLetter")
+
+	if (lastLetter) {
+		console.log("HARVESTING WORD")
+		for (var i = document.getElementById(letterId).parentNode.children.length - 1; i >= 0; i--) {
+			document.getElementById(letterId).parentNode.children[i].classList.remove("collectedLetter")
+		}
+		document.getElementById(letterId).parentNode.classList.remove("minable")
+		document.getElementById(letterId).parentNode.classList.add("collectedWord")
+	}
 
 	if (local==true) {
 		// if letter is being killed locally, tell the server
 		// to warn the others!
-		document.getElementById(letterId).classList.remove("letter")
-		document.getElementById(letterId).classList.add("collectedLetter")
-		Meteor.call("letterHarvestCall", environment, letterId)
-	}else{
-		// if the letter is being killed at a distance,
-		// then only do the css modifications but you mustn't
-		// tell the server (he's the one telling us in the first place)
-		document.getElementById(letterId).classList.remove("letter")
-		document.getElementById(letterId).classList.add("collectedLetter")
+		Meteor.call("letterHarvestCall", environment, letterId, _word, _letter, instance.aiguebename)
 	}
 
 }
