@@ -6,9 +6,13 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './reader.html';
 import './reader.css';
 
+// this is the number of clicks someone has to do on a letter
+// to harvest it during the mining game.
+const maxHP = 8
+
 // for prototyping purposes, we are storing the list of all minable words 
 // in an array rather than in the db. NOTE! THIS IS CASE SENSITIVE!!!
-const allClickableWords = ["de", "zorg", "zurnjd", "bonjour", "bonsoir", "samuel"]
+const allClickableWords = ["pesky", "break", "unbreak", "bonjour", "bonsoir", "samuel"]
 
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
@@ -44,6 +48,24 @@ Template.reader.onCreated(function(){
 })
 
 Template.reader.events({
+
+	"click .letter"(e){
+		const partOfWord = e.currentTarget.parentNode.textContent
+		const letter = e.currentTarget.textContent
+		const hp = e.currentTarget.dataset.hp || null
+
+		console.log(partOfWord, letter, hp)
+
+		if (hp==null){
+			e.currentTarget.dataset.hp = maxHP -1
+		}else{
+			e.currentTarget.dataset.hp = hp -1
+			if (hp==0) {
+				console.log("harvest that MF!")
+				return
+			}
+		}
+	},
 
 	"click .qcmResponseClickable"(e){
 		// when someone clicks on a qcm answer, we need to get

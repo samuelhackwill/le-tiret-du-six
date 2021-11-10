@@ -29,6 +29,23 @@ ul:first-child{
 	color: red!important;
 }
 
+span::-moz-selection { 
+	background: transparent;
+}
+
+span::selection {
+	background: transparent;
+}
+
+ul::-moz-selection { 
+	background: transparent;
+}
+
+ul::selection {
+	background: transparent;
+}
+
+
 .letter{
 	cursor: pointer;
 }
