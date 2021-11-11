@@ -2,15 +2,17 @@ import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { Story } from '../../api/story/story.js';
+import { Words } from '../../api/words/words.js';
 
-import './storyEditor.html';
-import './storyEditor.css';
+import './editor.html';
+import './editor.css';
 
 // components used inside the template
-import '../components/editor.js';
+import '../components/storyEditor.js';
+import '../components/wordsEditor.js';
 
 
-Template.storyEditor.onCreated(function storyEditorOnCreated() {
+Template.editor.onCreated(function editorOnCreated() {
 	// environment can either be "Prod" or "Dev"
 	_environment = FlowRouter.getParam("environment")
 	environment = _environment.charAt(0).toUpperCase()+_environment.slice(1)
@@ -21,11 +23,12 @@ Template.storyEditor.onCreated(function storyEditorOnCreated() {
 	}
 
 	this.subscribe('story');
+	this.subscribe('words');
 
 	instance = Template.instance()
 });
 
-Template.storyEditor.events({
+Template.editor.events({
 
 	'click #🗑'(){
 		Meteor.call("destroyStory", environment)
@@ -51,14 +54,24 @@ Template.storyEditor.events({
 	}
 })
 
-Template.storyEditor.helpers({
+Template.editor.helpers({
 	story(){
 	// this returns the story from the db
 		if (!instance.subscriptionsReady()) {
 		}else{
 			return{
-				story:Story.find({env:environment})}
+				story:Story.find({env:environment})
+			}
 		}
+	},
+
+	words(){
+		if (!instance.subscriptionsReady()) {
+		}else{
+			return{
+				words:Words.find({env:environment})
+			}
+		}	
 	}
 
 })

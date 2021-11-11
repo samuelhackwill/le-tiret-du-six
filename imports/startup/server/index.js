@@ -13,6 +13,10 @@ import { Players } from '../../api/players/players.js';
 import { playerInsert } from '../../api/players/methods.js'
 import { playerDestroy } from '../../api/players/methods.js'
 
+import '/imports/api/words/server/publications.js'
+import { Words } from '../../api/words/words.js';
+import { destroyWords } from '../../api/words/methods.js'
+
 import '/imports/api/streamer/server/publications.js'
 
 // This defines a starting set of data to be loaded if the app is loaded with an empty db.

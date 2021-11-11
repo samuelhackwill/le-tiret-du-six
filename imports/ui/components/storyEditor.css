@@ -1,6 +1,7 @@
-.editorContainer{
+.storyEditorContainer{
 	border: solid;
 	border-color: #2f2f2f;
+	background-color:#272822;
 	border-radius: 5px;
 
 	height: 100%;

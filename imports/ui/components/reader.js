@@ -6,6 +6,10 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './reader.html';
 import './reader.css';
 
+// this is the number of clicks someone has to do on a letter
+// to harvest it during the mining game.
+const maxHP = 3
+
 // this is the text displayed at the end of race 1 (secret solo race)
 const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
 // aiguebenames are attributed in sequence : the first client to load
@@ -40,6 +44,22 @@ Template.reader.onCreated(function(){
 })
 
 Template.reader.events({
+
+	"click .letter"(e){
+		const partOfWord = e.currentTarget.parentNode.textContent
+		const letter = e.currentTarget.textContent
+		const hp = e.currentTarget.dataset.hp || null
+
+		if (hp==null){
+			e.currentTarget.dataset.hp = maxHP -1
+		}else{
+			e.currentTarget.dataset.hp = hp -1
+			if (hp==0) {
+				killLetter(e.currentTarget.id, true)
+				return
+			}
+		}
+	},
 
 	"click .qcmResponseClickable"(e){
 		// when someone clicks on a qcm answer, we need to get
@@ -183,7 +203,11 @@ clientActions = function(_params){
 		// then decide what to do according to the action name.
 		// actions are sorted by chronological appearance during the show.
 		switch (_key){
-			case "#bookmark":
+			case "#bookmark" :
+			break;
+
+			case "#mining" :
+			startMining()
 			break;
 
 			case "#stop" :
@@ -458,5 +482,138 @@ scrollText = function(){
 		$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
 	}else{
 		$('#textColumn').scrollTop($('#textColumn')[0])	
+	}
+}
+
+
+startMining = function(){
+	// startmining is called at the beggining of the word mining minigame
+	// locally (via a clientaction). This function parses HTML to subsitute
+	// spans of text with spans containing both "intert" text and words which
+	// players can click on. These words are spans of spans of letters,
+	// which have different CSS rules and onclick events associated.
+
+	// first get list of words we're going to convert to clickable words
+	// from the DB. !!! NOTE = WORDS ARE CASE SENSITIVE !!! so if we want
+	// to mine "Bonjour", we need a full caps B.
+
+	const _wordsCollection = this.instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
+	let _words = []
+
+	for (var i = _wordsCollection.length - 1; i >= 0; i--) {
+		// we musn't look for words that have been collected already.
+		// players ariving late musn't see them as clickable.
+		if (_wordsCollection[i].name == undefined || _wordsCollection[i].name.length == _wordsCollection[i].harvestedLetters.length ) {
+			console.log("this word ", _wordsCollection[i], " was already collected, or it's an empty word caused by trailing lines in the editor")
+		}else{
+			_words.push(_wordsCollection[i].name)
+		}
+	}
+
+	console.log("words", _words)
+
+	// we need all the lines from the HTML so we can look for specific
+	// words to transform their markup
+	_lines = document.getElementsByClassName("readerColumn")[0].children
+
+	for (var i = _lines.length - 1; i >= 0; i--) {
+		// we need an array of words rather than a string
+		// to use functions like indexOf
+		let theLine = _lines[i].innerHTML.split(/([^A-zÀ-ÿ])/g)
+
+		for (var z = _words.length - 1; z >= 0; z--) {
+			// for every word still present in the list of words we want
+			// to make cickable,
+			// check if it's present in the current line of text.
+			let theWord = _words[z]
+			let isMatch = theLine.indexOf(_words[z])
+
+			if (isMatch!=-1) {
+			// if it's the case, replace relevant HTML
+				console.log("got a match line ", i, " with word ", theWord)
+				theSpanOfSpans = ""
+				for (var g = 0; g < theWord.length; g++) {
+					// id is <word>.<letter>.<index>
+					// for example, for the second "l" in "Elle"
+					// Elle.l.2
+
+					// we also need to check if every particular letter was
+					// already harvested by someone.
+
+					harvest = _wordsCollection.find(str => str.name === theWord).harvestedLetters
+					thatLetterIsHarvested = harvest.indexOf(theWord[g])
+
+					console.log("harvest ", harvest)
+					console.log("thatLetterIsHarvested ", theWord[g] , thatLetterIsHarvested)
+
+					if (thatLetterIsHarvested !=-1) {
+						console.log("this letter was already harvested")
+						markupBefore = "<span class='collectedLetter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
+						markupAfter = "</span>"
+						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
+						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
+						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+					}else{					
+						markupBefore = "<span class='letter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
+						markupAfter = "</span>"
+						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
+						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
+						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+					}
+				}
+
+				_lines[i].innerHTML = _lines[i].innerHTML.replace(theWord, "<span class='minable'>"+theSpanOfSpans+"</span>")
+				console.log("modify the HTML of ",_lines[i])
+				// and lastly, delete the word of the
+				// array of words we still want to make clickable,
+				// so that we only have one copy of every clickable
+				// word.
+				_words.splice(z, 1)
+			}
+		}
+	}
+}
+
+killLetter = function(letterId, local, lastLetter){
+
+	local = local || false
+	lastLetter = lastLetter || false
+
+	_params = letterId.match(/([A-zÀ-ÿ]+)\W([A-zÀ-ÿ])/)
+	_word = _params[1]
+	_letter = _params[2]
+
+	document.getElementById(letterId).classList.remove("letter")
+	document.getElementById(letterId).classList.add("collectedLetter")
+
+	if (lastLetter) {
+		console.log("HARVESTING WORD")
+		for (var i = document.getElementById(letterId).parentNode.children.length - 1; i >= 0; i--) {
+			document.getElementById(letterId).parentNode.children[i].classList.remove("collectedLetter")
+		}
+		document.getElementById(letterId).parentNode.classList.remove("minable")
+		document.getElementById(letterId).parentNode.classList.add("collectedWord")
+	}
+
+	if (local==true) {
+		// if letter is being killed locally, tell the server
+		// to warn the others!
+		Meteor.call("letterHarvestCall", environment, letterId, _word, _letter, instance.aiguebename)
+	}
+
+}
+
+stopMining = function(){
+	// when we want to terminate the mining game, all we want
+	// to do is remove classes to spans.
+	allMinables = document.getElementsByClassName("minable")
+	allLetters = document.getElementsByClassName("letter")
+
+	for (var i = allMinables.length - 1; i >= 0; i--) {
+		allMinables[i].classList.remove("minable")
+	}
+
+	for (var i = allLetters.length - 1; i >= 0; i--) {
+		allLetters[i].classList.remove("letter")
 	}
 }

@@ -1,5 +1,5 @@
 import { Story } from './story.js';
-import { storySchema } from './story.js';
+import { storySchema } from './story.js';
 
 Meteor.methods({
 	async storyLineInsert(_obj, _env){

@@ -23,5 +23,9 @@ Meteor.methods({
 		Players.update({env:_env}, {$set : {"players.$[].atIndex" : _atIndex} })
 
 		sendMessage({action:"adminSpacebarPress", adminAtIndex:_atIndex, env:_env})
+	},
+
+	stopMiningAdmin(_env){
+		sendMessage({action:"stopMining", env:_env})
 	}
 })

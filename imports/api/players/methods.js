@@ -1,5 +1,5 @@
 import { Players } from './players.js';
-import { playersSchema } from './players.js';
+import { playersSchema } from './players.js';
 
 Meteor.methods({
 	async playerInsert(_env, obj){
@@ -42,7 +42,7 @@ Meteor.methods({
 		console.log("is alreadyStarted undefined?", isRaceStarted==undefined)
 		startOrFinish = isRaceStarted ? "finish" : "start"
 
-		Players.update({env:_env, "players.aiguebename":_aiguebename}, {$set : {["players.$.score."+_whichRace+"."+startOrFinish] : time} })
+		Players.update({env:_env, "players.aiguebename":_aiguebename}, {$set : {["players.$.score."+_whichRace+"."+startOrFinish] : time}})
 	},
 
 	showServerCall(_env){

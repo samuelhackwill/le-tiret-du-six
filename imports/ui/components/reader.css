@@ -25,6 +25,43 @@ ul:first-child{
 	margin-bottom:20px;
 }
 
+.minable{
+	color: red;
+}
+
+span::-moz-selection { 
+	background: transparent;
+}
+
+span::selection {
+	background: transparent;
+}
+
+ul::-moz-selection { 
+	background: transparent;
+}
+
+ul::selection {
+	background: transparent;
+}
+
+
+.letter{
+	cursor: pointer;
+}
+
+.letter:hover{
+	color: purple!important;
+}
+
+.collectedLetter{
+	color: #4d4d4d;
+}
+
+.collectedWord{
+	color: #2f2f2f!important;
+}
+
 ul{
 	transition: color 4s ease-out;
 	color:#2f2f2f;

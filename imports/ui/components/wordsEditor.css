@@ -1,0 +1,37 @@
+.wordsEditorContainer{
+	border: solid;
+	border-color: #2f2f2f;
+	background-color:#272822;
+	border-radius: 5px;
+
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: wrap;
+
+	scrollbar-color: darkgrey #2f2f2f;
+	scrollbar-width: thin;
+
+	/*this is to make the offset top
+	relative to this parent.*/
+	position: relative;
+
+	padding: 10px;
+}
+
+.wordContainer{
+	margin-bottom: 20px;
+}
+
+.wordsTextAreaContainer{
+	width: 100%;
+	height: 100%;
+}
+
+.wordsEditorName{
+	color: red;
+}
+
+.wordsEditorCitation{
+	font-style: italic;
+	color: #CFCFC2;
+}
