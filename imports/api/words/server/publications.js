@@ -21,11 +21,7 @@ Meteor.methods({
 		inventory = Words.find({env:_env}).fetch()[0].data
 		const result = inventory.find( ({ name }) => name === _word );
 
-		console.log("word", _word.length, _word)
-		console.log("harvest", result.harvestedLetters.length, result.harvestedLetters)
-
 		if (result.harvestedLetters.length == _word.length) {
-			console.log("GOTTA KILL DAT WORD")
 			Players.update({env:_env, "players.aiguebename":_aiguebename}, {$push : {["players.$.score.harvest"] : _word}})
 			sendMessage({action:"killLetter", letterId:_letterId, env:_env, lastLetter : true})
 		}else{

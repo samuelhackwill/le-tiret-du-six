@@ -489,25 +489,31 @@ scrollText = function(){
 startMining = function(){
 	// startmining is called at the beggining of the word mining minigame
 	// locally (via a clientaction). This function parses HTML to subsitute
-	// spans of text with spans containing both intert text and words which
+	// spans of text with spans containing both "intert" text and words which
 	// players can click on. These words are spans of spans of letters,
 	// which have different CSS rules and onclick events associated.
 
 	// first get list of words we're going to convert to clickable words
 	// from the DB. !!! NOTE = WORDS ARE CASE SENSITIVE !!! so if we want
-	// to mine Bonjour, we need a full caps B. if we want to mine a bonjour,
-	// we have to push is as such in the DB.
+	// to mine "Bonjour", we need a full caps B.
 
 	const _wordsCollection = this.instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
 	let _words = []
 
 	for (var i = _wordsCollection.length - 1; i >= 0; i--) {
-		_words.push(_wordsCollection[i].name)
+		// we musn't look for words that have been collected already.
+		// players ariving late musn't see them as clickable.
+		if (_wordsCollection[i].name == undefined || _wordsCollection[i].name.length == _wordsCollection[i].harvestedLetters.length ) {
+			console.log("this word ", _wordsCollection[i], " was already collected, or it's an empty word caused by trailing lines in the editor")
+		}else{
+			_words.push(_wordsCollection[i].name)
+		}
 	}
 
 	console.log("words", _words)
 
-	// get all text lines from the HTML.
+	// we need all the lines from the HTML so we can look for specific
+	// words to transform their markup
 	_lines = document.getElementsByClassName("readerColumn")[0].children
 
 	for (var i = _lines.length - 1; i >= 0; i--) {
@@ -530,11 +536,30 @@ startMining = function(){
 					// id is <word>.<letter>.<index>
 					// for example, for the second "l" in "Elle"
 					// Elle.l.2
-					markupBefore = "<span class='letter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
-					markupAfter = "</span>"
-					theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
-					theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
-					theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+
+					// we also need to check if every particular letter was
+					// already harvested by someone.
+
+					harvest = _wordsCollection.find(str => str.name === theWord).harvestedLetters
+					thatLetterIsHarvested = harvest.indexOf(theWord[g])
+
+					console.log("harvest ", harvest)
+					console.log("thatLetterIsHarvested ", theWord[g] , thatLetterIsHarvested)
+
+					if (thatLetterIsHarvested !=-1) {
+						console.log("this letter was already harvested")
+						markupBefore = "<span class='collectedLetter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
+						markupAfter = "</span>"
+						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
+						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
+						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+					}else{					
+						markupBefore = "<span class='letter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
+						markupAfter = "</span>"
+						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
+						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
+						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+					}
 				}
 
 				_lines[i].innerHTML = _lines[i].innerHTML.replace(theWord, "<span class='minable'>"+theSpanOfSpans+"</span>")
