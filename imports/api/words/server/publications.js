@@ -2,6 +2,12 @@ import { Meteor } from 'meteor/meteor';
 import { Words } from '../words.js';
 import { Players } from '../../players/players.js';
 
+// we're keeping count of harvested words 
+// to end the mining mini-game when no words
+// are left. I'm using a variable rather than
+// querying the DB because i'm lazy
+let harvestedWordsCounter = 0
+
 Meteor.publish('words', function() {
   return Words.find({});
 });
@@ -24,6 +30,13 @@ Meteor.methods({
 		if (result.harvestedLetters.length == _word.length) {
 			Players.update({env:_env, "players.aiguebename":_aiguebename}, {$push : {["players.$.score.harvest"] : _word}})
 			sendMessage({action:"killLetter", letterId:_letterId, env:_env, lastLetter : true})
+
+			harvestedWordsCounter = harvestedWordsCounter +1
+			if (harvestedWordsCounter >= inventory.length) {
+				harvestedWordsCounter = 0
+				console.log("MINING SHOULD PROBABLY BE OVER!")
+			}
+
 		}else{
 			sendMessage({action:"killLetter", letterId:_letterId, env:_env})
 		}
