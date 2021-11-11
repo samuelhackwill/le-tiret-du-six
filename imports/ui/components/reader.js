@@ -10,20 +10,12 @@ import './reader.css';
 // to harvest it during the mining game.
 const maxHP = 3
 
-// this is the text displayed at the end of race 1 (secret solo race)
-const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
 // so if we always open the website on each computers in the same order, player on the 
 // left (as seen from the audience) will always be Michèle, and on the right Julien.
 // (left = jardin).
 const firstClientSeated = "left"
-
-// this is the text displayed at the end of race 3 (hesitation race)
-const race3MessageStrings1 = ["L'indice d'hésitation médian dans la salle est de "," secondes et "," dixièmes (l'indice médian est la valeur qui sépare notre groupe exactement en deux : la moitié des personnes présentes ici ont moins hésité que "," secondes et "," dixièmes, alors que l'autre moitié à plus hésité que "," secondes et "," dixièmes.)"]
-const race3MessageStrings2 = ["Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, comprend toutes les personnes qui ont hésité exactement "," secondes et "," dixièmes ou moins. Vous "," faites "," partie du premier décile."]
-const race3MessageStrings3 = ["Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité exactement "," secondes et "," dixièmes ou plus. Vous "," faites "," partie du dernier décile."]
-const race3MessageStrings4 = ["Une durée de "," secondes et "," dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
 
 // this defines the direction of text
 let chronologicalReading = false
@@ -238,15 +230,10 @@ clientActions = function(_params){
 				Meteor.call("calculateRaceDuration", environment, "race1", _who, 
 					(error, result) =>{
 						loadText(undefined, undefined, 
-							// la personne de xxx (gauche/droite)
-							finishMessageStrings[0]+ _arg+ 
-							// à mis xxx 
-							finishMessageStrings[1]+ result.diffTimeS+ 
-							// secondes et xxx 
-							finishMessageStrings[2]+ result.diffTimeD+
-							// dizièmes à parcourir le texte.
-							finishMessageStrings[3])
-				})
+							`La personne de ${_arg} a mis ${result.diffTimeS} 
+							secondes et ${result.diffTimeD} dixièmes à parcourir 
+							le texte.`)
+					})
 			break;
 
 			case "#serverstrobe":
@@ -331,22 +318,12 @@ clientActions = function(_params){
 						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
 						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
 
-						loadText(undefined, undefined, 
-							// L'indice d'hésitation médian dans la salle est de 
-							race3MessageStrings1[0]+timeSecs+ 
-							// secondes et
-							race3MessageStrings1[1]+timeDecs+ 
-							// dixièmes (l'indice médian est la valeur qui sépare notre groupe exactement en deux : la moitié des personnes présentes ici ont moins hésité que
-							race3MessageStrings1[2]+timeSecs+
-							// secondes et 
-							race3MessageStrings1[3]+timeDecs+
-							// dixièmes, alors que l'autre moitié à plus hésité que
-							race3MessageStrings1[4]+timeSecs+
-							// secondes et
-							race3MessageStrings1[5]+timeDecs+
-							// dixièmes.)"]
-							race3MessageStrings1[6]
-							)
+						loadText(undefined, undefined, 							 
+`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et 
+${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe 
+exactement en deux : la moitié des personnes présentes ici ont moins hésité que 
+${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus 
+hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
 					break;
 
 					case "2":
@@ -361,17 +338,11 @@ clientActions = function(_params){
 						}
 
 						loadText(undefined, undefined, 
-							// Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, comprend toutes les personnes qui ont hésité moins de
-							race3MessageStrings2[0]+Dec1Secs+ 
-							// secondes et
-							race3MessageStrings2[1]+Dec1Decs+ 
-							// dixièmes. Vous
-							race3MessageStrings2[2] + not1 +
-							// faites
-							race3MessageStrings2[3] + not2 +
-							// partie du dernier décile.
- 							race3MessageStrings2[4]
-							)
+`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, 
+comprend toutes les personnes qui ont hésité exactement ${Dec1Secs} 
+secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie 
+du premier décile.`
+						)
 					break;
 
 					case "3":
@@ -386,17 +357,11 @@ clientActions = function(_params){
 						}
 
 						loadText(undefined, undefined, 
-							// Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité au moins 
-							race3MessageStrings3[0]+Dec9Secs+ 
-							// secondes et
-							race3MessageStrings3[1]+Dec9Decs+ 
-							// dixièmes. Vous
-							race3MessageStrings3[2] + not3 +
-							// faites 
-							race3MessageStrings3[3] + not4 +
-							// partie du premier décile.
- 							race3MessageStrings3[4]
-							)
+`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, 
+comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes 
+et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du 
+dernier décile.`
+						)
 
 					break;
 
@@ -405,12 +370,9 @@ clientActions = function(_params){
 					let scoreDec = instance.data.obj.race3.scoreDecs
 
 						loadText(undefined, undefined, 
-							//Une durée de 
-							race3MessageStrings4[0]+scoreSec+ 
-							//secondes et 
-							race3MessageStrings4[1]+scoreDec+ 
-							//dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
-							race3MessageStrings4[2]
+`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée 
+entre l'instant où la question s'est affichée sur votre écran et le 
+moment où vous y avez répondu.`
 						)
 					break;
 				}
