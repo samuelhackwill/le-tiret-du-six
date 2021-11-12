@@ -54,40 +54,30 @@ Template.reader.events({
 	},
 
 	"click .clickableAnswer"(e){
-		// when someone clicks on a qcm answer, we need to get
-		// the answer from the qcmResponses array (see client Actions).
-		var regex = /\d/;
-		// this regex is to get index of answer, which is contained
-		// in e.currentTarget.textContent ("1. réponse numéro une")
-		var index = regex.exec(e.currentTarget.textContent)[0] -1
+		// the client actions that we must launch are written down
+		// in the data-attributes of element.
+		_action = e.target.dataset.onclickAction
+		_args = e.target.dataset.onclickArg
 
-		// here we are saving the answer locally
-		instance.data.obj.answered[instance.data.obj.answered.length-1]=index+1
-
+		// once an answer was selected, hide all the other answers
+		// BUT the one which was chosen. We are going to have to 
+		// change this behaviour when the new HTML markup is produced
+		// by étchenne.
 		var allAnswers = document.getElementsByClassName("answer")
 
 		for (var i = allAnswers.length - 1; i >= 0; i--) {
-			// hide all answers but the one that's just been chosen
-			if (i!==index) {
-				allAnswers[i].style.opacity = 0
-			}
-		}
-
-		for (var i = allAnswers.length - 1; i >= 0; i--) {
-			// also make these answers unclickable
-			allAnswers[i].classList.remove("clickableAnswer")
+				allAnswers[i].style.display = "none"
 		}
 
 		Meteor.setTimeout(function(){
-			// unstop the spacebar.
+			// unstop the spacebar so that people can
+			// carry on getting lines of text.
 			this.instance.data.stopped=false
-			// also run the client action defined in the qcmActions array
-			console.log("client action ", qcmActions[index])
 			// here we need to conform to the data structure of 
 			// clientActions which is expecting an array of objects
-			_params = []
-			_params.push(qcmActions[index])
-			clientActions(_params)
+			params = []
+			params.push({[_action]:[_args]})
+			clientActions(params)
 		},500)
 
 	}
@@ -120,12 +110,10 @@ clientActions = function(_params){
 			break;
 
 			case "#stop" :
-				console.log("going into parking.")
 				this.instance.data.stopped = true
 			break;
 
 			case "#logtime" :
-				console.log("logging time for ", _arg)
 				// we are only using one method, which first saves the
 				// start time of the race, then the finish time.
 				Meteor.call("playerLogTime", environment, instance.aiguebename, _arg)
@@ -135,7 +123,6 @@ clientActions = function(_params){
 				// _arg is either left or right. The player seated left
 				// should be Michèle Planche, and on the right Julien Montfalcon.
 				// see lines 13-18 of reader.js for further information.
-				console.log("results of race1 personne de ", _arg)
 
 				if (firstClientSeated=="left") {
 					_who = _arg=="left" ? "Michèle Planche" : "Julien Montfalcon"
@@ -177,34 +164,21 @@ clientActions = function(_params){
 			break;
 
 			case "#answer":
-				// we need an empty array to store the text which is going to
-				// appear when someone answers to a question
-				qcmResponses = []
-				// we also need an object to store the "client actions" which
-				// going to be launched on qcm response.
-				qcmActions = []
-				// what's more, we need to store the player's answers somewhere
-				instance.data.obj.answered.push("")
-
-				// we also want to stop the spacebar until question is answered.
-				console.log("going into parking.")
+			// this line is responsible for displaying the answers one at a time.
+			// we should rename this clientAction "displayAnswer"
 				this.instance.data.stopped = true
-
 				loadAnswer(_arg)
-
+			break;
 
 			case "#act":
-			// maybe what ACT should do is stuff data-attributes to the HTML non?
-				console.log(_arg)
-				// qcmResponses.push(_arg)
-				// // load action in actions array
-				// regex = /(^\S+)\s(\S+$)/
-				// // group 1 = <#logtime> (client actions key)
-				// // group 2 = <race3> (client actions _arg)
-				// _result = regex.exec(_arg)
-				// _obj = {}
-				// _obj[_result[1]]=_result[2]
-				// qcmActions.push(_obj)
+			// this is responsible for hydratation of answers. we should rename this 
+			// clientAction "writeAnswerTriggers" or something like that
+				let regexp = /(^#\S+)\s(.+)/;
+				_argArr = _arg.split(regexp)
+
+				document.getElementById("textColumn").lastChild.dataset.onclickAction = _argArr[1]			
+				document.getElementById("textColumn").lastChild.dataset.onclickArg = _argArr[2]		
+		
 			break;
 
 			case "#race3results" :
@@ -454,7 +428,7 @@ loadText = function(_Story, index, rawText){
 	scrollText()
 }
 
-loadAnswer = function(rawText){
+loadAnswer = function(rawText, action){
     $('#textColumn').append($('<ul class="answer clickableAnswer"/>').html(rawText))
 	scrollText()
 	endOfArray = document.getElementsByClassName("answer").length -1
