@@ -390,8 +390,22 @@ dice = function(_arg){
 	// this means they are betting on a dice roll.
 	// if they win their bet, they go to a particular section of
 	// text, and if they loose, they go to another one.
-	let rollNeeded = 10
-	let failOrPass = "(échec)"
+
+	// first, we need to read the args to know what is the 
+	// aimed score, and to which section of text we are going 
+	// to go in case of sucess/failure.
+
+	// this hellish regex should be able to capture text like this :
+	// <10 debut debut.un>
+	// <10> is the score needed to pass the thow
+	// <"debut"> is the bookmark to go to in case of success
+	// <"debut.un"> is the bookmark to go to in case of failure
+	let regexp = /(\d+)\s+([A-zÀ-ÿ\.]+)\s+([A-zÀ-ÿ\.]+)/
+	let _argArr = _arg[0].split(regexp)
+
+	let rollNeeded = Number(_argArr[1])
+	let gotoSuccess = _argArr[2]
+	let gotoFail = _argArr[3]
 
 	let diceContainer = document.createElement("div")
 	diceContainer.classList.add("diceContainer")
@@ -420,6 +434,9 @@ dice = function(_arg){
 	let timeInterval = 10
 	let counter = 0
 
+	let fail = false
+	let result = ""
+
 	function rollTheDice(){
 
 		randomVal1 = Math.floor(Math.random()*6)+1
@@ -430,22 +447,36 @@ dice = function(_arg){
 
 		diceRoll = randomVal1 + randomVal2
 
-		if (diceRoll>=rollNeeded) {
-			failOrPass="(Réussite)!"
-		}else{
-			failOrPass="(Échec)."	
-		}
-
-		message = `Résultat des dés : ${diceRoll}.
-		score minimum à faire : ${rollNeeded}
-		${failOrPass}`
-
 		console.log(randomVal1, randomVal2, diceRoll)
 
 		roller = setTimeout(function(){
 			if (counter>=20) {
 				window.clearTimeout(roller)
-				loadText(undefined, undefined, message)
+				setTimeout(function(){
+
+					if (diceRoll>=rollNeeded) {
+						fail=false
+						result = "(Réussite!)"
+					}else{
+						fail=true	
+						result = "(Échec.)"
+					}
+
+					message = `Résultat des dés : ${diceRoll}.
+					score minimum à faire : ${rollNeeded}
+					${result}`
+
+					loadText(undefined, undefined, message)
+					setTimeout(function(){
+						params = []
+						if (fail) {
+							params.push({["#goto"]:[gotoFail]})
+						}else{
+							params.push({["#goto"]:[gotoSuccess]})
+						}
+						clientActions(params)
+					},500)
+				},200)
 			}else{
 				timeInterval += 5
 				counter ++
