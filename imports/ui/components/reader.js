@@ -53,7 +53,7 @@ Template.reader.events({
 		}
 	},
 
-	"click .qcmResponseClickable"(e){
+	"click .clickableAnswer"(e){
 		// when someone clicks on a qcm answer, we need to get
 		// the answer from the qcmResponses array (see client Actions).
 		var regex = /\d/;
@@ -64,7 +64,7 @@ Template.reader.events({
 		// here we are saving the answer locally
 		instance.data.obj.answered[instance.data.obj.answered.length-1]=index+1
 
-		var allAnswers = document.getElementsByClassName("qcmResponse")
+		var allAnswers = document.getElementsByClassName("answer")
 
 		for (var i = allAnswers.length - 1; i >= 0; i--) {
 			// hide all answers but the one that's just been chosen
@@ -75,14 +75,11 @@ Template.reader.events({
 
 		for (var i = allAnswers.length - 1; i >= 0; i--) {
 			// also make these answers unclickable
-			allAnswers[i].classList.remove("qcmResponseClickable")
+			allAnswers[i].classList.remove("clickableAnswer")
 		}
 
 		Meteor.setTimeout(function(){
-			// we're loading the answer which loadText which takes raw text
-			// after two undefined args.
-			loadText(undefined, undefined, qcmResponses[index])
-			// also unstop the spacebar.
+			// unstop the spacebar.
 			this.instance.data.stopped=false
 			// also run the client action defined in the qcmActions array
 			console.log("client action ", qcmActions[index])
@@ -106,9 +103,15 @@ clientActions = function(_params){
 		_arg = Object.values(_params[i])[0]
 		_key = Object.keys(_params[i])[0]
 
+		console.log("client actions : ",_key, _arg)
+
 		// then decide what to do according to the action name.
 		// actions are sorted by chronological appearance during the show.
 		switch (_key){
+			case "#goto" :
+			goto(_arg);
+			break;
+
 			case "#bookmark" :
 			break;
 
@@ -173,7 +176,7 @@ clientActions = function(_params){
 				}
 			break;
 
-			case "#qcm":
+			case "#answer":
 				// we need an empty array to store the text which is going to
 				// appear when someone answers to a question
 				qcmResponses = []
@@ -186,27 +189,22 @@ clientActions = function(_params){
 				// we also want to stop the spacebar until question is answered.
 				console.log("going into parking.")
 				this.instance.data.stopped = true
-			break;
 
-			case "#rep":
-				// load text as response nr 1
-				loadQcm(_arg)
-			break;
-			
-			case "#res":
-				// load response in response array
-				qcmResponses.push(_arg)
-			break;
+				loadAnswer(_arg)
+
 
 			case "#act":
-				// load action in actions array
-				regex = /(^\S+)\s(\S+$)/
-				// group 1 = <#logtime> (client actions key)
-				// group 2 = <race3> (client actions _arg)
-				_result = regex.exec(_arg)
-				_obj = {}
-				_obj[_result[1]]=_result[2]
-				qcmActions.push(_obj)
+			// maybe what ACT should do is stuff data-attributes to the HTML non?
+				console.log(_arg)
+				// qcmResponses.push(_arg)
+				// // load action in actions array
+				// regex = /(^\S+)\s(\S+$)/
+				// // group 1 = <#logtime> (client actions key)
+				// // group 2 = <race3> (client actions _arg)
+				// _result = regex.exec(_arg)
+				// _obj = {}
+				// _obj[_result[1]]=_result[2]
+				// qcmActions.push(_obj)
 			break;
 
 			case "#race3results" :
@@ -385,6 +383,29 @@ clientNext = function(){
 	}
 
 }
+
+goto = function(_arg){
+	// this function is used to jump to a bookmark during the 
+	// dicussion at the plage. It's somehow redundant with the 
+	// admin gotobookmark, should refactor at some point.
+
+	// carefull, one should not use this function directly in 
+	// plainsam text, because if this clientaction is prompted
+	// by a spacebar press, it will glitch one line of text.
+
+	_Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
+
+	for (var i = 0; i < _Story.length; i++) {
+		_params = _Story[i].params || []
+		for (var j = _params.length - 1; j >= 0; j--) {
+			if (Object.keys(_params[j])[0] == "#bookmark" && Object.values(_params[j])[0] == _arg) {
+				console.log("FOUND BOOKMARK, going to ", i)
+				instance.data.obj._atIndex = i
+				loadText(_Story, i)
+			}
+		}
+	}
+}
  
 adminNext = function(_adminAtIndex) {
 	// update instance_atIndex from function argument
@@ -433,11 +454,11 @@ loadText = function(_Story, index, rawText){
 	scrollText()
 }
 
-loadQcm = function(rawText){
-    $('#textColumn').append($('<ul class="qcmResponse qcmResponseClickable"/>').html(rawText))
+loadAnswer = function(rawText){
+    $('#textColumn').append($('<ul class="answer clickableAnswer"/>').html(rawText))
 	scrollText()
-	endOfArray = document.getElementsByClassName("qcmResponse").length -1
-	document.getElementsByClassName("qcmResponse")[endOfArray].style.opacity=1
+	endOfArray = document.getElementsByClassName("answer").length -1
+	document.getElementsByClassName("answer")[endOfArray].style.opacity=1
 }
 
 scrollText = function(){
