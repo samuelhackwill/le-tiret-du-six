@@ -78,7 +78,7 @@ Template.reader.events({
 			params = []
 			params.push({[_action]:[_args]})
 			clientActions(params)
-		},500)
+		},0)
 
 	}
 
@@ -100,6 +100,10 @@ clientActions = function(_params){
 		switch (_key){
 			case "#goto" :
 			goto(_arg);
+			break;			
+
+			case "#dice" :
+			dice(_arg);
 			break;
 
 			case "#bookmark" :
@@ -379,6 +383,78 @@ goto = function(_arg){
 			}
 		}
 	}
+}
+
+dice = function(_arg){
+	// when players click on a line of text with a "dice" action,
+	// this means they are betting on a dice roll.
+	// if they win their bet, they go to a particular section of
+	// text, and if they loose, they go to another one.
+	let rollNeeded = 10
+	let failOrPass = "(échec)"
+
+	let diceContainer = document.createElement("div")
+	diceContainer.classList.add("diceContainer")
+
+	let dice = document.createElement("div")
+	dice.classList.add("dice")
+	let diceFace = document.createElement("div")
+	diceFace.id="diceFace1"
+	diceFace.classList.add("dice-2")
+	dice.appendChild(diceFace)
+
+	let dice2 = document.createElement("div")
+	dice2.classList.add("dice")
+	let diceFace2 = document.createElement("div")
+	diceFace2.id="diceFace2"
+	diceFace2.classList.add("dice-2")
+	dice2.appendChild(diceFace2)
+
+	diceContainer.appendChild(dice)
+	diceContainer.appendChild(dice2)
+
+	const parent = document.getElementById("textColumn")
+
+	parent.insertBefore(diceContainer, parent.firstChild)
+
+	let timeInterval = 10
+	let counter = 0
+
+	function rollTheDice(){
+
+		randomVal1 = Math.floor(Math.random()*6)+1
+		randomVal2 = Math.floor(Math.random()*6)+1
+
+		document.getElementById("diceFace1").className = "dice-"+(randomVal1)
+		document.getElementById("diceFace2").className = "dice-"+(randomVal2)
+
+		diceRoll = randomVal1 + randomVal2
+
+		if (diceRoll>=rollNeeded) {
+			failOrPass="(Réussite)!"
+		}else{
+			failOrPass="(Échec)."	
+		}
+
+		message = `Résultat des dés : ${diceRoll}.
+		score minimum à faire : ${rollNeeded}
+		${failOrPass}`
+
+		console.log(randomVal1, randomVal2, diceRoll)
+
+		roller = setTimeout(function(){
+			if (counter>=20) {
+				window.clearTimeout(roller)
+				loadText(undefined, undefined, message)
+			}else{
+				timeInterval += 5
+				counter ++
+				rollTheDice()
+			}
+		},timeInterval)
+	}
+
+	rollTheDice()
 }
  
 adminNext = function(_adminAtIndex) {

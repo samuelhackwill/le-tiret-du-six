@@ -1,24 +1,18 @@
-Vous êtes arrivé.e au bout du chemin
+ok
 
-c'est inatendu
+vous voulez aller où?
+#answer tout début svp, je sais que c'est plus dur.
+#act #dice debut.win 6 debut.fail
+#prev
 
-vous êtes dans l'avant-pays savoyard (vous avez repéré le blason de la savoie sur un panneau à l'entrée d'un village).
+debut fail
+#bookmark debut.fail
 
-Vous vous trouvez actuellement à proximité du lac d'Aiguebelette. Vous ne sentez plus du tout de présente malveillante. Vous vous sentez au contraire apaisé.e par la beauté du décor qui vous entoure.
-#bookmark tout.debut
+bon ben vous êtes mauvais.e.
+#stop
 
-L'immobilité, le vent qui souffle dans la ramée, les montagnes.
+debut win
+#bookmark debut.win
+#loot business vous êtes hollandais.e, c'est vous qui avez inventé le capitalisme. 
 
-Mais ou sont les eaux tant vantées du lac? (vous avez vu un panneau marron sur l'autoroute)
-
-Vous aperçevez sur la gauche qu'un chemin quitte la route et qu'un accès à une plage semble possible. Il s'agit d'une plage communale.
-
-vous vous approchez de l’entrée de la plage. Un portail en acier, qu’on a eu la coquetterie de peindre en vert turquoise, vous barre le passage. Quelqu’un.e a verrouillé la porte d’entrée à l’aide d’un gros cadenas de laiton.
-
-Vous tirez la porte par aquit de conscience mais elle ne bouge pas du tout. Vous touchez le cadenas, ce qui vous donne immédiatement la confirmation qu’il serait impossible de le casser à mains nues, ou en le mordant. C’est bien un vrai cadenas.
-
-Quelqu’un.e s’oppose à vos plans de ballade. Quelqu’un.e se dresse entre vous et la nature. Mais aussi : quelqu’un.e a les clés de ce cadenas.
-
-alors que vous commencez à vous poser la question, inévitable, de l’identité de la personne s’étant rendue responsable de ce crime, un bruit sur votre gauche trahit la présence immédiate du gérant de la plage, qui, gants de travail aux mains, est en train de ranger du bois dans un petit appenti à proximité de sa maison (son garage).
-#answer le gérant travaille pour la mairie, la mairie pour le peuple, et le peuple c’est moi! Il a le devoir de répondre à mes questions.
-#act #goto tout.debut
+bonb en vout êtes trop fort.e.

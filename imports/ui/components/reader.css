@@ -96,3 +96,100 @@ ul{
 .blueTxt{
 	color: blue !important;
 }
+
+.diceContainer{
+	margin-left: 40px;
+}
+
+.dice {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 12.5px;
+    border: 2px solid black;
+    position: relative;
+    background-color: whitesmoke;
+    margin: 10px;
+}
+
+.dice-1 {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    display: inline-block; }
+
+.dice-2 {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 32.5px;
+    left: 7.5px;
+    display: inline-block;
+    box-shadow:25px -25px black;
+}
+
+
+.dice-3 {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    display: inline-block;
+    box-shadow:-12.5px 12.5px black,
+                12.5px -12.5px black;
+}
+
+.dice-4 {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 32.5px;
+    left: 7.5px;
+    display: inline-block;
+    box-shadow:25px 0px black,
+                0px -25px black,
+                25px -25px black;
+}
+
+
+.dice-5 {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 5px);
+    left: calc(50% - 5px);
+    display: inline-block;
+    box-shadow: 12.5px 12.5px black,
+                -12.5px 12.5px black,
+                12.5px -12.5px black,
+                -12.5px -12.5px black;
+}
+
+.dice-6 {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 32.5px;
+    left: 7.5px;
+    display: inline-block;
+    box-shadow:25px 0px black,
+                0px -12.5px black,
+                0px -25px black,
+                25px -12.5px black,
+                25px -25px black;
+}
