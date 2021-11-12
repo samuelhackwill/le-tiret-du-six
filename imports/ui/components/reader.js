@@ -10,26 +10,6 @@ import './reader.css';
 // to harvest it during the mining game.
 const maxHP = 3
 
-const race3results1 = `L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et 
-${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe 
-exactement en deux : la moitié des personnes présentes ici ont moins hésité que 
-${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus 
-hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`
-
-const race3results2 = `Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, 
-comprend toutes les personnes qui ont hésité exactement ${Dec1Secs} 
-secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie 
-du premier décile.`
-
-const race3results3 = `Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, 
-comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes 
-et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du 
-dernier décile.`
-
-const race3results4 = `Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée 
-entre l'instant où la question s'est affichée sur votre écran et le 
-moment où vous y avez répondu.`
-
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
 // so if we always open the website on each computers in the same order, player on the 
@@ -252,7 +232,12 @@ clientActions = function(_params){
 						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
 						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
 
-						loadText(undefined, undefined, race3results1)
+						loadText(undefined, undefined, 							 
+`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et 
+${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe 
+exactement en deux : la moitié des personnes présentes ici ont moins hésité que 
+${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus 
+hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
 					break;
 
 					case "2":
@@ -266,7 +251,12 @@ clientActions = function(_params){
 							not2 = "pas"
 						}
 
-						loadText(undefined, undefined, race3results2)
+						loadText(undefined, undefined, 
+`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, 
+comprend toutes les personnes qui ont hésité exactement ${Dec1Secs} 
+secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie 
+du premier décile.`
+						)
 					break;
 
 					case "3":
@@ -280,7 +270,12 @@ clientActions = function(_params){
 							not4 = "pas"
 						}
 
-						loadText(undefined, undefined, race3results3)
+						loadText(undefined, undefined, 
+`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, 
+comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes 
+et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du 
+dernier décile.`
+						)
 
 					break;
 
@@ -288,7 +283,11 @@ clientActions = function(_params){
 					let scoreSec = instance.data.obj.race3.scoreSecs
 					let scoreDec = instance.data.obj.race3.scoreDecs
 
-						loadText(undefined, undefined, race3results4)
+						loadText(undefined, undefined, 
+`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée 
+entre l'instant où la question s'est affichée sur votre écran et le 
+moment où vous y avez répondu.`
+						)
 					break;
 				}
 			break;
