@@ -114,6 +114,10 @@ clientActions = function(_params){
 			loot(_arg)
 			break;
 
+			case "#end" : 
+			end(_arg)
+			break;
+
 			case "#bookmark" :
 			break;
 
@@ -436,7 +440,20 @@ loot = function(_arg){
 
 }
 
-dice = function(_arg, modifiers, end){
+end = function(_arg){
+	let regexp = /(\d+)\s+([A-zÀ-ÿ\.]+)\s+([A-zÀ-ÿ\.]+)/
+	let _argArr = _arg[0].split(regexp)
+
+	let rollNeeded = Number(_argArr[1])
+	let gotoSuccess = _argArr[2]
+	let gotoFail = _argArr[3]
+
+	_modifier = instance.data.obj.modifiers.find(str => str.name === gotoSuccess).modifier
+
+	dice(_arg, _modifier)
+}
+
+dice = function(_arg, _modifier){
 	// when players click on a line of text with a "dice" action,
 	// this means they are betting on a dice roll.
 	// if they win their bet, they go to a particular section of
@@ -453,6 +470,7 @@ dice = function(_arg, modifiers, end){
 	// <"debut.un"> is the bookmark to go to in case of failure
 	let regexp = /(\d+)\s+([A-zÀ-ÿ\.]+)\s+([A-zÀ-ÿ\.]+)/
 	let _argArr = _arg[0].split(regexp)
+	modifier = Number(_modifier) || 0
 
 	let rollNeeded = Number(_argArr[1])
 	let gotoSuccess = _argArr[2]
@@ -500,9 +518,13 @@ dice = function(_arg, modifiers, end){
 		document.getElementById("diceFace1").className = "dice-"+(randomVal1)
 		document.getElementById("diceFace2").className = "dice-"+(randomVal2)
 
-		diceRoll = randomVal1 + randomVal2
+		diceRoll = randomVal1 + randomVal2 + modifier
 
-		console.log(randomVal1, randomVal2, diceRoll)
+		if (modifier == 0) {
+			diceRollExplanation = "."
+		}else{
+			diceRollExplanation = ", ("+(diceRoll-modifier)+ " + bonus "+modifier+")"
+		}
 
 		roller = setTimeout(function(){
 			if (counter>=20) {
@@ -517,7 +539,8 @@ dice = function(_arg, modifiers, end){
 						result = "(Échec.)"
 					}
 
-					message = `Résultat des dés : ${diceRoll}.
+
+					message = `Résultat des dés : ${diceRoll}${diceRollExplanation}
 					score minimum à faire : ${rollNeeded}
 					${result}`
 
