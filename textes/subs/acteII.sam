@@ -1,18 +1,20 @@
 ok
 
-vous voulez aller où?
-#answer tout début svp, je sais que c'est plus dur.
-#act #dice debut.win 6 debut.fail
-#prev
-
 debut fail
 #bookmark debut.fail
 
-bon ben vous êtes mauvais.e.
-#stop
+vous voulez aller où?
+#answer tout début svp, je sais que c'est plus dur.
+#act #dice 3 debut.win debut.fail
 
 debut win
 #bookmark debut.win
-#loot business vous êtes hollandais.e, c'est vous qui avez inventé le capitalisme. 
+#loot 1 fin.business vous vous êtes fait.e passer pour un.e hollandais.e
 
-bonb en vout êtes trop fort.e.
+want some more loot?
+
+here is some more loot
+#loot 1 fin.business vous êtes super.
+
+and more loot still (for another ending)
+#loot 1 fin.police vous êtes un condé

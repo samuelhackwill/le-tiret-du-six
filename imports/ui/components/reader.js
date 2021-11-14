@@ -33,6 +33,10 @@ Template.reader.onCreated(function(){
 	// this is where we're going to store all the 
 	// qcm answers of players
 	instance.data.obj.answered = []
+	// we need to store what loot the players have
+	// gained in order to modify the dice rolls they are
+	// going to do at the end.
+	instance.data.obj.modifiers = []
 })
 
 Template.reader.events({
@@ -104,6 +108,10 @@ clientActions = function(_params){
 
 			case "#dice" :
 			dice(_arg);
+			break;
+
+			case "#loot" :
+			loot(_arg)
 			break;
 
 			case "#bookmark" :
@@ -385,7 +393,50 @@ goto = function(_arg){
 	}
 }
 
-dice = function(_arg){
+loot = function(_arg){
+	// some line of text, when they are read, give a bonus for
+	// dice rolls at the very end of the sequence. This function
+	// is responsible for storing the loot in the client.
+
+	// the score is stored in that format : 
+	// instance.data.obj.modifiers
+	// > Array [ {…}, {…} ]
+	// >	0: Object { name: "fin.business", modifier: 2 }
+	// >	1: Object { name: "fin.police", modifier: 1 }
+
+	// <#loot> <1> <fin.business> <vous vous êtes fait.e passer pour un.e hollandais.e>
+	// 0 : empty string
+	// 1 : modifier
+	// 2 : ending for which the modifier will be applied
+	// 3 : reminder of why this modifier is applied
+	// 4 : another empty string ;)
+	let regexp = /(\d)\s+([A-zÀ-ÿ\.]+)\s+(.+)/
+	_argArray = _arg.split(regexp)
+
+	console.log(_argArray)
+
+	modifier = _argArray[1]
+	ending = _argArray[2]
+	reminder = _argArray[3]
+
+	console.log(ending)
+
+	const lootIsPresent = instance.data.obj.modifiers.find(str=>str.name===ending)
+
+
+	if (lootIsPresent) {
+		obj = instance.data.obj.modifiers.find(str=>str.name===ending)
+		score = Number(obj.modifier) + 1
+		obj.modifier = score
+	}else{
+		console.log("pushing ", ending, modifier)
+		instance.data.obj.modifiers.push({name : [ending][0], modifier : Number([modifier][0])})
+	}
+
+
+}
+
+dice = function(_arg, modifiers, end){
 	// when players click on a line of text with a "dice" action,
 	// this means they are betting on a dice roll.
 	// if they win their bet, they go to a particular section of
@@ -407,6 +458,7 @@ dice = function(_arg){
 	let gotoSuccess = _argArr[2]
 	let gotoFail = _argArr[3]
 
+	// we need to add animated html dices
 	let diceContainer = document.createElement("div")
 	diceContainer.classList.add("diceContainer")
 
@@ -431,6 +483,9 @@ dice = function(_arg){
 
 	parent.insertBefore(diceContainer, parent.firstChild)
 
+	// we want to animate the dice to look like they are KIND OF
+	// rolling. We are going to use a function called by a recursive
+	// timeout with increasing timeInterval.
 	let timeInterval = 10
 	let counter = 0
 
