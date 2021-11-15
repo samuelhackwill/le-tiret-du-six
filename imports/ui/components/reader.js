@@ -6,20 +6,16 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './reader.html';
 import './reader.css';
 
-// this is the text displayed at the end of race 1 (secret solo race)
-const finishMessageStrings = ["La personne de "," a mis "," secondes et "," dixièmes à parcourir le texte."]
+// this is the number of clicks someone has to do on a letter
+// to harvest it during the mining game.
+const maxHP = 3
+
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
 // so if we always open the website on each computers in the same order, player on the
 // left (as seen from the audience) will always be Michèle, and on the right Julien.
 // (left = jardin).
 const firstClientSeated = "left"
-
-// this is the text displayed at the end of race 3 (hesitation race)
-const race3MessageStrings1 = ["L'indice d'hésitation médian dans la salle est de "," secondes et "," dixièmes (l'indice médian est la valeur qui sépare notre groupe exactement en deux : la moitié des personnes présentes ici ont moins hésité que "," secondes et "," dixièmes, alors que l'autre moitié à plus hésité que "," secondes et "," dixièmes.)"]
-const race3MessageStrings2 = ["Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, comprend toutes les personnes qui ont hésité exactement "," secondes et "," dixièmes ou moins. Vous "," faites "," partie du premier décile."]
-const race3MessageStrings3 = ["Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité exactement "," secondes et "," dixièmes ou plus. Vous "," faites "," partie du dernier décile."]
-const race3MessageStrings4 = ["Une durée de "," secondes et "," dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
 
 // this defines the direction of text
 let chronologicalReading = false
@@ -37,8 +33,11 @@ Template.reader.onCreated(function(){
 	// this is where we're going to store all the
 	// qcm answers of players
 	instance.data.obj.answered = []
+  // we need to store what loot the players have
+	// gained in order to modify the dice rolls they are
+	// going to do at the end.
+	instance.data.obj.modifiers = []
 
-});
 
 Template.reader.onRendered(function(){
 
@@ -49,59 +48,55 @@ Template.reader.onRendered(function(){
 			});
 
 		}, 1000);
-
-});
+})
 
 Template.reader.events({
-	"click .invertReadingDir"(){
-		chronologicalReading =! chronologicalReading
-		console.log(chronologicalReading)
 
-	$('#textColumn').toggleClass('antiChronologicalReading')
+	// $('#textColumn').toggleClass('antiChronologicalReading')
+  // is this the correct place to put this?
 
+	"click .letter"(e){
+		const partOfWord = e.currentTarget.parentNode.textContent
+		const letter = e.currentTarget.textContent
+		const hp = e.currentTarget.dataset.hp || null
 
-	},
-
-	"click .qcmResponseClickable"(e){
-		// when someone clicks on a qcm answer, we need to get
-		// the answer from the qcmResponses array (see client Actions).
-		var regex = /\d/;
-		// this regex is to get index of answer, which is contained
-		// in e.currentTarget.textContent ("1. réponse numéro une")
-		// var index = regex.exec(e.currentTarget.textContent)[0] -1
-		var index = e.currentTarget.dataset.answerId
-		console.log('answer index', index);
-		// here we are saving the answer locally
-		instance.data.obj.answered[instance.data.obj.answered.length-1]=index+1
-
-		var allAnswers = document.getElementsByClassName("qcmResponse")
-
-		for (var i = allAnswers.length - 1; i >= 0; i--) {
-			// hide all answers but the one that's just been chosen
-			if (i!==index) {
-				allAnswers[i].style.opacity = 0
+		if (hp==null){
+			e.currentTarget.dataset.hp = maxHP -1
+		}else{
+			e.currentTarget.dataset.hp = hp -1
+			if (hp==0) {
+				killLetter(e.currentTarget.id, true)
+				return
 			}
 		}
+	},
+
+	"click .clickableAnswer"(e){
+		// the client actions that we must launch are written down
+		// in the data-attributes of element.
+		_action = e.target.dataset.onclickAction
+		_args = e.target.dataset.onclickArg
+
+		// once an answer was selected, hide all the other answers
+		// BUT the one which was chosen. We are going to have to 
+		// change this behaviour when the new HTML markup is produced
+		// by étchenne.
+		var allAnswers = document.getElementsByClassName("answer")
 
 		for (var i = allAnswers.length - 1; i >= 0; i--) {
-			// also make these answers unclickable
-			allAnswers[i].classList.remove("qcmResponseClickable")
+				allAnswers[i].style.display = "none"
 		}
 
 		Meteor.setTimeout(function(){
-			// we're loading the answer which loadText which takes raw text
-			// after two undefined args.
-			loadText(undefined, undefined, qcmResponses[index])
-			// also unstop the spacebar.
+			// unstop the spacebar so that people can
+			// carry on getting lines of text.
 			this.instance.data.stopped=false
-			// also run the client action defined in the qcmActions array
-			console.log("client action ", qcmActions[index])
-			// here we need to conform to the data structure of
+			// here we need to conform to the data structure of 
 			// clientActions which is expecting an array of objects
-			_params = []
-			_params.push(qcmActions[index])
-			clientActions(_params)
-		},500)
+			params = []
+			params.push({[_action]:[_args]})
+			clientActions(params)
+		},0)
 
 	}
 
@@ -202,19 +197,39 @@ clientActions = function(_params){
 		_arg = Object.values(_params[i])[0]
 		_key = Object.keys(_params[i])[0]
 
+		console.log("client actions : ",_key, _arg)
+
 		// then decide what to do according to the action name.
 		// actions are sorted by chronological appearance during the show.
 		switch (_key){
-			case "#bookmark":
+			case "#goto" :
+			goto(_arg);
+			break;			
+
+			case "#dice" :
+			dice(_arg);
+			break;
+
+			case "#loot" :
+			loot(_arg)
+			break;
+
+			case "#end" : 
+			end(_arg)
+			break;
+
+			case "#bookmark" :
+			break;
+
+			case "#mining" :
+			startMining()
 			break;
 
 			case "#stop" :
-				console.log("going into parking.")
 				this.instance.data.stopped = true
 			break;
 
 			case "#logtime" :
-				console.log("logging time for ", _arg)
 				// we are only using one method, which first saves the
 				// start time of the race, then the finish time.
 				Meteor.call("playerLogTime", environment, instance.aiguebename, _arg)
@@ -224,7 +239,6 @@ clientActions = function(_params){
 				// _arg is either left or right. The player seated left
 				// should be Michèle Planche, and on the right Julien Montfalcon.
 				// see lines 13-18 of reader.js for further information.
-				console.log("results of race1 personne de ", _arg)
 
 				if (firstClientSeated=="left") {
 					_who = _arg=="left" ? "Michèle Planche" : "Julien Montfalcon"
@@ -235,16 +249,11 @@ clientActions = function(_params){
 				// get score from method with callback.
 				Meteor.call("calculateRaceDuration", environment, "race1", _who,
 					(error, result) =>{
-						loadText(undefined, undefined,
-							// la personne de xxx (gauche/droite)
-							finishMessageStrings[0]+ _arg+
-							// à mis xxx
-							finishMessageStrings[1]+ result.diffTimeS+
-							// secondes et xxx
-							finishMessageStrings[2]+ result.diffTimeD+
-							// dizièmes à parcourir le texte.
-							finishMessageStrings[3])
-				})
+						loadText(undefined, undefined, 
+							`La personne de ${_arg} a mis ${result.diffTimeS} 
+							secondes et ${result.diffTimeD} dixièmes à parcourir 
+							le texte.`)
+					})
 			break;
 
 			case "#serverstrobe":
@@ -270,40 +279,22 @@ clientActions = function(_params){
 				}
 			break;
 
-			case "#qcm":
-				// we need an empty array to store the text which is going to
-				// appear when someone answers to a question
-				qcmResponses = []
-				// we also need an object to store the "client actions" which
-				// going to be launched on qcm response.
-				qcmActions = []
-				// what's more, we need to store the player's answers somewhere
-				instance.data.obj.answered.push("")
-
-				// we also want to stop the spacebar until question is answered.
-				console.log("going into parking.")
+			case "#answer":
+			// this line is responsible for displaying the answers one at a time.
+			// we should rename this clientAction "displayAnswer"
 				this.instance.data.stopped = true
-			break;
-
-			case "#rep":
-				// load text as response nr 1
-				loadQcm(_arg)
-			break;
-
-			case "#res":
-				// load response in response array
-				qcmResponses.push(_arg)
+				loadAnswer(_arg)
 			break;
 
 			case "#act":
-				// load action in actions array
-				regex = /(^\S+)\s(\S+$)/
-				// group 1 = <#logtime> (client actions key)
-				// group 2 = <race3> (client actions _arg)
-				_result = regex.exec(_arg)
-				_obj = {}
-				_obj[_result[1]]=_result[2]
-				qcmActions.push(_obj)
+			// this is responsible for hydratation of answers. we should rename this 
+			// clientAction "writeAnswerTriggers" or something like that
+				let regexp = /(^#\S+)\s(.+)/;
+				_argArr = _arg.split(regexp)
+
+				document.getElementById("textColumn").lastChild.dataset.onclickAction = _argArr[1]			
+				document.getElementById("textColumn").lastChild.dataset.onclickArg = _argArr[2]		
+		
 			break;
 
 			case "#race3results" :
@@ -329,23 +320,13 @@ clientActions = function(_params){
 						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
 						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
 
-						loadText(undefined, undefined,
-							// L'indice d'hésitation médian dans la salle est de
-							race3MessageStrings1[0]+timeSecs+
-							// secondes et
-							race3MessageStrings1[1]+timeDecs+
-							// dixièmes (l'indice médian est la valeur qui sépare notre groupe exactement en deux : la moitié des personnes présentes ici ont moins hésité que
-							race3MessageStrings1[2]+timeSecs+
-							// secondes et
-							race3MessageStrings1[3]+timeDecs+
-							// dixièmes, alors que l'autre moitié à plus hésité que
-							race3MessageStrings1[4]+timeSecs+
-							// secondes et
-							race3MessageStrings1[5]+timeDecs+
-							// dixièmes.)"]
-							race3MessageStrings1[6]
-							)
-					break;
+            loadText(undefined, undefined, 							 
+`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et 
+${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe 
+exactement en deux : la moitié des personnes présentes ici ont moins hésité que 
+${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus 
+hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
+            break;
 
 					case "2":
 						let Dec1Secs = Math.floor((instance.data.obj.race3.decile1)/1000)
@@ -358,18 +339,12 @@ clientActions = function(_params){
 							not2 = "pas"
 						}
 
-						loadText(undefined, undefined,
-							// Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, comprend toutes les personnes qui ont hésité moins de
-							race3MessageStrings2[0]+Dec1Secs+
-							// secondes et
-							race3MessageStrings2[1]+Dec1Decs+
-							// dixièmes. Vous
-							race3MessageStrings2[2] + not1 +
-							// faites
-							race3MessageStrings2[3] + not2 +
-							// partie du dernier décile.
- 							race3MessageStrings2[4]
-							)
+						loadText(undefined, undefined, 
+`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, 
+comprend toutes les personnes qui ont hésité exactement ${Dec1Secs} 
+secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie 
+du premier décile.`
+            )
 					break;
 
 					case "3":
@@ -383,18 +358,12 @@ clientActions = function(_params){
 							not4 = "pas"
 						}
 
-						loadText(undefined, undefined,
-							// Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, comprend toutes les personnes qui ont hésité au moins
-							race3MessageStrings3[0]+Dec9Secs+
-							// secondes et
-							race3MessageStrings3[1]+Dec9Decs+
-							// dixièmes. Vous
-							race3MessageStrings3[2] + not3 +
-							// faites
-							race3MessageStrings3[3] + not4 +
-							// partie du premier décile.
- 							race3MessageStrings3[4]
-							)
+						loadText(undefined, undefined, 
+`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, 
+comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes 
+et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du 
+dernier décile.`
+						)
 
 					break;
 
@@ -402,13 +371,10 @@ clientActions = function(_params){
 					let scoreSec = instance.data.obj.race3.scoreSecs
 					let scoreDec = instance.data.obj.race3.scoreDecs
 
-						loadText(undefined, undefined,
-							//Une durée de
-							race3MessageStrings4[0]+scoreSec+
-							//secondes et
-							race3MessageStrings4[1]+scoreDec+
-							//dixièmes s'est écoulée entre l'instant où la question s'est affichée sur votre écran et le moment où vous y avez répondu."]
-							race3MessageStrings4[2]
+						loadText(undefined, undefined, 
+`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée 
+entre l'instant où la question s'est affichée sur votre écran et le 
+moment où vous y avez répondu.`
 						)
 					break;
 				}
@@ -475,6 +441,285 @@ clientActions = function(_params){
 	}
 }
 
+clientNext = function(){
+	// we need to check if admin has control first
+	let _spacebarctrl = instance.data.obj.globals.collection.find({env:environment}).fetch()[0].spacebar.control
+	// if he has control, just return and don't do anything else.
+	if (_spacebarctrl == "admin") {
+		console.log("admin owns the spacebar, not moving.")
+		return
+	}
+
+	// if the player has triggered a stop action, he should remain where he is.
+	if (this.instance.data.stopped){
+		console.log("currently in parking, not moving")
+		return
+	}
+
+	// get local index from instance data.
+	let _atIndex = instance.data.obj._atIndex
+	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
+
+	if (_atIndex < _Story.length){
+		// client is responsible for updating index
+		instance.data.obj._atIndex = _atIndex +1
+		// load text
+		loadText(_Story, instance.data.obj._atIndex)
+		// method call to update players db
+		Meteor.call("spacebarPlayer", environment, instance.aiguebename, instance.data.obj._atIndex)
+	}else{
+		console.log("No more text!")
+		return
+	}
+
+}
+
+goto = function(_arg){
+	// this function is used to jump to a bookmark during the 
+	// dicussion at the plage. It's somehow redundant with the 
+	// admin gotobookmark, should refactor at some point.
+
+	// carefull, one should not use this function directly in 
+	// plainsam text, because if this clientaction is prompted
+	// by a spacebar press, it will glitch one line of text.
+
+	_Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
+
+	for (var i = 0; i < _Story.length; i++) {
+		_params = _Story[i].params || []
+		for (var j = _params.length - 1; j >= 0; j--) {
+			if (Object.keys(_params[j])[0] == "#bookmark" && Object.values(_params[j])[0] == _arg) {
+				console.log("FOUND BOOKMARK, going to ", i)
+				instance.data.obj._atIndex = i
+				loadText(_Story, i)
+			}
+		}
+	}
+}
+
+loot = function(_arg){
+	// some line of text, when they are read, give a bonus for
+	// dice rolls at the very end of the sequence. This function
+	// is responsible for storing the loot in the client.
+
+	// the score is stored in that format : 
+	// instance.data.obj.modifiers
+	// > Array [ {…}, {…} ]
+	// >	0: Object { name: "fin.business", modifier: 2 }
+	// >	1: Object { name: "fin.police", modifier: 1 }
+
+	// <#loot> <1> <fin.business> <vous vous êtes fait.e passer pour un.e hollandais.e>
+	// 0 : empty string
+	// 1 : modifier
+	// 2 : ending for which the modifier will be applied
+	// 3 : reminder of why this modifier is applied
+	// 4 : another empty string ;)
+	let regexp = /(\d)\s+([A-zÀ-ÿ\.]+)\s+(.+)/
+	_argArray = _arg.split(regexp)
+
+	console.log(_argArray)
+
+	modifier = _argArray[1]
+	ending = _argArray[2]
+	reminder = _argArray[3]
+
+	console.log(ending)
+
+	const lootIsPresent = instance.data.obj.modifiers.find(str=>str.name===ending)
+
+
+	if (lootIsPresent) {
+		obj = instance.data.obj.modifiers.find(str=>str.name===ending)
+		score = Number(obj.modifier) + 1
+		obj.modifier = score
+	}else{
+		console.log("pushing ", ending, modifier)
+		instance.data.obj.modifiers.push({name : [ending][0], modifier : Number([modifier][0])})
+	}
+
+
+}
+
+end = function(_arg){
+	let regexp = /(\d+)\s+([A-zÀ-ÿ\.]+)\s+([A-zÀ-ÿ\.]+)/
+	let _argArr = _arg[0].split(regexp)
+
+	let rollNeeded = Number(_argArr[1])
+	let gotoSuccess = _argArr[2]
+	let gotoFail = _argArr[3]
+
+	_modifier = instance.data.obj.modifiers.find(str => str.name === gotoSuccess).modifier
+
+	dice(_arg, _modifier)
+}
+
+dice = function(_arg, _modifier){
+	// when players click on a line of text with a "dice" action,
+	// this means they are betting on a dice roll.
+	// if they win their bet, they go to a particular section of
+	// text, and if they loose, they go to another one.
+
+	// first, we need to read the args to know what is the 
+	// aimed score, and to which section of text we are going 
+	// to go in case of sucess/failure.
+
+	// this hellish regex should be able to capture text like this :
+	// <10 debut debut.un>
+	// <10> is the score needed to pass the thow
+	// <"debut"> is the bookmark to go to in case of success
+	// <"debut.un"> is the bookmark to go to in case of failure
+	let regexp = /(\d+)\s+([A-zÀ-ÿ\.]+)\s+([A-zÀ-ÿ\.]+)/
+	let _argArr = _arg[0].split(regexp)
+	modifier = Number(_modifier) || 0
+
+	let rollNeeded = Number(_argArr[1])
+	let gotoSuccess = _argArr[2]
+	let gotoFail = _argArr[3]
+
+	// we need to add animated html dices
+	let diceContainer = document.createElement("div")
+	diceContainer.classList.add("diceContainer")
+
+	let dice = document.createElement("div")
+	dice.classList.add("dice")
+	let diceFace = document.createElement("div")
+	diceFace.id="diceFace1"
+	diceFace.classList.add("dice-2")
+	dice.appendChild(diceFace)
+
+	let dice2 = document.createElement("div")
+	dice2.classList.add("dice")
+	let diceFace2 = document.createElement("div")
+	diceFace2.id="diceFace2"
+	diceFace2.classList.add("dice-2")
+	dice2.appendChild(diceFace2)
+
+	diceContainer.appendChild(dice)
+	diceContainer.appendChild(dice2)
+
+	const parent = document.getElementById("textColumn")
+
+	parent.insertBefore(diceContainer, parent.firstChild)
+
+	// we want to animate the dice to look like they are KIND OF
+	// rolling. We are going to use a function called by a recursive
+	// timeout with increasing timeInterval.
+	let timeInterval = 10
+	let counter = 0
+
+	let fail = false
+	let result = ""
+
+	function rollTheDice(){
+
+		randomVal1 = Math.floor(Math.random()*6)+1
+		randomVal2 = Math.floor(Math.random()*6)+1
+
+		document.getElementById("diceFace1").className = "dice-"+(randomVal1)
+		document.getElementById("diceFace2").className = "dice-"+(randomVal2)
+
+		diceRoll = randomVal1 + randomVal2 + modifier
+
+		if (modifier == 0) {
+			diceRollExplanation = "."
+		}else{
+			diceRollExplanation = ", ("+(diceRoll-modifier)+ " + bonus "+modifier+")"
+		}
+
+		roller = setTimeout(function(){
+			if (counter>=20) {
+				window.clearTimeout(roller)
+				setTimeout(function(){
+
+					if (diceRoll>=rollNeeded) {
+						fail=false
+						result = "(Réussite!)"
+					}else{
+						fail=true	
+						result = "(Échec.)"
+					}
+
+
+					message = `Résultat des dés : ${diceRoll}${diceRollExplanation}
+					score minimum à faire : ${rollNeeded}
+					${result}`
+
+					loadText(undefined, undefined, message)
+					setTimeout(function(){
+						params = []
+						if (fail) {
+							params.push({["#goto"]:[gotoFail]})
+						}else{
+							params.push({["#goto"]:[gotoSuccess]})
+						}
+						clientActions(params)
+					},500)
+				},200)
+			}else{
+				timeInterval += 5
+				counter ++
+				rollTheDice()
+			}
+		},timeInterval)
+	}
+
+	rollTheDice()
+}
+ 
+adminNext = function(_adminAtIndex) {
+	// update instance_atIndex from function argument
+	// admin is responsible for updating everybody's index
+	instance.data.obj._atIndex = _adminAtIndex
+	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
+
+	if (this.instance.data.stopped==true) {
+		this.instance.data.stopped=false
+	}
+
+	if (_adminAtIndex < _Story.length){
+		loadText(_Story, _adminAtIndex)
+	}else{
+		console.log("No more text!")
+		return
+	}
+};
+
+loadText = function(_Story, index, rawText){
+	// sometimes we want to use loadText to print additional
+	// text rather than what's in the db (Story),
+	// for instance status messages or score messages.
+	if (rawText) {
+		if(chronologicalReading){
+		    $('#textColumn').append($('<ul/>').html(rawText))
+		}else{
+		    $('#textColumn').prepend($('<ul/>').html(rawText))
+		}
+		return
+	}
+
+	// append text to body
+	if(chronologicalReading){
+	    $('#textColumn').append($('<ul/>').html(_Story[index].line))
+	}else{
+	    $('#textColumn').prepend($('<ul/>').html(_Story[index].line))
+	}
+	// execute actions if there are any
+	clientActions(_Story[index].params)
+
+    /* @todo Add a statement to replace "***" by empty <ul/>
+		@body as was the case in the former codebase.
+    */
+
+	scrollText()
+}
+
+loadAnswer = function(rawText, action){
+    $('#textColumn').append($('<ul class="answer clickableAnswer"/>').html(rawText))
+	scrollText()
+	endOfArray = document.getElementsByClassName("answer").length -1
+	document.getElementsByClassName("answer")[endOfArray].style.opacity=1
+}
+
 scrollText = function(){
 	if (chronologicalReading) {
 		$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
@@ -507,4 +752,136 @@ const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.0
     // revert to last state where overflow happened
     // el.style.fontSize = `${i - step}${unit}`
   })
+}
+
+startMining = function(){
+	// startmining is called at the beggining of the word mining minigame
+	// locally (via a clientaction). This function parses HTML to subsitute
+	// spans of text with spans containing both "intert" text and words which
+	// players can click on. These words are spans of spans of letters,
+	// which have different CSS rules and onclick events associated.
+
+	// first get list of words we're going to convert to clickable words
+	// from the DB. !!! NOTE = WORDS ARE CASE SENSITIVE !!! so if we want
+	// to mine "Bonjour", we need a full caps B.
+
+	const _wordsCollection = this.instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
+	let _words = []
+
+	for (var i = _wordsCollection.length - 1; i >= 0; i--) {
+		// we musn't look for words that have been collected already.
+		// players ariving late musn't see them as clickable.
+		if (_wordsCollection[i].name == undefined || _wordsCollection[i].name.length == _wordsCollection[i].harvestedLetters.length ) {
+			console.log("this word ", _wordsCollection[i], " was already collected, or it's an empty word caused by trailing lines in the editor")
+		}else{
+			_words.push(_wordsCollection[i].name)
+		}
+	}
+
+	console.log("words", _words)
+
+	// we need all the lines from the HTML so we can look for specific
+	// words to transform their markup
+	_lines = document.getElementsByClassName("readerColumn")[0].children
+
+	for (var i = _lines.length - 1; i >= 0; i--) {
+		// we need an array of words rather than a string
+		// to use functions like indexOf
+		let theLine = _lines[i].innerHTML.split(/([^A-zÀ-ÿ])/g)
+
+		for (var z = _words.length - 1; z >= 0; z--) {
+			// for every word still present in the list of words we want
+			// to make cickable,
+			// check if it's present in the current line of text.
+			let theWord = _words[z]
+			let isMatch = theLine.indexOf(_words[z])
+
+			if (isMatch!=-1) {
+			// if it's the case, replace relevant HTML
+				console.log("got a match line ", i, " with word ", theWord)
+				theSpanOfSpans = ""
+				for (var g = 0; g < theWord.length; g++) {
+					// id is <word>.<letter>.<index>
+					// for example, for the second "l" in "Elle"
+					// Elle.l.2
+
+					// we also need to check if every particular letter was
+					// already harvested by someone.
+
+					harvest = _wordsCollection.find(str => str.name === theWord).harvestedLetters
+					thatLetterIsHarvested = harvest.indexOf(theWord[g])
+
+					console.log("harvest ", harvest)
+					console.log("thatLetterIsHarvested ", theWord[g] , thatLetterIsHarvested)
+
+					if (thatLetterIsHarvested !=-1) {
+						console.log("this letter was already harvested")
+						markupBefore = "<span class='collectedLetter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
+						markupAfter = "</span>"
+						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
+						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
+						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+					}else{					
+						markupBefore = "<span class='letter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
+						markupAfter = "</span>"
+						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
+						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
+						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
+					}
+				}
+
+				_lines[i].innerHTML = _lines[i].innerHTML.replace(theWord, "<span class='minable'>"+theSpanOfSpans+"</span>")
+				console.log("modify the HTML of ",_lines[i])
+				// and lastly, delete the word of the
+				// array of words we still want to make clickable,
+				// so that we only have one copy of every clickable
+				// word.
+				_words.splice(z, 1)
+			}
+		}
+	}
+}
+
+killLetter = function(letterId, local, lastLetter){
+
+	local = local || false
+	lastLetter = lastLetter || false
+
+	_params = letterId.match(/([A-zÀ-ÿ]+)\W([A-zÀ-ÿ])/)
+	_word = _params[1]
+	_letter = _params[2]
+
+	document.getElementById(letterId).classList.remove("letter")
+	document.getElementById(letterId).classList.add("collectedLetter")
+
+	if (lastLetter) {
+		console.log("HARVESTING WORD")
+		for (var i = document.getElementById(letterId).parentNode.children.length - 1; i >= 0; i--) {
+			document.getElementById(letterId).parentNode.children[i].classList.remove("collectedLetter")
+		}
+		document.getElementById(letterId).parentNode.classList.remove("minable")
+		document.getElementById(letterId).parentNode.classList.add("collectedWord")
+	}
+
+	if (local==true) {
+		// if letter is being killed locally, tell the server
+		// to warn the others!
+		Meteor.call("letterHarvestCall", environment, letterId, _word, _letter, instance.aiguebename)
+	}
+
+}
+
+stopMining = function(){
+	// when we want to terminate the mining game, all we want
+	// to do is remove classes to spans.
+	allMinables = document.getElementsByClassName("minable")
+	allLetters = document.getElementsByClassName("letter")
+
+	for (var i = allMinables.length - 1; i >= 0; i--) {
+		allMinables[i].classList.remove("minable")
+	}
+
+	for (var i = allLetters.length - 1; i >= 0; i--) {
+		allLetters[i].classList.remove("letter")
+	}
 }

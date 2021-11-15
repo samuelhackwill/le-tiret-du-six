@@ -83,7 +83,7 @@ Meteor.methods({
 
 	},
 
-	rebootCall(_env){
+	rebootAdmin(_env){
 		console.log("calling reboot")
 		// first clear DB
 		Players.remove({env:_env})

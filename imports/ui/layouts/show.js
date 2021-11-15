@@ -2,6 +2,7 @@ import { Template } from 'meteor/templating';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import { Story } from '../../api/story/story.js';
+import { Words } from '../../api/words/words.js';
 import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
 
@@ -21,6 +22,17 @@ streamer.on('message', function(message) {
 	// as streamer seems to be a global object and runs everywhere.
 	if(FlowRouter.getRouteName() == "show" && message.env == environment){
 		switch (message.action){
+			case "killLetter":
+			// killLetter(letterId, local)
+			// the first argument is the id of the letter to fade out,
+			// the second argument is false when it's a server call (like now)
+			// and true when the function was called by a click event (locally).
+			// the third argument is true or false, it's to know when it's 
+			// the last letter which was harvested and thus we must kill the whole
+			// word.
+			killLetter(message.letterId, false, message.lastLetter)
+			break;
+
 			case "adminSpacebarPress":
 			adminNext(message.adminAtIndex)
 			break;
@@ -48,6 +60,9 @@ streamer.on('message', function(message) {
 				document.getElementsByClassName("readerContainer")[0].style.opacity=1
 			},5000)
 			break;
+
+			case "stopMining":
+			stopMining();
 		}
 	}
 });
@@ -67,6 +82,7 @@ Template.show.onCreated(function(){
 		// insert a new player
 		playerInit()
 	});
+	this.subscribe('words');
 	this.subscribe('story');
 	this.subscribe('globals');
 })
@@ -122,6 +138,7 @@ Template.show.helpers({
 		// this returns the story from the db and sends
 		let obj = {
 			story : Story.find({"env":environment}),
+			words : Words.find({"env":environment}),
 			globals : Globals.find({"env":environment}),
 			players : Players.find({"env":environment})
 		}

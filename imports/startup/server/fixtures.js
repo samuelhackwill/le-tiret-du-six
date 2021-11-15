@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { Story } from '../../api/story/story.js';
 import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
+import { Words } from '../../api/words/words.js';
 
 var os = require('os')
 // we're using this lib to get the server's IP
@@ -39,6 +40,10 @@ Meteor.startup(() => {
     initiateStory()
   }
 
+  if (Words.find().count() === 0) {
+    initiateWords()
+  }
+
   if (Globals.find().count() === 0) {
   	console.log("Globals db is empty, inserting document to avoid errors")
     Globals.insert({env:"Dev", spacebar:{"control":"client", "adminAtIndex":-1}, showServerStrobe:false})
@@ -58,6 +63,18 @@ Meteor.startup(() => {
   getIp()
 
 });
+
+initiateWords = function(_env){
+    __env = _env || null
+  if (__env) {
+    console.log("Words."+ __env," is empty, inserting document to avoid errors")
+    Words.insert({env:__env, data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)", harvestedLetters:[]}]})
+  }else{
+    console.log("Words is empty, inserting document to avoid errors")
+    Words.insert({env:"Prod", data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)", harvestedLetters:[]}]})
+    Words.insert({env:"Dev", data:[{name:"soudain", text:"c'est le mot préféré des de samuel quand il a plus d'idées", citation:"et soudain, la webapp était plantée.", author:"Albert Einstein (Apocryphe)", harvestedLetters:[]}]})
+  }      
+}
 
 initiatePlayers = function(_env){
     // we call this function without arguments when we want to initiate everything,

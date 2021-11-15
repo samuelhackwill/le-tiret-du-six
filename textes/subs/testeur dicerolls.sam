@@ -1,0 +1,42 @@
+ok
+
+debut fail
+#bookmark debut.fail
+
+vous voulez aller où?
+#answer tout début svp, je sais que c'est plus dur.
+#act #dice 3 debut.win debut.fail
+
+debut win
+#bookmark debut.win
+#loot 1 fin.business vous vous êtes fait.e passer pour un.e hollandais.e
+
+want some more loot?
+
+here is some more loot
+#loot 1 fin.business vous êtes super.
+
+and more loot still (for another ending)
+#loot 1 fin.police vous êtes un condé
+
+ok and how about we closed the game now?
+
+what are you going to tell guéna?
+#answer nous devrions nous associer
+#act #end 9 fin.business fin.business.fail
+#answer nous devrions nous chier dessus
+#act #end 9 fin.police fin.business.fail
+
+hé ben bravo vous avez gagné le business
+#bookmark fin.business
+
+bouuuh vous avez perdu le business
+#bookmark fin.business.fail
+
+hé ben bravo vous avez gagné la police
+#bookmark fin.police
+
+bouuuh vous avez perdu la police
+#bookmark fin.police.fail
+
+that's all folks.

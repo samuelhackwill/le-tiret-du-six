@@ -1,0 +1,33 @@
+<template name="editor">
+	<div class="editorView">
+		<div class="flexHudContainer">
+			<div class="hud">✍</div>
+			<div class="title"> now editing Story{{env}}. </div>
+			<div class="hud" id="🗑">🗑</div>
+		</div>
+
+		<div class="pleaseWait">
+			<div>
+			Loading, please wait...
+			</div>
+		</div>
+
+		<div class="flexEditorContainer">
+
+			<div class="editorComp" style="opacity:{{subscriptionsReady}};">
+			    <!-- render editor with data loaded here -->	
+				{{> storyEditor story}}
+				<button class="paramsCollapser">
+					collapse params
+				</button>
+			</div>
+
+			<div class="editorComp" style="opacity:{{subscriptionsReady}};">
+				{{> wordsEditor words}}
+			</div>
+			
+		</div>
+
+	</div>
+
+</template>

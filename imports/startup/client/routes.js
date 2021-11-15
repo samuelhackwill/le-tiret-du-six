@@ -2,7 +2,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 
 import '../../ui/layouts/app_body.js';
-import '../../ui/layouts/storyEditor.js';
+import '../../ui/layouts/editor.js';
 import '../../ui/layouts/admin.js';
 import '../../ui/layouts/show.js';
 
@@ -49,8 +49,8 @@ FlowRouter.route('/admin/:environment', {
 FlowRouter.route('/editor/:environment', {
   // this is the route for editing
   // the show's text & content.
-	name: 'storyEditor',
+	name: 'editor',
 	action(params, queryParams){
-		BlazeLayout.render('storyEditor')
+		BlazeLayout.render('editor')
 	}
 })
