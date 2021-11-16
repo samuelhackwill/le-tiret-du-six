@@ -20,7 +20,7 @@
 	box-sizing: border-box;
 	padding-left: calc(40 / 1024 * 100vw);
 	padding-right: calc(20 / 1024 * 100vw);
-	z-index: 0;
+	z-index: 1;
 }
 
 .readerColumn ul:last-child{
@@ -123,6 +123,7 @@ ul::selection {
 	background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 100%);
 	mix-blend-mode: multiply;
 }
+/* left shadow for readerColumn */
 .readerColumnBG::before {
 	content: '';
 	position: absolute;
@@ -133,6 +134,7 @@ ul::selection {
 	box-sizing: border-box;
 	background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 33%, rgba(0,0,0,1) 100%);
 }
+/* right shadow for readerColumn */
 .readerColumnBG::after {
 	content: '';
 	position: absolute;
