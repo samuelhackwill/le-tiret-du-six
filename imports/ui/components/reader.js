@@ -38,22 +38,9 @@ Template.reader.onCreated(function(){
 	// going to do at the end.
 	instance.data.obj.modifiers = []
 
-
-Template.reader.onRendered(function(){
-
-		setTimeout(function(){
-
-			adjustText({
-				elements: document.querySelectorAll('.answersColumn'),
-			});
-
-		}, 1000);
 })
 
 Template.reader.events({
-
-	// $('#textColumn').toggleClass('antiChronologicalReading')
-  // is this the correct place to put this?
 
 	"click .letter"(e){
 		const partOfWord = e.currentTarget.parentNode.textContent
@@ -78,7 +65,7 @@ Template.reader.events({
 		_args = e.target.dataset.onclickArg
 
 		// once an answer was selected, hide all the other answers
-		// BUT the one which was chosen. We are going to have to 
+		// BUT the one which was chosen. We are going to have to
 		// change this behaviour when the new HTML markup is produced
 		// by étchenne.
 		var allAnswers = document.getElementsByClassName("answer")
@@ -91,7 +78,7 @@ Template.reader.events({
 			// unstop the spacebar so that people can
 			// carry on getting lines of text.
 			this.instance.data.stopped=false
-			// here we need to conform to the data structure of 
+			// here we need to conform to the data structure of
 			// clientActions which is expecting an array of objects
 			params = []
 			params.push({[_action]:[_args]})
@@ -204,7 +191,7 @@ clientActions = function(_params){
 		switch (_key){
 			case "#goto" :
 			goto(_arg);
-			break;			
+			break;
 
 			case "#dice" :
 			dice(_arg);
@@ -214,7 +201,7 @@ clientActions = function(_params){
 			loot(_arg)
 			break;
 
-			case "#end" : 
+			case "#end" :
 			end(_arg)
 			break;
 
@@ -249,9 +236,9 @@ clientActions = function(_params){
 				// get score from method with callback.
 				Meteor.call("calculateRaceDuration", environment, "race1", _who,
 					(error, result) =>{
-						loadText(undefined, undefined, 
-							`La personne de ${_arg} a mis ${result.diffTimeS} 
-							secondes et ${result.diffTimeD} dixièmes à parcourir 
+						loadText(undefined, undefined,
+							`La personne de ${_arg} a mis ${result.diffTimeS}
+							secondes et ${result.diffTimeD} dixièmes à parcourir
 							le texte.`)
 					})
 			break;
@@ -287,14 +274,14 @@ clientActions = function(_params){
 			break;
 
 			case "#act":
-			// this is responsible for hydratation of answers. we should rename this 
+			// this is responsible for hydratation of answers. we should rename this
 			// clientAction "writeAnswerTriggers" or something like that
 				let regexp = /(^#\S+)\s(.+)/;
 				_argArr = _arg.split(regexp)
 
-				document.getElementById("textColumn").lastChild.dataset.onclickAction = _argArr[1]			
-				document.getElementById("textColumn").lastChild.dataset.onclickArg = _argArr[2]		
-		
+				document.getElementById("textColumn").lastChild.dataset.onclickAction = _argArr[1]
+				document.getElementById("textColumn").lastChild.dataset.onclickArg = _argArr[2]
+
 			break;
 
 			case "#race3results" :
@@ -320,11 +307,11 @@ clientActions = function(_params){
 						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
 						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
 
-            loadText(undefined, undefined, 							 
-`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et 
-${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe 
-exactement en deux : la moitié des personnes présentes ici ont moins hésité que 
-${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus 
+            loadText(undefined, undefined,
+`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et
+${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe
+exactement en deux : la moitié des personnes présentes ici ont moins hésité que
+${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus
 hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
             break;
 
@@ -339,10 +326,10 @@ hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
 							not2 = "pas"
 						}
 
-						loadText(undefined, undefined, 
-`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, 
-comprend toutes les personnes qui ont hésité exactement ${Dec1Secs} 
-secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie 
+						loadText(undefined, undefined,
+`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité,
+comprend toutes les personnes qui ont hésité exactement ${Dec1Secs}
+secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie
 du premier décile.`
             )
 					break;
@@ -358,10 +345,10 @@ du premier décile.`
 							not4 = "pas"
 						}
 
-						loadText(undefined, undefined, 
-`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, 
-comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes 
-et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du 
+						loadText(undefined, undefined,
+`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité,
+comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes
+et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du
 dernier décile.`
 						)
 
@@ -371,9 +358,9 @@ dernier décile.`
 					let scoreSec = instance.data.obj.race3.scoreSecs
 					let scoreDec = instance.data.obj.race3.scoreDecs
 
-						loadText(undefined, undefined, 
-`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée 
-entre l'instant où la question s'est affichée sur votre écran et le 
+						loadText(undefined, undefined,
+`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée
+entre l'instant où la question s'est affichée sur votre écran et le
 moment où vous y avez répondu.`
 						)
 					break;
@@ -475,11 +462,11 @@ clientNext = function(){
 }
 
 goto = function(_arg){
-	// this function is used to jump to a bookmark during the 
-	// dicussion at the plage. It's somehow redundant with the 
+	// this function is used to jump to a bookmark during the
+	// dicussion at the plage. It's somehow redundant with the
 	// admin gotobookmark, should refactor at some point.
 
-	// carefull, one should not use this function directly in 
+	// carefull, one should not use this function directly in
 	// plainsam text, because if this clientaction is prompted
 	// by a spacebar press, it will glitch one line of text.
 
@@ -502,7 +489,7 @@ loot = function(_arg){
 	// dice rolls at the very end of the sequence. This function
 	// is responsible for storing the loot in the client.
 
-	// the score is stored in that format : 
+	// the score is stored in that format :
 	// instance.data.obj.modifiers
 	// > Array [ {…}, {…} ]
 	// >	0: Object { name: "fin.business", modifier: 2 }
@@ -559,8 +546,8 @@ dice = function(_arg, _modifier){
 	// if they win their bet, they go to a particular section of
 	// text, and if they loose, they go to another one.
 
-	// first, we need to read the args to know what is the 
-	// aimed score, and to which section of text we are going 
+	// first, we need to read the args to know what is the
+	// aimed score, and to which section of text we are going
 	// to go in case of sucess/failure.
 
 	// this hellish regex should be able to capture text like this :
@@ -635,7 +622,7 @@ dice = function(_arg, _modifier){
 						fail=false
 						result = "(Réussite!)"
 					}else{
-						fail=true	
+						fail=true
 						result = "(Échec.)"
 					}
 
@@ -665,7 +652,7 @@ dice = function(_arg, _modifier){
 
 	rollTheDice()
 }
- 
+
 adminNext = function(_adminAtIndex) {
 	// update instance_atIndex from function argument
 	// admin is responsible for updating everybody's index
@@ -718,6 +705,11 @@ loadAnswer = function(rawText, action){
 	scrollText()
 	endOfArray = document.getElementsByClassName("answer").length -1
 	document.getElementsByClassName("answer")[endOfArray].style.opacity=1
+
+	adjustText({
+		elements: document.querySelectorAll('.answersColumn'),
+	});
+
 }
 
 scrollText = function(){
@@ -728,11 +720,12 @@ scrollText = function(){
 	}
 }
 
+// check if element has more content than his own height, aka is it overflowing
 const isOverflown = ({ clientHeight, scrollHeight }) => {
-		console.log(this, scrollHeight, clientHeight);
 	return scrollHeight > clientHeight
 }
 
+// function to decrease font size if needed when the text overflows the element
 const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.01, unit = 'vw' }) => {
   (elements || [element]).forEach(el => {
     let i = maxSize
@@ -741,7 +734,6 @@ const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.0
 
 
 		while (overflow && i > minSize) {
-        console.log('overflow?', overflow, `${i}${unit}`);
         el.style.fontSize = `${i}${unit}`
         overflow = isOverflown(el)
 
@@ -821,7 +813,7 @@ startMining = function(){
 						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
 						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
 						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
-					}else{					
+					}else{
 						markupBefore = "<span class='letter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
 						markupAfter = "</span>"
 						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)

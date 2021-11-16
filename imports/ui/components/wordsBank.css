@@ -6,7 +6,6 @@
   /* border: 4px solid orchid; */
   position: fixed;
   height: 100vh;
-  width: calc(100vw - 90px);
   width: calc(100vw - (90 / 1024 * 100vw));
   display: flex;
   /* align-items: center; */
@@ -16,7 +15,6 @@
   z-index: 1;
   background-color: #1B1464;
   flex: 1 1 auto;
-  padding-bottom: 100px;
   padding-bottom: calc(100 / 600 * 100vh);
 }
 .wordsBankContainer.is-open {
@@ -41,7 +39,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
   height: calc(50 / 1024 * 100vw);
   width: 100vh;
   background: transparent;
@@ -59,7 +56,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50px;
   width: calc(50 / 1024 * 100vw);;
   height: 100%;
   /* border: 4px solid orange; */
@@ -85,9 +81,7 @@
 
 .closeWordsBank {
   position: absolute;
-  top: 14px;
   top: calc(14 / 600 * 100vh);
-  right: 15px;
   right: calc(15 / 1024 * 100vw);
   background: linear-gradient(to top left, rgba(0,0,0,0) 0%, rgba(0,0,0,0) calc(50% - 2px), rgba(255,255,255,1) 50%, rgba(0,0,0,0) calc(50% + 2px), rgba(0,0,0,0) 100%), linear-gradient(to top right, rgba(0,0,0,0) 0%, rgba(0,0,0,0) calc(50% - 2px), rgba(255,255,255,1) 50%, rgba(0,0,0,0) calc(50% + 2px), rgba(0,0,0,0) 100%), #272822;
   border: 3px solid #272822;
@@ -185,9 +179,7 @@
   /* border: 3px solid cyan; */
   box-sizing: border-box;
   width: 100%;
-  padding-left: 100px;
   padding-left: calc(100 / 1024 * 100vw);
-  padding-right: 75px;
   padding-right: calc(75 / 1024 * 100vw);
   color: #666666;
   font-size: calc(18 / 1024 * 100vw);
