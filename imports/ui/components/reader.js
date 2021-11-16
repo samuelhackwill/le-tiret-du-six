@@ -12,7 +12,7 @@ const maxHP = 3
 
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
-// so if we always open the website on each computers in the same order, player on the 
+// so if we always open the website on each computers in the same order, player on the
 // left (as seen from the audience) will always be Michèle, and on the right Julien.
 // (left = jardin).
 const firstClientSeated = "left"
@@ -30,13 +30,14 @@ Template.reader.onCreated(function(){
 	// i guess it would be better to pull this number
 	// from DB to avoid fatal disconnections
 	instance.data.obj._atIndex = -1
-	// this is where we're going to store all the 
+	// this is where we're going to store all the
 	// qcm answers of players
 	instance.data.obj.answered = []
-	// we need to store what loot the players have
+  // we need to store what loot the players have
 	// gained in order to modify the dice rolls they are
 	// going to do at the end.
 	instance.data.obj.modifiers = []
+
 })
 
 Template.reader.events({
@@ -64,7 +65,7 @@ Template.reader.events({
 		_args = e.target.dataset.onclickArg
 
 		// once an answer was selected, hide all the other answers
-		// BUT the one which was chosen. We are going to have to 
+		// BUT the one which was chosen. We are going to have to
 		// change this behaviour when the new HTML markup is produced
 		// by étchenne.
 		var allAnswers = document.getElementsByClassName("answer")
@@ -77,7 +78,7 @@ Template.reader.events({
 			// unstop the spacebar so that people can
 			// carry on getting lines of text.
 			this.instance.data.stopped=false
-			// here we need to conform to the data structure of 
+			// here we need to conform to the data structure of
 			// clientActions which is expecting an array of objects
 			params = []
 			params.push({[_action]:[_args]})
@@ -89,6 +90,92 @@ Template.reader.events({
 
 })
 
+clientNext = function(){
+	// we need to check if admin has control first
+	let _spacebarctrl = instance.data.obj.globals.collection.find({env:environment}).fetch()[0].spacebar.control
+	// if he has control, just return and don't do anything else.
+	if (_spacebarctrl == "admin") {
+		console.log("admin owns the spacebar, not moving.")
+		return
+	}
+
+	// if the player has triggered a stop action, he should remain where he is.
+	if (this.instance.data.stopped){
+		console.log("currently in parking, not moving")
+		return
+	}
+
+	// get local index from instance data.
+	let _atIndex = instance.data.obj._atIndex
+	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
+
+	if (_atIndex < _Story.length){
+		// client is responsible for updating index
+		instance.data.obj._atIndex = _atIndex +1
+		// load text
+		loadText(_Story, instance.data.obj._atIndex)
+		// method call to update players db
+		Meteor.call("spacebarPlayer", environment, instance.aiguebename, instance.data.obj._atIndex)
+	}else{
+		console.log("No more text!")
+		return
+	}
+
+}
+
+adminNext = function(_adminAtIndex) {
+	// update instance_atIndex from function argument
+	// admin is responsible for updating everybody's index
+	instance.data.obj._atIndex = _adminAtIndex
+	let _Story = instance.data.obj.story.collection.find({env:environment}).fetch()[0].data
+
+	if (this.instance.data.stopped==true) {
+		this.instance.data.stopped=false
+	}
+
+	if (_adminAtIndex < _Story.length){
+		loadText(_Story, _adminAtIndex)
+	}else{
+		console.log("No more text!")
+		return
+	}
+};
+
+loadText = function(_Story, index, rawText){
+	// sometimes we want to use loadText to print additional
+	// text rather than what's in the db (Story),
+	// for instance status messages or score messages.
+	if (rawText) {
+		if(chronologicalReading){
+		    $('#textColumn').append($('<ul/>').html(rawText))
+		}else{
+		    $('#textColumn').prepend($('<ul/>').html(rawText))
+		}
+		return
+	}
+
+	// append text to body
+	if(chronologicalReading){
+	    $('#textColumn').append($('<ul/>').html(_Story[index].line))
+	}else{
+	    $('#textColumn').prepend($('<ul/>').html(_Story[index].line))
+	}
+	// execute actions if there are any
+	clientActions(_Story[index].params)
+
+    /* @todo Add a statement to replace "***" by empty <ul/>
+		@body as was the case in the former codebase.
+    */
+
+	scrollText()
+}
+
+loadQcm = function(rawText){
+    $('#textColumn').append($('<ul class="qcmResponse qcmResponseClickable"/>').html(rawText))
+	scrollText()
+	endOfArray = document.getElementsByClassName("qcmResponse").length -1
+	document.getElementsByClassName("qcmResponse")[endOfArray].style.opacity=1
+}
 
 clientActions = function(_params){
 
@@ -104,7 +191,7 @@ clientActions = function(_params){
 		switch (_key){
 			case "#goto" :
 			goto(_arg);
-			break;			
+			break;
 
 			case "#dice" :
 			dice(_arg);
@@ -114,7 +201,7 @@ clientActions = function(_params){
 			loot(_arg)
 			break;
 
-			case "#end" : 
+			case "#end" :
 			end(_arg)
 			break;
 
@@ -147,11 +234,11 @@ clientActions = function(_params){
 				}
 
 				// get score from method with callback.
-				Meteor.call("calculateRaceDuration", environment, "race1", _who, 
+				Meteor.call("calculateRaceDuration", environment, "race1", _who,
 					(error, result) =>{
-						loadText(undefined, undefined, 
-							`La personne de ${_arg} a mis ${result.diffTimeS} 
-							secondes et ${result.diffTimeD} dixièmes à parcourir 
+						loadText(undefined, undefined,
+							`La personne de ${_arg} a mis ${result.diffTimeS}
+							secondes et ${result.diffTimeD} dixièmes à parcourir
 							le texte.`)
 					})
 			break;
@@ -168,12 +255,12 @@ clientActions = function(_params){
 					// we want to stop the stepper in order to save memory
 					instance.data.obj.spaceBarStatus = "reader"
 					// and make the spacebar go to the default mode, in which
-					// it's used to get new lines of text.	
+					// it's used to get new lines of text.
 				}else{
 					// or else we want to start the stepper and make
 					// the spacebar change behaviour
 					Meteor.call("stepperStartCall", environment)
-					instance.data.obj.spaceBarStatus = "racer"					
+					instance.data.obj.spaceBarStatus = "racer"
 					document.getElementsByClassName("racerContainer")[0].style.opacity=1
 					document.getElementsByClassName("readerContainer")[0].style.opacity=0
 				}
@@ -187,14 +274,14 @@ clientActions = function(_params){
 			break;
 
 			case "#act":
-			// this is responsible for hydratation of answers. we should rename this 
+			// this is responsible for hydratation of answers. we should rename this
 			// clientAction "writeAnswerTriggers" or something like that
 				let regexp = /(^#\S+)\s(.+)/;
 				_argArr = _arg.split(regexp)
 
-				document.getElementById("textColumn").lastChild.dataset.onclickAction = _argArr[1]			
-				document.getElementById("textColumn").lastChild.dataset.onclickArg = _argArr[2]		
-		
+				document.getElementById("textColumn").lastChild.dataset.onclickAction = _argArr[1]
+				document.getElementById("textColumn").lastChild.dataset.onclickArg = _argArr[2]
+
 			break;
 
 			case "#race3results" :
@@ -203,7 +290,7 @@ clientActions = function(_params){
 				switch(_arg){
 
 					case "get":
-						Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename, 
+						Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename,
 							(error, result) =>{
 								instance.data.obj.race3 = {
 									"mediane":result.mediane,
@@ -220,13 +307,13 @@ clientActions = function(_params){
 						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
 						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
 
-						loadText(undefined, undefined, 							 
-`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et 
-${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe 
-exactement en deux : la moitié des personnes présentes ici ont moins hésité que 
-${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus 
+            loadText(undefined, undefined,
+`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et
+${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe
+exactement en deux : la moitié des personnes présentes ici ont moins hésité que
+${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus
 hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
-					break;
+            break;
 
 					case "2":
 						let Dec1Secs = Math.floor((instance.data.obj.race3.decile1)/1000)
@@ -239,12 +326,12 @@ hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
 							not2 = "pas"
 						}
 
-						loadText(undefined, undefined, 
-`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité, 
-comprend toutes les personnes qui ont hésité exactement ${Dec1Secs} 
-secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie 
+						loadText(undefined, undefined,
+`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité,
+comprend toutes les personnes qui ont hésité exactement ${Dec1Secs}
+secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie
 du premier décile.`
-						)
+            )
 					break;
 
 					case "3":
@@ -258,10 +345,10 @@ du premier décile.`
 							not4 = "pas"
 						}
 
-						loadText(undefined, undefined, 
-`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité, 
-comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes 
-et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du 
+						loadText(undefined, undefined,
+`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité,
+comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes
+et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du
 dernier décile.`
 						)
 
@@ -271,9 +358,9 @@ dernier décile.`
 					let scoreSec = instance.data.obj.race3.scoreSecs
 					let scoreDec = instance.data.obj.race3.scoreDecs
 
-						loadText(undefined, undefined, 
-`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée 
-entre l'instant où la question s'est affichée sur votre écran et le 
+						loadText(undefined, undefined,
+`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée
+entre l'instant où la question s'est affichée sur votre écran et le
 moment où vous y avez répondu.`
 						)
 					break;
@@ -284,13 +371,13 @@ moment où vous y avez répondu.`
 				previousAnswer = instance.data.obj.answered[0]
 				if (previousAnswer==1) {
 					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "De la Team sieste."
 					)
 
 				}else{
 					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Des Spacebar athletes."
 					)
 				}
@@ -300,12 +387,12 @@ moment où vous y avez répondu.`
 				previousAnswer = instance.data.obj.answered[0]
 				if (previousAnswer==2) {
 					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "De la Team sieste."
 					)
 				}else{
 					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Des Spacebar athletes."
 					)
 				}
@@ -315,14 +402,14 @@ moment où vous y avez répondu.`
 				previousAnswer = instance.data.obj.answered[0]
 				if (previousAnswer==2) {
 					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste."
 					)
 				}else{
 					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined, 
+					loadText(undefined, undefined,
 "Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete."
-					)						
+					)
 				}
 			break;
 
@@ -375,11 +462,11 @@ clientNext = function(){
 }
 
 goto = function(_arg){
-	// this function is used to jump to a bookmark during the 
-	// dicussion at the plage. It's somehow redundant with the 
+	// this function is used to jump to a bookmark during the
+	// dicussion at the plage. It's somehow redundant with the
 	// admin gotobookmark, should refactor at some point.
 
-	// carefull, one should not use this function directly in 
+	// carefull, one should not use this function directly in
 	// plainsam text, because if this clientaction is prompted
 	// by a spacebar press, it will glitch one line of text.
 
@@ -402,7 +489,7 @@ loot = function(_arg){
 	// dice rolls at the very end of the sequence. This function
 	// is responsible for storing the loot in the client.
 
-	// the score is stored in that format : 
+	// the score is stored in that format :
 	// instance.data.obj.modifiers
 	// > Array [ {…}, {…} ]
 	// >	0: Object { name: "fin.business", modifier: 2 }
@@ -459,8 +546,8 @@ dice = function(_arg, _modifier){
 	// if they win their bet, they go to a particular section of
 	// text, and if they loose, they go to another one.
 
-	// first, we need to read the args to know what is the 
-	// aimed score, and to which section of text we are going 
+	// first, we need to read the args to know what is the
+	// aimed score, and to which section of text we are going
 	// to go in case of sucess/failure.
 
 	// this hellish regex should be able to capture text like this :
@@ -535,7 +622,7 @@ dice = function(_arg, _modifier){
 						fail=false
 						result = "(Réussite!)"
 					}else{
-						fail=true	
+						fail=true
 						result = "(Échec.)"
 					}
 
@@ -565,7 +652,7 @@ dice = function(_arg, _modifier){
 
 	rollTheDice()
 }
- 
+
 adminNext = function(_adminAtIndex) {
 	// update instance_atIndex from function argument
 	// admin is responsible for updating everybody's index
@@ -618,16 +705,46 @@ loadAnswer = function(rawText, action){
 	scrollText()
 	endOfArray = document.getElementsByClassName("answer").length -1
 	document.getElementsByClassName("answer")[endOfArray].style.opacity=1
+
+	adjustText({
+		elements: document.querySelectorAll('.answersColumn'),
+	});
+
 }
 
 scrollText = function(){
 	if (chronologicalReading) {
 		$('#textColumn').scrollTop($('#textColumn')[0].scrollHeight);
 	}else{
-		$('#textColumn').scrollTop($('#textColumn')[0])	
+		$('#textColumn').scrollTop($('#textColumn')[0])
 	}
 }
 
+// check if element has more content than his own height, aka is it overflowing
+const isOverflown = ({ clientHeight, scrollHeight }) => {
+	return scrollHeight > clientHeight
+}
+
+// function to decrease font size if needed when the text overflows the element
+const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.01, unit = 'vw' }) => {
+  (elements || [element]).forEach(el => {
+    let i = maxSize
+
+		let overflow = isOverflown(el);
+
+
+		while (overflow && i > minSize) {
+        el.style.fontSize = `${i}${unit}`
+        overflow = isOverflown(el)
+
+      if (overflow) i -= step
+			i = parseFloat(i).toFixed(2)
+    }
+
+    // revert to last state where overflow happened
+    // el.style.fontSize = `${i - step}${unit}`
+  })
+}
 
 startMining = function(){
 	// startmining is called at the beggining of the word mining minigame
@@ -696,7 +813,7 @@ startMining = function(){
 						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
 						theSpanOfSpans = theSpanOfSpans.concat(theWord[g])
 						theSpanOfSpans = theSpanOfSpans.concat(markupAfter)
-					}else{					
+					}else{
 						markupBefore = "<span class='letter' id='"+theWord+"."+theWord[g]+"."+g+"'>"
 						markupAfter = "</span>"
 						theSpanOfSpans = theSpanOfSpans.concat(markupBefore)
