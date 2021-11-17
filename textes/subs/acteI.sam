@@ -202,7 +202,7 @@ vous allez pouvoir identifier mentalement la touche du clavier qu'on appelle com
 
 "la barre espace"
 
-et <span id="blueTxt">appuyer dessus</span>.
+et <span class="blueTxt">appuyer dessus</span>.
 
 et encore
 
@@ -325,15 +325,15 @@ voilà à quoi ressemble mon nez
 
 je sais qu'il faut pas comparer mais c'est pour que vous voyez qui c'est
 
-<span class="blueTxt">\_______)</span>
+<span class="whiteTxt">\_______)</span>
 
-<span class="blueTxt">|_....\</span>
+<span class="whiteTxt">|_....\</span>
 
-<span class="blueTxt">|...\</span>
+<span class="whiteTxt">|...\</span>
 
-<span class="blueTxt">|.\</span>
+<span class="whiteTxt">|.\</span>
 
-<span class="blueTxt">\</span>
+<span class="whiteTxt">\</span>
 
 voilà
 
@@ -341,19 +341,19 @@ voilà
 
 et voilà à quoi ressemble le nez de Jean Lasalle
 
-<span class="blueTxt">|______)</span>
+<span class="whiteTxt">|______)</span>
 
-<span class="blueTxt">|......)</span>
+<span class="whiteTxt">|......)</span>
 
-<span class="blueTxt">|.....|</span>
+<span class="whiteTxt">|.....|</span>
 
-<span class="blueTxt">|....|</span>
+<span class="whiteTxt">|....|</span>
 
-<span class="blueTxt">|....|</span>
+<span class="whiteTxt">|....|</span>
 
-<span class="blueTxt">|....|</span>
+<span class="whiteTxt">|....|</span>
 
-<span class="blueTxt">|....|</span>
+<span class="whiteTxt">|....|</span>
 // blague ASCII art du nez de jean lassalle (pas facile à surveiller car async)
 
 vous voyez de qui on parle maintenant?
@@ -554,19 +554,30 @@ mais avant je veux vous confier deux autres pouvoirs.
 premièrement, celui de parler avec moi :
 
 (cliquez sur la phrase rouge qui vient d'apparaître à droite)
-// 1. comment ça, de parler avec vous?
+#answer comment ça, parler avec vous?
+#act #goto propedeut.next
 
 oui voilà de parler avec moi. Bravo.
+#bookmark propedeut.next
 
 et deuxièmement, celui de faire des paris :
 
 (cliquez sur la phrase rose qui vient d'apparaître à droite)
-// 1. je parie que je peux faire au moins 10 en jetant deux dés à six faces. (peu probable)
-// 2. je parie rien du tout oui ça va pas la tête?
-// bon ben par exemple, vous avez raté ce pari. C'est pas grave cette fois! ça aurait été plus grave si vous aviez parié que vous pouviez sauter par dessus un ravin.
-// hé ben dites donc vous avez un sacré pot.
+#answer Je parie que je peux faire au moins 9 en jetant deux dés à six faces.
+#act #dice 9 propedeut.win propedeut.fail
+
+bon ben par exemple, vous avez raté ce pari. 
+#bookmark propedeut.fail
+
+C'est pas grave cette fois! ça aurait été plus grave si vous aviez parié que vous pouviez sauter par dessus un ravin.
+#answer C'est vrai.
+#act #goto propedeut.end
+
+hé ben dites donc vous avez un sacré pot.
+#bookmark popedeut.win
 
 voilà, ça devrait vous servir pour la séquence qui vient bientôt.
+#bookmark propedeut.end
 
 vous décidez de vous mettre en route dans la direction de la lumière.
 
