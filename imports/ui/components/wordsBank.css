@@ -42,7 +42,7 @@
   height: calc(50 / 1024 * 100vw);
   width: 100vh;
   background: transparent;
-  color: #666666;
+  color: #272822;
   cursor: pointer;
   z-index: 10;
   border: 0;

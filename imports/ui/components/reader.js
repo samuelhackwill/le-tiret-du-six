@@ -64,14 +64,10 @@ Template.reader.events({
 		_action = e.target.dataset.onclickAction
 		_args = e.target.dataset.onclickArg
 
-		// once an answer was selected, hide all the other answers
-		// BUT the one which was chosen. We are going to have to
-		// change this behaviour when the new HTML markup is produced
-		// by étchenne.
-		var allAnswers = document.getElementsByClassName("answer")
+		var parent = document.getElementById("answers")
 
-		for (var i = allAnswers.length - 1; i >= 0; i--) {
-				allAnswers[i].style.display = "none"
+		for (var i = parent.childElementCount - 1; i >= 0; i--) {
+			parent.lastChild.remove()
 		}
 
 		Meteor.setTimeout(function(){
@@ -168,13 +164,6 @@ loadText = function(_Story, index, rawText){
     */
 
 	scrollText()
-}
-
-loadQcm = function(rawText){
-    $('#textColumn').append($('<ul class="qcmResponse qcmResponseClickable"/>').html(rawText))
-	scrollText()
-	endOfArray = document.getElementsByClassName("qcmResponse").length -1
-	document.getElementsByClassName("qcmResponse")[endOfArray].style.opacity=1
 }
 
 clientActions = function(_params){
@@ -279,8 +268,8 @@ clientActions = function(_params){
 				let regexp = /(^#\S+)\s(.+)/;
 				_argArr = _arg.split(regexp)
 
-				document.getElementById("textColumn").lastChild.dataset.onclickAction = _argArr[1]
-				document.getElementById("textColumn").lastChild.dataset.onclickArg = _argArr[2]
+				document.getElementById("answers").lastChild.lastChild.dataset.onclickAction = _argArr[1]
+				document.getElementById("answers").lastChild.lastChild.dataset.onclickArg = _argArr[2]
 
 			break;
 
@@ -701,7 +690,15 @@ loadText = function(_Story, index, rawText){
 }
 
 loadAnswer = function(rawText, action){
-    $('#textColumn').append($('<ul class="answer clickableAnswer"/>').html(rawText))
+	let item = document.createElement("LI")
+	let tag = document.createElement("A")
+	tag.classList.add("answer")
+	tag.classList.add("clickableAnswer")
+	tag.innerHTML = rawText
+	item.appendChild(tag)
+
+	document.getElementById("answers").appendChild(item)
+
 	scrollText()
 	endOfArray = document.getElementsByClassName("answer").length -1
 	document.getElementsByClassName("answer")[endOfArray].style.opacity=1

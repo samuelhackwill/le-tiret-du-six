@@ -231,10 +231,6 @@ ul::selection {
 	color: blue !important;
 }
 
-.diceContainer{
-	margin-left: 40px;
-}
-
 .dice {
     display: inline-block;
     width: 50px;
