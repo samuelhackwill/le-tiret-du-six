@@ -1,0 +1,155 @@
+Le gérant de la plage - très bien, je vous remercie de votre participation!
+
+Vous ne reconnaissez plus la voix du gérant de la plage. Son ton boudeur et laconique a été remplacé par une diction très rapide, hachée, et désinvolte.
+
+la personne qui habite maintenant le corps du gérant de la plage - car il est exclu qu'il s'agisse de la personne avec qui vous venez d'avoir une discussion -
+
+se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamais avoir besoin de respirer.
+
+? - la simulation est terminée.
+
+? - j'espère que vous vous avez passé un bon moment.
+#answer ça va
+#act #goto 
+#answer bof
+#act #goto 
+#answer sisi j'ai bien rigolé.
+#act #dice 8
+
+? - j'aimerais partager un secret avec vous.
+
+? - j'ai un peu honte de pas vous en avoir parlé plus tôt
+
+? - en fait,
+
+? - tout à l'heure...
+
+? - quand je vous ai donné la barre espace et que vous vous déplaciez dans le texte,
+
+? - vous vous souvenez?
+
+? - "hop hop hop hop hop hop hop hop hop hop?"
+
+? - j'avoue,
+
+? - j'ai mesuré votre vitesse!
+
+? - je sais c'est pas bien.
+
+? - en réalité, vous étiez en train de jouer à un jeu
+
+? - que j'ai dénommé sobrement
+
+? - super mario barre espace.
+
+? - c'est un peu abusé de pas vous avoir prévenu
+
+? - je vous dis quand même votre score :
+
+***
+// log score
+
+? - la personne la plus rapide de votre table à fait le score suivant :
+
+***
+// log score
+
+? - la personne la plus lente de votre table à fait le score suivant :
+
+***
+// log score
+
+? - pour me faire pardonner, je vais vous proposer de remettre votre score en jeu dans un petit instant.
+
+? - mais d'abord, nous devons attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
+
+? - comme nous avons tous un rythme différent,
+
+? - il est tout à fait possible que certain.e.s en soient encore à regarder la blague du nez de Jean Lassalle.
+
+? - enfin on espère que non mais en définitive c'est possible.
+
+? - je vais vous proposer de poursuivre votre lecture en attendant les autres
+
+? - cette fois-ci on ne vas pas utiliser la barre espace, mais le pointeur de souris.
+
+? - quand je vous ferai signe,
+
+? - je transformerai certains mots dans cette colonne de texte en mots que vous pouvez "collectionner".
+
+? - ces mots s'afficheront en rouge.
+
+? - ce sont comme des petits oeufs de paques cachés dans le texte.
+
+? - pour les collecter, il faut cliquer plein de fois dessus.
+
+? - quand vous avez suffisament cliqué sur un mot, une de ses lettres va disparaître
+
+? - pour indiquer que vous êtes en train de le récolter.
+
+? - un mot n'est collecté que quand la totalité des lettres du mot ont disparu. 
+
+? - quand un mot est récolté par une des personnes de votre table, il est consigné dans la "banque de mots", que vous pouvez ouvrir en cliquant sur le côté gauche de l'écran.
+
+? - chaque mot contient une petite surprise.
+
+? - attention! la nuance importante,
+
+? - c'est qu'il y a un stock de mots fini pour l'ensemble de la salle.
+
+? - quand un mot est récolté par quelqu'un.e, 
+
+? - ce mot disparaît pour tous.te.s les autres.
+
+? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous.
+
+? - c'est parti.
+#mining start
+
+***
+
+? - nous voilà tous réuni.e.s à nouveau!
+#bookmark resync
+
+? - je suis si heureux.
+
+? - bon et au fait vous avez compris que c'était à nouveau samuel le robot qui vous parle.
+
+i like to move it move it
+
+au bal masqué hoéhoé.
+
+***
+
+ce que je voulais vous dire, 
+
+c'est que depuis le début de cette performance,
+
+nous comptons.
+
+j'ai commencé par compter combien nous étions dans la salle.
+
+j'ai compté le temps que nous avons mis à trouver la suite du spectacle.
+
+jacob a vérifié que vous riiez, ou ne riiez pas, à certaines des blagues que nous avons fait.
+
+puis vous avez joué sans le savoir à un jeu de course que j'ai sobrement appellé
+
+super mario barre espace
+
+(c'était un peu avant d'arriver dans l'avant-pays savoyard,)
+
+(quand il y avait tous les "hop", vous vous souvenez?)
+
+Après ça, toute la séquence à la plage de l****, c'était plus ou moins un test de personnalité.
+
+enfin, certain.e.s d'entre vous on encore joué à un autre jeu où il s'agissait de collectionner des mots.
+
+Le but était cette fois d'éveiller votre libido capitaliste en vous donnant une ressource rivale limitée à extraire.
+
+à ce stade je pense que la majorité d'entre vous avaient compris que toute notre affaire ici était de jouer à mes jeux.
+
+j'avoue c'est un peu tordu de ma part de ne pas vous avoir prévenu.
+
+ce que je vous propose, pour me racheter
+
