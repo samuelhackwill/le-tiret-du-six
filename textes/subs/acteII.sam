@@ -1,4 +1,5 @@
 Vous êtes arrivé.e au bout du chemin
+// no comments in the #answers section! breaks everything unfortunately.
 
 c'est inatendu
 
@@ -37,7 +38,7 @@ On n’a qu’une seule chance de faire une bonne première impression.
 #act #dice 8 intro.police.win intro.police.fail
 
 Le visage du gérant se fige un instant.
-#bookmark intro.police
+#bookmark intro.police.win
 #answer Je suis de la gendarmerie de L****, est ce que c’est vous qui avez un chat coincé dans un arbre? 
 #act #goto intro.police.chat
 #answer Je fais partie du cabinet de la préfecture de Savoie, je viens pour un contrôle de conformité.
@@ -75,7 +76,7 @@ Vous n’êtes pas policier.e, vous faites tout simplement une dépression. Ce q
 Cela n’excite par l'empathie du gérant de la plage pour autant, qui ne fait manifestement aucun effort pour vous cacher son irritation, voire la méfiance que lui inspire votre situation. Vous n’êtes pas étonné.e, car vous savez bien que les personnes qui souffrent de problèmes de santé dits mentaux subissent la double peine d’être en plus stigmatisés par les valides.
 #answer écoutez, mon docteur m’a prescrit de faire une ballade par jour dans un endroit que j’aime. Puis-je aller à la plage? 
 #act #goto intro.police.validisme
-#answer(sortir un papier de votre feuille et rédiger un procès-verbal. La loi est dure mais c’est la loi.) 
+#answer (sortir un papier de votre feuille et rédiger un procès-verbal. La loi est dure mais c’est la loi.) 
 #act #dice 6 intro.police.pv intro.police.pv.fail
 
 vous écrivez : "Police du respect"
@@ -131,6 +132,7 @@ vous auriez peut-être dû préciser le niveau d’anglais requis, car il s’es
 En fait il serait plus honnête de dire qu’il n’a
 pas *envie* de parler anglais avec vous.
 #answer do you speak french?
+#act #goto intro.hollandais.fr
 
 Le gérant ne réagit pas à votre habile tentative de suggérer que le français n’était dans votre situation qu’une langue parmi les autres, que vous avez eu de la chance de constater que vous parliez tous deux, quel heureux hasard!
 #bookmark intro.hollandais.fr
@@ -235,7 +237,7 @@ pas de réaction du gérant de la plage.
 #act #goto intro.prenom.retentative
 
 toujours pas de réaction.
-#bookmark intro.prenom.tentative
+#bookmark intro.prenom.retentative
 #answer Sébastien?
 #act #goto intro.prenom.moyenage
 
@@ -284,7 +286,7 @@ Peu vous importe pour l’instant, vous savourez votre triomphe et vous vous dit
 #act #goto silo
 
 Vous - Zorg?
-#bookmark intro.prenom.lastand.echec
+#bookmark intro.prenom.lastand.fail
 
 il y a un train de l’impatience comme il y a un train du sommeil : parfois on le rate et on reste piteusement sur le quai, sous la pluie, à devoir écouter un étranger faire des sons incompréhensibles avec sa bouche. Le gérant de la plage a raté son tour, il aurait dû manifester immédiatement son inconfort quand vous vous êtes trompé la première fois. 
 
@@ -313,7 +315,6 @@ Le gérant de la plage vous toise et vous demande ce que vous désirez savoir.
 #act #goto silo.questions.otherplages
 #answer pourquoi la plage est-elle fermée? (conclure)
 #act #goto silo.questions.degradations
-// hmmm... the last answer should only appear when all the other questions have been asked. maybe.
 
 LE GERANT DE LA PLAGE - il y a beaucoup d’autres plages, et beaucoup d’autres gérants de la plage, et beaucoup d’autres personnes en train de poser des questions aux gérants de la plage.
 #bookmark silo.questions.otherplages
@@ -377,7 +378,7 @@ c'est ce qui me donne le droit d'y avoir ma buvette aussi près de l'eau.
 Ceci étant dit je ne suis pas propriétaire, je suis seulement gérant. C'est pour ça que vous m'apellez "le gérant de la plage".
 #answer ça veut dire que moi aussi, un jour, je pourrais être le gérant de la plage?
 #act #goto silo.questions.moiaussi
-#à quel âge est ce que le lac a développé sa "vocation" touristique?
+#answer à quel âge est ce que le lac a développé sa "vocation" touristique?
 #act #goto silo.questions.vocation
 
 LE GERANT DE LA PLAGE — certainement depuis l’arrivée du chemin de fer à la fin du XIXe siècle, C’est ce qui a permis aux notables de Lyon de venir acheter des résidences secondaires dans le coin, et aux gens de se ballader en général.
@@ -408,7 +409,7 @@ Sur la plage il y a un maître nageur en slip rouge qui veille sur vous depuis s
 LE GERANT DE LA PLAGE — de toutes façons la plage est fermée.
 #bookmark silo.questions.description.fermee
 #answer ah oui c'est vrai.
-#act #goto silo.questions.description.noyade
+#act #goto silo.questions.description.prix
 
 LE GERANT DE LA PLAGE — l’entrée coûte quatre euros par adulte. Les enfants de 12 ans et moins ont droit à un demi- tarif. Les chiens sont interdits.
 #bookmark silo.questions.description.prix 
@@ -466,18 +467,16 @@ LE GERANT DE LA PLAGE - non.
 #act #goto silo.questions.description.insinuez
 #answer j'ai d'autres questions sur la plage de l****.
 #act #goto silo.questions
-// maybe insert a trigger warning here. In any case, ppl can go back to the questions silo if they don't feel like pursuing this line of discussion
 
 LE GERANT DE LA PLAGE — Qu’est ce que vous insinuez?
 #bookmark silo.questions.description.insinuez
 #answer moi? rien du tout. (*raciste* dites-vous en toussant)
 #act #goto silo.questions.description.racisme
 
-LE GERANT DE LA PLAGE — tout le monde est raciste. La seule différence entre les racistes et les racistes, c’est qu’il y a des racistes du nord,
-des racistes du sud. Des racistes de la ville, des racistes de la campagne.
+LE GERANT DE LA PLAGE — tout le monde est raciste. La seule différence entre les racistes et les racistes, c’est qu’il y a des racistes du nord, des racistes du sud. Des racistes de la ville, des racistes de la campagne.
 #bookmark silo.questions.description.racisme
 
-LE GERANT DE LA PLAGE — vous par exemple, vous êtes un.e raciste de gauche : vous êtes convaincu.e intellectuellement que tous les peuples sont égaux, mais vous mangez du chocolat
+LE GERANT DE LA PLAGE — vous par exemple, vous êtes un.e raciste de gauche : vous êtes convaincu.e intellectuellement que tous les peuples sont égaux, mais vous mangez du chocolat.
 #answer (avoir l'air choqué)
 #act #goto silo.questions.description.progressisme
 
@@ -509,11 +508,11 @@ LE GERANT DE LA PLAGE - J'attends.
 #goto #act silo.questions.description.avion 
 
 LE GERANT DE LA PLAGE - ah et vous allez y aller comment? vous avez entendu parler du changement climatique? Du concept de justice sociale? Du fait que 90% de la population mondiale ne prend jamais l’avion? Que les 25 000 vols effectués chaque jour comptent pour 6% du total des émissions de CO2 à l'échelle de l'humanité? 
+#bookmark silo.questions.description.avion
 
 et quand je dis 6% je parle parle seulement d'émissions brutes, il est vraisemblable que les gaz a effets de serre (GES) produits à haute altitude génèrent un forcage radiatif (effet de serre) supérieur à ceux produits au sol.
 
 donc peut être que les avions comptent pour encore plus que 6% du réchauffement climatique grosso modo. Allez disons 8%. 
-#answer silo.questions.description.avion 
 #answer (vous ne vous attendiez pas à être battu sur le terrain des idées de gauche par le gérant de la plage) ... J'ai d'autres questions sur la plage de l****.
 #act #goto silo.questions
 
@@ -529,7 +528,6 @@ LE GERANT DE LA PLAGE - la plage est fermée depuis qu'il y a des dégradations.
 #act #goto silo.questions.degradations.plaintes
 #answer est ce que vous n'auriez pas pu trouver une autre solution que de fermer la plage? (conclure)
 #act #goto resolution
-// same here, the last one should only appear at the end... maybe. or maybe not.
 
 LE GERANT DE LA PLAGE - des individus venaient faire des soirées ici, laissaient un tas de dêchets empilés sur les tables de camping que je devais nettoyer tous les matins.
 #bookmark silo.questions.degradations.quoi
@@ -580,7 +578,7 @@ Vous avez très bien compris les opinions du gérant de la plage, mais vous déc
 #act #goto silo.questions.degradations
 
 LE GERANT DE LA PLAGE - à ma connaissance non.
-#boomark silo.questions.degradations.plaintes
+#bookmark silo.questions.degradations.plaintes
 
 mais de toutes façons, personne ne vit ici.
 #answer quoi? comment ça?
@@ -601,19 +599,19 @@ Ces voitures, elles n'ont pas besoin de se ballader à la plage de l***, donc je
 LE GERANT DE LA PLAGE - quelle autre solution?
 #bookmark resolution
 #answer tout raser?
-#act
+#act #end 10 resolution.destruction resolution.destruction.fail
 #answer mettre des caméras de surveillance?
-#act
+#act #end 10 resolution.destruction.proces resolution.destruction.proces.fail
 #answer tagger les responsables pour qu'ils se rendent compte de ce qu'a pu ressentir la buvette?
-#act
+#act #end 10 resolution.rituel resolution.rituel.fail
 #answer demander une augmentation à votre employeur pour prendre en compte la pénibilité de votre travail?
-#act
+#act #end 10 resolution.anticapitalisme resolution.anticapitalisme.fail
 #answer renoncer à l'idéal d'une plage propre et d'une buvette intacte?
-#act
+#act #end 10 resolution.stoicisme resolution.stoicisme.fail
 #answer rendre l'accès à la plage gratuite et demander aux baigneurs.euses de nettoyer la plage eux-même?
-#act
+#act #end 10 resolution.business resolution.business.fail
 #answer faire une grève de la faim?
-#act
+#act #end 10 resolution.gandhi resolution.gandhi.fail
 
 C'est le gérant lui-même qui s'est créé un problème avec sa buvette superfétatoire : vous n'en revenez pas qu'il ne soit pas lui même arrivé à la conclusion qu'il fallait tout raser, et restituer la plage à son état Mésolithique : une prairie, le lac, la montagne.
 #bookmark resolution.destruction
@@ -732,3 +730,4 @@ Ce n’est peut être pas une si bonne idée : faire une grève de la faim compo
 Le jeune politique nécéssite un engagement total, issu d’une conviction intime. Le gérant de la plage décidera seul s’il souhaite s’engager sur cette voie.
 #answer (tenter une autre proposition)
 #act #goto resolution
+
