@@ -159,10 +159,6 @@ loadText = function(_Story, index, rawText){
 	// execute actions if there are any
 	clientActions(_Story[index].params)
 
-    /* @todo Add a statement to replace "***" by empty <ul/>
-		@body as was the case in the former codebase.
-    */
-
 	scrollText()
 }
 
@@ -586,6 +582,9 @@ dice = function(_arg, _modifier){
 	let fail = false
 	let result = ""
 
+	// we also want to stop spacebar presses during the dice roll.
+	instance.data.stopped=true
+
 	function rollTheDice(){
 
 		randomVal1 = Math.floor(Math.random()*6)+1
@@ -629,6 +628,7 @@ dice = function(_arg, _modifier){
 							params.push({["#goto"]:[gotoSuccess]})
 						}
 						clientActions(params)
+						instance.data.stopped=false
 					},500)
 				},200)
 			}else{
