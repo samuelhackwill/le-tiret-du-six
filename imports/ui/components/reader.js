@@ -520,7 +520,13 @@ end = function(_arg){
 	let gotoSuccess = _argArr[2]
 	let gotoFail = _argArr[3]
 
-	_modifier = instance.data.obj.modifiers.find(str => str.name === gotoSuccess).modifier
+	__modifier = instance.data.obj.modifiers.find(str => str.name === gotoSuccess)
+
+	if (__modifier) {
+		_modifier = __modifier.modifier
+	}else{
+		_modifier = 0
+	}
 
 	dice(_arg, _modifier)
 }
