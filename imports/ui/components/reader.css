@@ -5,7 +5,7 @@
 }
 
 .readerColumn{
-	font-size: calc(22 / 1024 * 100vw);
+	font-size: calc(19 / 1024 * 100vw);
 	line-height: 1.2;
 	position: absolute;
 	margin-top: 0px;
@@ -146,7 +146,7 @@ ul::selection {
 }
 
 .answersColumn {
-	font-size: calc(22 / 1024 * 100vw);
+	font-size: calc(19 / 1024 * 100vw);
 	line-height: 1.2;
 	box-sizing: border-box;
 	width: calc(100vw / 2);

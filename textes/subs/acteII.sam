@@ -144,6 +144,7 @@ Le passé, c’est concentrer à nouveau sur votre objectif : la plage de L****.
 vous êtes soudainement paralysé par la myriade de choix qui s’offrent à vous pour traduire vos intentions en gestes. Vous commencez par découper la phrase, qu’il aurait été si facile d’énoncer à voix haute si vous n’étiez pas un.e touriste hollandaise, en éléments signifiants que vous allez devoir mimer :
 #bookmark intro.hollandais.mime
 #answer “je veux ballader à la plage.”
+#act #goto intro.hollandais.mime.je
 
 comment dire “je” avec votre corps?
 #bookmark intro.hollandais.mime.je
@@ -194,7 +195,7 @@ Après un petit moment de réflexion vous réalisez que 99% de l’effort de com
 
 vous êtes content.e de votre analyse (qui vous rassure sur votre propre performance de mime) mais vous vous sentez aussi un peu démuni.e face au pouvoir réthorique de la porte toujours-déjà fermée de la plage de l****.
 #answer Do you speak english? 
-#bookmark intro.hollandais.gb
+#act #goto intro.hollandais.gb
 
 vous n’arrivez pas à vous décider. Vous le savez, les trois prénoms les plus attribués aux bébés des années 80 (on suppose qu’il est quarantenaire) sont Sébastien, Julien, Nicolas. Mais c’est risqué : il y a beaucoup de prénoms.
 #bookmark intro.prenom
