@@ -19,12 +19,13 @@ Template.racer.helpers({
 			// do nothing, array is empty
 		}else{
 			// SOLO
-			const localPlayer = instance.data.obj.players.collection.find({env:environment}).fetch()[0].players.find(str=>str.aiguebename===instance.aiguebename)
-			const bot = {aiguebename: "Guéna", atIndex: 0}
+			const search_tags = ['Michèle Planche', "bot"]
+			search_tags.push(instance.aiguebename)
 
-			players = []
-			players.push(localPlayer, bot)
-			return players
+			const allPlayers = instance.data.obj.players.collection.find({env:environment}).fetch()[0].players
+			const isRunning = allPlayers.filter((allPlayers) => search_tags.some((name) => Object.values(allPlayers).includes(name)))
+
+			return isRunning
 			// FFA
 			// return this.obj.players.collection.find({env:environment}).fetch()[0].players
 		}

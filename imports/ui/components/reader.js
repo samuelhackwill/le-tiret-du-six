@@ -248,9 +248,6 @@ clientActions = function(_params){
 					instance.data.obj.spaceBarStatus = "racer"
 					document.getElementsByClassName("racerContainer")[0].style.opacity=1
 					document.getElementsByClassName("readerContainer")[0].style.opacity=0
-				
-					// if it's the solo race, we want to start animating guéna (the bot).
-					
 				}
 			break;
 

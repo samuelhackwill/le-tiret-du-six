@@ -83,11 +83,11 @@ initiatePlayers = function(_env){
   __env = _env || null
   if (__env) {
     console.log("Players."+ __env," is empty, inserting document to avoid errors")
-    Players.insert({env:__env, players:[]})
+    Players.insert({env:__env, players:[{aiguebename:"bot", atIndex:0}]})
   }else{
     console.log("Players is empty, inserting document to avoid errors")
-    Players.insert({env:"Dev", players:[]})
-    Players.insert({env:"Prod", players:[]})
+    Players.insert({env:"Dev", players:[{aiguebename:"bot", atIndex:0}]})
+    Players.insert({env:"Prod", players:[{aiguebename:"bot", atIndex:0}]})
   }
 }
 

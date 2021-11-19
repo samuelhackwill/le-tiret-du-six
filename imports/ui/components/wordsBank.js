@@ -24,22 +24,26 @@ Template.wordsBank.helpers({
 	},
 
 	miningStatus:function(){
+		// this function is responsible for getting the stats of the current player
+		// words mined, but also words mined by other players, etc.
 
 		let allPlayers = this.obj.players.collection.findOne({env: environment})?.players
-		let player = allPlayers?.find(str=>str.aiguebename===instance.aiguebename)
-		let harvest = player?.score?.harvest?.length || 0
 
-		let counter = 0
+		if (allPlayers) {
+			let player = allPlayers?.find(str=>str.aiguebename===instance.aiguebename)
+			let harvest = player?.score?.harvest?.length || 0
 
-		for (var i = allPlayers.length - 1; i >= 0; i--) {
-			add = allPlayers[i]?.score?.harvest?.length || 0
-			counter = counter + add
-		}
+			let counter = 0
 
-		let words = instance.data.obj.words.collection.findOne({env:environment})?.data?.length || 0
+			for (var i = allPlayers.length - 1; i >= 0; i--) {
+				add = allPlayers[i]?.score?.harvest?.length || 0
+				counter = counter + add
+			}
 
+			let words = instance.data.obj.words.collection.findOne({env:environment})?.data?.length || 0
 
 		return {iCollected : harvest, total : words, totalCollected : counter, left : (words-counter)}
+		}
 	}
 
 });

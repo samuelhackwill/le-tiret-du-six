@@ -47,12 +47,8 @@ Template.tracker.helpers({
 		// cause bugs.
 		console.log('this?', this);
 		switch(this.aiguebename){
-			case "Michèle Planche":
-			return "#FD971F"
-			break;
-
-			case "Julien Montfalcon":
-			return "#AE81FF"
+			case "bot":
+			return "red"
 
 			default:
 			return "white"
