@@ -10,10 +10,23 @@ cyclerCount = 1;
 
 Template.racer.helpers({
 	players(){
+		// the players helper is reponsible for displaying the right players
+		// the one player in case of solo race
+		// or pool players in case of pool races
+		// or finalists in case of the finals
+		// or everybody in case of FFA.
 		if (!this.obj.players.collection.find({env:environment}).fetch().length) {
 			// do nothing, array is empty
 		}else{
-			return this.obj.players.collection.find({env:environment}).fetch()[0].players
+			// SOLO
+			const localPlayer = instance.data.obj.players.collection.find({env:environment}).fetch()[0].players.find(str=>str.aiguebename===instance.aiguebename)
+			const bot = {aiguebename: "Guéna", atIndex: 0}
+
+			players = []
+			players.push(localPlayer, bot)
+			return players
+			// FFA
+			// return this.obj.players.collection.find({env:environment}).fetch()[0].players
 		}
 	},
 

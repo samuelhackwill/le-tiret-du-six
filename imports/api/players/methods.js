@@ -73,6 +73,7 @@ Meteor.methods({
 	},
 
 	stepperStartCall(_env){
+		console.log("players counter ", playersCounter)
 		if (playersCounter[_env]<1) {
 		console.log("stepperStartCall launching stepper!")
 		// i'm re-using playersCounter, which doesn't sound very safe.
