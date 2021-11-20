@@ -37,6 +37,10 @@ Template.reader.onCreated(function(){
 	// gained in order to modify the dice rolls they are
 	// going to do at the end.
 	instance.data.obj.modifiers = []
+	// we need to know when someone has finished the
+	// solo race so as not to display the end message
+	// twice.
+	instance.soloRaceFinished = false	
 
 })
 

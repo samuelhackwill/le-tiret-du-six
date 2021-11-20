@@ -37,9 +37,12 @@ streamer.on('message', function(message) {
 			}
 			break;
 
-			case "endRace":
-			window.clearInterval(autorun)
-			document.getElementsByClassName("autorun")[0].innerText = "Bot autorun"
+			case "endRaceSolo":
+			if (message.winner == "bot") {
+				window.clearInterval(autorun)
+				document.getElementsByClassName("autorun")[0].innerText = "Bot autorun"				
+				Meteor.call('stepperStopCall', _env = environment)
+			}
 			break;
 
 		}

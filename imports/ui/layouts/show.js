@@ -42,23 +42,29 @@ streamer.on('message', function(message) {
 		    redrawPlayers(message._posTable);
 			break;
 
-			case "endRace":
-			// at the end of the race, we want to hide the running peeps,
-			// change the winner text according to results of race (Michèle Planche
-			// should be seated left (jardin) and show the winner div.
-			document.getElementsByClassName("racerContainer")[0].style.opacity=0
-			displayMessage = message.winner == "Michèle Planche" ? "gauche" : "droite"
-			document.getElementsByClassName("winner")[0].innerHTML = "🏁 personne de "+ displayMessage + " wins! 🏁"
-			document.getElementsByClassName("winner")[0].style.opacity=1
-			document.getElementsByClassName("winner")[0].style.transform = "translate(-50%,-50%) scale(200%)"
+			case "endRaceSolo":
+			// the first solo race is when people train against a bot. We are
+			// having a multitude of races at the same time, so we need to check
+			// wether this is a message for one player or not.
 
-			Meteor.setTimeout(function(){
-				// shortly after the race has ended, hide the winner div
-				// and make the spacebar capable of fetching text again.
-				instance.data.obj.spaceBarStatus="reader"
-				document.getElementsByClassName("winner")[0].style.opacity=0
-				document.getElementsByClassName("readerContainer")[0].style.opacity=1
-			},5000)
+			if (message.winner == instance.aiguebename || message.winner == "bot" && instance.soloRaceFinished == false) {
+				document.getElementsByClassName("racerContainer")[0].style.opacity=0
+				displayMessage = message.winner == "bot" ? "le gérant de la plage court plus vite que vous." : "vous avez gagné la course contre le gérant de la plage!"
+				document.getElementsByClassName("winner")[0].innerHTML = "🏁 "+ displayMessage + " 🏁"
+				document.getElementsByClassName("winner")[0].style.opacity=1
+				document.getElementsByClassName("winner")[0].style.transform = "translate(-50%,-50%) scale(200%)"
+
+				instance.soloRaceFinished = true
+				Meteor.setTimeout(function(){
+					// shortly after the race has ended, hide the winner div
+					// and make the spacebar capable of fetching text again.
+					instance.data.obj.spaceBarStatus="reader"
+					document.getElementsByClassName("winner")[0].style.opacity=0
+					document.getElementsByClassName("readerContainer")[0].style.opacity=1
+				},5000)
+			}else{
+				return
+			}
 			break;
 
 			case "stopMining":

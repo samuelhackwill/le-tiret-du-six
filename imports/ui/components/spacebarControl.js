@@ -29,6 +29,8 @@ Template.spacebarControl.events({
 		if (instance.botAutorun) {
 			botAutorun()
 			t.currentTarget.innerText = "Bot running!"
+			// we must also tell server that it should switch to
+			// endrace solo during
 		}else{
 			window.clearInterval(autorun)
 			t.currentTarget.innerText = "Bot autorun"
@@ -80,5 +82,5 @@ adminSpaceBarPress = function(){
 botAutorun = function(){
 	autorun = setInterval(function(){
 		Meteor.call("requestStepServerSide", 'bot')
-	},250)
+	},500)
 }

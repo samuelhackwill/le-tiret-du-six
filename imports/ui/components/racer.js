@@ -8,6 +8,7 @@ import './racer.css';
 
 cyclerCount = 1;
 
+
 Template.racer.helpers({
 	players(){
 		// the players helper is reponsible for displaying the right players

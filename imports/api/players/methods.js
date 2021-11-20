@@ -112,6 +112,7 @@ Meteor.methods({
 			// terminates the timeStep loop.
 			console.log("stop stepper now!")
 			Meteor.clearInterval(timerSteps)
+			posTable = {}
 		}else{
 			// the next players don't trigger anything.
 			console.log("stepper is already stopped, do nothing!")
@@ -136,14 +137,15 @@ Meteor.methods({
 
       if (posTable[stepQueue[i]]==98) {
       	// as soon as someone reaches 98 spacebar presses, that means
-      	// the race is finished.
-				Meteor.call('stepperStopCall', _env = _env)
-				// stop stepper and also send message to all clients
-				// to make the spacebar go back to default behaviour.
-				sendMessage({action:"endRace", env:_env, winner:stepQueue[i]})
+      	// he has finished a race.
+
+				// if we are in solo race mode, we want to call the end of the race
+				// for that particular person, right away. If we are in pool, finals
+				// or FFA race, we want to log score but wait for the last player
+				// to finish race.
+				sendMessage({action:"endRaceSolo", env:_env, winner:stepQueue[i]})
 				// also we need to erase the posTable immediatly
 				// for further racing.
-				posTable = {}
 				return
       }
       updates++;
