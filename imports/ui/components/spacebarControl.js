@@ -29,11 +29,13 @@ Template.spacebarControl.events({
 		if (instance.botAutorun) {
 			botAutorun()
 			t.currentTarget.innerText = "Bot running!"
+			t.currentTarget.classList.add("blinkRed")
 			// we must also tell server that it should switch to
 			// endrace solo during
 		}else{
 			window.clearInterval(autorun)
 			t.currentTarget.innerText = "Bot autorun"
+			t.currentTarget.classList.remove("blinkRed")
 		}
 	}
 
@@ -82,5 +84,5 @@ adminSpaceBarPress = function(){
 botAutorun = function(){
 	autorun = setInterval(function(){
 		Meteor.call("requestStepServerSide", 'bot')
-	},333)
+	},80)
 }

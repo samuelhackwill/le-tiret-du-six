@@ -34,6 +34,10 @@
 	animation: strobe 1s infinite ;
 }
 
+.activeButton{
+ animation:  blinkRed 3s infinite;
+}
+
 @keyframes strobe {
   0%, 100% {
     background-color:red;
@@ -41,5 +45,19 @@
 
   50% {
     background-color:#272822;
+  }
+}
+
+@keyframes blinkRed {
+  0%, 100% {
+		border-radius: 4px;
+    background-color:red;
+    color: white;
+  }
+
+  50% {
+		border-radius: 4px;
+    background-color:white;
+    color: black;
   }
 }

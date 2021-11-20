@@ -140,12 +140,11 @@ Meteor.methods({
       	// he has finished a race.
 
 				// if we are in solo race mode, we want to call the end of the race
-				// for that particular person, right away. If we are in pool, finals
-				// or FFA race, we want to log score but wait for the last player
-				// to finish race.
+				// for that particular person, right away, but let
+				// other players continue running. We are also logging the score
+				// because we need to make pools by performance.
+				Meteor.call("playerLogTime", _env=_env, _aiguebename = stepQueue[i], _whichRace = "race2")
 				sendMessage({action:"endRaceSolo", env:_env, winner:stepQueue[i]})
-				// also we need to erase the posTable immediatly
-				// for further racing.
 				return
       }
       updates++;

@@ -45,17 +45,41 @@ streamer.on('message', function(message) {
 			case "endRaceSolo":
 			// the first solo race is when people train against a bot. We are
 			// having a multitude of races at the same time, so we need to check
-			// wether this is a message for one player or not.
+			// wether this is a message for one player or not. Also, if the bot
+			// is the one who finished the race, we need to log the score
+			// of the player because it won't be done on the server side.
+			console.log("endRace ", instance.soloRaceFinished === true, message.winner !== instance.aiguebename, message.winner !== "bot")
+			if (instance.soloRaceFinished === true || message.winner !== instance.aiguebename && message.winner !== "bot" ) {
+				// if the race was already locally finished, or the endrace message
+				// is for another player, don't do anything!
+				console.log("not for me, returning!")
+				return
+			}else{
+				// in case of endace for a bot, we need to end the race
+				// but also to log the score of the player immediately,
+				//  because he/she won't
+				// be able to reach the end of the racetrack.
+				if (message.winner == "bot") {
+					console.log("the bot has one, stop!")
+					displayMessage = "vous avez perdu la course!"
+					Meteor.call("playerLogTime", _env = environment, _aiguebename = "bot", _whichRace = "race2")
+				}else{
+					console.log("i have won, stop!")
+					// if it wasn't a bot, it means it was you.
+					// bravo!
+					displayMessage = "vous avez gagné la course!"
+				}
 
-			if (message.winner == instance.aiguebename || message.winner == "bot" && instance.soloRaceFinished == false) {
-				document.getElementsByClassName("racerContainer")[0].style.opacity=0
-				displayMessage = message.winner == "bot" ? "vous avez perdu la course!" : "vous avez gagné la course!"
+				// log the state of the race : it is finished.
+				instance.soloRaceFinished = true
+
+				// html stuff to display the winning message
 				document.getElementsByClassName("winner")[0].innerHTML = "🏁 "+ displayMessage + " 🏁"
 				document.getElementsByClassName("winner")[0].style.opacity=1
 				document.getElementsByClassName("winner")[0].style.transform = "translate(-50%,-50%) scale(200%)"
+				document.getElementsByClassName("racerContainer")[0].style.opacity=0
 
-				instance.soloRaceFinished = true
-				Meteor.setTimeout(function(){
+				setTimeout(function(){
 					// shortly after the race has ended, hide the winner div
 					// and make the spacebar capable of fetching text again.
 					instance.data.obj.spaceBarStatus="reader"
@@ -68,10 +92,7 @@ streamer.on('message', function(message) {
 					}
 				},5000)
 
-			}else{
-				return
 			}
-			break;
 
 			case "stopMining":
 			stopMining();
