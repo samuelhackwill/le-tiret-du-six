@@ -19,7 +19,7 @@ Template.racer.helpers({
 			// do nothing, array is empty
 		}else{
 			// SOLO
-			const search_tags = ['Michèle Planche', "bot"]
+			const search_tags = ["bot"]
 			search_tags.push(instance.aiguebename)
 
 			const allPlayers = instance.data.obj.players.collection.find({env:environment}).fetch()[0].players
