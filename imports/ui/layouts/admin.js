@@ -36,6 +36,12 @@ streamer.on('message', function(message) {
 				}, 10000);
 			}
 			break;
+
+			case "endRace":
+			window.clearInterval(autorun)
+			document.getElementsByClassName("autorun")[0].innerText = "Bot autorun"
+			break;
+
 		}
 	}
 });

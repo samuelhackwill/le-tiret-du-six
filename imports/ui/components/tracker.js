@@ -45,7 +45,6 @@ Template.tracker.helpers({
 		// we want to see if michèle & julien are here and
 		// have completed the race, because if not it may
 		// cause bugs.
-		console.log('this?', this);
 		switch(this.aiguebename){
 			case "bot":
 			return "red"

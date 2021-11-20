@@ -14,6 +14,7 @@ import './spacebarControl.css';
 Template.spacebarControl.onCreated(function(){
 	// pull adminAtIndex from DB when joining
 	instance = this
+	instance.botAutorun = false
 })
 
 Template.spacebarControl.events({
@@ -21,6 +22,17 @@ Template.spacebarControl.events({
 	"click button.spacebar"(){
 		// change status of spacebar
 		Meteor.call("spacebarInvert", environment)
+	},
+
+	"click button.autorun"(t){
+		instance.botAutorun =! instance.botAutorun
+		if (instance.botAutorun) {
+			botAutorun()
+			t.currentTarget.innerText = "Bot running!"
+		}else{
+			window.clearInterval(autorun)
+			t.currentTarget.innerText = "Bot autorun"
+		}
 	}
 
 })
@@ -45,11 +57,6 @@ Template.spacebarControl.helpers({
 
 })
 
-/**
- * @todo UI : Scroll with fastest/slowest player
- * @body we need a function to help admin track the progress of players, by scrolling in the tracker/editor divs
- */
-
 adminSpaceBarPress = function(){
 	// we need to check if admin has control first
 	_spacebarctrl = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.control
@@ -68,4 +75,10 @@ adminSpaceBarPress = function(){
 	// call method
 	// spacebarAdmin is located in /imports/api/story/server/publications
 	Meteor.call("spacebarAdmin", environment, _adminAtIndex)
+}
+
+botAutorun = function(){
+	autorun = setInterval(function(){
+		Meteor.call("requestStepServerSide", 'bot')
+	},250)
 }
