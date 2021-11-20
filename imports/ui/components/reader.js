@@ -212,21 +212,11 @@ clientActions = function(_params){
 			break;
 
 			case "#race1results" :
-				// _arg is either left or right. The player seated left
-				// should be Michèle Planche, and on the right Julien Montfalcon.
-				// see lines 13-18 of reader.js for further information.
-
-				if (firstClientSeated=="left") {
-					_who = _arg=="left" ? "Michèle Planche" : "Julien Montfalcon"
-				}else{
-					_who = _arg=="left" ? "Julien Montfalcon" : "Michèle Planche"
-				}
-
 				// get score from method with callback.
-				Meteor.call("calculateRaceDuration", environment, "race1", _who,
+				Meteor.call("calculateRaceDuration", environment, "race1", instance.aiguebename,
 					(error, result) =>{
 						loadText(undefined, undefined,
-							`La personne de ${_arg} a mis ${result.diffTimeS}
+							`Vous avez mis ${result.diffTimeS}
 							secondes et ${result.diffTimeD} dixièmes à parcourir
 							le texte.`)
 					})
@@ -248,7 +238,7 @@ clientActions = function(_params){
 				}else{
 					// or else we want to start the stepper and make
 					// the spacebar change behaviour
-					Meteor.call("stepperStartCall", environment)
+					Meteor.call("stepperStartCall", environment, _arg)
 					instance.data.obj.spaceBarStatus = "racer"
 					document.getElementsByClassName("racerContainer")[0].style.opacity=1
 					document.getElementsByClassName("readerContainer")[0].style.opacity=0

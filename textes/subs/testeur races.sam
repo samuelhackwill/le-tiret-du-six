@@ -1,13 +1,51 @@
 coucouu
-#bookmark start
+#bookmark race 1
+
+ok so this is the first race.
+
+you're just reading text
+#logtime race1
+
+from now
+
+to
+
+...
+
+...
+
+now.
+#logtime race1
+
+ok
+
+how good did you do?
+
+***
+#race1results
+
+well done.
+
+and now runner race!
+#bookmark race 2 (solo)
 
 l'admin a la main
 
 attention vous êtes prets
 
 GO!
-#stepper start
+#stepper solo
 
 ***
 
 on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
+
+bon on va faire la prochaine maintenant?
+#bookmark race 3 (pool3)
+
+***
+
+all right,
+
+let's go!
+#stepper pool3

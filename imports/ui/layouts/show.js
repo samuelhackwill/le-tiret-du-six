@@ -49,7 +49,7 @@ streamer.on('message', function(message) {
 
 			if (message.winner == instance.aiguebename || message.winner == "bot" && instance.soloRaceFinished == false) {
 				document.getElementsByClassName("racerContainer")[0].style.opacity=0
-				displayMessage = message.winner == "bot" ? "le gérant de la plage court plus vite que vous." : "vous avez gagné la course contre le gérant de la plage!"
+				displayMessage = message.winner == "bot" ? "vous avez perdu la course!" : "vous avez gagné la course!"
 				document.getElementsByClassName("winner")[0].innerHTML = "🏁 "+ displayMessage + " 🏁"
 				document.getElementsByClassName("winner")[0].style.opacity=1
 				document.getElementsByClassName("winner")[0].style.transform = "translate(-50%,-50%) scale(200%)"
