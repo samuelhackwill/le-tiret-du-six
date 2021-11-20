@@ -61,7 +61,13 @@ streamer.on('message', function(message) {
 					instance.data.obj.spaceBarStatus="reader"
 					document.getElementsByClassName("winner")[0].style.opacity=0
 					document.getElementsByClassName("readerContainer")[0].style.opacity=1
+
+					allRunners = document.getElementsByClassName("racerContainer")[0].children
+					for (var i = allRunners.length - 1; i >= 0; i--) {
+						allRunners[i].style.transform = "translateX(0vw)"
+					}
 				},5000)
+
 			}else{
 				return
 			}
