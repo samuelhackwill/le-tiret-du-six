@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Globals } from '../globals.js';
 import { Players } from '../../players/players.js';
+import { Words } from '../../words/words.js';
 
 Meteor.publish('globals', function() {
   return Globals.find({});
@@ -26,6 +27,12 @@ Meteor.methods({
 	},
 
 	stopMiningAdmin(_env){
+		// we need to reset the status of havested letters so that words
+		// will appear red and we can start over next time.
+		Words.update({ env:_env },
+	  { "$set": { "data.$[].harvestedLetters": [] } },
+	  { "multi": true }
+	)
 		sendMessage({action:"stopMining", env:_env})
 	}
 })
