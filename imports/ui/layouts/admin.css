@@ -1,9 +1,12 @@
 .adminEditor{
 	height: 88vh;
-	width:33%;
+	width:50%;
 	margin-top:10px;
 	transition: opacity .5s;
 	background-color:#272822;
+}
+.adminEditor .storyEditorContainer {
+	padding-left: 16.66%;
 }
 
 

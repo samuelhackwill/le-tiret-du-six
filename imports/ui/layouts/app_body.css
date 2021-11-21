@@ -3,8 +3,13 @@
   src: url(/fonts/inconsolataLight.ttf);
 }
 @font-face {
-  font-family: ubuntu;
-  src: url(/fonts/ubuntu.ttf);
+    font-family: 'Ubuntu Mono';
+    src: url('/fonts/UbuntuMono-Regular.woff2') format('woff2'),
+        url('UbuntuMono-Regular.woff') format('woff'),url()
+        url('/fonts/ubuntu.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
   font-family: victorMonoLight;
@@ -13,6 +18,14 @@
 @font-face {
   font-family: firaCodeLight;
   src: url(/fonts/firaCodeLight.ttf);
+}
+@font-face {
+    font-family: 'Avara_Bold Italic';
+    src:    url('/fonts/Avara-Bold_Italic.eot');
+    src:    url('/fonts/avara-bolditalic-webfont.woff') format('woff'),
+            url('/fonts/avara-bolditalic-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
 html {
   height: 100%;
@@ -26,7 +39,7 @@ transition: background-color 1s;
   width: 100%;
 	background-color: #272822;
 	/* font-family: "firaCodeLight", sans-serif; */
-	font-family: "ubuntu", sans-serif;
+	font-family: 'Ubuntu Mono', sans-serif;
 	color: white;
   margin: 0;
 }

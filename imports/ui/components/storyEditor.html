@@ -15,6 +15,17 @@
 		 		{{#each data}}
 					<div class="lineContainer">
 						<p class="line"><span class="lineIndex" data-lineIndex="{{@index}}">{{@index}}</span> {{line}} </p>
+						<div class="playersContainer">
+							{{#let lineIndex = @index}}
+								{{#each ../../players}}
+									{{#each players}}
+										{{#if lineHasPlayers lineIndex}}
+										<span class="playerPositionMarker" title="{{aiguebename}}" data-atIndex="{{lineIndex}}" style=" color: {{cursorColor}}"> | </span>
+										{{/if}}
+									{{/each}}
+								{{/each}}
+							{{/let}}
+						</div>
 						<div class="paramsContainer">
 							{{#each params}}
 								<div class="lineParams">

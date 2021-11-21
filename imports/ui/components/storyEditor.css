@@ -23,15 +23,34 @@
 
 .lineContainer{
 	margin-left:10px;
+	position: relative;
 }
 
 .paramsContainer{
 	margin-bottom: 15px;
 }
+.playersContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateX(calc(-100% - 10px));
+}
 
 .textAreaContainer{
 	width: 100%;
 	height: 100%;
+}
+.textAreaContainer{
+	width: calc(100% - 40px - 22px);
+	height: 100%;
+	font-size: 16px;
+	position: fixed;
+	top: 0;
+	left: 66px;
+	visibility: visible;
+	/* transform: translate(-10%, 0); */
+	z-index: 1;
+  font-family: "firaCodeLight", sans-serif;
 }
 
 .lineParams{
