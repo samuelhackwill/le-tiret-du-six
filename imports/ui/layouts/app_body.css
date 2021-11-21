@@ -21,12 +21,9 @@
 }
 @font-face {
     font-family: 'Avara_Bold Italic';
-    src:    url('/fonts/BoldItalic/Avara-Bold_Italic_web.eot');
-    src:    url('/fonts/BoldItalic/Avara-Bold_Italic_web.eot?#iefix') format('embedded-opentype'),
-            url('/fonts/BoldItalic/Avara-Bold_Italic_web.woff') format('woff'),
-            url('/fonts/BoldItalic/Avara-Bold_Italic_web.woff2') format('woff2'),
-            url('/fonts/BoldItalic/Avara-Bold_Italic_web.ttf') format('truetype'),
-            url('/fonts/BoldItalic/Avara-Bold_Italic_web.svg#svgFontName') format('svg');
+    src:    url('/fonts/Avara-Bold_Italic.eot');
+    src:    url('/fonts/avara-bolditalic-webfont.woff') format('woff'),
+            url('/fonts/avara-bolditalic-webfont.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
