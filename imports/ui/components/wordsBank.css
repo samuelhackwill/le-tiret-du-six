@@ -29,7 +29,7 @@
   transition: opacity 0.8s ease-in-out 0.4s;
 }
 .toggleWordsBank {
-  font-family: 'ubuntu';
+  font-family: 'Ubuntu Mono';
   position: absolute;
   top: 0;
   left: -100vh;
@@ -140,7 +140,7 @@
 	scrollbar-width: thin;
 }
 .wordTitle {
-  font-family: 'Avara';
+  font-family: 'Avara_Bold Italic';
   font-weight: bold;
   font-style: italic;
   margin-top: 20px;

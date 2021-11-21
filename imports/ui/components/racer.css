@@ -61,6 +61,12 @@
 	/* background-size: cover, auto; */
 	background-size: 44.5vw, 44.5vw, 44.5vw, cover;
 }
+.racerPanneau-1 img,
+.racerPanneau-2 img,
+.racerPanneau-3 img {
+	max-width: 100%;
+	display: block;
+}
 .racerPanneau-1 {
 	position: absolute;
 	top: 4.5vh;
@@ -199,6 +205,7 @@
 	min-height: 10px;
 	width: 25px;
 	background: url('/img/races/1.svg') no-repeat bottom left;
+	z-index: -1;
 }
 .track0 {left: 2.5%;}
 .track1 {left: 2.5%;}
