@@ -87,6 +87,22 @@ Template.storyEditor.helpers({
 		console.log('lineHasPlayers', this.aiguebename, this.atIndex, lineIndex);
 		return this.atIndex == lineIndex;
 	},
+	
+	cursorColor(){
+		// we want to see if michèle & julien are here and
+		// have completed the race, because if not it may
+		// cause bugs.
+		switch(this.aiguebename){
+			case "bot":
+			return "red"
+
+			default:
+			return "white"
+
+			break;
+		}
+
+	}
 })
 
 

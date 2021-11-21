@@ -181,6 +181,14 @@ clientActions = function(_params){
 		// then decide what to do according to the action name.
 		// actions are sorted by chronological appearance during the show.
 		switch (_key){
+			case "#getMean":
+			calculateMean()
+			break;
+
+			case "#light":
+			shouldIFlash(_arg);
+			break;
+
 			case "#goto" :
 			goto(_arg);
 			break;
@@ -877,4 +885,96 @@ stopMining = function(){
 	for (var i = allLetters.length - 1; i >= 0; i--) {
 		allLetters[i].classList.remove("letter")
 	}
+}
+
+shouldIFlash = function(_arg){
+	// we need to show the faces of members of the audience by lighting
+	// their faces with the computer screens.
+
+	switch(_arg){
+		case  "1" || 1 :
+	// light both pools
+	// just check mean and my score. If i'm under, flash red.
+	// if i'm over, flash green.
+		console.log(race2Mean)
+		break;
+		case  "2" || 2 :
+	// light one pool : sa 
+	// just check mean and my score. If i'm under, flash red.
+
+		break;
+		case  "3" || 3 :
+	// light one pool : ts 
+	// just check mean and my score. If i'm over, flash green.
+
+		break;
+		case  "4" || 4 :
+	// light the winner of sa
+	// check my score of pool race 3, am i the best?
+
+		break;
+		case  "5" || 5 :
+	// light the 2nd of sa
+	// check my score of pool race 3, am i second best?
+
+		break;	
+		case  "6" || 6 :
+	// light the 3rd of sa
+	// check my score of pool race 3, am i third best?
+
+		break;
+		case "7" || 7 :
+	// light the last of ts
+	// check my score of pool race 4, am i the last one?
+
+		break;
+		case "8" || 8 :
+	// light the 1st of ts
+	// check my score of pool race 4, am i the best?
+
+		break;
+		case  "9" || 9 :
+	// light the reste of the ts!
+	// am i part of the team sieste? If that's the case, check
+	// my position in the array and either return (if i was first or last)
+	// or launch 
+
+		break;
+	}
+}
+
+flashLight = function(color){
+// do the html css bullshit
+}
+
+calculateMean = function(){
+
+				// we're going to need a mean for race 2, in order to assign
+				// pool to players.
+				race2Mean = 0;
+				scores = 0
+
+				let allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
+				
+				for (var i = allPlayers.length - 1; i >= 0; i--) {
+					if (allPlayers[i]?.score?.race2?.finish != undefined && allPlayers[i]?.score?.race2?.start != undefined) {
+						console.log("adding score of ", allPlayers[i])
+						scores = scores + (allPlayers[i].score.race2.finish - allPlayers[i].score.race2.start)
+					}
+				}
+
+				race2Mean = scores/(allPlayers.length)
+
+				console.log("scores", scores, "allplayers length", allPlayers.length, "mean ", Number(race2Mean))
+
+				function getFastest(x) { return (x.score.race2.finish-x.score.race2.start )< race2Mean }
+				function getSlowest(x) { return (x.score.race2.finish-x.score.race2.start )>= race2Mean }
+				onlyFastest = allPlayers.filter(function(x) { return getFastest(x) })
+				onlySlowest = allPlayers.filter(function(x) { return getSlowest(x) })
+
+				console.log("Mean is, ", race2Mean, "ms")
+				console.log("players faster than mean are ", onlyFastest)
+				console.log("players slower than mean are ", onlySlowest)
+
+
 }

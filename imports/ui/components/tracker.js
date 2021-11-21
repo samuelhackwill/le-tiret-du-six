@@ -39,21 +39,5 @@ Template.tracker.helpers({
 		// instance.data.offsets contain the exact offsetTop
 		// of every line.
 		return this.atIndex;
-	},
-
-	cursorColor(){
-		// we want to see if michèle & julien are here and
-		// have completed the race, because if not it may
-		// cause bugs.
-		switch(this.aiguebename){
-			case "bot":
-			return "red"
-
-			default:
-			return "white"
-
-			break;
-		}
-
 	}
 })
