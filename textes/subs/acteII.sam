@@ -16,9 +16,9 @@ Vous aperçevez sur la gauche qu'un chemin quitte la route et qu'un accès à un
 Vous vous approchez de l’entrée de la plage. Un portail en acier, qu’on a eu la coquetterie de peindre en vert turquoise, vous barre le passage. Quelqu’un.e a verrouillé la porte d’entrée à l’aide d’un gros cadenas de laiton.
 #bookmark intro
 
-Vous tirez la porte par aquit de conscience mais elle ne bouge pas du tout. Vous touchez le cadenas, ce qui vous donne immédiatement la confirmationqu’il serait impossible de le casser à mains nues,ou en le mordant. C’est bien un vrai cadenas.
+Vous tirez la porte par aquit de conscience mais elle ne bouge pas du tout. Vous touchez le cadenas, ce qui vous donne immédiatement la confirmation qu’il est impossible de le casser à mains nues, ou en le mordant. C’est bien un vrai cadenas.
 
-Quelqu’un.e s’oppose à vos plans de ballade.Quelqu’un.e se dresse entre vous et la nature.Mais aussi : quelqu’un.e a les clés de ce cadenas.
+Quelqu’un.e s’oppose à vos plans de ballade. Quelqu’un.e se dresse entre vous et la nature. Mais aussi : quelqu’un.e a les clés de ce cadenas.
 
 alors que vous commencez à vous poser la question, inévitable, de l’identité de la personne s’étant rendue responsable de ce crime, un bruit sur votre gauche trahit la présence immédiate du gérant de la plage, qui, gants de travail aux mains, est en train de ranger du bois dans un petit appenti à proximité de sa maison (son garage).
 #answer le gérant travaille pour la mairie, la mairie pour le peuple, et le peuple c’est moi! Il a le devoir de répondre à mes questions.
@@ -41,10 +41,61 @@ Le visage du gérant se fige un instant.
 #bookmark intro.police.win
 #answer Je suis de la gendarmerie de L****, est ce que c’est vous qui avez un chat coincé dans un arbre? 
 #act #goto intro.police.chat
-#answer Je fais partie du cabinet de la préfecture de Savoie, je viens pour un contrôle de conformité.
+#answer Je fais partie du cabinet de la préfecture de Savoie, je viens pour un contrôle de conformité. 
+// TBC
 #act #goto intro.police.prefecture
+// TBC
 #answer Vous êtes en état d'arrestation.
+// TBC
 #act #goto intro.police.handsup
+
+LE GÉRANT DE LA PLAGE - un chat? 
+#bookmark intro.police.chat
+#answer les chats ont du mal a descendre des arbres parce que leurs griffes sont incurvées comme des crochets et que leur instrinct les pousse à descendre tête vers le bas (ce qui ne leur permet alors pas d'utiliser leurs griffes pour s'accrocher au tronc, en raison de leur courbure).
+#act #goto intro.police.chat.wut
+
+LE GÉRANT DE LA PLAGE - c'est standard d'envoyer un policier en civil pour débloquer un chat dans un arbre?
+#bookmark intro.police.chat.wut
+
+vous avez pas autre chose à faire?
+#answer c'est la préfecture qui nous donne nos quotas. 10 chats sauvés par semaine minimum. La préfecture aime bien les chats.
+#act #goto intro.police.chat.quotas
+// TBC
+#answer au fait vous n'auriez pas retrouvé mon uniforme à la plage? Je suis venu me baigner la semaine dernière.
+#act #goto intro.police.chat.uniforme
+
+LE GÉRANT DE LA PLAGE - ... Non, on a pas retrouvé d'uniforme.
+#bookmark #goto intro.police.chat.uniforme
+
+Ceci dit j'ai bien retrouvé une casquette noire avec écrit "POLICE" dessus l'autre jour mais je doute que ça soit à vous.
+
+Vous avez aussi perdu votre arme de service?
+#answer ah ben si voilà c'est mon uniforme. La casquette.
+#act #goto intro.police.chat.casquette
+
+Le gérant de la plage part chercher quelque chose dans son garage et revient avec la casquette noire, puis hésite un instant.
+#bookmark intro.police.chat.casquette
+
+Vous êtes sûr.e que c'est à vous? ça ne m'a pas l'air bien réglementaire.
+#answer c'est ma casquette. Donnez-la moi. 
+#act #goto intro.police.chat.casquette.svp
+#answer (lui prendre la casquette des mains)
+#act #dice 9 intro.police.chat.casquette.force.win intro.police.chat.casquette.force.fail
+
+Le gérant de la plage vous donne finalement la casquette "POLICE", content de s'en débarasser. Vous en habillez votre tête. La casquette est un peu trop petite pour vous. C'était probablement celle d'un enfant.
+// TBC
+
+Après un rapide estimation de la distance qui vous sépare de la casquette, vous décidez que vous pouvez faire un geste rapide et digne pour la lui prendre des mains. Vous effectuez le geste sans effort, le gérant de la plage n'a rien vu venir.
+#bookmark intro.police.chat.casquette.force.win 
+
+Vous habillez votre tête de la casquette "POLICE", qui est un peu trop petite pour vous. C'était probablement celle d'un enfant.
+// TBC
+
+Vous avez calculé votre geste un peu trop court, et le bras lancé dans la direction de la casquette manque sa cible. Vous êtes contraint.e de vous avancer d'un petit pas maladroit et d'utiliser votre second bras pour laborieusement arracher la casquette des mains du gérant de la plage, qui vous regarde maintenant avec une indignation ébahie. Vous lui avez un peu griffé la main au passage, et vous avez certainement eu une expression ridicule d'effort désespéré sur le visage.
+#bookmark intro.police.chat.casquette.force.fail
+
+néanmoins le résultat est là, vous mettez la casquette "POLICE" sur votre tête. C'est une casquette d'enfant (elle est trop petite), mais vous êtes content.e quand même.
+// TBC
 
 Vous vous débinez. Tout le monde sait à quoi ressemble un policier. Vous ne ressemblez pas à un policier. Vos cheveux, vos vêtements, votre langage corporel, votre timidité.
 #bookmark intro.police.fail

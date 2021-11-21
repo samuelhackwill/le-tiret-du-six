@@ -9,32 +9,30 @@
   	<div class="wordsBankContainer">
 
 
+
       <div class="words">
         <ul>
-          <li><a data-word-id="1" href="javascript:;">dénommé</a></li>
-          <li><a data-word-id="2" href="javascript:;">jouer</a></li>
-          <li><a class="is-active" data-word-id="3" href="javascript:;">ouvert</a></li>
-          <li><a data-word-id="4" href="javascript:;">mais</a></li>
-          <li><a data-word-id="5" href="javascript:;">fait</a></li>
+          {{#each getCollectedWords}}
+            <li><a data-word-id="@index">{{this}}</a></li>
+          {{/each}}
         </ul>
       </div>
 
       <div class="wordDetails">
-        <h2 class="wordTitle">ouvert</h2>
+        <h2 class="wordTitle">Go for it</h2>
         <div class="wordDefinition">
-          Nous avons écrit le code informatique du tiret du six juchés sur les épaules d'un nombre incalculable de développeurs.développeuses ayant publié gratuitement leur travail sur internet. C'est ce qu'on appelle la culture de "l'open source" : non seulement on ne cache pas ses recettes de cuisine, mais on cuisine avec toujours en tête l'objectif que ces recettes soient comprises et puissent être réutilisées par d'autres.
-
+          Selectionnez un mot pour en lire la définition!
         </div>
         <figure class="wordCitation">
           <blockquote>
-            <p>the fundamental act of friendship among programmers is the sharing of programs</p>
+            <p class="citation"></p>
           </blockquote>
-          <figcaption>Richard Stallman, the GNU manifesto</figcaption>
+          <figcaption class="whoCitation"></figcaption>
         </figure>
       </div>
 
       <div class="wordsBankDetails">
-        vous avez récolté <span id="wordsCountPlayer">120</span> mots sur les <span id="wordsCountTotal">120</span> contenus dans le spectacle. Votre table a miné <span id="wordsCountTable">120</span> mots en tout. La salle a moissonné <span id="wordsCountRoom">120</span> mots en tout. Il reste <span id="wordsCountLeft">0</span> mots à collecter.
+        vous avez récolté <span id="wordsCountPlayer">{{miningStatus.iCollected}}</span> mots sur les <span id="wordsCountTotal">{{miningStatus.total}}</span> contenus dans le spectacle. La salle a moissonné <span id="wordsCountRoom">{{miningStatus.totalCollected}}</span> mots en tout. Il reste <span id="wordsCountLeft">{{miningStatus.left}}</span> mots à collecter.
       </div>
 
       <button type="button" class="closeWordsBank"></button>
