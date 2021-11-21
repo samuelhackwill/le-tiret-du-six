@@ -774,6 +774,9 @@ startMining = function(){
 
 	console.log("words", _words)
 
+	// display wordsBank toggle button
+	$('.toggleWordsBank').removeClass('is-hidden');
+
 	// we need all the lines from the HTML so we can look for specific
 	// words to transform their markup
 	_lines = document.getElementsByClassName("readerColumn")[0].children

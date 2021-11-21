@@ -52,6 +52,9 @@
   font-size: 1.82073vw;
   font-size: calc(18 / 1024 * 100vw);
 }
+.toggleWordsBank.is-hidden {
+  display: none;
+}
 .toggleWordsBankBG {
   position: absolute;
   top: 0;
