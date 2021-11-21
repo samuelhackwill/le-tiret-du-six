@@ -41,7 +41,7 @@ Template.reader.onCreated(function(){
 	// we need to know when someone has finished the
 	// solo race so as not to display the end message
 	// twice.
-	instance.soloRaceFinished = false	
+	instance.soloRaceFinished = false
 
 	Session.set("currentRace", undefined)
 
@@ -733,6 +733,7 @@ const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.0
 
 		let overflow = isOverflown(el);
 
+		if(!overflow) el.style.fontSize = '';
 
 		while (overflow && i > minSize) {
         el.style.fontSize = `${i}${unit}`
