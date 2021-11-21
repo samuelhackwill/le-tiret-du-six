@@ -91,7 +91,7 @@ streamer.on('message', function(message) {
 
 					allRunners = document.getElementsByClassName("racerContainer")[0].children
 					for (var i = allRunners.length - 1; i >= 0; i--) {
-						allRunners[i].style.left=value+"%";
+						allRunners[i].style.left="0%";
 					}
 				},5000)
 			}
@@ -221,7 +221,7 @@ switchToReaderAndResetRunners = function(){
 	setTimeout(function(){
 		allRunners = document.getElementsByClassName("racerContainer")[0].children
 		for (var i = allRunners.length - 1; i >= 0; i--) {
-			allRunners[i].style.left=value+"%";
+			allRunners[i].style.left="0%";
 		}
 	},3000)
 
