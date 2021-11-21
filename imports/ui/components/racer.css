@@ -101,18 +101,25 @@
 	display: flex;
 	align-items: center;
 }
-/* .racerContainerTracks { */
-.runnerTracks {
-	/* border: 4px solid orange; */
-	box-sizing: border-box;
+.racerContainerTracks {
+	background: url('/img/races/piste.svg') no-repeat top left;
+	background-size: cover;
 	height: 85vh;
+	box-sizing: border-box;
 	padding-bottom: 2vh;
 	padding-top: 3.7vh;
 	margin-top: -3vh;
 	margin-left: -3vw;
 	margin-right: -3vw;
-	background: url('/img/races/piste.svg') no-repeat top left;
-	background-size: cover;
+	padding-left: 2vw;
+	padding-right: 3vw;
+}
+.runnerTracks {
+	/* border: 4px solid orange; */
+	box-sizing: border-box;
+	height: 100%;
+	/* background: url('/img/races/piste.svg') no-repeat top left; */
+	/* background-size: cover; */
 	display: flex;
 	flex-direction: column;
 	justify-content: stretch;
@@ -120,8 +127,7 @@
 	/* border: 4px solid green; */
 	box-sizing: border-box;
 	transform: skewX(-3deg);
-	padding-left: 2vw;
-	padding-right: 3vw;
+	z-index: 1;
 }
 .runner {
 	display: inline-block;
@@ -132,6 +138,7 @@
 
 .arr{
 	opacity: 0;
+	display: none;
 }
 
 .arrV{
@@ -140,6 +147,7 @@
 	position:absolute;
 	bottom: 40px;
 	opacity: 1;
+	display: block;
 }
 
 /* tracks */
@@ -147,8 +155,8 @@
 	content: '';
 	display: block;
 	position: absolute;
-	top: 0.6vh;
-	left: 5%;
+	top: -3%;
+	left: 8%;
 	height: 4vh;
 	width: 88%;
 	background: url('/img/races/ligne0.svg') no-repeat 0 100%;
@@ -178,24 +186,38 @@
 	background: url('/img/races/ligne1.svg') no-repeat 0 100%;
 	background-size: 100%;
 }
-.track0 {background-image: url('/img/races/1.svg');left: 2.5%;}
-.track1 {background-image: url('/img/races/2.svg');background-position-y: 41%;background-size: 20% 35%;left: 2.5%;}
-.track2 {background-image: url('/img/races/3.svg');background-position-y: 40%;background-size: 20% 36%;left: 2.5%;}
-.track3 {background-image: url('/img/races/4.svg');background-position-y: 39%;background-size: 20% 37%;left: 2.6%;}
-.track4 {background-image: url('/img/races/5.svg');background-position-y: 38%;background-size: 20% 38%;left: 2.6%;}
-.track5 {background-image: url('/img/races/6.svg');background-position-y: 37%;background-size: 20% 40%;left: 2.8%;}
-.track6 {background-image: url('/img/races/7.svg');background-position-y: 36%;background-size: 20% 42%;left: 2.8%;}
-.track7 {background-image: url('/img/races/8.svg');background-position-y: 35%;background-size: 20% 45%;left: 2.8%;}
-.track8 {background-image: url('/img/races/9.svg');background-position-y: 34%;background-size: 20% 47%;left: 2.8%;}
-.track9 {background-image: url('/img/races/10.svg');background-position-y: 32%;background-size: 20% 50%;left: 2.7%;}
-.track10 {background-image: url('/img/races/11.svg');background-position-y: 28%;background-size: 20% 51%;left: 2.7%;}
-.track11 {background-image: url('/img/races/12.svg');background-position-y: 24%;background-size: 20% 52%;left: 2.9%;}
-.track12 {background-image: url('/img/races/13.svg');background-position-y: 20%;background-size: 20% 53%;left: 2.8%;}
-.track13 {background-image: url('/img/races/14.svg');background-position-y: 16%;background-size: 20% 53%;left: 2.7%;}
-.track14 {background-image: url('/img/races/15.svg');background-position-y: 12%;background-size: 20% 53%;left: 2.6%;}
-.track15 {background-image: url('/img/races/16.svg');background-position-y: 8%;background-size: 20% 54%;left: 2.6%;}
-.track16 {background-image: url('/img/races/17.svg');background-position-y: 4%;background-size: 20% 55%;left: 2.5%;}
-.track17 {background-image: url('/img/races/18.svg');background-position-y: 0%;background-size: 20% 75%;left: 2.5%;}
+.runnerTrack::after {
+	content: '';
+	display: block;
+	box-sizing: border-box;
+	/* border: 2px solid orchid; */
+	position: absolute;
+	bottom: 12px;
+	left: 49.25%;
+	height: 40%;
+	max-height: 25px;
+	min-height: 10px;
+	width: 25px;
+	background: url('/img/races/1.svg') no-repeat bottom left;
+}
+.track0 {left: 2.5%;}
+.track1 {left: 2.5%;}
+.track2 {left: 2.5%;}
+.track3 {left: 2.6%;}
+.track4 {left: 2.6%;}
+.track5 {left: 2.8%;}
+.track6 {left: 2.8%;}
+.track7 {left: 2.8%;}
+.track8 {left: 2.8%;}
+.track9 {left: 2.7%;}
+.track10 {left: 2.7%;}
+.track11 {left: 2.9%;}
+.track12 {left: 2.8%;}
+.track13 {left: 2.7%;}
+.track14 {left: 2.6%;}
+.track15 {left: 2.6%;}
+.track16 {left: 2.5%;}
+.track17 {left: 2.5%;}
 
 .track0::before {background-image: url('/img/races/ligne1.svg');width: 103%;height: 160%;left: -2.5%;bottom: 0px;}
 .track1::before {background-image: url('/img/races/ligne2.svg');width: 104%;height: 240%;left: -3%;}
@@ -215,6 +237,64 @@
 .track15::before {background-image: url('/img/races/ligne16.svg');width: 106.55%;left: -1.5%;}
 .track16::before {background-image: url('/img/races/ligne17.svg');width: 105%;left: -1.25%;bottom: -5px;}
 .track17::before {background-image: url('/img/races/ligne18.svg');width: 105%;left: -0.75%;bottom: -2px;}
+
+.racerContainer:not(.racerDarkMode) .V.track0::before {background-image: url('/img/races/ligne1-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track1::before {background-image: url('/img/races/ligne2-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track2::before {background-image: url('/img/races/ligne3-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track3::before {background-image: url('/img/races/ligne4-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track4::before {background-image: url('/img/races/ligne5-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track5::before {background-image: url('/img/races/ligne6-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track6::before {background-image: url('/img/races/ligne7-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track7::before {background-image: url('/img/races/ligne8-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track8::before {background-image: url('/img/races/ligne9-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track9::before {background-image: url('/img/races/ligne10-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track10::before {background-image: url('/img/races/ligne11-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track11::before {background-image: url('/img/races/ligne12-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track12::before {background-image: url('/img/races/ligne13-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track13::before {background-image: url('/img/races/ligne14-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track14::before {background-image: url('/img/races/ligne15-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track15::before {background-image: url('/img/races/ligne16-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track16::before {background-image: url('/img/races/ligne17-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track17::before {background-image: url('/img/races/ligne18-red.svg');}
+
+.track0::after {background-image: url('/img/races/1.svg');}
+.track1::after {background-image: url('/img/races/2.svg');}
+.track2::after {background-image: url('/img/races/3.svg');}
+.track3::after {background-image: url('/img/races/4.svg');}
+.track4::after {background-image: url('/img/races/5.svg');}
+.track5::after {background-image: url('/img/races/6.svg');}
+.track6::after {background-image: url('/img/races/7.svg');}
+.track7::after {background-image: url('/img/races/8.svg');}
+.track8::after {background-image: url('/img/races/9.svg');}
+.track9::after {background-image: url('/img/races/10.svg');}
+.track10::after {background-image: url('/img/races/11.svg');}
+.track11::after {background-image: url('/img/races/12.svg');}
+.track12::after {background-image: url('/img/races/13.svg');}
+.track13::after {background-image: url('/img/races/14.svg');}
+.track14::after {background-image: url('/img/races/15.svg');}
+.track15::after {background-image: url('/img/races/16.svg');}
+.track16::after {background-image: url('/img/races/17.svg');}
+.track17::after {background-image: url('/img/races/18.svg');}
+
+
+.racerContainer:not(.racerDarkMode) .V.track0::after {background-image: url('/img/races/1-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track1::after {background-image: url('/img/races/2-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track2::after {background-image: url('/img/races/3-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track3::after {background-image: url('/img/races/4-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track4::after {background-image: url('/img/races/5-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track5::after {background-image: url('/img/races/6-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track6::after {background-image: url('/img/races/7-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track7::after {background-image: url('/img/races/8-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track8::after {background-image: url('/img/races/9-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track9::after {background-image: url('/img/races/10-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track10::after {background-image: url('/img/races/11-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track11::after {background-image: url('/img/races/12-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track12::after {background-image: url('/img/races/13-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track13::after {background-image: url('/img/races/14-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track14::after {background-image: url('/img/races/15-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track15::after {background-image: url('/img/races/16-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track16::after {background-image: url('/img/races/17-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track17::after {background-image: url('/img/races/18-red.svg');}
 
 
 
@@ -272,6 +352,19 @@
 	top: 1.25vh;
 }
 
+.racerDarkMode .racerContainerTop {background-image: none;}
+.racerDarkMode .racerContainerTop .racerPanneau-1,
+.racerDarkMode .racerContainerTop .racerPanneau-2,
+.racerDarkMode .racerContainerTop .racerPanneau-3 {opacity: 0;visibility: hidden}
+.racerDarkMode .racerVerticalLines {opacity: 0;visibility: hidden}
+.racerDarkMode .racerContainerTracks {background-image: none;}
+.racerDarkMode .runnerTracks::before {opacity: 0;}
+.racerDarkMode .runnerTrack:not(.V) .runner {filter: brightness(0.5);}
+/* 1v1 race */
+.runnerTrack:first-child:nth-last-child(2) ~ .runnerTrack:last-child {
+  margin-bottom: 20vh;
+}
+
 .sprite1{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
 background-image: url('/img/running guy-1.png');animation: mymove1 1s infinite linear;
 }
@@ -309,42 +402,46 @@ background-image: url('/img/running guy-11.png');animation: mymove11 1s infinite
 background-image: url('/img/running guy-12.png');animation: mymove12 1s infinite linear;
 }
 
+.runner .personne > div {
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 
 .spriteV1{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-1.png'); opacity: 0;
+background-image: url('/img/running guy-13.png'); opacity: 0;
 }
 .spriteV2{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-2.png'); opacity: 1;
+background-image: url('/img/running guy-14.png'); opacity: 1;
 }
 .spriteV3{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-3.png'); opacity: 0;
+background-image: url('/img/running guy-15.png'); opacity: 0;
 }
 .spriteV4{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-4.png'); opacity: 0;
+background-image: url('/img/running guy-16.png'); opacity: 0;
 }
 .spriteV5{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-5.png'); opacity: 0;
+background-image: url('/img/running guy-17.png'); opacity: 0;
 }
 .spriteV6{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-6.png'); opacity: 0;
+background-image: url('/img/running guy-18.png'); opacity: 0;
 }
 .spriteV7{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-7.png'); opacity: 0;
+background-image: url('/img/running guy-19.png'); opacity: 0;
 }
 .spriteV8{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-8.png'); opacity: 0;
+background-image: url('/img/running guy-20.png'); opacity: 0;
 }
 .spriteV9{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-9.png'); opacity: 0;
+background-image: url('/img/running guy-21.png'); opacity: 0;
 }
 .spriteV10{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-10.png'); opacity: 0;
+background-image: url('/img/running guy-22.png'); opacity: 0;
 }
 .spriteV11{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-11.png'); opacity: 0;
+background-image: url('/img/running guy-23.png'); opacity: 0;
 }
 .spriteV12{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-12.png'); opacity: 0;
+background-image: url('/img/running guy-24.png'); opacity: 0;
 }
 
 
