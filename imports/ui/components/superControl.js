@@ -16,6 +16,10 @@ Template.superControl.events({
 		// it would be nice to implement a mongo query to delete
 		// harvestedLetters array.
 		Meteor.call("stopMiningAdmin", environment)
+	},
+
+	'click .stopTheRace'(){
+		Meteor.call("adminStopTheRace", environment)
 	}	
 
 })

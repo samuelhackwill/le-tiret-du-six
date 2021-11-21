@@ -95,6 +95,11 @@ streamer.on('message', function(message) {
 					}
 				},5000)
 			}
+			break;
+
+			case "endRacePool":
+			switchToReaderAndResetRunners()
+			break;
 
 			case "stopMining":
 			stopMining();
@@ -207,4 +212,17 @@ playerRm = async function(optionalName){
 	}catch (error){
 		console.log(error)
 	}
+}
+
+switchToReaderAndResetRunners = function(){
+	document.getElementsByClassName("readerContainer")[0].style.opacity=1
+	document.getElementsByClassName("racerContainer")[0].style.opacity=0
+
+	setTimeout(function(){
+		allRunners = document.getElementsByClassName("racerContainer")[0].children
+		for (var i = allRunners.length - 1; i >= 0; i--) {
+			allRunners[i].style.transform = "translateX(0vw)"
+		}
+	},3000)
+
 }

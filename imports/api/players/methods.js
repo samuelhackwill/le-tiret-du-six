@@ -1,6 +1,8 @@
 import { Players } from './players.js';
 import { playersSchema } from './players.js';
 
+_currentRace = ""
+
 Meteor.methods({
 	async playerInsert(_env, obj){
 		// clean modifies the object, adding an aiguebename
@@ -72,7 +74,8 @@ Meteor.methods({
 	
 	},
 
-	stepperStartCall(_env){
+	stepperStartCall(_env, _whichRace){
+		_currentRace = _whichRace
 		console.log("players counter ", playersCounter)
 		if (playersCounter[_env]<1) {
 		console.log("stepperStartCall launching stepper!")
@@ -106,6 +109,18 @@ Meteor.methods({
 
 	},
 
+	adminStopTheRace(_env){
+		console.log("*ADMIN* stop stepper now!")
+		Meteor.clearInterval(timerSteps)
+		posTable = {}
+
+		sendMessage({action:"endRacePool", env:_env})
+
+		// we need to tell stepper start call that he can be
+		// called again whenever.
+		playersCounter[_env] = 0
+	},
+
 	stepperStopCall(_env){
 		if (playersCounter[_env]>0) {
 			// the first player to call the function
@@ -125,7 +140,7 @@ Meteor.methods({
   	// stepServerSide updates the posTable
   	// which contains the position of every runner
   	// during race 2 of ACTE I.
-    console.log("updating position of players!")
+    console.log("updating position of players! ", _currentRace)
     updates = 0;
     for (var i = 0; i < stepQueue.length; i++) {
     	// stepQueue contains all the calls that were made 
@@ -149,7 +164,7 @@ Meteor.methods({
 					// races.
 					Meteor.call("playerDestroy", _env=_env, _aiguebename="bot")
 				}else{
-					Meteor.call("playerLogTime", _env=_env, _aiguebename = stepQueue[i], _whichRace = "race2")
+					Meteor.call("playerLogTime", _env=_env, _aiguebename = stepQueue[i], _whichRace = _currentRace)
 				}
 				sendMessage({action:"endRaceSolo", env:_env, winner:stepQueue[i]})
 				return

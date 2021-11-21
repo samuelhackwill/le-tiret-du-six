@@ -86,16 +86,18 @@ redrawPlayers=function(posTable){
 
 imageCycler = function(who){
 
-  domelements = document.getElementById(who).children[0]
-  domelements.children[cyclerCount].style.opacity=0
-  domelements.children[cyclerCount+1].style.opacity=1
+	if (domelements = document.getElementById(who)) {
+	  domelements = document.getElementById(who).children[0]
+	  domelements.children[cyclerCount].style.opacity=0
+	  domelements.children[cyclerCount+1].style.opacity=1
 
-  if(cyclerCount<10){
-    if(cyclerCount==1){
-      domelements.children[11].style.opacity=0
-    }
-    cyclerCount ++
-  }else{
-    cyclerCount = 1;
-  }
+	  if(cyclerCount<10){
+	    if(cyclerCount==1){
+	      domelements.children[11].style.opacity=0
+	    }
+	    cyclerCount ++
+	  }else{
+	    cyclerCount = 1;
+	  }
+	}
 }
