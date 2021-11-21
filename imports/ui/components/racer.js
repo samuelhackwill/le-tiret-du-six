@@ -8,6 +8,9 @@ import './racer.css';
 
 cyclerCount = 1;
 
+// we're going to need a mean for race 2, in order to assign
+// pool to players.
+race2Mean = 0;
 
 Template.racer.helpers({
 	players(){

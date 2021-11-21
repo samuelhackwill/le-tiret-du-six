@@ -32,6 +32,11 @@ Meteor.methods({
 	},
 
 	playerLogTime(_env, _aiguebename, _whichRace){
+		if (_aiguebename=="bot") {
+			console.log("we don't want to log the score of the bot.")
+			return
+		}
+		
 		time = new Date()
 		console.log(_whichRace)
 		// we're looking for a score.start field in the player document.
