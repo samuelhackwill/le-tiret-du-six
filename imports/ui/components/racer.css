@@ -402,42 +402,46 @@ background-image: url('/img/running guy-11.png');animation: mymove11 1s infinite
 background-image: url('/img/running guy-12.png');animation: mymove12 1s infinite linear;
 }
 
+.runner .personne > div {
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 
 .spriteV1{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-1.png'); opacity: 0;
+background-image: url('/img/running guy-13.png'); opacity: 0;
 }
 .spriteV2{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-2.png'); opacity: 1;
+background-image: url('/img/running guy-14.png'); opacity: 1;
 }
 .spriteV3{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-3.png'); opacity: 0;
+background-image: url('/img/running guy-15.png'); opacity: 0;
 }
 .spriteV4{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-4.png'); opacity: 0;
+background-image: url('/img/running guy-16.png'); opacity: 0;
 }
 .spriteV5{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-5.png'); opacity: 0;
+background-image: url('/img/running guy-17.png'); opacity: 0;
 }
 .spriteV6{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-6.png'); opacity: 0;
+background-image: url('/img/running guy-18.png'); opacity: 0;
 }
 .spriteV7{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-7.png'); opacity: 0;
+background-image: url('/img/running guy-19.png'); opacity: 0;
 }
 .spriteV8{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-8.png'); opacity: 0;
+background-image: url('/img/running guy-20.png'); opacity: 0;
 }
 .spriteV9{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-9.png'); opacity: 0;
+background-image: url('/img/running guy-21.png'); opacity: 0;
 }
 .spriteV10{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-10.png'); opacity: 0;
+background-image: url('/img/running guy-22.png'); opacity: 0;
 }
 .spriteV11{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-11.png'); opacity: 0;
+background-image: url('/img/running guy-23.png'); opacity: 0;
 }
 .spriteV12{width:inherit;height:inherit;position:absolute;top:inherit;left:inherit;
-background-image: url('/img/running guy-12.png'); opacity: 0;
+background-image: url('/img/running guy-24.png'); opacity: 0;
 }
 
 
