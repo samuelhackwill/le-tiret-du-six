@@ -3,8 +3,13 @@
   src: url(/fonts/inconsolataLight.ttf);
 }
 @font-face {
-  font-family: ubuntu;
-  src: url(/fonts/ubuntu.ttf);
+    font-family: 'Ubuntu Mono';
+    src: url('/fonts/UbuntuMono-Regular.woff2') format('woff2'),
+        url('UbuntuMono-Regular.woff') format('woff'),url()
+        url('/fonts/ubuntu.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
   font-family: victorMonoLight;
@@ -13,6 +18,17 @@
 @font-face {
   font-family: firaCodeLight;
   src: url(/fonts/firaCodeLight.ttf);
+}
+@font-face {
+    font-family: 'Avara_Bold Italic';
+    src:    url('/fonts/BoldItalic/Avara-Bold_Italic_web.eot');
+    src:    url('/fonts/BoldItalic/Avara-Bold_Italic_web.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/BoldItalic/Avara-Bold_Italic_web.woff') format('woff'),
+            url('/fonts/BoldItalic/Avara-Bold_Italic_web.woff2') format('woff2'),
+            url('/fonts/BoldItalic/Avara-Bold_Italic_web.ttf') format('truetype'),
+            url('/fonts/BoldItalic/Avara-Bold_Italic_web.svg#svgFontName') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 html {
   height: 100%;
@@ -26,7 +42,7 @@ transition: background-color 1s;
   width: 100%;
 	background-color: #272822;
 	/* font-family: "firaCodeLight", sans-serif; */
-	font-family: "ubuntu", sans-serif;
+	font-family: 'Ubuntu Mono', sans-serif;
 	color: white;
   margin: 0;
 }
