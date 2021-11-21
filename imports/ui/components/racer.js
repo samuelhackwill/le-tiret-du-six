@@ -79,7 +79,7 @@ redrawPlayers=function(posTable){
 
         if(doesPlayerExist!==null){
 			// doesPlayerExist.style.transform="translateX("+value+"vw)"
-			doesPlayerExist.style.left="0%";
+			doesPlayerExist.style.left=value+"%";
         }
     })
 };
