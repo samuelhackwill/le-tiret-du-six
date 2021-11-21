@@ -120,7 +120,7 @@ ul::selection {
 	width: calc((100vw / 2) - (50 / 1024 * 100vw));
 	height: calc(100vh / 3);
 	box-sizing: border-box;
-    background: linear-gradient(0deg, rgba(32,32,28,1) 0%, rgba(32,32,28,0) 100%); 
+    background: linear-gradient(0deg, rgba(32,32,28,1) 0%, rgba(32,32,28,0) 100%);
 }
 /* left shadow for readerColumn */
 .readerColumnBG::before {
@@ -323,3 +323,59 @@ ul::selection {
                 25px -12.5px black,
                 25px -25px black;
 }
+
+
+.waitingScreen {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: none;
+}
+.waitingScreenText {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	background: white;
+	font-size: calc(16 / 1024 * 100vw);
+	min-height: 15px;
+	padding: 15px;
+	border: 6px solid #CCCCCC;
+	color: #666;
+	margin-bottom: 8px;
+}
+.waitingScreenText::after {
+	content: '';
+	display: block;
+	position: absolute;
+	bottom: -30px;
+	right: 22px;
+	width: 30px;
+	height: 30px;
+  background: url('/img/virgule.svg') no-repeat center center;
+	background-size: contain;
+}
+.waitingScreen .personne > div {
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+.waitingScreen .sprite1{background-image: url('/img/running guy-13.png');}
+.waitingScreen .sprite2{background-image: url('/img/running guy-14.png');}
+.waitingScreen .sprite3{background-image: url('/img/running guy-15.png');}
+.waitingScreen .sprite4{background-image: url('/img/running guy-16.png');}
+.waitingScreen .sprite5{background-image: url('/img/running guy-17.png');}
+.waitingScreen .sprite6{background-image: url('/img/running guy-18.png');}
+.waitingScreen .sprite7{background-image: url('/img/running guy-19.png');}
+.waitingScreen .sprite8{background-image: url('/img/running guy-20.png');}
+.waitingScreen .sprite9{background-image: url('/img/running guy-21.png');}
+.waitingScreen .sprite10{background-image: url('/img/running guy-22.png');}
+.waitingScreen .sprite11{background-image: url('/img/running guy-23.png');}
+.waitingScreen .sprite12{background-image: url('/img/running guy-24.png');}
