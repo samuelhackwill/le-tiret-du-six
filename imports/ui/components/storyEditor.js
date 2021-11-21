@@ -81,7 +81,12 @@ Template.storyEditor.events({
 Template.storyEditor.helpers({
 	editMode(){
 	    return Template.instance().editing.get();
-	}
+	},
+
+	lineHasPlayers(lineIndex){
+		console.log('lineHasPlayers', this.aiguebename, this.atIndex, lineIndex);
+		return this.atIndex == lineIndex;
+	},
 })
 
 
