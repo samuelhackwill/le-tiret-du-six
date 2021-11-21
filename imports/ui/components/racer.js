@@ -78,7 +78,8 @@ redrawPlayers=function(posTable){
         var doesPlayerExist = document.getElementById(""+key)
 
         if(doesPlayerExist!==null){
-			doesPlayerExist.style.transform="translateX("+value+"vw)"
+			// doesPlayerExist.style.transform="translateX("+value+"vw)"
+			doesPlayerExist.style.left=value+"%";
         }
     })
 };
