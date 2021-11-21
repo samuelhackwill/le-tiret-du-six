@@ -84,5 +84,5 @@ adminSpaceBarPress = function(){
 botAutorun = function(){
 	autorun = setInterval(function(){
 		Meteor.call("requestStepServerSide", 'bot')
-	},200)
+	},250)
 }

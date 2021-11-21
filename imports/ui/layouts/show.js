@@ -91,16 +91,23 @@ streamer.on('message', function(message) {
 					for (var i = allRunners.length - 1; i >= 0; i--) {
 						allRunners[i].style.transform = "translateX(0vw)"
 					}
-					
+
 					// on every new race finish EXCEPT that of the bot,
 					// we're going to update the mean.
 					scores = 0
 					allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
 					for (var i = allPlayers.length - 1; i >= 0; i--) {
-						console.log("adding score of ", allPlayers[i])
-						// scores = scores + (allPlayers[i].score.race2.finish - allPlayers[i].score.race2.start)
+						if (allPlayers[i]?.score?.race2?.finish != undefined && allPlayers[i]?.score?.race2?.start != undefined) {
+							console.log("adding score of ", allPlayers[i])
+							scores = scores + (allPlayers[i].score.race2.finish - allPlayers[i].score.race2.start)
+						}
 					}
-					// race2Mean = (scores/allPlayers.length)
+
+					race2Mean = (scores/(allPlayers.length-1))
+					// length is -1 because bot is in here, but we're not taking
+					// his score into account!
+
+					console.log("scores", scores, "allplayers length", allPlayers.length-1, "mean ", race2Mean)
 
 				},5000)
 			}
