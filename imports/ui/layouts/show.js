@@ -48,7 +48,8 @@ streamer.on('message', function(message) {
 			// wether this is a message for one player or not. Also, if the bot
 			// is the one who finished the race, we need to log the score
 			// of the player because it won't be done on the server side.
-
+			// on every new race finish EXCEPT that of the bot,
+			// we're going to update the mean.
 			console.log("endRace ", instance.soloRaceFinished === true, message.winner !== instance.aiguebename, message.winner !== "bot")
 			if (instance.soloRaceFinished === true || message.winner !== instance.aiguebename && message.winner !== "bot" ) {
 				// if the race was already locally finished, or the endrace message
@@ -64,6 +65,7 @@ streamer.on('message', function(message) {
 					console.log("the bot has won, stop!")
 					displayMessage = "vous avez perdu la course!"
 					Meteor.call("playerLogTime", _env = environment, _aiguebename = instance.aiguebename, _whichRace = "race2")
+					// the bot has to go.
 				}else{
 					console.log("i have won, stop!")
 					// if it wasn't a bot, it means it was you.
@@ -91,24 +93,6 @@ streamer.on('message', function(message) {
 					for (var i = allRunners.length - 1; i >= 0; i--) {
 						allRunners[i].style.transform = "translateX(0vw)"
 					}
-
-					// on every new race finish EXCEPT that of the bot,
-					// we're going to update the mean.
-					scores = 0
-					allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
-					for (var i = allPlayers.length - 1; i >= 0; i--) {
-						if (allPlayers[i]?.score?.race2?.finish != undefined && allPlayers[i]?.score?.race2?.start != undefined) {
-							console.log("adding score of ", allPlayers[i])
-							scores = scores + (allPlayers[i].score.race2.finish - allPlayers[i].score.race2.start)
-						}
-					}
-
-					race2Mean = (scores/(allPlayers.length-1))
-					// length is -1 because bot is in here, but we're not taking
-					// his score into account!
-
-					console.log("scores", scores, "allplayers length", allPlayers.length-1, "mean ", race2Mean)
-
 				},5000)
 			}
 
@@ -212,12 +196,14 @@ playerInit = async function(obj){
 	}
 }
 
-playerRm = async function(){
+playerRm = async function(optionalName){
+	_who = optionalName || instance.aiguebename
+	console.log("REMOVING PLAYER ", _who)
 	try{
 		// get current environment : prod or dev
 		_env = FlowRouter._current.params.environment
 		// instance.aiguebename is loaded on playerInit
-		await Meteor.callPromise('playerDestroy', _env, instance.aiguebename)
+		await Meteor.callPromise('playerDestroy', _env, _who)
 	}catch (error){
 		console.log(error)
 	}

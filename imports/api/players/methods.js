@@ -32,11 +32,6 @@ Meteor.methods({
 	},
 
 	playerLogTime(_env, _aiguebename, _whichRace){
-		if (_aiguebename=="bot") {
-			console.log("we don't want to log the score of the bot.")
-			return
-		}
-		
 		time = new Date()
 		console.log(_whichRace)
 		// we're looking for a score.start field in the player document.
@@ -148,7 +143,14 @@ Meteor.methods({
 				// for that particular person, right away, but let
 				// other players continue running. We are also logging the score
 				// because we need to make pools by performance.
-				Meteor.call("playerLogTime", _env=_env, _aiguebename = stepQueue[i], _whichRace = "race2")
+				if (stepQueue[i]=="bot") {
+					// we don't want to log bot score and also we want to
+					// get rid of him, or else he'll be in our way for next
+					// races.
+					Meteor.call("playerDestroy", _env=_env, _aiguebename="bot")
+				}else{
+					Meteor.call("playerLogTime", _env=_env, _aiguebename = stepQueue[i], _whichRace = "race2")
+				}
 				sendMessage({action:"endRaceSolo", env:_env, winner:stepQueue[i]})
 				return
       }

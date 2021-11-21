@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Mongo } from 'meteor/mongo';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { Session } from 'meteor/session';
 
 import './reader.html';
 import './reader.css';
@@ -41,6 +42,8 @@ Template.reader.onCreated(function(){
 	// solo race so as not to display the end message
 	// twice.
 	instance.soloRaceFinished = false	
+
+	Session.set("currentRace", undefined)
 
 })
 
@@ -208,6 +211,7 @@ clientActions = function(_params){
 			case "#logtime" :
 				// we are only using one method, which first saves the
 				// start time of the race, then the finish time.
+				Session.set("currentRace", _arg)
 				Meteor.call("playerLogTime", environment, instance.aiguebename, _arg)
 			break;
 

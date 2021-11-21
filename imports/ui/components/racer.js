@@ -8,12 +8,9 @@ import './racer.css';
 
 cyclerCount = 1;
 
-// we're going to need a mean for race 2, in order to assign
-// pool to players.
-race2Mean = 0;
-
 Template.racer.helpers({
 	players(){
+		_currentRace = Session.get("currentRace")
 		// the players helper is reponsible for displaying the right players
 		// the one player in case of solo race
 		// or pool players in case of pool races
@@ -22,14 +19,46 @@ Template.racer.helpers({
 		if (!this.obj.players.collection.find({env:environment}).fetch().length) {
 			// do nothing, array is empty
 		}else{
-			// SOLO
-			const search_tags = ["bot"]
-			search_tags.push(instance.aiguebename)
 
-			const allPlayers = instance.data.obj.players.collection.find({env:environment}).fetch()[0].players
-			const isRunning = allPlayers.filter((allPlayers) => search_tags.some((name) => Object.values(allPlayers).includes(name)))
+			if (_currentRace=="race2") {
+				// SOLO
+				const search_tags = ["bot"]
+				search_tags.push(instance.aiguebename)
 
-			return isRunning
+				const allPlayers = instance.data.obj.players.collection.find({env:environment}).fetch()[0].players
+				const isRunning = allPlayers.filter((allPlayers) => search_tags.some((name) => Object.values(allPlayers).includes(name)))
+
+				return isRunning
+			}
+
+			if (_currentRace=="race3") {
+
+				// we're going to need a mean for race 2, in order to assign
+				// pool to players.
+				race2Mean = 0;
+				scores = 0
+
+				let allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
+				
+				for (var i = allPlayers.length - 1; i >= 0; i--) {
+					if (allPlayers[i]?.score?.race2?.finish != undefined && allPlayers[i]?.score?.race2?.start != undefined) {
+						console.log("adding score of ", allPlayers[i])
+						scores = scores + (allPlayers[i].score.race2.finish - allPlayers[i].score.race2.start)
+					}
+				}
+
+				race2Mean = scores/(allPlayers.length)
+
+				console.log("scores", scores, "allplayers length", allPlayers.length, "mean ", Number(race2Mean))
+
+				function predicate(x) { return (x.score.race2.finish-x.score.race2.start )< race2Mean }
+				onlyFastest = allPlayers.filter(function(x) { return predicate(x) })
+
+				console.log("we are only showing players who have run faster than the mean, ", race2Mean, "ms")
+				console.log("these players are ", onlyFastest)
+
+				return onlyFastest
+			}
 			// FFA
 			// return this.obj.players.collection.find({env:environment}).fetch()[0].players
 		}
