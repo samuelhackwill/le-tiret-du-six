@@ -88,7 +88,7 @@ Meteor.methods({
 			// initialize the function which updates the position
 			// of every player 12 times a second.  
 			if(stepQueue.length > 0) {
-				console.log("updating position of these players :", stepQueue)
+				// console.log("updating position of these players :", stepQueue)
 				Meteor.call('stepServerSide', _env = _env)
 			}else{
 				console.log("stepQueue is empty, returning!")
@@ -140,7 +140,7 @@ Meteor.methods({
   	// stepServerSide updates the posTable
   	// which contains the position of every runner
   	// during race 2 of ACTE I.
-    console.log("updating position of players! ", _currentRace)
+    // console.log("updating position of players! ", _currentRace)
     updates = 0;
     for (var i = 0; i < stepQueue.length; i++) {
     	// stepQueue contains all the calls that were made 
@@ -178,7 +178,7 @@ Meteor.methods({
       updates++;
     }
     stepQueue = []
-    console.log("send message! "+updates+" positions updated")
+    // console.log("send message! "+updates+" positions updated")
 		sendMessage({action:"updateRunners", _posTable:posTable, env:_env})
   },
 

@@ -900,7 +900,7 @@ stopMining = function(){
 shouldIFlash = function(_arg){
 	// we need to show the faces of members of the audience by lighting
 	// their faces with the computer screens.
-	const myScore = instance.data.obj.scores[0].race2.find(str=>str.aiguebename===instance.aiguebename).score
+	myScore = instance.data.obj.scores[0].race2.find(str=>str.aiguebename===instance.aiguebename).score
 	imaSpacebarAthlete = myScore < race2Mean
 
 	switch(_arg){
@@ -937,21 +937,26 @@ shouldIFlash = function(_arg){
 		case  "4" || 4 :
 		// light the winner of sa
 		// check my score of pool race 3, am i the best?
-		const topScore = instance.data.obj.scores[0].race3[0].score
+
+		if (!imaSpacebarAthlete) {
+			flashLight("black")
+			return
+		}
+
+		topScore = instance.data.obj.scores[1].race3[0].score
+		myScore = instance.data.obj.scores[1].race3.find(str=>str.aiguebename===instance.aiguebename).score
 
 		if (imaSpacebarAthlete && myScore == topScore) {
 			flashLight("red")	
-		}else{
-			flashLight("black")
 		}
-
+		
 		break;
 		case  "5" || 5 :
 		// light the 2nd of sa
 		// check my score of pool race 3, am i second best?
 
-		if (instance.data.obj.scores[0].race3[1]!=undefined) {
-			const second = instance.data.obj.scores[0].race3[1].score
+		if (instance.data.obj.scores[1].race3[1]!=undefined) {
+			const second = instance.data.obj.scores[1].race3[1].score
 
 			if (imaSpacebarAthlete && myScore == second) {
 				flashLight("red")	
@@ -966,9 +971,9 @@ shouldIFlash = function(_arg){
 		case  "6" || 6 :
 		// light the 3rd of sa
 		// check my score of pool race 3, am i third best?
-		const third = instance.data.obj.scores[0].race3[2]?.score
 
-		if (instance.data.obj.scores[0].race3[1]!=undefined) {
+		if (instance.data.obj.scores[1].race3[1]!=undefined) {
+			const third = instance.data.obj.scores[1].race3[2]?.score
 			if (imaSpacebarAthlete && myScore == third) {
 				flashLight("red")	
 			}else{
@@ -982,10 +987,11 @@ shouldIFlash = function(_arg){
 		case "7" || 7 :
 		// light the last of ts
 		// check my score of pool race 4, am i the last one?
-		const lowScore = instance.data.obj.scores[0].race4[(instance.data.obj.scores[0].race2.length)-1].score
+		const lowScore = instance.data.obj.scores[2].race4[(instance.data.obj.scores[2].race4.length)-1].score
+		myScore = instance.data.obj.scores[2].race4.find(str=>str.aiguebename===instance.aiguebename).score
 
 		if (!imaSpacebarAthlete && myScore == lowScore) {
-			flashLight("red")	
+			flashLight("green")	
 		}else{
 			flashLight("black")
 		}
@@ -994,10 +1000,10 @@ shouldIFlash = function(_arg){
 		case "8" || 8 :
 		// light the 1st of ts
 		// check my score of pool race 4, am i the best?
-		const topScoreTS = instance.data.obj.scores[0].race4[0].score
+		const topScoreTS = instance.data.obj.scores[2].race4[0].score
 
 		if (!imaSpacebarAthlete && myScore == topScoreTS) {
-			flashLight("red")	
+			flashLight("green")	
 		}else{
 			flashLight("black")
 		}
@@ -1008,8 +1014,8 @@ shouldIFlash = function(_arg){
 		// am i part of the team sieste? If that's the case, check
 		// my position in the array and either return (if i was first or last)
 		// or launch 
-		if (instance.data.obj.scores[0].race4[1]!=undefined) {
-			factor = instance.data.obj.scores[0].race4.indexOf(myScore)
+		if (instance.data.obj.scores[2].race4[1]!=undefined) {
+			factor = instance.data.obj.scores[2].race4.indexOf(myScore)
 
 			if (!imaSpacebarAthlete && myScore != lowScore && myScore != topScoreTS) {
 				setTimeout(function(){
@@ -1075,7 +1081,7 @@ calculateMean = function(){
 
 getAllScores = function(race){
 	allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
-		
+
 	_scores = []
 		for (var i = allPlayers.length - 1; i >= 0; i--) {
 		if (allPlayers[i]?.score?.[race]?.finish != undefined && allPlayers[i]?.score?.[race]?.start != undefined) {

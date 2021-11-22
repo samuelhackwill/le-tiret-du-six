@@ -84,14 +84,14 @@ c'est eu
 
 ils sont sympaes
 
-let's get scores
-#getScores race4
-
 let's gro!
 #logtime race4
 #stepper race4
 
 well good job mammen
+
+let's get scores
+#getScores race4
 
 le plu len
 #light 7
