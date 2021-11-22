@@ -31,11 +31,20 @@ Template.racer.helpers({
 				return isRunning
 			}
 
+			// spacebar athletes
 			if (_currentRace=="race3") {
 				return onlyFastest
 			}
+
+			// team sieste
+			if (_currentRace=="race4") {
+				return onlySlowest
+			}
+
 			// FFA
-			// return this.obj.players.collection.find({env:environment}).fetch()[0].players
+			if (_currentRace=="race0") {
+				return this.obj.players.collection.find({env:environment}).fetch()[0].players
+			}
 		}
 	},
 

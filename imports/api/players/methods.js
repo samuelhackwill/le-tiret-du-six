@@ -162,11 +162,17 @@ Meteor.methods({
 					// we don't want to log bot score and also we want to
 					// get rid of him, or else he'll be in our way for next
 					// races.
-					Meteor.call("playerDestroy", _env=_env, _aiguebename="bot")
+					Meteor.setTimeout(function() {
+						Meteor.call("playerDestroy", _env=_env, _aiguebename="bot")
+					},3000);
 				}else{
 					Meteor.call("playerLogTime", _env=_env, _aiguebename = stepQueue[i], _whichRace = _currentRace)
 				}
-				sendMessage({action:"endRaceSolo", env:_env, winner:stepQueue[i]})
+				if (_currentRace=="race2") {
+					sendMessage({action:"endRaceSolo", env:_env, winner:stepQueue[i]})
+				}else{
+					sendMessage({action:"crossLinePool", env:_env})
+				}
 				return
       }
       updates++;

@@ -89,13 +89,22 @@ streamer.on('message', function(message) {
 					document.getElementsByClassName("winner")[0].style.opacity=0
 					document.getElementsByClassName("readerContainer")[0].style.opacity=1
 
-					allRunners = document.getElementsByClassName("racerContainer")[0].children
+					allRunners = document.getElementsByClassName("runner")
 					for (var i = allRunners.length - 1; i >= 0; i--) {
 						allRunners[i].style.left="0%";
 					}
 				},5000)
 			}
 			break;
+
+			case "crossLinePool":
+			// the other races are when the spacebar athletes & the team sieste
+			// compete against one another. When a player crosses the line,
+			// we need to log the score in a reactive variable somewhere
+			// so that the helper in charge of displaying score is triggered.
+			console.log("someone just crossed the line!")
+			break;
+
 
 			case "endRacePool":
 			switchToReaderAndResetRunners()
@@ -219,7 +228,7 @@ switchToReaderAndResetRunners = function(){
 	document.getElementsByClassName("racerContainer")[0].style.opacity=0
 
 	setTimeout(function(){
-		allRunners = document.getElementsByClassName("racerContainer")[0].children
+		allRunners = document.getElementsByClassName("runner")
 		for (var i = allRunners.length - 1; i >= 0; i--) {
 			allRunners[i].style.left="0%";
 		}

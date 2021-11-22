@@ -84,7 +84,6 @@ Template.storyEditor.helpers({
 	},
 
 	lineHasPlayers(lineIndex){
-		console.log('lineHasPlayers', this.aiguebename, this.atIndex, lineIndex);
 		return this.atIndex == lineIndex;
 	},
 	

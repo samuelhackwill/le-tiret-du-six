@@ -42,32 +42,70 @@ GO!
 on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
 
 ok donc là on calcule la poule de tout le monde.
-#getMean
+#getMean 
+#getScores race2
 
 qui est dans chaque poule svp
 #light 1
 
-ahhh putain merde le mean bon djeu
+bien.
 
-bon on va faire la prochaine maintenant?
-#bookmark race 3 (pool3)
+la prochaine course c'est juste le spacebar athletes
 
-***
+eux
+#light 2
 
-all right,
+prêt.e.s? 
 
-let's go!
+GRO!
 #logtime race3
 #stepper race3
 
-ok good job.
+***
 
-and we're going to make one last course
+let's get scores
+#getScores race3
 
-which is the pool race of slow ppl
+bravo, le gagnant c'est lui
+#light 4
 
-let's go!
+le deuxièm c'est lui (si y'en a un)
+#light 5
+
+le troisim lui (si y'en a un)
+#light 6
+
+all right,
+
+maintenant la team siest
+
+c'est eu
+#light 3
+
+ils sont sympaes
+
+let's get scores
+#getScores race4
+
+let's gro!
 #logtime race4
 #stepper race4
 
 well good job mammen
+
+le plu len
+#light 7
+
+le plu rapid
+#light 8
+
+et les autr
+#light 9
+
+merci bonsoare
+
+bisous
+
+ffa anyone?
+#logtime race0
+#stepper race0

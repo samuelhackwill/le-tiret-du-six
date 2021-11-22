@@ -43,6 +43,8 @@ Template.reader.onCreated(function(){
 	// twice.
 	instance.soloRaceFinished = false
 
+	instance.data.obj.scores = []
+
 	Session.set("currentRace", undefined)
 
 })
@@ -183,6 +185,10 @@ clientActions = function(_params){
 		switch (_key){
 			case "#getMean":
 			calculateMean()
+			break;
+
+			case "#getScores":
+			getAllScores(_arg)
 			break;
 
 			case "#light":
@@ -894,91 +900,190 @@ stopMining = function(){
 shouldIFlash = function(_arg){
 	// we need to show the faces of members of the audience by lighting
 	// their faces with the computer screens.
+	const myScore = instance.data.obj.scores[0].race2.find(str=>str.aiguebename===instance.aiguebename).score
+	imaSpacebarAthlete = myScore < race2Mean
 
 	switch(_arg){
 		case  "1" || 1 :
-	// light both pools
-	// just check mean and my score. If i'm under, flash red.
-	// if i'm over, flash green.
-		console.log(race2Mean)
-		break;
-		case  "2" || 2 :
-	// light one pool : sa 
-	// just check mean and my score. If i'm under, flash red.
+		// light both pools
+		// just check mean and my score. If i'm under, flash red.
+		// if i'm over, flash green.
+		if (imaSpacebarAthlete) {
+			flashLight("red")	
+		}else{
+			flashLight("green")
+		}
 
 		break;
+		case  "2" || 2 :
+		// light one pool : sa 
+		// just check mean and my score. If i'm under, flash red.
+		if (imaSpacebarAthlete) {
+			flashLight("red")	
+		}else{
+			flashLight("black")
+		}
+		break;
 		case  "3" || 3 :
-	// light one pool : ts 
-	// just check mean and my score. If i'm over, flash green.
+		// light one pool : ts 
+		// just check mean and my score. If i'm over, flash green.
+		if (imaSpacebarAthlete) {
+			flashLight("black")	
+		}else{
+			flashLight("green")
+		}
 
 		break;
 		case  "4" || 4 :
-	// light the winner of sa
-	// check my score of pool race 3, am i the best?
+		// light the winner of sa
+		// check my score of pool race 3, am i the best?
+		const topScore = instance.data.obj.scores[0].race3[0].score
+
+		if (imaSpacebarAthlete && myScore == topScore) {
+			flashLight("red")	
+		}else{
+			flashLight("black")
+		}
 
 		break;
 		case  "5" || 5 :
-	// light the 2nd of sa
-	// check my score of pool race 3, am i second best?
+		// light the 2nd of sa
+		// check my score of pool race 3, am i second best?
+
+		if (instance.data.obj.scores[0].race3[1]!=undefined) {
+			const second = instance.data.obj.scores[0].race3[1].score
+
+			if (imaSpacebarAthlete && myScore == second) {
+				flashLight("red")	
+			}else{
+				flashLight("black")
+			}
+		}else{
+			console.log("There is only one spacebar athlete! or zero even.")
+		}
 
 		break;	
 		case  "6" || 6 :
-	// light the 3rd of sa
-	// check my score of pool race 3, am i third best?
+		// light the 3rd of sa
+		// check my score of pool race 3, am i third best?
+		const third = instance.data.obj.scores[0].race3[2]?.score
+
+		if (instance.data.obj.scores[0].race3[1]!=undefined) {
+			if (imaSpacebarAthlete && myScore == third) {
+				flashLight("red")	
+			}else{
+				flashLight("black")
+			}
+		}else{
+			console.log("There is only one spacebar athlete! or zero even.")		
+		}
 
 		break;
 		case "7" || 7 :
-	// light the last of ts
-	// check my score of pool race 4, am i the last one?
+		// light the last of ts
+		// check my score of pool race 4, am i the last one?
+		const lowScore = instance.data.obj.scores[0].race4[(instance.data.obj.scores[0].race2.length)-1].score
+
+		if (!imaSpacebarAthlete && myScore == lowScore) {
+			flashLight("red")	
+		}else{
+			flashLight("black")
+		}
 
 		break;
 		case "8" || 8 :
-	// light the 1st of ts
-	// check my score of pool race 4, am i the best?
+		// light the 1st of ts
+		// check my score of pool race 4, am i the best?
+		const topScoreTS = instance.data.obj.scores[0].race4[0].score
+
+		if (!imaSpacebarAthlete && myScore == topScoreTS) {
+			flashLight("red")	
+		}else{
+			flashLight("black")
+		}
 
 		break;
 		case  "9" || 9 :
-	// light the reste of the ts!
-	// am i part of the team sieste? If that's the case, check
-	// my position in the array and either return (if i was first or last)
-	// or launch 
+		// light the reste of the ts!
+		// am i part of the team sieste? If that's the case, check
+		// my position in the array and either return (if i was first or last)
+		// or launch 
+		if (instance.data.obj.scores[0].race4[1]!=undefined) {
+			factor = instance.data.obj.scores[0].race4.indexOf(myScore)
+
+			if (!imaSpacebarAthlete && myScore != lowScore && myScore != topScoreTS) {
+				setTimeout(function(){
+					flashLight("red")	
+				},factor*3000)
+			}
+		}else{
+			console.log("well, there's only one team sieste ppl!")
+		}
 
 		break;
 	}
 }
 
 flashLight = function(color){
-// do the html css bullshit
+	console.log("flashing the shit out of this")
+
+	document.getElementsByClassName("faceTorch")[0].style.backgroundColor = color; 
+	document.getElementsByClassName("faceTorch")[0].style.opacity = "1"; 
+	document.getElementsByClassName("faceTorch")[0].style.zIndex = "999999"; 
+
+	setTimeout(function(){
+		document.getElementsByClassName("faceTorch")[0].style.opacity = "0"; 
+	},2000)
+
+	setTimeout(function(){
+		document.getElementsByClassName("faceTorch")[0].style.zIndex = "-9999"; 
+	},3500)
+
 }
 
 calculateMean = function(){
 
-				// we're going to need a mean for race 2, in order to assign
-				// pool to players.
-				race2Mean = 0;
-				scores = 0
+	// we're going to need a mean for race 2, in order to assign
+	// pool to players.
+	race2Mean = 0;
+	scores = 0
 
-				let allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
-				
-				for (var i = allPlayers.length - 1; i >= 0; i--) {
-					if (allPlayers[i]?.score?.race2?.finish != undefined && allPlayers[i]?.score?.race2?.start != undefined) {
-						console.log("adding score of ", allPlayers[i])
-						scores = scores + (allPlayers[i].score.race2.finish - allPlayers[i].score.race2.start)
-					}
-				}
+	allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
+	
+	for (var i = allPlayers.length - 1; i >= 0; i--) {
+		if (allPlayers[i]?.score?.race2?.finish != undefined && allPlayers[i]?.score?.race2?.start != undefined) {
+			console.log("adding score of ", allPlayers[i])
+			scores = scores + (allPlayers[i].score.race2.finish - allPlayers[i].score.race2.start)
+		}
+	}
 
-				race2Mean = scores/(allPlayers.length)
+	race2Mean = scores/(allPlayers.length)
 
-				console.log("scores", scores, "allplayers length", allPlayers.length, "mean ", Number(race2Mean))
+	console.log("scores", scores, "allplayers length", allPlayers.length, "mean ", Number(race2Mean))
 
-				function getFastest(x) { return (x.score.race2.finish-x.score.race2.start )< race2Mean }
-				function getSlowest(x) { return (x.score.race2.finish-x.score.race2.start )>= race2Mean }
-				onlyFastest = allPlayers.filter(function(x) { return getFastest(x) })
-				onlySlowest = allPlayers.filter(function(x) { return getSlowest(x) })
+	function getFastest(x) { return (x.score.race2.finish-x.score.race2.start )< race2Mean }
+	function getSlowest(x) { return (x.score.race2.finish-x.score.race2.start )>= race2Mean }
+	onlyFastest = allPlayers.filter(function(x) { return getFastest(x) })
+	onlySlowest = allPlayers.filter(function(x) { return getSlowest(x) })
 
-				console.log("Mean is, ", race2Mean, "ms")
-				console.log("players faster than mean are ", onlyFastest)
-				console.log("players slower than mean are ", onlySlowest)
+	console.log("Mean is, ", race2Mean, "ms")
+	console.log("players faster than mean are ", onlyFastest)
+	console.log("players slower than mean are ", onlySlowest)
 
 
+}
+
+getAllScores = function(race){
+	allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
+		
+	_scores = []
+		for (var i = allPlayers.length - 1; i >= 0; i--) {
+		if (allPlayers[i]?.score?.[race]?.finish != undefined && allPlayers[i]?.score?.[race]?.start != undefined) {
+			_name = allPlayers[i].aiguebename
+			_score = (allPlayers[i].score.[race].finish - allPlayers[i].score.[race].start)
+			_scores.push({aiguebename : _name, score :_score})
+		}
+	}
+
+	instance.data.obj.scores.push({[race]:_scores}) 
 }
