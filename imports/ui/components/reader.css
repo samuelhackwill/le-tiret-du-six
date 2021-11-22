@@ -42,7 +42,7 @@
 }
 
 .minable{
-	color: red;
+	color: yellow;
 }
 
 span::-moz-selection {
@@ -233,6 +233,10 @@ ul::selection {
 .clickableAnswer:hover{
 	color: white !important;
 	cursor: pointer;
+}
+
+.whiteTxt{
+	color: white !important;
 }
 
 .blueTxt{
