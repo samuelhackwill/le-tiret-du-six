@@ -233,10 +233,15 @@ clientActions = function(_params){
 				// get score from method with callback.
 				Meteor.call("calculateRaceDuration", environment, "race1", instance.aiguebename,
 					(error, result) =>{
-						loadText(undefined, undefined,
-							`Vous avez mis ${result.diffTimeS}
+						// loadText(undefined, undefined,
+						// 	`Vous avez mis ${result.diffTimeS}
+						// 	secondes et ${result.diffTimeD} dixièmes à parcourir
+						// 	le texte.`)
+
+						replaceText(`Vous avez mis ${result.diffTimeS}
 							secondes et ${result.diffTimeD} dixièmes à parcourir
 							le texte.`)
+
 					})
 			break;
 
@@ -700,11 +705,11 @@ loadText = function(_Story, index, rawText){
 	// execute actions if there are any
 	clientActions(_Story[index].params)
 
-    /* @todo Add a statement to replace "***" by empty <ul/>
-		@body as was the case in the former codebase.
-    */
-
 	scrollText()
+}
+
+replaceText = function(rawText){
+	document.getElementById("textColumn").children[0].innerText = rawText
 }
 
 loadAnswer = function(rawText, action){
