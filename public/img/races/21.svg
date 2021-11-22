@@ -1,0 +1,16 @@
+<svg id="everything" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>d</title>
+  <g>
+    <path class="cls-1" d="M7.59,10.07a1.84,1.84,0,0,1,.7-2.56A5.34,5.34,0,0,1,11.19,7a10.23,10.23,0,0,1-1.8,8.24c-0.69.92-1.52,2.33-.6,3a2,2,0,0,0,.75.3L13,19.42"/>
+    <path class="cls-1" d="M15.64,9.63a3.9,3.9,0,0,1,2.67-3.09q-1.27,6-2.64,12"/>
+  </g>
+</svg>
