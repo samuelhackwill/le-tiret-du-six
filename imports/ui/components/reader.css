@@ -387,3 +387,51 @@ ul::selection {
 .waitingScreen .sprite10{background-image: url('/img/running guy-22.png');}
 .waitingScreen .sprite11{background-image: url('/img/running guy-23.png');}
 .waitingScreen .sprite12{background-image: url('/img/running guy-24.png');}
+
+
+#pseudo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.5);
+	font-size: calc(18 / 1024 * 100vw)
+}
+#pseudo.is-hidden {
+	display: none;
+}
+#pseudoForm {
+	max-width: 300px;
+	border: 4px solid orchid;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	border: 6px solid #CCC;
+	background: white;
+	border-radius: 20px;
+	color: #666;
+}
+#pseudoForm label {
+	margin-bottom: 10px;
+}
+#pseudoForm input {
+	font-size: calc(18 / 1024 * 100vw);
+	text-transform: uppercase;
+	width: 100%;
+	flex-basis: calc(35% - 10px);
+	text-align: center;
+}
+#pseudoForm button {
+	width: 20%;
+	flex-basis: 20%;
+	margin-left: 10px;
+	font-size: calc(18 / 1024 * 100vw);
+}
