@@ -541,6 +541,43 @@ background-image: url('/img/running guy-23.png'); opacity: 0;
 background-image: url('/img/running guy-24.png'); opacity: 0;
 }
 
+.racerScores {
+	position: fixed;
+  bottom: 3vh;
+  left: 3vh;
+  background: rgba(255,255,255,0.85);
+  color: #666;
+  padding: 20px;
+  border: 6px solid #CCC;
+  border-radius: 20px;
+  opacity: 0.85;
+  z-index: 2;
+}
+.racerScores.is-hidden {
+	display: none;
+}
+.racerScores table {
+}
+.racerScores table tr {
+}
+.racerScores table th {
+	text-align: center;
+}
+.racerScores table td {
+}
+.racerScores table td.racerScoresRank,
+.racerScores table td.racerScoresLane {
+	text-align: right;
+}
+.racerScores table td.racerScoresPseudo {
+	text-align: center;
+}
+
+/* the first guy (so the 2nd row) is in bold, he earned it! */
+.racerScores table tr:nth-child(2) {
+	font-weight: bold;
+}
+
 
 @keyframes mymove1 {
  0.00%,	8.40%{opacity: 1;}

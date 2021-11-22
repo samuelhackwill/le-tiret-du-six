@@ -49,9 +49,32 @@
 			{{/each}}
 			</div>
 		</div>
+
+
+		<div class="racerScores is-hidden">
+			<table>
+				<tr>
+					<th>Rank</th>
+					<th>Pseudo</th>
+					<th>Time</th>
+					<th>Lane</th>
+				</tr>
+				{{#each fakeScores}}
+				<tr>
+					<td class="racerScoresRank">{{rank}}</td>
+					<td class="racerScoresPseudo">{{pseudo}}</td>
+					<td class="racerScoresTime">{{time}}</td>
+					<td class="racerScoresLane">{{lane}}</td>
+				</tr>
+				{{/each}}
+			</table>
+		</div>
+
 	</div>
 
 	<div class="winner">
 		🏁 personne de ... wins! 🏁
 	</div>
+
+
 </template>

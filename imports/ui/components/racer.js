@@ -55,6 +55,27 @@ Template.racer.helpers({
 	      return
     	}
 	},
+	fakeScores(){
+
+		var scores = [];
+		scores.push({rank: '1st', pseudo: 'BITO', time: '23:164', lane: 5});
+		scores.push({rank: '2nd', pseudo: 'POPO', time: '23:169', lane: 7});
+		scores.push({rank: '3rd', pseudo: 'CACA', time: '23:169', lane: 2});
+		scores.push({rank: '4th', pseudo: 'PIPI', time: '23:169', lane: 11});
+		scores.push({rank: '5th', pseudo: 'FOUF', time: '23:169', lane: 1});
+		scores.push({rank: '6th', pseudo: 'SGEG', time: '23:169', lane: 3});
+		scores.push({rank: '7th', pseudo: 'NAZI', time: '23:169', lane: 12});
+		scores.push({rank: '8th', pseudo: 'ZOBI', time: '23:169', lane: 9});
+		scores.push({rank: '9th', pseudo: 'SMSX', time: '23:169', lane: 10});
+		scores.push({rank: '10th', pseudo: 'PPDA', time: '23:169', lane: 14});
+		scores.push({rank: '11th', pseudo: 'DICK', time: '23:169', lane: 6});
+		scores.push({rank: '12th', pseudo: 'POIL', time: '23:169', lane: 4});
+		scores.push({rank: '13th', pseudo: 'DSK1', time: '23:169', lane: 8});
+		scores.push({rank: '14th', pseudo: 'JAJA', time: '23:169', lane: 13});
+
+		return scores;
+
+	}
 })
 
 redrawPlayers=function(posTable){
