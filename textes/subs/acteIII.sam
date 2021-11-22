@@ -7,7 +7,7 @@ la personne qui habite maintenant le corps du gérant de la plage - car il est e
 
 se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamais avoir besoin de respirer.
 
-? - la simulation est terminée.
+? - la simulation est terminée. 
 
 ? - j'espère que vous vous avez passé un bon moment.
 #answer ça va
@@ -33,7 +33,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - j'avoue,
 
-? - j'ai mesuré votre vitesse!
+? - j'ai mesuré votre vitesse.
 
 ? - je sais c'est pas bien.
 
@@ -48,17 +48,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 ? - je vous dis quand même votre score :
 
 ***
-// log score
-
-? - la personne la plus rapide de votre table à fait le score suivant :
-
-***
-// log score
-
-? - la personne la plus lente de votre table à fait le score suivant :
-
-***
-// log score
+#race1results 
 
 ? - pour me faire pardonner, je vais vous proposer de remettre votre score en jeu dans un petit instant.
 
@@ -78,21 +68,23 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - je transformerai certains mots dans cette colonne de texte en mots que vous pouvez "collectionner".
 
-? - ces mots s'afficheront en rouge.
+? - ces mots s'afficheront en jaune.
 
 ? - ce sont comme des petits oeufs de paques cachés dans le texte.
 
 ? - pour les collecter, il faut cliquer plein de fois dessus.
 
-? - quand vous avez suffisament cliqué sur un mot, une de ses lettres va disparaître
+? - quand vous avez suffisament cliqué sur un mot, une de ses lettres va disparaître,
 
-? - pour indiquer que vous êtes en train de le récolter.
+? - pour indiquer que le mot est en train, petit à petit, de se faire moissoner.
 
 ? - un mot n'est collecté que quand la totalité des lettres du mot ont disparu. 
 
 ? - quand un mot est récolté par une des personnes de votre table, il est consigné dans la "banque de mots", que vous pouvez ouvrir en cliquant sur le côté gauche de l'écran.
 
 ? - chaque mot contient une petite surprise.
+
+? - (une "définition" que j'ai donné à ce mot)
 
 ? - attention! la nuance importante,
 
@@ -102,7 +94,11 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - ce mot disparaît pour tous.te.s les autres.
 
-? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous.
+? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
+
+? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
+
+? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
 
 ? - c'est parti.
 #mining start
@@ -116,43 +112,47 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - bon et au fait vous avez compris que c'était à nouveau samuel le robot qui vous parle.
 
-i like to move it move it
+entre temps je suis allé parler au gérant de la plage. 
 
-au bal masqué hoéhoé.
+Il m'a dit qu'il avait apprécié la discussion avec vous,
 
-***
+et que même si votre conversation était un peu étrange, ça lui a donné des perspectives nouvelles sur la plage de l***.
 
-ce que je voulais vous dire, 
+il a fini par accepter de nous ouvrir la plage.
 
-c'est que depuis le début de cette performance,
+je vous propose qu'on aille y retrouver 
 
-nous comptons.
+Dominique Sommeveille,
 
-j'ai commencé par compter combien nous étions dans la salle.
+qui nous y attend.
 
-j'ai compté le temps que nous avons mis à trouver la suite du spectacle.
+hop
 
-jacob a vérifié que vous riiez, ou ne riiez pas, à certaines des blagues que nous avons fait.
+hop
 
-puis vous avez joué sans le savoir à un jeu de course que j'ai sobrement appellé
+hop
 
-super mario barre espace
+hop
 
-(c'était un peu avant d'arriver dans l'avant-pays savoyard,)
+hop
 
-(quand il y avait tous les "hop", vous vous souvenez?)
+(euh promis là c'est pas une course)
 
-Après ça, toute la séquence à la plage de l****, c'était plus ou moins un test de personnalité.
+nous sommes maintenant face au lac
 
-enfin, certain.e.s d'entre vous on encore joué à un autre jeu où il s'agissait de collectionner des mots.
+en effet la plage est très belle,
 
-Le but était cette fois d'éveiller votre libido capitaliste en vous donnant une ressource rivale limitée à extraire.
+et très calme.
 
-à ce stade je pense que la majorité d'entre vous avaient compris que toute notre affaire ici était de jouer à mes jeux.
+la buvette est close,
 
-j'avoue c'est un peu tordu de ma part de ne pas vous avoir prévenu.
+pas un chat.
 
-ce que je vous propose, pour me racheter c'est qu'on va faire des courses
+Dominique est au bord de l'eau, et vous fait face.
+
+Dominique Sommeveille - Bienvenue à la plage!
+
+Dominique Sommeveille - ça fait
 
 coucouu
 #bookmark race 1

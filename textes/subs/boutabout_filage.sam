@@ -2342,13 +2342,14 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - j'espère que vous vous avez passé un bon moment.
 #answer ça va
-#act #goto 
+#act #goto secret
 #answer bof
-#act #goto 
+#act #goto secret
 #answer sisi j'ai bien rigolé.
-#act #dice 8
+#act #dice 8 secret secret
 
 ? - j'aimerais partager un secret avec vous.
+#bookmark secret
 
 ? - j'ai un peu honte de pas vous en avoir parlé plus tôt
 
@@ -2441,7 +2442,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 ***
 
 ? - nous voilà tous réuni.e.s à nouveau!
-#bookmark resync
+#bookmark tHEgREATrESYNC
 
 ? - je suis si heureux.
 
