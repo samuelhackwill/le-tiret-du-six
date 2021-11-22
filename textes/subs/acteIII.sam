@@ -1,4 +1,5 @@
 Le gérant de la plage - très bien, je vous remercie de votre participation!
+#bookmark startofACTEIII
 
 Vous ne reconnaissez plus la voix du gérant de la plage. Son ton boudeur et laconique a été remplacé par une diction très rapide, hachée, et désinvolte.
 
@@ -151,4 +152,119 @@ Le but était cette fois d'éveiller votre libido capitaliste en vous donnant un
 
 j'avoue c'est un peu tordu de ma part de ne pas vous avoir prévenu.
 
-ce que je vous propose, pour me racheter
+ce que je vous propose, pour me racheter c'est qu'on va faire des courses
+
+coucouu
+#bookmark race 1
+
+ok so this is the first race.
+
+first, what is your pseudonym?
+#askPseudo
+
+you're just reading text
+#logtime race1
+
+from now
+
+to
+
+...
+
+...
+
+now.
+#logtime race1
+
+ok
+
+how good did you do?
+
+***
+#race1results 
+
+well done.
+
+and now runner race!
+#bookmark race 2 (solo)
+
+l'admin a la main
+
+attention vous êtes prets
+
+GO!
+#stepper race2
+#logtime race2
+
+***
+
+on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
+
+ok donc là on calcule la poule de tout le monde.
+#getMean 
+#getScores race2
+
+qui est dans chaque poule svp
+#light 1
+
+bien.
+
+la prochaine course c'est juste le spacebar athletes
+
+eux
+#light 2
+
+prêt.e.s? 
+
+GRO!
+#logtime race3
+#stepper race3
+
+***
+
+let's get scores
+#getScores race3
+
+bravo, le gagnant c'est lui
+#light 4
+
+le deuxièm c'est lui (si y'en a un)
+#light 5
+
+le troisim lui (si y'en a un)
+#light 6
+
+all right,
+
+maintenant la team siest
+
+c'est eu
+#light 3
+
+ils sont sympaes
+
+let's gro!
+#logtime race4
+#stepper race4
+
+well good job mammen
+
+let's get scores
+#getScores race4
+
+le plu len
+#light 7
+
+le plu rapid
+#light 8
+
+et les autr
+#light 9
+
+merci bonsoare
+
+bisous
+
+ffa anyone?
+#logtime race0
+#stepper race0

@@ -5,7 +5,7 @@
 @font-face {
     font-family: 'Ubuntu Mono';
     src: url('/fonts/UbuntuMono-Regular.woff2') format('woff2'),
-        url('UbuntuMono-Regular.woff') format('woff'),url()
+        url('/fonts/UbuntuMono-Regular.woff') format('woff'),
         url('/fonts/ubuntu.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;

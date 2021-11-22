@@ -49,6 +49,17 @@ Template.reader.onCreated(function(){
 
 })
 
+Template.reader.onRendered(function(){
+	Meteor.setTimeout(function(){			
+		// when ppl arrive on reader, go to start of show.
+
+		params = []
+		params.push({["#goto"]:["startofACTEI"]})
+		clientActions(params)
+	},1500)
+})
+
+
 Template.reader.events({
 
 	"click .letter"(e){
