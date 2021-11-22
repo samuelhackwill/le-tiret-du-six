@@ -33,6 +33,13 @@ streamer.on('message', function(message) {
 			killLetter(message.letterId, false, message.lastLetter)
 			break;
 
+			case "harvestWord":
+			if (message.aiguebename == instance.aiguebename) {
+				console.log("wouhouuu you've got a new word!")
+				$('.toggleWordsBank').css("color", "grey");
+			}
+			break;
+
 			case "adminSpacebarPress":
 			adminNext(message.adminAtIndex)
 			break;
