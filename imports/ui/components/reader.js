@@ -423,6 +423,11 @@ moment où vous y avez répondu.`
 				}
 			break;
 
+			case "#askPseudo":
+				this.instance.data.stopped = true;
+				askPseudo();
+			break;
+
 			default:
 				console.log(_key, "maybe missing a # before keyword?")
 			break;
@@ -914,26 +919,26 @@ shouldIFlash = function(_arg){
 		// just check mean and my score. If i'm under, flash red.
 		// if i'm over, flash green.
 		if (imaSpacebarAthlete) {
-			flashLight("red")	
+			flashLight("red")
 		}else{
 			flashLight("green")
 		}
 
 		break;
 		case  "2" || 2 :
-		// light one pool : sa 
+		// light one pool : sa
 		// just check mean and my score. If i'm under, flash red.
 		if (imaSpacebarAthlete) {
-			flashLight("red")	
+			flashLight("red")
 		}else{
 			flashLight("black")
 		}
 		break;
 		case  "3" || 3 :
-		// light one pool : ts 
+		// light one pool : ts
 		// just check mean and my score. If i'm over, flash green.
 		if (imaSpacebarAthlete) {
-			flashLight("black")	
+			flashLight("black")
 		}else{
 			flashLight("green")
 		}
@@ -952,9 +957,9 @@ shouldIFlash = function(_arg){
 		myScore = instance.data.obj.scores[1].race3.find(str=>str.aiguebename===instance.aiguebename).score
 
 		if (imaSpacebarAthlete && myScore == topScore) {
-			flashLight("red")	
+			flashLight("red")
 		}
-		
+
 		break;
 		case  "5" || 5 :
 		// light the 2nd of sa
@@ -964,7 +969,7 @@ shouldIFlash = function(_arg){
 			const second = instance.data.obj.scores[1].race3[1].score
 
 			if (imaSpacebarAthlete && myScore == second) {
-				flashLight("red")	
+				flashLight("red")
 			}else{
 				flashLight("black")
 			}
@@ -972,7 +977,7 @@ shouldIFlash = function(_arg){
 			console.log("There is only one spacebar athlete! or zero even.")
 		}
 
-		break;	
+		break;
 		case  "6" || 6 :
 		// light the 3rd of sa
 		// check my score of pool race 3, am i third best?
@@ -980,12 +985,12 @@ shouldIFlash = function(_arg){
 		if (instance.data.obj.scores[1].race3[1]!=undefined) {
 			const third = instance.data.obj.scores[1].race3[2]?.score
 			if (imaSpacebarAthlete && myScore == third) {
-				flashLight("red")	
+				flashLight("red")
 			}else{
 				flashLight("black")
 			}
 		}else{
-			console.log("There is only one spacebar athlete! or zero even.")		
+			console.log("There is only one spacebar athlete! or zero even.")
 		}
 
 		break;
@@ -996,7 +1001,7 @@ shouldIFlash = function(_arg){
 		myScore = instance.data.obj.scores[2].race4.find(str=>str.aiguebename===instance.aiguebename).score
 
 		if (!imaSpacebarAthlete && myScore == lowScore) {
-			flashLight("green")	
+			flashLight("green")
 		}else{
 			flashLight("black")
 		}
@@ -1008,7 +1013,7 @@ shouldIFlash = function(_arg){
 		const topScoreTS = instance.data.obj.scores[2].race4[0].score
 
 		if (!imaSpacebarAthlete && myScore == topScoreTS) {
-			flashLight("green")	
+			flashLight("green")
 		}else{
 			flashLight("black")
 		}
@@ -1018,13 +1023,13 @@ shouldIFlash = function(_arg){
 		// light the reste of the ts!
 		// am i part of the team sieste? If that's the case, check
 		// my position in the array and either return (if i was first or last)
-		// or launch 
+		// or launch
 		if (instance.data.obj.scores[2].race4[1]!=undefined) {
 			factor = instance.data.obj.scores[2].race4.indexOf(myScore)
 
 			if (!imaSpacebarAthlete && myScore != lowScore && myScore != topScoreTS) {
 				setTimeout(function(){
-					flashLight("red")	
+					flashLight("red")
 				},factor*3000)
 			}
 		}else{
@@ -1038,16 +1043,16 @@ shouldIFlash = function(_arg){
 flashLight = function(color){
 	console.log("flashing the shit out of this")
 
-	document.getElementsByClassName("faceTorch")[0].style.backgroundColor = color; 
-	document.getElementsByClassName("faceTorch")[0].style.opacity = "1"; 
-	document.getElementsByClassName("faceTorch")[0].style.zIndex = "999999"; 
+	document.getElementsByClassName("faceTorch")[0].style.backgroundColor = color;
+	document.getElementsByClassName("faceTorch")[0].style.opacity = "1";
+	document.getElementsByClassName("faceTorch")[0].style.zIndex = "999999";
 
 	setTimeout(function(){
-		document.getElementsByClassName("faceTorch")[0].style.opacity = "0"; 
+		document.getElementsByClassName("faceTorch")[0].style.opacity = "0";
 	},2000)
 
 	setTimeout(function(){
-		document.getElementsByClassName("faceTorch")[0].style.zIndex = "-9999"; 
+		document.getElementsByClassName("faceTorch")[0].style.zIndex = "-9999";
 	},3500)
 
 }
@@ -1060,7 +1065,7 @@ calculateMean = function(){
 	scores = 0
 
 	allPlayers = instance.data.obj.players.collection.findOne({env:"Dev"}).players
-	
+
 	for (var i = allPlayers.length - 1; i >= 0; i--) {
 		if (allPlayers[i]?.score?.race2?.finish != undefined && allPlayers[i]?.score?.race2?.start != undefined) {
 			console.log("adding score of ", allPlayers[i])
@@ -1096,5 +1101,22 @@ getAllScores = function(race){
 		}
 	}
 
-	instance.data.obj.scores.push({[race]:_scores}) 
+	instance.data.obj.scores.push({[race]:_scores})
+}
+
+askPseudo = function(){
+
+	$('#pseudo').removeClass('is-hidden');
+	$('#pseudoForm').on('submit', function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		var newPseudo = $('#newPseudo').val();
+		if(newPseudo != '') {
+			instance.pseudo = $('#newPseudo').val();
+			console.log('player pseudo is ', instance.pseudo);
+			$('#pseudo').addClass('is-hidden');
+			instance.data.stopped = false;
+		}
+	})
+
 }
