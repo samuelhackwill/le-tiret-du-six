@@ -225,6 +225,24 @@
 .track15 {left: 2.6%;}
 .track16 {left: 2.5%;}
 .track17 {left: 2.5%;}
+.track18 {left: 2.5%;}
+.track19 {left: 2.5%;}
+.track20 {left: 2.5%;}
+.track21 {left: 2.6%;}
+.track22 {left: 2.6%;}
+.track23 {left: 2.8%;}
+.track24 {left: 2.8%;}
+.track25 {left: 2.8%;}
+.track26 {left: 2.8%;}
+.track27 {left: 2.7%;}
+.track28 {left: 2.7%;}
+.track29 {left: 2.9%;}
+.track30 {left: 2.8%;}
+.track31 {left: 2.7%;}
+.track32 {left: 2.6%;}
+.track33 {left: 2.6%;}
+.track34 {left: 2.5%;}
+.track35 {left: 2.5%;}
 
 .track0::before {background-image: url('/img/races/ligne1.svg');width: 103%;height: 160%;left: -2.5%;bottom: 0px;}
 .track1::before {background-image: url('/img/races/ligne2.svg');width: 104%;height: 240%;left: -3%;}
@@ -244,6 +262,24 @@
 .track15::before {background-image: url('/img/races/ligne16.svg');width: 106.55%;left: -1.5%;}
 .track16::before {background-image: url('/img/races/ligne17.svg');width: 105%;left: -1.25%;bottom: -5px;}
 .track17::before {background-image: url('/img/races/ligne18.svg');width: 105%;left: -0.75%;bottom: -2px;}
+.track18::before {background-image: url('/img/races/ligne1.svg');width: 103%;height: 160%;left: -2.5%;bottom: 0px;}
+.track19::before {background-image: url('/img/races/ligne2.svg');width: 104%;height: 240%;left: -3%;}
+.track20::before {background-image: url('/img/races/ligne3.svg');width: 105%;height: 200%;left: -3.5%;bottom: 2px;}
+.track21::before {background-image: url('/img/races/ligne4.svg');width: 106.07%;left: -3.8%;}
+.track22::before {background-image: url('/img/races/ligne5.svg');width: 104.5%;left: -3.5%;bottom: -1px}
+.track23::before {background-image: url('/img/races/ligne6.svg');width: 104.25%;left: -2.25%;bottom: -3px;}
+.track24::before {background-image: url('/img/races/ligne7.svg');width: 104%;left: -3%;bottom: -2px;}
+.track25::before {background-image: url('/img/races/ligne8.svg');width: 104.55%;left: -2.75%;}
+.track26::before {background-image: url('/img/races/ligne9.svg');width: 103.25%;left: -2.25%;bottom: -4px;}
+.track27::before {background-image: url('/img/races/ligne10.svg');width: 105.4%;left: -2.3%;}
+.track28::before {background-image: url('/img/races/ligne11.svg');width: 103.5%;left: -2%;bottom: -1px;}
+.track29::before {background-image: url('/img/races/ligne12.svg');width: 105%;left: -2%;bottom: -4px;}
+.track30::before {background-image: url('/img/races/ligne13.svg');width: 102.5%;left: -1.25%;bottom: -2px;}
+.track31::before {background-image: url('/img/races/ligne14.svg');width: 104.5%;left: -1.5%;}
+.track32::before {background-image: url('/img/races/ligne15.svg');width: 104.75%;left: -1.75%;bottom: -3px;}
+.track33::before {background-image: url('/img/races/ligne16.svg');width: 106.55%;left: -1.5%;}
+.track34::before {background-image: url('/img/races/ligne17.svg');width: 105%;left: -1.25%;bottom: -5px;}
+.track35::before {background-image: url('/img/races/ligne18.svg');width: 105%;left: -0.75%;bottom: -2px;}
 
 .racerContainer:not(.racerDarkMode) .V.track0::before {background-image: url('/img/races/ligne1-red.svg');}
 .racerContainer:not(.racerDarkMode) .V.track1::before {background-image: url('/img/races/ligne2-red.svg');}
@@ -263,6 +299,24 @@
 .racerContainer:not(.racerDarkMode) .V.track15::before {background-image: url('/img/races/ligne16-red.svg');}
 .racerContainer:not(.racerDarkMode) .V.track16::before {background-image: url('/img/races/ligne17-red.svg');}
 .racerContainer:not(.racerDarkMode) .V.track17::before {background-image: url('/img/races/ligne18-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track18::before {background-image: url('/img/races/ligne1-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track19::before {background-image: url('/img/races/ligne2-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track20::before {background-image: url('/img/races/ligne3-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track21::before {background-image: url('/img/races/ligne4-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track22::before {background-image: url('/img/races/ligne5-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track23::before {background-image: url('/img/races/ligne6-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track24::before {background-image: url('/img/races/ligne7-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track25::before {background-image: url('/img/races/ligne8-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track26::before {background-image: url('/img/races/ligne9-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track27::before {background-image: url('/img/races/ligne10-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track28::before {background-image: url('/img/races/ligne11-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track29::before {background-image: url('/img/races/ligne12-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track30::before {background-image: url('/img/races/ligne13-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track31::before {background-image: url('/img/races/ligne14-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track32::before {background-image: url('/img/races/ligne15-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track33::before {background-image: url('/img/races/ligne16-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track34::before {background-image: url('/img/races/ligne17-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track35::before {background-image: url('/img/races/ligne18-red.svg');}
 
 .track0::after {background-image: url('/img/races/1.svg');}
 .track1::after {background-image: url('/img/races/2.svg');}
@@ -282,6 +336,24 @@
 .track15::after {background-image: url('/img/races/16.svg');}
 .track16::after {background-image: url('/img/races/17.svg');}
 .track17::after {background-image: url('/img/races/18.svg');}
+.track18::after {background-image: url('/img/numbers/number19.png');background-size: contain;min-height: 13px;bottom: 4px;}
+.track19::after {background-image: url('/img/numbers/number20.png');background-size: contain;min-height: 13px;bottom: 4px;}
+.track20::after {background-image: url('/img/numbers/number21.png');background-size: contain;min-height: 13px;bottom: 5px;}
+.track21::after {background-image: url('/img/numbers/number22.png');background-size: contain;min-height: 13px;bottom: 2px;}
+.track22::after {background-image: url('/img/numbers/number23.png');background-size: contain;min-height: 13px;bottom: 2px;}
+.track23::after {background-image: url('/img/numbers/number24.png');background-size: contain;min-height: 13px;bottom: 1px;}
+.track24::after {background-image: url('/img/numbers/number25.png');background-size: contain;min-height: 13px;bottom: 0px;}
+.track25::after {background-image: url('/img/numbers/number26.png');background-size: contain;min-height: 13px;bottom: 1px;}
+.track26::after {background-image: url('/img/numbers/number27.png');background-size: contain;min-height: 13px;bottom: 3px;}
+.track27::after {background-image: url('/img/numbers/number28.png');background-size: contain;min-height: 13px;bottom: 4px;}
+.track28::after {background-image: url('/img/numbers/number29.png');background-size: contain;min-height: 13px;bottom: 2px;}
+.track29::after {background-image: url('/img/numbers/number30.png');background-size: contain;min-height: 13px;bottom: 0px;}
+.track30::after {background-image: url('/img/numbers/number31.png');background-size: contain;min-height: 13px;bottom: 0px;}
+.track31::after {background-image: url('/img/numbers/number32.png');background-size: contain;min-height: 13px;bottom: 6px;}
+.track32::after {background-image: url('/img/numbers/number33.png');background-size: contain;min-height: 13px;bottom: 2px;}
+.track33::after {background-image: url('/img/numbers/number34.png');background-size: contain;min-height: 13px;bottom: 7px;}
+.track34::after {background-image: url('/img/numbers/number35.png');background-size: contain;min-height: 13px;bottom: 3px;}
+.track35::after {background-image: url('/img/numbers/number36.png');background-size: contain;min-height: 13px;bottom: 2px;}
 
 
 .racerContainer:not(.racerDarkMode) .V.track0::after {background-image: url('/img/races/1-red.svg');}
@@ -302,6 +374,24 @@
 .racerContainer:not(.racerDarkMode) .V.track15::after {background-image: url('/img/races/16-red.svg');}
 .racerContainer:not(.racerDarkMode) .V.track16::after {background-image: url('/img/races/17-red.svg');}
 .racerContainer:not(.racerDarkMode) .V.track17::after {background-image: url('/img/races/18-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track18::after {background-image: url('/img/races/1-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track19::after {background-image: url('/img/races/2-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track20::after {background-image: url('/img/races/3-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track21::after {background-image: url('/img/races/4-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track22::after {background-image: url('/img/races/5-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track23::after {background-image: url('/img/races/6-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track24::after {background-image: url('/img/races/7-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track25::after {background-image: url('/img/races/8-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track26::after {background-image: url('/img/races/9-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track27::after {background-image: url('/img/races/10-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track28::after {background-image: url('/img/races/11-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track29::after {background-image: url('/img/races/12-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track30::after {background-image: url('/img/races/13-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track31::after {background-image: url('/img/races/14-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track32::after {background-image: url('/img/races/15-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track33::after {background-image: url('/img/races/16-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track34::after {background-image: url('/img/races/17-red.svg');}
+.racerContainer:not(.racerDarkMode) .V.track35::after {background-image: url('/img/races/18-red.svg');}
 
 
 
