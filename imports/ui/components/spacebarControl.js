@@ -45,6 +45,7 @@ Template.spacebarControl.onRendered(function(){
 	document.onkeyup = function(event){
 		if (event.keyCode==32) {
 			adminSpaceBarPress()
+			event.preventDefault()
 		}
 	}
 

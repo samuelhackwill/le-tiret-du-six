@@ -17,46 +17,11 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 #answer sisi j'ai bien rigolé.
 #act #dice 8
 
-? - j'aimerais partager un secret avec vous.
-
-? - j'ai un peu honte de pas vous en avoir parlé plus tôt
-
-? - en fait,
-
-? - tout à l'heure...
-
-? - quand je vous ai donné la barre espace et que vous vous déplaciez dans le texte,
-
-? - vous vous souvenez?
-
-? - "hop hop hop hop hop hop hop hop hop hop?"
-
-? - j'avoue,
-
-? - j'ai mesuré votre vitesse.
-
-? - je sais c'est pas bien.
-
-? - en réalité, vous étiez en train de jouer à un jeu
-
-? - que j'ai dénommé sobrement
-
-? - super mario barre espace.
-
-? - c'est un peu abusé de pas vous avoir prévenu
-
-? - je vous dis quand même votre score :
-
-***
-#race1results 
-
-? - pour me faire pardonner, je vais vous proposer de remettre votre score en jeu dans un petit instant.
-
-? - mais d'abord, nous devons attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
+? - nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
 
 ? - comme nous avons tous un rythme différent,
 
-? - il est tout à fait possible que certain.e.s en soient encore à regarder la blague du nez de Jean Lassalle.
+? - il est tout à fait possible que certain.e.s en soient encore à regarder mon interprétation du nez de Jean Lassalle en ASCII art.
 
 ? - enfin on espère que non mais en définitive c'est possible.
 
@@ -110,15 +75,17 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - je suis si heureux.
 
+? - chaque personne dans la salle lit ce texte simultanément.
+
 ? - bon et au fait vous avez compris que c'était à nouveau samuel le robot qui vous parle.
 
 entre temps je suis allé parler au gérant de la plage. 
 
 Il m'a dit qu'il avait apprécié la discussion avec vous,
 
-et que même si votre conversation était un peu étrange, ça lui a donné des perspectives nouvelles sur la plage de l***.
+que même si votre conversation était un peu étrange, ça lui a donné des perspectives nouvelles sur la plage de l***.
 
-il a fini par accepter de nous ouvrir la plage.
+et il a fini par accepter de nous ouvrir la plage.
 
 je vous propose qu'on aille y retrouver 
 
@@ -132,13 +99,9 @@ hop
 
 hop
 
-hop
-
-hop
-
-(euh promis là c'est pas une course)
-
 nous sommes maintenant face au lac
+
+(on était pas très loin)
 
 en effet la plage est très belle,
 
@@ -148,11 +111,29 @@ la buvette est close,
 
 pas un chat.
 
-Dominique est au bord de l'eau, et vous fait face.
+Dominique est au bord de l'eau, dos au lac, vous faisant face.
 
-Dominique Sommeveille - Bienvenue à la plage!
+il vous accueille tout sourire.
 
-Dominique Sommeveille - ça fait
+Dominique Sommeveille - Bienvenue à la plage de L***!
+
+Dominique Sommeveille - je me balladais dans le coin et j'ai vu que la plage était ouverte, alors je suis venu voir le lac.
+
+il est très beau aujourd'hui! 
+
+Avez vous remarqué sa couleur <span style="color:turquoise;">turquoise?</span>
+
+on m'a dit que c'était grâce à vous que la plage était ouverte.
+
+au nom des habitants de l'avant-pays savoyard, je vous remercie.
+
+Dominique s'arrête un instant. Il a l'air gêné.
+
+le silence n'est percé que par le cri des foulques au loin.
+
+Dominique Sommeveille - J'ai quelque chose à confesser.
+
+
 
 coucouu
 #bookmark race 1

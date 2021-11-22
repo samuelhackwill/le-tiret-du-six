@@ -1,4 +1,4 @@
-.spacebarControlContainer{
+.achievementsControlContainer{
 	border: solid;
 	border-color: #2f2f2f;
 	border-radius: 5px;
@@ -12,10 +12,9 @@
 
 }
 
-.spacebarBox{
-	text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-	flex-wrap: wrap;
+.achievementsElem{
+	width : 100%;
+	display: block;
+	border: solid 1px grey;
+	padding: 1px;
 }

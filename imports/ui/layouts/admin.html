@@ -33,6 +33,12 @@
 			{{> spacebarControl globals "spacebar"}}
 		</div>
 
+		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
+			<!-- when a component needs a global,
+				get it by name.-->
+			{{> achievementsControl}}
+		</div>
+
 
 		<div class="adminWidget" style="opacity:{{subscriptionsReady}};">
 			<!-- when a component needs a global,

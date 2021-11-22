@@ -14,6 +14,7 @@ import './admin.css';
 import '../components/storyEditor.js';
 import '../components/bookmarksLibrary.js';
 import '../components/spacebarControl.js';
+import '../components/achievementsControl.js';
 import '../components/superControl.js';
 import '../components/tracker.js';
 
