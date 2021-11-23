@@ -33,17 +33,13 @@ On n’a qu’une seule chance de faire une bonne première impression.
 #act #goto intro.hollandais
 #answer "Salut euhh.." (essayer de deviner son prénom)
 #act #goto intro.prenom
-#answer "POLICE."
+#answer "POLICE." (jet de dés sur 8)
 #act #dice 8 intro.police.win intro.police.fail
 
 Le visage du gérant se fige un instant.
 #bookmark intro.police.win
 #answer Je suis de la gendarmerie de L****, est ce que c’est vous qui avez un chat coincé dans un arbre? 
 #act #goto intro.police.chat
-#answer Je fais partie du cabinet de la préfecture de Savoie, je viens pour un contrôle de conformité. /!\ A FAIRE /!\
-#act #goto silo
-#answer Vous êtes en état d'arrestation. /!\ A FAIRE /!\
-#act #goto silo
 
 LE GÉRANT DE LA PLAGE - un chat? 
 #bookmark intro.police.chat
@@ -54,8 +50,6 @@ LE GÉRANT DE LA PLAGE - c'est standard d'envoyer un policier en civil pour déb
 #bookmark intro.police.chat.wut
 
 vous avez pas autre chose à faire?
-#answer c'est la préfecture qui nous donne nos quotas. 10 chats sauvés par semaine minimum. La préfecture aime bien les chats. /!\ A FAIRE /!\
-#act #goto silo
 #answer au fait vous n'auriez pas retrouvé mon uniforme à la plage? Je suis venu me baigner la semaine dernière.
 #act #goto intro.police.chat.uniforme
 
@@ -70,30 +64,31 @@ Vous avez aussi perdu votre arme de service?
 
 Le gérant de la plage part chercher quelque chose dans son garage et revient avec la casquette noire, puis hésite un instant.
 #bookmark intro.police.chat.casquette
+#loot 1 resolution.proces (vous avez une casquette "POLICE")
 
 Vous êtes sûr.e que c'est à vous? ça ne m'a pas l'air bien réglementaire.
 #answer c'est ma casquette. Donnez-la moi. 
 #act #goto intro.police.chat.casquette.svp
-#answer (lui prendre la casquette des mains)
+#answer (lui prendre la casquette des mains) (jet de dés sur 9)
 #act #dice 9 intro.police.chat.casquette.force.win intro.police.chat.casquette.force.fail
 
 Le gérant de la plage vous donne finalement la casquette "POLICE", content de s'en débarasser. Vous en habillez votre tête. La casquette est un peu trop petite pour vous. C'était probablement celle d'un enfant.
-#answer /!\ A FAIRE /!\
-#act #goto silo
+#answer (poursuivre)
+#act #goto prenom.colere
 
 Après un rapide estimation de la distance qui vous sépare de la casquette, vous décidez que vous pouvez faire un geste rapide et digne pour la lui prendre des mains. Vous effectuez le geste sans effort, le gérant de la plage n'a rien vu venir.
 #bookmark intro.police.chat.casquette.force.win 
 
 Vous habillez votre tête de la casquette "POLICE", qui est un peu trop petite pour vous. C'était probablement celle d'un enfant.
-#answer /!\ A FAIRE /!\
-#act #goto silo
+#answer (poursuivre)
+#act #goto intro.prenom.colere
 
 Vous avez calculé votre geste un peu trop court, et le bras lancé dans la direction de la casquette manque sa cible. Vous êtes contraint.e de vous avancer d'un petit pas maladroit et d'utiliser votre second bras pour laborieusement arracher la casquette des mains du gérant de la plage, qui vous regarde maintenant avec une indignation ébahie. Vous lui avez un peu griffé la main au passage, et vous avez certainement eu une expression ridicule d'effort désespéré sur le visage.
 #bookmark intro.police.chat.casquette.force.fail
 
 néanmoins le résultat est là, vous mettez la casquette "POLICE" sur votre tête. C'est une casquette d'enfant (elle est trop petite), mais vous êtes content.e quand même.
-#answer /!\ A FAIRE /!\
-#act #goto silo
+#answer (poursuivre)
+#act #goto intro.prenom.colere
 
 Vous vous débinez. Tout le monde sait à quoi ressemble un policier. Vous ne ressemblez pas à un policier. Vos cheveux, vos vêtements, votre langage corporel, votre timidité.
 #bookmark intro.police.fail
@@ -112,6 +107,7 @@ bien que vous soyez mal à l’aise de n’avoir pas assumé votre mensonge, vou
 
 Vous n’êtes pas policier.e, vous êtes artiste. Vous êtes passé en gros de la catégorie “personne payée avec l’argent public mais qui sert peut-être à quelque chose” ou disons “personne qui est payée avec l’argent public de tout le monde mais dont le travail est utile à au moins une partie de la société” à la catégorie “personne payée avec de l’argent public mais passant la journée à jouer avec ses excréments”.
 #bookmark intro.police.artiste
+#loot 1 resolution.business (avec vos revenus d'artiste, vous avez intérêt à ce que ça soit gratuit)
 
 C’est pas moi qui le dit, c’est le gérant de la plage qui pense tout haut.
 
@@ -121,15 +117,17 @@ Il y a des oiseaux dans les arbres autour de vous qui sifflent. Cela vous fait e
 
 Vous n’êtes pas policier.e, vous faites tout simplement une dépression. Ce qui explique votre comportement erratique, même si le désir irrépressible de se faire passer pour un gardien de la paix n'est pas un symptome courant de dépression caractérisée. 
 #bookmark intro.police.depression
+#loot 1 resolution.anticapitaliste (l'amélioration de votre santé mentale passe par la fin du capitalisme)
 
 Cela n’excite par l'empathie du gérant de la plage pour autant, qui ne fait manifestement aucun effort pour vous cacher son irritation, voire la méfiance que lui inspire votre situation. Vous n’êtes pas étonné.e, car vous savez bien que les personnes qui souffrent de problèmes de santé dits mentaux subissent la double peine d’être en plus stigmatisés par les valides.
 #answer écoutez, mon docteur m’a prescrit de faire une ballade par jour dans un endroit que j’aime. Puis-je aller à la plage? 
 #act #goto intro.police.validisme
-#answer (sortir un papier de votre feuille et rédiger un procès-verbal. La loi est dure mais c’est la loi.) 
+#answer (sortir un papier de votre feuille et rédiger un procès-verbal. La loi est dure mais c’est la loi.) (jet de dés sur 6)
 #act #dice 6 intro.police.pv intro.police.pv.fail
 
 vous écrivez : "Police du respect"
 #bookmark intro.police.pv
+#loot 1 resolution.proces (vous avez dressé un procès-verbal)
 
 “FAITS : non-respect des seuils minimums d’empathie et de réciprocité sociale caractérisé par l’USAGE VOLONTAIRE d’un langage corporel hostile et du silence”
 
@@ -141,6 +139,7 @@ vous déchirez le feuillet du carnet et le tendez au gérant de la plage.
 
 Vous réussissez à merveille de reproduire le logo de la République Française, avec un stylo bleu et un stylo rouge (que vous aviez dans vos poches).
 #bookmark intro.police.pv.fail
+#loot 1 resolution.destruction (rater l'écriture de votre procès-verbal vous a mis en colère)
 
 Néanmoins, vous tombez à court d’idées quand il s’agit de transcrire ce qui vient de se passer avec un vocabulaire légalo-policier.
 #answer Vous donnez tout de même votre dessin avec le logo de la République Française au gérant de la plage.
@@ -159,6 +158,7 @@ Vous avez l’intuition qu’il en va de même pour de nombreuses souffrances hu
 
 Vous n’êtes pas policier.e, vous êtes un agent immobilier. Vous ne savez pas si le gérant de la plage est logé à titre gratuit dans son logement de fonction par la mairie, s’il est titulaire d’un bail en emphytéose ou s’il est tout simplement propriétaire de sa maisonnée en bordure de plage.
 #bookmark intro.police.immo
+#loot 1 resolution.destruction (en agent immobilier, vous avez inérêt à récupérer le foncier de la plage)
 
 la maison n’a rien de spécial, mais le marché de l’immobilier est très tendu en ce moment autour du lac. Dans ce contexte, combien vaut cette maison sans étage? 150 000 euros? 200 000 euros?
 #answer est ce que je peux vous poser des questions à propos de la plage de L****?
@@ -166,6 +166,7 @@ la maison n’a rien de spécial, mais le marché de l’immobilier est très te
 
 Le gérant de la plage se redresse et vous regarde avec un air instantanément agaçé. Il vous jauge du regard. Cette personne a vu beaucoup de touristes hollandais.e.s dans sa vie. Il cherche manifestement des charactéristiques jugées hollandaises par lui dans votre présence physique.
 #bookmark intro.hollandais
+#loot 1 resolution.business vous vous êtes fait.e passer pour un.e hollandais.e
 
 “We are close!” dit-il soudainement. Il appuie sa réponse en faisant des gestes symbolisant la fermeture avec ses bras.
 #answer (communiquer avec des gestes : “je veux faire une ballade à la plage!”)
@@ -250,6 +251,7 @@ vous êtes content.e de votre analyse (qui vous rassure sur votre propre perform
 
 vous n’arrivez pas à vous décider. Vous le savez, les trois prénoms les plus attribués aux bébés des années 80 (on suppose qu’il est quarantenaire) sont Sébastien, Julien, Nicolas. Mais c’est risqué : il y a beaucoup de prénoms.
 #bookmark intro.prenom
+#loot 1 resolution.rituel (vous avez tenté de deviner magiquement son prénom)
 #answer ... bonjour Monsieur. (limiter la casse)
 #act #goto intro.prenom.monsieur
 #answer salut mon ptit pote (maximiser la casse)
@@ -259,11 +261,13 @@ vous n’arrivez pas à vous décider. Vous le savez, les trois prénoms les plu
 
 “est ce que je peux vous aider?” répond le gérant de la plage, pas ému par votre détresse respectueuse.
 #bookmark intro.prenom.monsieur
+#loot 1 resolution.gandhi (vous vous êtes comporté.e de manière non-violente)
 #answer non, est ce que je peux vous aider, moi? (après tout il est en train de ranger du bois)
 #act #goto intro.prenom.colere
 
 Pour la première fois, il vous semble que le gérant de la plage est déstabilisé. Vous voyez bien qu’il a compris que vous étiez en train de le provoquer, et il décide de passer à l’attaque : 
 #bookmark intro.prenom.colere
+#loot 1 resolution.destruction (vous êtes comme ça, vous êtes provoc)
 
 “HO!” dit-t-il simplement d’une voix forte quoique mal assurée. 
 
@@ -318,13 +322,14 @@ le gérant de la plage n'est pas né au 11e siècle.
 
 le gérant de la plage n'est pas né avant jésus-christ.
 #bookmark intro.prenom.lastand
-#answer allez, une dernière tentative.
+#answer allez, une dernière tentative. (jet de dés sur 10)
 #act #dice 10 intro.prenom.lastand.reussite intro.prenom.lastand.fail
 
 Votre regard s’arrête sur le type de pantalon porté par le gérant de la plage, malgré le temps relativement froid. Il s’agit d’un bermuda. Cela vous fait penser à une partie de la France où les gens, semble-t-il, seraient moins sensibles au froid.
 #bookmark intro.prenom.lastand.reussite
 
 VOUS - Gaël?
+#loot 2 resolution.rituel (vous deviné magiquement son prénom!)
 
 Vous voyez une lumière s’allumer dans le visage fatigué du gérant de la plage. Victoire! vous réprimez un petit cri d’excitation. évidemment, un prénom Breton, c’était osé, mais pourquoi pas.
 
@@ -436,6 +441,7 @@ LE GERANT DE LA PLAGE — certainement depuis l’arrivée du chemin de fer à l
 #act #goto silo.questions
 
 LE GERANT DE LA PLAGE — Dans une autre réalité peut être.
+#loot 1 resolution.stoicisme (vous vous êtes imaginé dans la situation du gérant de la plage)
 
 Un instant, vous vous imaginez vivre dans cette maison, avec les responsabilités du gérant de la plage. Est ce que vous feriez un meilleur travail que lui? Qu’est ce que vous feriez différemment? Auriez-vous une plus grande habileté politique au sein de la communauté de communes du lac d’Aiguebelette?
 #anwser (revenir aux questions).
@@ -647,19 +653,19 @@ Ces voitures, elles n'ont pas besoin de se ballader à la plage de l***, donc je
 
 LE GERANT DE LA PLAGE - quelle autre solution?
 #bookmark resolution
-#answer tout raser?
+#answer tout raser? (jet de dés influencé par vos choix antérieurs)
 #act #end 10 resolution.destruction resolution.destruction.fail
-#answer mettre des caméras de surveillance?
+#answer mettre des caméras de surveillance? (jet de dés influencé par vos choix antérieurs)
 #act #end 10 resolution.proces resolution.proces.fail
-#answer tagger les responsables pour qu'ils se rendent compte de ce qu'a pu ressentir la buvette?
+#answer tagger les responsables pour qu'ils se rendent compte de ce qu'a pu ressentir la buvette? (jet de dés influencé par vos choix antérieurs)
 #act #end 10 resolution.rituel resolution.rituel.fail
-#answer demander une augmentation à votre employeur pour prendre en compte la pénibilité de votre travail?
+#answer demander une augmentation à votre employeur pour prendre en compte la pénibilité de votre travail? (jet de dés influencé par vos choix antérieurs)
 #act #end 10 resolution.anticapitalisme resolution.anticapitalisme.fail
-#answer renoncer à l'idéal d'une plage propre et d'une buvette intacte?
+#answer renoncer à l'idéal d'une plage propre et d'une buvette intacte? (jet de dés influencé par vos choix antérieurs)
 #act #end 10 resolution.stoicisme resolution.stoicisme.fail
-#answer rendre l'accès à la plage gratuite et demander aux baigneurs.euses de nettoyer la plage eux-même?
+#answer rendre l'accès à la plage gratuite et demander aux baigneurs.euses de nettoyer la plage eux-même? (jet de dés influencé par vos choix antérieurs)
 #act #end 10 resolution.business resolution.business.fail
-#answer faire une grève de la faim?
+#answer faire une grève de la faim? (jet de dés influencé par vos choix antérieurs)
 #act #end 10 resolution.gandhi resolution.gandhi.fail
 
 C'est le gérant lui-même qui s'est créé un problème avec sa buvette superfétatoire : vous n'en revenez pas qu'il ne soit pas lui même arrivé à la conclusion qu'il fallait tout raser, et restituer la plage à son état Mésolithique : une prairie, le lac, la montagne.

@@ -8,20 +8,23 @@ la personne qui habite maintenant le corps du gérant de la plage - car il est e
 se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamais avoir besoin de respirer.
 
 ? - la simulation est terminée. 
+#logtime race1
+
 
 ? - j'espère que vous vous avez passé un bon moment.
 #answer ça va
-#act #goto 
+#act #goto end
 #answer bof
-#act #goto 
+#act #goto end
 #answer sisi j'ai bien rigolé (jet de dés sur 8)
-#act #dice 8
+#act #dice 8 end end 
 
 ? - nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
+#bookmark end
 
 ? - comme nous avons tous un rythme différent,
 
-? - il est tout à fait possible que certain.e.s en soient encore à regarder mon interprétation du nez de Jean Lassalle en ASCII art.
+? - il est tout à fait possible que certain.e.s en soient encore à regarder mon interprétation du nez de Jean Lassalle.
 
 ? - enfin on espère que non mais en définitive c'est possible.
 
@@ -33,7 +36,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - ils seront répartis sur l'ensemble du texte que vous avez affiché depuis le début de la performance
 
-? - ce qui fait que vous allez devoir scroller pas mal pour aller les chercher tous.
+? - ce qui fait que vous allez devoir redescendre dans le texte pour aller les chercher tous.
 
 ? - ce sont comme des petits oeufs de paques cachés dans le texte.
 
@@ -58,10 +61,8 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 ? - quand un mot est récolté par quelqu'un.e, 
 
 ? - ce mot disparaît pour tous.te.s les autres.
-
-? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
-
-? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
+//? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
+//? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
 
 ? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
 
@@ -134,123 +135,262 @@ le silence n'est percé que par le cri des foulques au loin.
 
 Dominique Sommeveille - J'ai quelque chose à confesser.
 
-avec samuel tout à l'heure, on vous a pas prévenu
+avec samuel tout à l'heure, on vous a pas dit
 
-mais on a mesuré le temps que vous avez mis à parcourir le texte.
+mais dès que je vous ai donné la possibilité de vous déplacer à votre rythme dans le texte,
 
+vous étiez en fait en train de jouer à un jeu
 
+euh qu'on a dénommé sobrement
 
-coucouu
-#bookmark race 1
+super mario barre espace
 
-ok so this is the first race.
+pis bon ben vous faisiez la course l'un.e contre l'autre
 
-first, what is your pseudonym?
-#askPseudo
+ça a commencé au moment où la première personne a appuyé sur la barre espace
 
-you're just reading text
-#logtime race1
+j'avoue c'est un peu abusé de pas vous avoir prévenu
 
-from now
+je vous donne quand même votre score (à vous uniquement), c'est le suivant :
 
-to
-
-...
-
-...
-
-now.
-#logtime race1
-
-ok
-
-how good did you do?
-
-***
 #race1results 
 
-well done.
+voilà.
 
-and now runner race!
-#bookmark race 2 (solo)
+pourquoi a-t-on fait ça me direz-vous?
 
-l'admin a la main
+hé ben je dois dire que c'est facile avec les ordinateurs.
 
-attention vous êtes prets
+dès que quelque chose est faite sur un ordinateur,
 
-GO!
+on peut tout mesurer.
+
+comme vous le savez sans doute, c'est comme ça que fonctionne toute l'industrie de la publicité en ligne
+
+on vous prévient pas
+
+et on regarde combien de temps vous avez mis à cliquer sur un truc
+
+ou à ne pas cliquer sur un truc.
+
+et puis on en tire des conclusions machiniques plus ou moins stupides sur vos centres d'intrérêts.
+
+et alors depuis qu'on a des ordinateurs tout le temps dans la poche (les téléphones)
+
+c'est la fête, on peut mesurer des trucs marrants comme
+
+vous avez emmené votre téléphone à un concert
+
+qui sont les autres personnes qui ont emmené leur téléphone au même concert?
+
+ou alors, 
+
+vous avez emmené votre téléphone dans un magasin de luxe
+
+ou alors,
+
+vous avez emmené votre téléphone dans un lieu de culte.
+
+ou alors, tiens?
+
+vous n'emmenez votre téléphone nulle part entre 22h et 08h la nuit
+
+est ce que c'est parce que vous dormez?
+
+vous dormez bien?
+
+à partir de ce moment, il devient effectivement tentant
+
+de tirer des conclusions machiniques plus ou moins stupides
+
+sur votre personnalité,
+
+votre niveau de vie
+
+vos opinions politiques.
+
+Quelles conclusions machiniques plus ou moins stupides peut-on prendre en se basant sur les données que nous avons collectées sur vous aujourd'hui?
+
+on a principalement collecté des choses en rapport avec votre vitesse d'évolution dans le texte.
+
+bon pour tout vous dire on a aussi mesuré :
+
+le temps que vous avez mis à entrer dans la salle
+
+le temps que vous avez mis à trouver d'addresse IP du serveur)
+
+à partir de ça, on pourrait vous classer du plus "rapide" au plus "lent".
+
+mais pour moi,
+
+ça serai déloyal 
+
+parce que vous avez pas été prévenu.e.s qu'on vous chronométrait.
+
+donc ce qu'on vous propose,
+
+(le gérant de la plage a donné son accord)
+
+c'est qu'on mesure à nouveau votre vitesse mais cette fois vous êtes au courant,
+
+à la bien, 
+
+c'est comme une course quoi en fait.
+
+voilà ben c'est une course. Vous allez faire la course contre moi, Dominique Sommeveille.
+#bookmark race2
+
+est ce que vous êtes prêt.e?
+
+hop
 #stepper race2
 #logtime race2
+
+startRace
+#startRace
 
 ***
 
 on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
 
-ok donc là on calcule la poule de tout le monde.
+félicitations!
+
+ça fait du bien de se dégourdir un peu les jambes.
 #getMean 
 #getScores race2
 
-qui est dans chaque poule svp
+ok donc maintenant, prenons des conclusions machinique plus ou moins stupides :
+
+le gérant de la plage a mesuré votre vitesse,
+
+les 50% les moins rapides vont aller dans une poule
+
+qu'on va appeller "team sieste"
+
+et on va se dire que vous êtes peut-être les mêmes personnes qui ont un rapport plus contemplatif au texte.
+
+les 50% les plus rapides vont aller dans une autre poule
+
+qu'on va appeller les "spacebar atheletes"
+
+et on va se dire que vous êtes peut-être les personnes qui ont eu un rapport immédiatement compétitif à la lecture.
+
+on va faire quelque chose pour que vous puissiez vous identifier, 
+
+on va réutiliser le truc de l'écran du serveur qui clignote;
+
+je vais éclairer vos écrans en rouge pour les spacebar atheletes, et en vert pour la team sieste.
+
+n'hésitez pas à lever la tête pour voir à quoi ressemble la répartition dans la salle.
+
+show poules green/red
 #light 1
 
-bien.
+super. J'espère que vous êtes content.e de l'équipe dans laquelle vous avez été classé.e.
 
-la prochaine course c'est juste le spacebar athletes
+on va maintenant faire des courses par poule!
 
-eux
+On va afficher à nouveau les coureurs, mais seulement les spacebar atheletes,
+
+c'est à dire vous
 #light 2
 
-prêt.e.s? 
+pourrez courir pour le moment. Les autres sont spectateurs.trices.
 
-GRO!
+on affiche le champ de course
+
+GO
 #logtime race3
 #stepper race3
 
-***
+FEU
+#startRace
 
-let's get scores
+félicitations!
+
+on va utiliser à nouveau la lumière des écrans pour avoir les scores.
 #getScores race3
 
-bravo, le gagnant c'est lui
+la personne qui a gagné la course est cette personne!
+
+***
 #light 4
 
-le deuxièm c'est lui (si y'en a un)
+félicitations.
+
+pour les spacebar atheletes,
+
+comme ce qui est important c'est d'être stimulé par la compétition
+
+l'émulation de groupe,
+
+on va aussi montrer les personnes arrivées en seconde & troisième position.
+
+cette personne est arrivée seconde.
+
+***
 #light 5
 
-le troisim lui (si y'en a un)
+la prochaine fois c'est la bonne!
+
+et cette personne est arrivée troisième.
 #light 6
 
-all right,
+Pas mal!
 
-maintenant la team siest
+Maintenant, passons à la team sieste.
 
-c'est eu
-#light 3
+pour mémoire, c'est vous.
 
-ils sont sympaes
+***
+#light3
 
-let's gro!
+on affiche le champ de course :
+
+GO
 #logtime race4
 #stepper race4
 
-well good job mammen
+FEU doucement
+#startRace
 
-let's get scores
-#getScores race4
+magnifique.
 
-le plu len
+du côté de la team sieste,
+
+ce qui est important ce sont les individualités et comment elles s'expriment librement
+
+on va donc d'abord montrer qui a eu le courage d'affronter la pression du groupe et d'assumer son envie de prendre le temps, arrivant en dernière position ou ne courant pas du tout.
+
+c'est cette personne,
+
+***
 #light 7
 
-le plu rapid
+félicitations!
+
+mais on consière aussi que la personne qui est arrivée en première position mérite d'être célébrée :
+
+c'est cette personne,
+
+***
 #light 8
 
-et les autr
+félicitations!
+
+et la team sieste en profite également pour célébrer chacun.e de ses membres au passage.
+
+félicitations!
 #light 9
 
-merci bonsoare
+Le Gérant de la plage - qu'est ce que vous faites?
 
-bisous
+Dominique Sommeveille - on parle de l'industrie de la pub en ligne.
 
-ffa anyone?
-#logtime race0
-#stepper race0
+Le Gérant de la plage - ah ok
+
+Le Gérant de la plage - je dois vous dire qu'il va être temps de clore cette expérience.
+
+Le Gérant de la plage - il se fait tard et *je n'ai toujours pas pu ranger mon bois*
+
+***

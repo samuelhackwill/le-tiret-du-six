@@ -22,6 +22,10 @@ streamer.on('message', function(message) {
 	// as streamer seems to be a global object and runs everywhere.
 	if(FlowRouter.getRouteName() == "show" && message.env == environment){
 		switch (message.action){
+			case "logAchievements":
+			instance.achievements.push({[message.name] : [message.value]})
+			break;
+
 			case "endTheShow":
 			document.getElementsByClassName("faceTorch")[0].style.backgroundColor = "black"
 			document.getElementsByClassName("faceTorch")[0].style.zIndex = "10000"

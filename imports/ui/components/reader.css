@@ -13,6 +13,10 @@
 	background: #272822;
 }
 
+.diceRoll{
+	color: lime !important;
+}
+
 .readerColumn{
 	font-size: calc(19 / 1024 * 100vw);
 	line-height: 1.2;

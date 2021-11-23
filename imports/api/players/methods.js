@@ -178,6 +178,11 @@ Meteor.methods({
 
   endTheShow: function(_env){
   	sendMessage({action:"endTheShow", env : _env})
+  },
+
+  logAchievement: function(_env, _name, _value){
+  	console.log(_env, _name, _value)
+  	sendMessage({action:"logAchievements", env : _env, name : _name, value : _value})
   }
 
 });

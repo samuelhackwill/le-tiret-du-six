@@ -45,6 +45,8 @@ Template.reader.onCreated(function(){
 
 	instance.data.obj.scores = []
 
+	instance.achievements = []
+
 	Session.set("currentRace", undefined)
 
 })
@@ -304,6 +306,10 @@ clientActions = function(_params){
 
 				document.getElementById("answers").lastChild.lastChild.dataset.onclickAction = _argArr[1]
 				document.getElementById("answers").lastChild.lastChild.dataset.onclickArg = _argArr[2]
+
+				if (onclickAction == "#dice") {
+					document.getElementById("answers").lastChild.lastChild.addClass("diceRoll")
+				}
 
 			break;
 
