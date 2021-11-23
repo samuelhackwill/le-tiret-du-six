@@ -174,6 +174,11 @@ Template.show.onRendered(function(){
 				break;
 			}
 		}
+
+		if(event.keyCode==49){
+			// &
+			Meteor.call("showServerCall", false, environment, false)
+		}
 	}
 
 	document.onkeydown = function(event){

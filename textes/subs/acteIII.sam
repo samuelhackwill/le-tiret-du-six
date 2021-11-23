@@ -14,7 +14,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 #act #goto 
 #answer bof
 #act #goto 
-#answer sisi j'ai bien rigolé.
+#answer sisi j'ai bien rigolé (jet de dés sur 8)
 #act #dice 8
 
 ? - nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
@@ -29,11 +29,11 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - cette fois-ci on ne vas pas utiliser la barre espace, mais le pointeur de souris.
 
-? - quand je vous ferai signe,
+? - certains mots de ce texte vont s'afficher en jaune.
 
-? - je transformerai certains mots dans cette colonne de texte en mots que vous pouvez "collectionner".
+? - ils seront répartis sur l'ensemble du texte que vous avez affiché depuis le début de la performance
 
-? - ces mots s'afficheront en jaune.
+? - ce qui fait que vous allez devoir scroller pas mal pour aller les chercher tous.
 
 ? - ce sont comme des petits oeufs de paques cachés dans le texte.
 
@@ -45,7 +45,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - un mot n'est collecté que quand la totalité des lettres du mot ont disparu. 
 
-? - quand un mot est récolté par une des personnes de votre table, il est consigné dans la "banque de mots", que vous pouvez ouvrir en cliquant sur le côté gauche de l'écran.
+? - quand vous réussissez à collecter un mot, il sera consigné dans la "banque de mots" qui apparaîtra à gauche quand vous aurez collecté votre premier mot.
 
 ? - chaque mot contient une petite surprise.
 
@@ -66,6 +66,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 ? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
 
 ? - c'est parti.
+#stop
 #mining start
 
 ***
@@ -132,6 +133,12 @@ Dominique s'arrête un instant. Il a l'air gêné.
 le silence n'est percé que par le cri des foulques au loin.
 
 Dominique Sommeveille - J'ai quelque chose à confesser.
+
+avec samuel tout à l'heure, on vous a pas prévenu
+
+mais on a mesuré le temps que vous avez mis à parcourir le texte.
+
+
 
 coucouu
 #bookmark race 1

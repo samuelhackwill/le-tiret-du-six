@@ -90,7 +90,6 @@ initiatePlayers = function(_env){
     Players.insert({env:"Prod", players:[{aiguebename:"bot", atIndex:0}]})
   }
 }
-
 initiateStory = function(_env){
   __env = _env || null
   if (__env) {

@@ -9,7 +9,9 @@ import './bookmarksLibrary.css';
 Template.bookmarksLibrary.helpers({
 	isItABookmark:function(obj){
 		// obj is the context passed from the html "this"
-		if (Object.keys(obj)[0]=="#bookmark") {
+		if (Object.keys(obj)[0]=="#bookmark" && Object.values(obj)[0].match(/\./g)==null) {
+		// also only return one-worded bookmarks to 
+		// filter most of the beach bookmarks.
 			return true
 		}else{
 			return false

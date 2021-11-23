@@ -5,6 +5,7 @@ import '../../ui/layouts/app_body.js';
 import '../../ui/layouts/editor.js';
 import '../../ui/layouts/admin.js';
 import '../../ui/layouts/show.js';
+import '../../ui/layouts/showServ.js';
 
 const defaultToProd = function(context){
   // we're running this hook to make the
@@ -53,4 +54,13 @@ FlowRouter.route('/editor/:environment', {
 	action(params, queryParams){
 		BlazeLayout.render('editor')
 	}
+})
+
+FlowRouter.route('/showServ/:environment', {
+  // this is the route for editing
+  // the show's text & content.
+  name: 'showServ',
+  action(params, queryParams){
+    BlazeLayout.render('showServ')
+  }
 })

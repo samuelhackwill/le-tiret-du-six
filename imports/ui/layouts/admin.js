@@ -62,8 +62,7 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 
 	this.subscribe('story')
 	this.subscribe('globals',()=>{
-		// sync local atIndex to DB when arriving
-		instance.data.adminAtIndex = instance.data.global.collection.find({env:environment}).fetch()[0].spacebar.adminAtIndex
+		instance.data.adminAtIndex = 0
 	});	
 	this.subscribe('players')
 	

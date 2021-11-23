@@ -47,32 +47,19 @@ Meteor.methods({
 		Players.update({env:_env, "players.aiguebename":_aiguebename}, {$set : {["players.$.score."+_whichRace+"."+startOrFinish] : time}})
 	},
 
-	showServerCall(_env){
-		if (playersCounter[_env]<1) {
-			console.log("showServerCall launching strobe!")
-			// if playersCounter hasn't been updated yet,
-			// it means that it's the first time showServerCall is triggered,
-			// and that it should make the admin screen strobe.
-			sendMessage({action:"showServerCall", strobeSwitch:true, env:_env})
+	showServerCall(admin, _env, hide){
+		if (hide) {
+			sendMessage({action:"adminHideServ", env:_env})	
+		return
+		}else{
+			if (admin) {
+				sendMessage({action:"adminShowServ", env:_env})	
+			}else{
+				sendMessage({action:"playerShowServ", env:_env})	
+			}
 		}
-		
-		// we want to track the number of players who have 
-		// already called the function so that the last player
-		// will toggle the strobe off.
-		playersCounter[_env] = playersCounter[_env] +1
-
-		if (playersCounter[_env] == Players.find({env :_env}).fetch()[0].players.length) {
-			// finaly, if this was the last player to call the function,
-			// terminate the strobe effect on the admin screen.
-			console.log("showServerCall terminating strobe in 10 seconds.")
-			sendMessage({action:"showServerCall", strobeSwitch:false, env:_env})
-			// reinitialize playersCounter for the next round!
-			playersCounter[_env] = 0
-			return
-		}
-		
-	
 	},
+
 
 	stepperStartCall(_env, _whichRace){
 		_currentRace = _whichRace

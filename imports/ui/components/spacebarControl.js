@@ -24,6 +24,15 @@ Template.spacebarControl.events({
 		Meteor.call("spacebarInvert", environment)
 	},
 
+	"click button.showServer"(){
+		// change status of spacebar
+		Meteor.call("showServerCall", true, environment, false)
+	},
+	"click button.hideServer"(){
+		// change status of spacebar
+		Meteor.call("showServerCall", true, environment, true)
+	},
+
 	"click button.autorun"(t){
 		instance.botAutorun =! instance.botAutorun
 		if (instance.botAutorun) {
@@ -45,6 +54,11 @@ Template.spacebarControl.onRendered(function(){
 	document.onkeyup = function(event){
 		if (event.keyCode==32) {
 			adminSpaceBarPress()
+		}
+	}
+
+	document.onkeydown = function(event){
+		if (event.keyCode==32) {
 			event.preventDefault()
 		}
 	}
