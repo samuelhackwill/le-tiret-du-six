@@ -371,6 +371,9 @@ il n'est pas dans un datacentre
 
 mais ici dans la salle,
 
+...
+#bookmark serverStrobe
+
 on va faire un truc
 
 comme c'est un ordinateur qui n'est pas muni d'un écran,
@@ -534,7 +537,7 @@ oui voilà de parler avec moi. Bravo.
 et deuxièmement, celui de faire des paris :
 
 (cliquez sur la phrase rose qui vient d'apparaître à droite)
-#answer Je parie que je peux faire au moins 9 en jetant deux dés à 6 faces (jet de dés sur 9)
+#answer Je parie que je peux faire au moins 9 en jetant deux dés à six faces.
 #act #dice 9 propedeut.win propedeut.fail
 
 bon ben par exemple, vous avez raté ce pari. 
@@ -554,22 +557,6 @@ vous décidez de vous mettre en route dans la direction de la lumière.
 
 ***
 //fin de l'acte I
-
-hop
-
-hop
-
-hop
-
-hop
-
-hop
-
-hop
-
-hop
-
-hop
 
 Vous êtes arrivé.e au bout du chemin
 // no comments in the #answers section please! breaks everything unfortunately.
@@ -1358,3 +1345,465 @@ Ce n’est peut être pas une si bonne idée : faire une grève de la faim compo
 Le jeune politique nécéssite un engagement total, issu d’une conviction intime. Le gérant de la plage décidera seul s’il souhaite s’engager sur cette voie.
 #answer (tenter une autre proposition)
 #act #goto resolution
+
+Le gérant de la plage - très bien, je vous remercie de votre participation!
+#bookmark startofACTEIII
+
+Vous ne reconnaissez plus la voix du gérant de la plage. Son ton boudeur et laconique a été remplacé par une diction très rapide, hachée, et désinvolte.
+
+la personne qui habite maintenant le corps du gérant de la plage - car il est exclu qu'il s'agisse de la personne avec qui vous venez d'avoir une discussion -
+
+se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamais avoir besoin de respirer.
+
+? - la simulation est terminée. 
+#logtime race1
+
+
+? - j'espère que vous vous avez passé un bon moment.
+#answer ça va
+#act #goto end
+#answer bof
+#act #goto end
+#answer sisi j'ai bien rigolé (jet de dés sur 8)
+#act #dice 8 end end 
+
+? - nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
+#bookmark end
+
+? - comme nous avons tous un rythme différent,
+
+? - il est tout à fait possible que certain.e.s en soient encore à regarder mon interprétation du nez de Jean Lassalle.
+
+? - enfin on espère que non mais en définitive c'est possible.
+
+? - je vais vous proposer de poursuivre votre lecture en attendant les autres
+
+? - cette fois-ci on ne vas pas utiliser la barre espace, mais le pointeur de souris.
+
+? - certains mots de ce texte vont s'afficher en jaune.
+
+? - ils seront répartis sur l'ensemble du texte que vous avez affiché depuis le début de la performance
+
+? - ce qui fait que vous allez devoir redescendre dans le texte pour aller les chercher tous.
+
+? - ce sont comme des petits oeufs de paques cachés dans le texte.
+
+? - pour les collecter, il faut cliquer plein de fois dessus.
+
+? - quand vous avez suffisament cliqué sur un mot, une de ses lettres va disparaître,
+
+? - pour indiquer que le mot est en train, petit à petit, de se faire moissoner.
+
+? - un mot n'est collecté que quand la totalité des lettres du mot ont disparu. 
+
+? - quand vous réussissez à collecter un mot, il sera consigné dans la "banque de mots" qui apparaîtra à gauche quand vous aurez collecté votre premier mot.
+
+? - chaque mot contient une petite surprise.
+
+? - (une "définition" que j'ai donné à ce mot)
+
+? - attention! la nuance importante,
+
+? - c'est qu'il y a un stock de mots fini pour l'ensemble de la salle.
+
+? - quand un mot est récolté par quelqu'un.e, 
+
+? - ce mot disparaît pour tous.te.s les autres.
+//? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
+//? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
+
+? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
+
+? - c'est parti.
+#stop
+#mining start
+
+***
+
+? - nous voilà tous réuni.e.s à nouveau!
+#bookmark resync
+
+? - je suis si heureux.
+
+? - chaque personne dans la salle lit ce texte simultanément.
+
+? - bon et au fait vous avez compris que c'était à nouveau samuel le robot qui vous parle.
+
+entre temps je suis allé parler au gérant de la plage. 
+
+Il m'a dit qu'il avait apprécié la discussion avec vous,
+
+que même si votre conversation était un peu étrange, ça lui a donné des perspectives nouvelles sur la plage de l***.
+
+et il a fini par accepter de nous ouvrir la plage.
+
+je vous propose qu'on aille y retrouver 
+
+Dominique Sommeveille,
+
+qui nous y attend.
+
+hop
+
+hop
+
+hop
+
+nous sommes maintenant face au lac
+
+(on était pas très loin)
+
+en effet la plage est très belle,
+
+et très calme.
+
+la buvette est close,
+
+pas un chat.
+
+Dominique est au bord de l'eau, dos au lac, vous faisant face.
+
+il vous accueille tout sourire.
+
+Dominique Sommeveille - Bienvenue à la plage de L***!
+
+Dominique Sommeveille - je me balladais dans le coin et j'ai vu que la plage était ouverte, alors je suis venu voir le lac.
+
+il est très beau aujourd'hui! 
+
+Avez vous remarqué sa couleur <span style="color:turquoise;">turquoise?</span>
+
+on m'a dit que c'était grâce à vous que la plage était ouverte.
+
+au nom des habitants de l'avant-pays savoyard, je vous remercie.
+
+Dominique s'arrête un instant. Il a l'air gêné.
+
+le silence n'est percé que par le cri des foulques au loin.
+
+Dominique Sommeveille - J'ai quelque chose à confesser.
+
+avec samuel tout à l'heure, on vous a pas dit
+
+mais dès que je vous ai donné la possibilité de vous déplacer à votre rythme dans le texte,
+
+vous étiez en fait en train de jouer à un jeu
+
+euh qu'on a dénommé sobrement
+
+super mario barre espace
+
+pis bon ben vous faisiez la course l'un.e contre l'autre
+
+ça a commencé au moment où la première personne a appuyé sur la barre espace
+
+j'avoue c'est un peu abusé de pas vous avoir prévenu
+
+je vous donne quand même votre score (à vous uniquement), c'est le suivant :
+
+#race1results 
+
+voilà.
+
+pourquoi a-t-on fait ça me direz-vous?
+
+hé ben je dois dire que c'est facile avec les ordinateurs.
+
+dès que quelque chose est faite sur un ordinateur,
+
+on peut tout mesurer.
+
+comme vous le savez sans doute, c'est comme ça que fonctionne toute l'industrie de la publicité en ligne
+
+on vous prévient pas
+
+et on regarde combien de temps vous avez mis à cliquer sur un truc
+
+ou à ne pas cliquer sur un truc.
+
+et puis on en tire des conclusions machiniques plus ou moins stupides sur vos centres d'intrérêts.
+
+et alors depuis qu'on a des ordinateurs tout le temps dans la poche (les téléphones)
+
+c'est la fête, on peut mesurer des trucs marrants comme
+
+vous avez emmené votre téléphone à un concert
+
+qui sont les autres personnes qui ont emmené leur téléphone au même concert?
+
+ou alors, 
+
+vous avez emmené votre téléphone dans un magasin de luxe
+
+ou alors,
+
+vous avez emmené votre téléphone dans un lieu de culte.
+
+ou alors, tiens?
+
+vous n'emmenez votre téléphone nulle part entre 22h et 08h la nuit
+
+est ce que c'est parce que vous dormez?
+
+vous dormez bien?
+
+à partir de ce moment, il devient effectivement tentant
+
+de tirer des conclusions machiniques plus ou moins stupides
+
+sur votre personnalité,
+
+votre niveau de vie
+
+vos opinions politiques.
+
+Quelles conclusions machiniques plus ou moins stupides peut-on prendre en se basant sur les données que nous avons collectées sur vous aujourd'hui?
+
+on a principalement collecté des choses en rapport avec votre vitesse d'évolution dans le texte.
+
+bon pour tout vous dire on a aussi mesuré :
+
+le temps que vous avez mis à entrer dans la salle
+
+le temps que vous avez mis à trouver d'addresse IP du serveur)
+
+à partir de ça, on pourrait vous classer du plus "rapide" au plus "lent".
+
+mais pour moi,
+
+ça serai déloyal 
+
+parce que vous avez pas été prévenu.e.s qu'on vous chronométrait.
+
+donc ce qu'on vous propose,
+
+(le gérant de la plage a donné son accord)
+
+c'est qu'on mesure à nouveau votre vitesse mais cette fois vous êtes au courant,
+
+à la bien, 
+
+c'est comme une course quoi en fait.
+
+voilà ben c'est une course. Vous allez faire la course contre moi, Dominique Sommeveille.
+#bookmark race2
+
+est ce que vous êtes prêt.e?
+
+hop
+#stepper race2
+#logtime race2
+
+startRace
+#startRace
+
+***
+
+on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
+
+félicitations!
+
+ça fait du bien de se dégourdir un peu les jambes.
+#getMean 
+#getScores race2
+
+ok donc maintenant, prenons des conclusions machinique plus ou moins stupides :
+
+le gérant de la plage a mesuré votre vitesse,
+
+les 50% les moins rapides vont aller dans une poule
+
+qu'on va appeller "team sieste"
+
+et on va se dire que vous êtes peut-être les mêmes personnes qui ont un rapport plus contemplatif au texte.
+
+les 50% les plus rapides vont aller dans une autre poule
+
+qu'on va appeller les "spacebar atheletes"
+
+et on va se dire que vous êtes peut-être les personnes qui ont eu un rapport immédiatement compétitif à la lecture.
+
+on va faire quelque chose pour que vous puissiez vous identifier, 
+
+on va réutiliser le truc de l'écran du serveur qui clignote;
+
+je vais éclairer vos écrans en rouge pour les spacebar atheletes, et en vert pour la team sieste.
+
+n'hésitez pas à lever la tête pour voir à quoi ressemble la répartition dans la salle.
+
+show poules green/red
+#light 1
+
+super. J'espère que vous êtes content.e de l'équipe dans laquelle vous avez été classé.e.
+
+on va maintenant faire des courses par poule!
+
+On va afficher à nouveau les coureurs, mais seulement les spacebar atheletes,
+
+c'est à dire vous
+#light 2
+
+pourrez courir pour le moment. Les autres sont spectateurs.trices.
+
+on affiche le champ de course
+
+GO
+#logtime race3
+#stepper race3
+
+FEU
+#startRace
+
+félicitations!
+
+on va utiliser à nouveau la lumière des écrans pour avoir les scores.
+#getScores race3
+
+la personne qui a gagné la course est cette personne!
+
+***
+#light 4
+
+félicitations.
+
+pour les spacebar atheletes,
+
+comme ce qui est important c'est d'être stimulé par la compétition
+
+l'émulation de groupe,
+
+on va aussi montrer les personnes arrivées en seconde & troisième position.
+
+cette personne est arrivée seconde.
+
+***
+#light 5
+
+la prochaine fois c'est la bonne!
+
+et cette personne est arrivée troisième.
+#light 6
+
+Pas mal!
+
+Maintenant, passons à la team sieste.
+
+pour mémoire, c'est vous.
+
+***
+#light3
+
+on affiche le champ de course :
+
+GO
+#logtime race4
+#stepper race4
+
+FEU doucement
+#startRace
+
+magnifique.
+
+du côté de la team sieste,
+
+ce qui est important ce sont les individualités et comment elles s'expriment librement
+
+on va donc d'abord montrer qui a eu le courage d'affronter la pression du groupe et d'assumer son envie de prendre le temps, arrivant en dernière position ou ne courant pas du tout.
+
+c'est cette personne,
+
+***
+#light 7
+
+félicitations!
+
+mais on consière aussi que la personne qui est arrivée en première position mérite d'être célébrée :
+
+c'est cette personne,
+
+***
+#light 8
+
+félicitations!
+
+et la team sieste en profite également pour célébrer chacun.e de ses membres au passage.
+
+félicitations!
+#light 9
+
+Le Gérant de la plage - qu'est ce que vous faites?
+
+Dominique Sommeveille - on parle de l'industrie de la pub en ligne.
+
+Le Gérant de la plage - ah ok
+
+Le Gérant de la plage - je dois vous dire qu'il va être temps de clore cette expérience.
+
+Le Gérant de la plage - il se fait tard et *je n'ai toujours pas pu ranger mon bois*
+
+***
+
+nous sommes x dans la salle.
+#bookmark startofACTEIV
+
+lors de la dernière représentation, nous étions x.
+
+vous avez mis x minutes et x secondes à entrer dans la salle.
+
+en termes de rapidité à entrer dans la salle,
+
+par rapport aux x autres publics qui ont joué au tiret du six,
+
+vous vous placez en xe position.
+
+c'est à dire que la durée d'entrée public a été plutôt longue / plutôt courte.
+
+ça serait intéressant de rapporter cette durée au nombre que vous êtes pour obtenir une vitesse moyenne par individu. 
+
+ça nous permettrait de décider de manière plus honnête, d'un point de vue statistique, que vous avez été plutôt rapides ou plutôt lent.e.s.
+
+aujourd'hui, 
+
+la séquence du jeu-de-piste avec ping
+
+c'est à dire la séquence où mon robot vous parlait, entre le moment où il a ouvert la bouche et le moment où il s'est tu.
+
+a duré x minutes et x secondes.
+
+La dernière fois, comme il vous l'a dit lui-même en introduction, cette séquence a duré x minutes et x secondes.
+
+Vous avez donc gagné / perdu cette course contre le public précédent.
+
+félicitations! Néanmoins ne vous réjouissez pas trop vite, votre titre sera remis en jeu lors de la prochaine représentation. / ceci dit il n'est pas impossible que vous gagniez contre le prochain public. Vous pouvez éventuellement vous coordonner pour revenir lors de la prochaine représentation afin de saboter l'entrée public si vous désirez augmenter vos chances.
+
+les moments suivants de la performance vous ont manifestement fait rire :
+
+la blague de samuel le robot qui sort de l'écran (comique de situation)
+
+oui / modéremment / non
+
+la blague de : "j'aime bien quand le silence revient dans la salle ça me fait penser à dominique sommeveille qui souffle avec son nez" (running gag)
+
+oui / modéremment / non
+
+la blague de : i like to move it move it (rupture de ton)
+
+oui / modéremment / non
+
+la blague d'avoir affiché les financeurs de la performance dans le fond du stade lors de la séquence des courses (blague d'initiés)
+
+oui / modéremment / non
+
+la blague de dire quelles blagues vous ont fait rire (méta)
+// attendre un peu que les gens comprennent, puis
+
+oui / modéremment / non
+
+les autres blagues c'est plus difficile à dire parce que tout le monde était dans son propre rythme.
+
+c'était la xe représentation du tiret du six,
+
+merci,
+
+et bon courage avec les ordinateurs.
+// noir
