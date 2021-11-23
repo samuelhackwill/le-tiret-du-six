@@ -92,7 +92,7 @@ Template.admin.helpers({
 	// this returns only fields of the DB
 	// with one "bookmark" param.
 		return{
-			bookmarks:Story.find({env:"Dev", 'data.params':{$elemMatch:{"#bookmark":{$exists:true}}} }),
+			bookmarks:Story.find({env:environment, 'data.params':{$elemMatch:{"#bookmark":{$exists:true}}} }),
 			story:Story.find({env: environment})
 		}
 	},
