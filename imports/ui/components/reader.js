@@ -678,8 +678,8 @@ dice = function(_arg, _modifier){
 						}
 						clientActions(params)
 						instance.data.stopped=false
-					},500)
-				},200)
+					},1000)
+				},400)
 			}else{
 				timeInterval += 5
 				counter ++

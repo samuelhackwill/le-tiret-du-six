@@ -22,6 +22,12 @@ streamer.on('message', function(message) {
 	// as streamer seems to be a global object and runs everywhere.
 	if(FlowRouter.getRouteName() == "show" && message.env == environment){
 		switch (message.action){
+			case "endTheShow":
+			document.getElementsByClassName("faceTorch")[0].style.backgroundColor = "black"
+			document.getElementsByClassName("faceTorch")[0].style.zIndex = "10000"
+			document.getElementsByClassName("faceTorch")[0].style.transition = "opacity 5"
+			document.getElementsByClassName("faceTorch")[0].style.opacity = "1"
+			break;
 			case "killLetter":
 			// killLetter(letterId, local)
 			// the first argument is the id of the letter to fade out,

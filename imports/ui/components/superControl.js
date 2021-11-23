@@ -20,6 +20,10 @@ Template.superControl.events({
 
 	'click .stopTheRace'(){
 		Meteor.call("adminStopTheRace", environment)
-	}	
+	},
+
+	'click .end'(){
+		Meteor.call("endTheShow", environment)
+	}
 
 })

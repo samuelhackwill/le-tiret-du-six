@@ -174,6 +174,10 @@ Meteor.methods({
   	// registered in the stepQueue array.
     stepQueue.push(who);
 
+  },
+
+  endTheShow: function(_env){
+  	sendMessage({action:"endTheShow", env : _env})
   }
 
 });
