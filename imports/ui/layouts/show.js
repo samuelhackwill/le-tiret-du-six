@@ -114,6 +114,7 @@ streamer.on('message', function(message) {
 
 
 			case "endRacePool":
+			instance.data.obj.spaceBarStatus="reader"
 			switchToReaderAndResetRunners()
 			break;
 

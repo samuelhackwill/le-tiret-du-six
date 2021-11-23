@@ -273,10 +273,20 @@ clientActions = function(_params){
 					// or else we want to start the stepper and make
 					// the spacebar change behaviour
 					Meteor.call("stepperStartCall", environment, _arg)
-					instance.data.obj.spaceBarStatus = "racer"
 					document.getElementsByClassName("racerContainer")[0].style.opacity=1
 					document.getElementsByClassName("readerContainer")[0].style.opacity=0
-				}
+
+					setTimeout(function(){
+						allRunners = document.getElementsByClassName("runner")
+							for (var i = 0 ; i < allRunners.length-1 ; i++) {
+								allRunners[i].style.left="0%"
+							}
+						},2000)
+					}
+			break;
+
+			case "#startRace":
+				instance.data.obj.spaceBarStatus = "racer"
 			break;
 
 			case "#answer":
@@ -928,11 +938,11 @@ shouldIFlash = function(_arg){
 		case  "1" || 1 :
 		// light both pools
 		// just check mean and my score. If i'm under, flash red.
-		// if i'm over, flash green.
+		// if i'm over, flash lime.
 		if (imaSpacebarAthlete) {
 			flashLight("red")
 		}else{
-			flashLight("green")
+			flashLight("lime")
 		}
 
 		break;
@@ -947,11 +957,11 @@ shouldIFlash = function(_arg){
 		break;
 		case  "3" || 3 :
 		// light one pool : ts
-		// just check mean and my score. If i'm over, flash green.
+		// just check mean and my score. If i'm over, flash lime.
 		if (imaSpacebarAthlete) {
 			flashLight("black")
 		}else{
-			flashLight("green")
+			flashLight("lime")
 		}
 
 		break;
@@ -1012,7 +1022,7 @@ shouldIFlash = function(_arg){
 		myScore = instance.data.obj.scores[2].race4.find(str=>str.aiguebename===instance.aiguebename).score
 
 		if (!imaSpacebarAthlete && myScore == lowScore) {
-			flashLight("green")
+			flashLight("lime")
 		}else{
 			flashLight("black")
 		}
@@ -1024,7 +1034,7 @@ shouldIFlash = function(_arg){
 		const topScoreTS = instance.data.obj.scores[2].race4[0].score
 
 		if (!imaSpacebarAthlete && myScore == topScoreTS) {
-			flashLight("green")
+			flashLight("lime")
 		}else{
 			flashLight("black")
 		}
@@ -1060,11 +1070,11 @@ flashLight = function(color){
 
 	setTimeout(function(){
 		document.getElementsByClassName("faceTorch")[0].style.opacity = "0";
-	},2000)
+	},4500)
 
 	setTimeout(function(){
 		document.getElementsByClassName("faceTorch")[0].style.zIndex = "-9999";
-	},3500)
+	},6000)
 
 }
 

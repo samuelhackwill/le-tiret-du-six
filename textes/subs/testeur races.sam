@@ -36,9 +36,12 @@ l'admin a la main
 
 attention vous êtes prets
 
-GO!
+start stepper
 #stepper race2
 #logtime race2
+
+GO!
+#startRace
 
 ***
 
@@ -60,9 +63,12 @@ eux
 
 prêt.e.s? 
 
-GRO!
+start stepper
 #logtime race3
 #stepper race3
+
+GRO!
+#startRace
 
 ***
 
@@ -87,11 +93,14 @@ c'est eu
 
 ils sont sympaes
 
-let's gro!
+start stepper
 #logtime race4
 #stepper race4
 
-well good job mammen
+let's gro!
+#startRace
+
+***
 
 let's get scores
 #getScores race4
