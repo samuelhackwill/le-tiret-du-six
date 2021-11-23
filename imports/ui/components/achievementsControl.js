@@ -10,7 +10,7 @@ import './achievementsControl.css';
 Template.achievementsControl.events({
 
 	"click button"(t){
-		console.log(t)
+		// console.log(t)
 	},
 })
 

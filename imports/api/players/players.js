@@ -6,7 +6,7 @@ export const Players = new Mongo.Collection('players');
 // probably for debugging purposes, assign a name i know to 
 // every player. (will help identifying a computer in 
 // debug mode maybe?).
-const aiguebenames = ["Michèle Planche", "Julien Montfalcon", 
+let aiguebenames = ["Michèle Planche", "Julien Montfalcon", 
 "Lydia Guhl", "Régis Montfalcon", "Chantal Montfalcon", 
 "Roger Bologne", "Silvia Cremonte", "Dominique Sommeveille", 
 "Karin Tabarand", "Gerald Fillias", "Madeleine Curtaud", 
@@ -47,9 +47,26 @@ export const playersSchema = new SimpleSchema({
 			// autovalue's job is to assign an aiguebename on
 			// insert without input from the client.
 			// this.env is passed to the clean() function which is used in methods.
-			collectionSize = Players.find({env:this.env}).fetch()[0].players.length-1
 			// return the appropriate aiguebename or the default string
-			return aiguebenames[collectionSize] || "Aiguebnames exhausted.";
+
+			if (aiguebenames.length == 0) {
+				aiguebenames = ["Michèle Planche", "Julien Montfalcon", 
+				"Lydia Guhl", "Régis Montfalcon", "Chantal Montfalcon", 
+				"Roger Bologne", "Silvia Cremonte", "Dominique Sommeveille", 
+				"Karin Tabarand", "Gerald Fillias", "Madeleine Curtaud", 
+				"Daniel Duval", "Joelle Rollin", "André Guillet", 
+				"Colette Lasherme", "Jeremy Bottan", "Claire Roussey-Simon",
+				"Julian Boutin", "Ginette", "Anthelme Branche", "Romain Chavet",
+				"Yvette Regnier", "Le Biclou", "Patricia François",
+				"Jean-Jacques Amouyal", "Raymond Gentil-Beccot", 
+				"Pamela Hermant", "Véronique Chatard", "Cyrille Colombier",
+				"Florian Montfalcon", "Solange Barret", "Jacky Duport", 
+				"Michel Gatellier", "Olivier Collomb", "Thierry Bonnamour"]
+			}	
+
+			chosen_aiguebename = aiguebenames.shift()
+
+			return chosen_aiguebename;
 		}
 	},
 

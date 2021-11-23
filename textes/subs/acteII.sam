@@ -652,7 +652,7 @@ LE GERANT DE LA PLAGE - quelle autre solution?
 #answer tout raser?
 #act #end 10 resolution.destruction resolution.destruction.fail
 #answer mettre des caméras de surveillance?
-#act #end 10 resolution.destruction.proces resolution.destruction.proces.fail
+#act #end 10 resolution.proces resolution.proces.fail
 #answer tagger les responsables pour qu'ils se rendent compte de ce qu'a pu ressentir la buvette?
 #act #end 10 resolution.rituel resolution.rituel.fail
 #answer demander une augmentation à votre employeur pour prendre en compte la pénibilité de votre travail?
