@@ -203,14 +203,14 @@ clientActions = function(_params){
 				// get score from method with callback.
 				Meteor.call("calculateRaceDuration", environment, "race1", instance.aiguebename,
 					(error, result) =>{
-						// loadText(undefined, undefined,
-						// 	`Vous avez mis ${result.diffTimeS}
-						// 	secondes et ${result.diffTimeD} dixièmes à parcourir
-						// 	le texte.`)
-
-						replaceText(`Vous avez mis ${result.diffTimeS}
+						loadText(undefined, undefined,
+							`Vous avez mis ${result.diffTimeS}
 							secondes et ${result.diffTimeD} dixièmes à parcourir
 							le texte.`)
+
+						// replaceText(`Vous avez mis ${result.diffTimeS}
+						// 	secondes et ${result.diffTimeD} dixièmes à parcourir
+						// 	le texte.`)
 
 					})
 			break;
@@ -264,8 +264,8 @@ clientActions = function(_params){
 				document.getElementById("answers").lastChild.lastChild.dataset.onclickAction = _argArr[1]
 				document.getElementById("answers").lastChild.lastChild.dataset.onclickArg = _argArr[2]
 
-				if (onclickAction == "#dice") {
-					document.getElementById("answers").lastChild.lastChild.addClass("diceRoll")
+				if (_argArr[1] == "#dice") {
+					document.getElementById("answers").lastChild.lastChild.classList.add("diceRoll")
 				}
 
 			break;

@@ -115,6 +115,7 @@
   justify-content: center;
   font-size: calc(22 / 1024 * 100vw);
   font-style: italic;
+  overflow-y: scroll;
 }
 .words ul {
   margin-bottom: 0;
@@ -123,6 +124,7 @@
   text-align: center;
 }
 .words ul li a {
+  cursor: pointer;
   text-decoration: none;
   color: #666666;
 }

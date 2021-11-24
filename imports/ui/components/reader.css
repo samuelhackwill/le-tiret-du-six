@@ -14,7 +14,7 @@
 }
 
 .diceRoll{
-	color: lime !important;
+	color: pink !important;
 }
 
 .readerColumn{
@@ -232,7 +232,7 @@ ul::selection {
 }
 
 .clickableAnswer{
-	color: red !important;
+	color: red;
 }
 
 .clickableAnswer:hover{

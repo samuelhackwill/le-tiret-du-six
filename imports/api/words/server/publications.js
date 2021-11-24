@@ -36,6 +36,7 @@ Meteor.methods({
 			if (harvestedWordsCounter >= inventory.length) {
 				harvestedWordsCounter = 0
 				console.log("MINING SHOULD PROBABLY BE OVER!")
+				sendMessage({action:"giveWordsToEverybody", env:_env})
 			}
 
 		}else{

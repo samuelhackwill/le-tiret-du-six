@@ -8,7 +8,7 @@ import './wordsBank.css';
 
 
 Template.wordsBank.onCreated(function(){
-
+	Session.set("wereAllWordsHarvested", false)
 });
 
 
@@ -16,34 +16,48 @@ Template.wordsBank.helpers({
 	getCollectedWords:function(){
 		// we need to get all the words that were harvested by that player so
 		// we can display them in the word cabinet.
+
+		if(Session.get("wereAllWordsHarvested")){
+			harvest = []
+			allWords = instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
+			for (var i = allWords.length - 1; i >= 0; i--) {
+				harvest.push(allWords[i].name)
+			}
+			return harvest
+			
+		}else{
 		let allPlayers = this.obj.players.collection.findOne({env: environment})?.players
 		let player = allPlayers?.find(str=>str.aiguebename===instance.aiguebename)
 		let harvest = player?.score?.harvest
 
+		console.log(harvest)
+
 		return harvest
+		}
 	},
 
 	miningStatus:function(){
 		// this function is responsible for getting the stats of the current player
 		// words mined, but also words mined by other players, etc.
 
-		let allPlayers = this.obj.players.collection.findOne({env: environment})?.players
 
-		if (allPlayers) {
-			let player = allPlayers?.find(str=>str.aiguebename===instance.aiguebename)
-			let harvest = player?.score?.harvest?.length || 0
+			let allPlayers = this.obj.players.collection.findOne({env: environment})?.players
 
-			let counter = 0
+			if (allPlayers) {
+				let player = allPlayers?.find(str=>str.aiguebename===instance.aiguebename)
+				let harvest = player?.score?.harvest?.length || 0
 
-			for (var i = allPlayers.length - 1; i >= 0; i--) {
-				add = allPlayers[i]?.score?.harvest?.length || 0
-				counter = counter + add
+				let counter = 0
+
+				for (var i = allPlayers.length - 1; i >= 0; i--) {
+					add = allPlayers[i]?.score?.harvest?.length || 0
+					counter = counter + add
+				}
+
+				let words = instance.data.obj.words.collection.findOne({env:environment})?.data?.length || 0
+
+			return {iCollected : harvest, total : words, totalCollected : counter, left : (words-counter)}
 			}
-
-			let words = instance.data.obj.words.collection.findOne({env:environment})?.data?.length || 0
-
-		return {iCollected : harvest, total : words, totalCollected : counter, left : (words-counter)}
-		}
 	}
 
 });

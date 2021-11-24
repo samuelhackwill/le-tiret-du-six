@@ -35,7 +35,6 @@ Meteor.methods({
 
 	playerLogTime(_env, _aiguebename, _whichRace){
 		time = new Date()
-		console.log(_whichRace)
 		// we're looking for a score.start field in the player document.
 		// if one exists, it's that the race is already started and that
 		// the method was called to log the finish time.

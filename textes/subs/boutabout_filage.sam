@@ -1,5 +1,6 @@
 TOUT BIEN
 #bookmark startofACTEI
+// IL FAUT que ce bookmark soit au début du show sinon ça pète tout.
 
 vous êtes bien arrivé.e.s sur la suite du spectacle de samuel
 
@@ -479,15 +480,13 @@ après la barre espace,
 
 j'aimerais vous donner accès a un autre outil :
 
-la touche "&".
-
-(esperluette)
+la touche "a".
 
 appuyez voir dessus?
 
-normalement quand vous appuyez sur "&" ça devrait immédiatement avoir un effet sur l'écran du serveur.
+normalement quand vous appuyez sur "a" ça devrait immédiatement avoir un effet sur l'écran du serveur.
 
-voilà, la touche "&" ne sert qu'à ça. Vous pouvez appuyer dessus quand vous voulez, c'est pour vous.
+voilà, la touche "a" ne sert qu'à ça. Vous pouvez appuyer dessus quand vous voulez, c'est pour vous.
 
 ***
 
@@ -548,7 +547,7 @@ C'est pas grave cette fois! ça aurait été plus grave si vous aviez parié que
 #act #goto propedeut.end
 
 hé ben dites donc vous avez un sacré pot.
-#bookmark popedeut.win
+#bookmark propedeut.win
 
 voilà, ça devrait vous servir pour la séquence qui vient bientôt.
 #bookmark propedeut.end
@@ -614,7 +613,7 @@ vous avez pas autre chose à faire?
 #act #goto intro.police.chat.uniforme
 
 LE GÉRANT DE LA PLAGE - ... Non, on a pas retrouvé d'uniforme.
-#bookmark #goto intro.police.chat.uniforme
+#bookmark intro.police.chat.uniforme
 
 Ceci dit j'ai bien retrouvé une casquette noire avec écrit "POLICE" dessus l'autre jour mais je doute que ça soit à vous.
 
@@ -934,12 +933,11 @@ LE GERANT DE LA PLAGE - il y a beaucoup d’autres plages, et beaucoup d’autre
 #bookmark silo.questions.otherplages
 #answer En vrai vous voulez dire? ou vous êtes en train de décrire la performance de Samuel?
 #act #goto silo.questions.otherplages.envrai
-#answer et comment ça se passe pour eux?
-#act #goto silo.questions.otherplages.autres
 
 Le gérant de la plage semble ne pas savoir de quoi vous voulez parler. Son visage est tout froncements de sourcils et incompréhension. 
 #bookmark silo.questions.otherplages.envrai
 #answer en réalité je suis ici parce que j’ai voulu explorer le réseau local depuis mon interface en ligne de commande, et puis c’est comme ça que je suis arrivé à la plage.
+#act #goto silo.questions.otherplages.envraidevrai
 
 LE GERANT DE LA PLAGE - ...
 #bookmark silo.questions.otherplages.envraidevrai
@@ -947,7 +945,6 @@ LE GERANT DE LA PLAGE - ...
 #act #goto silo.questions.ping
 #answer pung?
 #act #goto silo.questions.ping
-#answer est ce que vous êtes une machine?
 
 Non seulement le gérant de la plage ne dit rien, mais en plus vous sentez que l'air qui vous entoure désapprouve ce que vous venez de dire.
 #bookmark silo.questions.pung
@@ -963,23 +960,13 @@ Le gérant de la plage ne semble pas joignable. En théorie vous devriez déclar
 #act #goto silo.questions.ping.notfunny
 
 le gérant de la plage ne trouve pas votre jeu amusant.
-#bookmark silo.questions.notfunny
+#bookmark silo.questions.ping.notfunny
 #answer gérant_de_la_plage.exe a cessé de fonctionner!
 #act #goto silo.questions.ping.deusex
 
 LE GÉRANT DE LA PLAGE - je ne suis pas une machine.
-#bookmark silo.questions.deusex
+#bookmark silo.questions.ping.deusex
 #answer c'est ce que disent toutes les machines. (revenir aux questions)
-#act #goto silo.questions
-
-LE GÉRANT DE LA PLAGE - Je pense que ça se passe bien. On se retrouvera tous ensemble à la fin de cette séquence, ne vous inquiétez pas.
-#bookmark silo.questions.otherplages.autres
-#answer Est-ce que certain.e.s ont réussi à pénétrer sur la plage?
-#act #goto silo.questions.otherplages.autres.reussite
-
-LE GÉRANT DE LA PLAGE - c'est impossible, n'y pensez plus.
-#bookmark silo.questions.otherplages.autres.reussite
-#answer bon d'accord (revenir aux questions).
 #act #goto silo.questions
 
 LE GÉRANT DE LA PLAGE - Le lac appartient à 50% à EDF (Électricité de France) et à 50% à la famille De Chambost.
@@ -1001,7 +988,9 @@ LE GERANT DE LA PLAGE — certainement depuis l’arrivée du chemin de fer à l
 #act #goto silo.questions
 
 LE GERANT DE LA PLAGE — Dans une autre réalité peut être.
+#bookmark silo.questions.moiaussi
 #loot 1 resolution.stoicisme (vous vous êtes imaginé dans la situation du gérant de la plage)
+// go to next silo
 
 Un instant, vous vous imaginez vivre dans cette maison, avec les responsabilités du gérant de la plage. Est ce que vous feriez un meilleur travail que lui? Qu’est ce que vous feriez différemment? Auriez-vous une plus grande habileté politique au sein de la communauté de communes du lac d’Aiguebelette?
 #anwser (revenir aux questions).
@@ -1120,7 +1109,7 @@ LE GERANT DE LA PLAGE - “allez expliquer vos opinions politiques de gauche aux
 LE GERANT DE LA PLAGE - J'attends.
 #bookmark silo.questions.description.chocolat.defi
 #answer j'y vais tout de suite là.
-#goto #act silo.questions.description.avion 
+#act #goto silo.questions.description.avion 
 
 LE GERANT DE LA PLAGE - ah et vous allez y aller comment? vous avez entendu parler du changement climatique? Du concept de justice sociale? Du fait que 90% de la population mondiale ne prend jamais l’avion? Que les 25 000 vols effectués chaque jour comptent pour 6% du total des émissions de CO2 à l'échelle de l'humanité? 
 #bookmark silo.questions.description.avion
@@ -1210,23 +1199,24 @@ Des voitures stationnées dans le parking de la gare de l*** en journée, puis s
 
 Ces voitures, elles n'ont pas besoin de se ballader à la plage de l***, donc je ferme.
 #answer ... daccord.
+#act #goto silo.questions.degradations
 
 LE GERANT DE LA PLAGE - quelle autre solution?
 #bookmark resolution
-#answer tout raser? (jet de dés influencé par vos choix antérieurs)
-#act #end 10 resolution.destruction resolution.destruction.fail
-#answer mettre des caméras de surveillance? (jet de dés influencé par vos choix antérieurs)
-#act #end 10 resolution.proces resolution.proces.fail
-#answer tagger les responsables pour qu'ils se rendent compte de ce qu'a pu ressentir la buvette? (jet de dés influencé par vos choix antérieurs)
-#act #end 10 resolution.rituel resolution.rituel.fail
-#answer demander une augmentation à votre employeur pour prendre en compte la pénibilité de votre travail? (jet de dés influencé par vos choix antérieurs)
-#act #end 10 resolution.anticapitalisme resolution.anticapitalisme.fail
-#answer renoncer à l'idéal d'une plage propre et d'une buvette intacte? (jet de dés influencé par vos choix antérieurs)
-#act #end 10 resolution.stoicisme resolution.stoicisme.fail
-#answer rendre l'accès à la plage gratuite et demander aux baigneurs.euses de nettoyer la plage eux-même? (jet de dés influencé par vos choix antérieurs)
-#act #end 10 resolution.business resolution.business.fail
-#answer faire une grève de la faim? (jet de dés influencé par vos choix antérieurs)
-#act #end 10 resolution.gandhi resolution.gandhi.fail
+#answer tout raser?
+#act #goto resolution.destruction 
+#answer mettre des caméras de surveillance?
+#act #goto resolution.proces 
+#answer tagger les responsables pour qu'ils se rendent compte de ce qu'a pu ressentir la buvette? 
+#act #goto resolution.rituel 
+#answer demander une augmentation à votre employeur pour prendre en compte la pénibilité de votre travail? 
+#act #goto resolution.anticapitalisme 
+#answer renoncer à l'idéal d'une plage propre et d'une buvette intacte?
+#act #goto resolution.stoicisme 
+#answer rendre l'accès à la plage gratuite et demander aux baigneurs.euses de nettoyer la plage eux-même?
+#act #goto resolution.business 
+#answer faire une grève de la faim?
+#act #goto resolution.gandhi 
 
 C'est le gérant lui-même qui s'est créé un problème avec sa buvette superfétatoire : vous n'en revenez pas qu'il ne soit pas lui même arrivé à la conclusion qu'il fallait tout raser, et restituer la plage à son état Mésolithique : une prairie, le lac, la montagne.
 #bookmark resolution.destruction
@@ -1255,9 +1245,8 @@ Vous faites savoir au gérant de la plage qu'après avoir consulté votre avocat
 #answer (conclure)
 #act #goto startofACTEIII
 
-Vous hésitez un court instant : est ce que vous êtes vraiment séduit.e par 
+Vous hésitez un court instant : est ce que vous êtes vraiment séduit.e par  l'idée que le gérant de la plage, en plus de ses autres méfaits, va potentiellement pouvoir regarder le soir chez lui les images des baigneurs.euses en slip? Vous vous en voudfriez certainement d'être la personne qui lui a donné cette idée.
 #bookmark resolution.proces.fail
-l'idée que le gérant de la plage, en plus de ses autres méfaits, va potentiellement pouvoir regarder le soir chez lui les images des baigneurs.euses en slip? Vous vous en voudfriez certainement d'être la personne qui lui a donné cette idée.
 #answer (tenter une autre proposition)
 #act #goto resolution
 
@@ -1314,7 +1303,9 @@ Vous avez l’intuition déséspérée que le cadenas de laiton est le premier e
 #answer (tenter une autre proposition)
 #act #goto resolution
 
-Vous suggérez au gérant de la plage que la buvette est un bon début, mais que si il veut que son business décolle il va falloir passer à la vitesse supérieure. Vous lui parlez de la “Sharing economy”, et d’un système où il serait possible d’externaliser tous ses frais en employant indirectement les visiteurs de la plage de l****. Tout d’abord, il s’agirait de développer une application pour smartphone sur laquelle les baigneurs devraient s’inscrire afin d’avoir accès à la plage (leurs données personnelles seraient bien sûr vendues à un data broker). 
+Vous suggérez au gérant de la plage que la buvette est un bon début, mais que si il veut que son business décolle il va falloir passer à la vitesse supérieure. Vous lui parlez de la “Sharing economy”, et d’un système où il serait possible d’externaliser tous ses frais en employant indirectement les visiteurs de la plage de l****. 
+
+Tout d’abord, il s’agirait de développer une application pour smartphone sur laquelle les baigneurs devraient s’inscrire afin d’avoir accès à la plage (leurs données personnelles seraient bien sûr vendues à un data broker). 
 #bookmark resolution.business
 
 Sur cette application, ils auraient accès à une liste de tâches à effectuer pour le fonctionnement ordinaire de la plage : tenir le bar, nettoyer les WCs, aider les visiteurs.euses à installer l’application à l’entrée, surveiller la baignade. Chaque personne serait amenée à noter la performance des un.e.s et des autres pour faire en sorte que chacun donne du meilleur de soi-même. 
@@ -1339,10 +1330,10 @@ Pour l’inspirer, vous citez les actions de Pierre Larrouturou, député Europ�
 #answer (conclure)
 #act #goto startofACTEIII
 
-Ce n’est peut être pas une si bonne idée : faire une grève de la faim comporte des risques, et il peut y avoir des séquelles graves même pour une grève “courte”. Le corps puise d’abord dans ses réserves de graisse, mais s’attaque ensuite aux muscles, dont le coeur. Les risques d’infection sont augmentés. Dans le cas d’un jeune intégral (sans prise de vitamines), les nerfs et les neurones sont mis en danger également. Dans les années 80, le jeune des nationalistes Irlandais en prison, qui conduisit 10 d’entre eux à la mort, les avaient rendus aveugles avant de les tuer (entre 55 et 75 jours en moyenne). 
+Ce n’est peut être pas une si bonne idée : faire une grève de la faim comporte des risques, et il peut y avoir des séquelles graves même pour une grève “courte”. Le corps puise d’abord dans ses réserves de graisse, mais s’attaque ensuite aux muscles, dont le coeur. Les risques d’infection sont augmentés. Dans le cas d’un jeune intégral (sans prise de vitamines), les nerfs et les neurones sont mis en danger également. 
 #bookmark resolution.gandhi.fail
 
-Le jeune politique nécéssite un engagement total, issu d’une conviction intime. Le gérant de la plage décidera seul s’il souhaite s’engager sur cette voie.
+Dans les années 80, le jeune des nationalistes Irlandais en prison, qui conduisit 10 d’entre eux à la mort, les avaient rendus aveugles avant de les tuer (entre 55 et 75 jours en moyenne). Le jeune politique nécéssite un engagement total, issu d’une conviction intime. Le gérant de la plage décidera seul s’il souhaite s’engager sur cette voie.
 #answer (tenter une autre proposition)
 #act #goto resolution
 
@@ -1427,7 +1418,7 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 
 ? - chaque personne dans la salle lit ce texte simultanément.
 
-? - bon et au fait vous avez compris que c'était à nouveau samuel le robot qui vous parle.
+? - bon et au fait vous avez compris que c'était à nouveau samuel qui vous parle.
 
 entre temps je suis allé parler au gérant de la plage. 
 
@@ -1448,6 +1439,8 @@ hop
 hop
 
 hop
+
+après avoir traversé une petite prairie,
 
 nous sommes maintenant face au lac
 
@@ -1483,9 +1476,9 @@ le silence n'est percé que par le cri des foulques au loin.
 
 Dominique Sommeveille - J'ai quelque chose à confesser.
 
-avec samuel tout à l'heure, on vous a pas dit
+avec samuel tout à l' heure, on vous a pas dit
 
-mais dès que je vous ai donné la possibilité de vous déplacer à votre rythme dans le texte,
+mais dès qu'il vous a donné la possibilité de vous déplacer à votre rythme dans le texte,
 
 vous étiez en fait en train de jouer à un jeu
 
@@ -1493,14 +1486,15 @@ euh qu'on a dénommé sobrement
 
 super mario barre espace
 
-pis bon ben vous faisiez la course l'un.e contre l'autre
+pis bon ben vous faisiez la course les un.e.s contre les autres
 
 ça a commencé au moment où la première personne a appuyé sur la barre espace
 
 j'avoue c'est un peu abusé de pas vous avoir prévenu
 
-je vous donne quand même votre score (à vous uniquement), c'est le suivant :
+je vous donne quand même votre score, c'est le suivant :
 
+***
 #race1results 
 
 voilà.
@@ -1509,7 +1503,7 @@ pourquoi a-t-on fait ça me direz-vous?
 
 hé ben je dois dire que c'est facile avec les ordinateurs.
 
-dès que quelque chose est faite sur un ordinateur,
+dès qu'une chose est faite sur un ordinateur,
 
 on peut tout mesurer.
 
@@ -1565,7 +1559,7 @@ bon pour tout vous dire on a aussi mesuré :
 
 le temps que vous avez mis à entrer dans la salle
 
-le temps que vous avez mis à trouver d'addresse IP du serveur)
+le temps que vous avez mis à trouver l'addresse IP du serveur
 
 à partir de ça, on pourrait vous classer du plus "rapide" au plus "lent".
 
@@ -1594,10 +1588,8 @@ hop
 #stepper race2
 #logtime race2
 
-startRace
-#startRace
-
 ***
+#startRace
 
 on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
 
@@ -1619,7 +1611,7 @@ et on va se dire que vous êtes peut-être les mêmes personnes qui ont un rappo
 
 les 50% les plus rapides vont aller dans une autre poule
 
-qu'on va appeller les "spacebar atheletes"
+qu'on va appeller les "spacebar athletes"
 
 et on va se dire que vous êtes peut-être les personnes qui ont eu un rapport immédiatement compétitif à la lecture.
 
@@ -1627,7 +1619,7 @@ on va faire quelque chose pour que vous puissiez vous identifier,
 
 on va réutiliser le truc de l'écran du serveur qui clignote;
 
-je vais éclairer vos écrans en rouge pour les spacebar atheletes, et en vert pour la team sieste.
+je vais éclairer vos écrans en rouge pour les spacebar athletes, et en vert pour la team sieste.
 
 n'hésitez pas à lever la tête pour voir à quoi ressemble la répartition dans la salle.
 
@@ -1638,7 +1630,7 @@ super. J'espère que vous êtes content.e de l'équipe dans laquelle vous avez �
 
 on va maintenant faire des courses par poule!
 
-On va afficher à nouveau les coureurs, mais seulement les spacebar atheletes,
+On va afficher à nouveau les coureurs, mais seulement les spacebar athletes,
 
 c'est à dire vous
 #light 2
@@ -1666,7 +1658,7 @@ la personne qui a gagné la course est cette personne!
 
 félicitations.
 
-pour les spacebar atheletes,
+pour les spacebar athletes,
 
 comme ce qui est important c'est d'être stimulé par la compétition
 
@@ -1731,6 +1723,16 @@ et la team sieste en profite également pour célébrer chacun.e de ses membres 
 félicitations!
 #light 9
 
+et on peut finir avec une grande course où tout le monde peut participer.
+#bookmark raceFFA
+
+***
+#logtime race0
+#stepper race0
+
+***
+#startRace
+
 Le Gérant de la plage - qu'est ce que vous faites?
 
 Dominique Sommeveille - on parle de l'industrie de la pub en ligne.
@@ -1743,22 +1745,12 @@ Le Gérant de la plage - il se fait tard et *je n'ai toujours pas pu ranger mon 
 
 ***
 
-(note pour la générale):
-
-(merci à toutes et à tous d'être venu.e.s nous voir!)
-
-(je n'ai pas encore eu le temps d'écrire le code pour la toute dernière séquence qui arrive maintenant)
-
-(vous pouvez remplacer les "x" par des chiffres dans votre tête si vous voulez)
-
-(je pense que vous verrez où je veux en venir même si on le fait pas en conditions réelles.)
-
 nous sommes x dans la salle.
 #bookmark startofACTEIV
 
-lors de la dernière représentation, nous étions x.
+lors de la dernière représentation, nous étions 18.
 
-vous avez mis x minutes et x secondes à entrer dans la salle.
+vous avez mis x secondes à entrer dans la salle.
 
 en termes de rapidité à entrer dans la salle,
 
@@ -1766,17 +1758,9 @@ par rapport aux x autres publics qui ont joué au tiret du six,
 
 vous vous placez en xe position.
 
-c'est à dire que la durée d'entrée public a été plutôt longue / plutôt courte.
-
-ça serait intéressant de rapporter cette durée au nombre que vous êtes pour obtenir une vitesse moyenne par individu. 
-
-ça nous permettrait de décider de manière plus honnête, d'un point de vue statistique, que vous avez été plutôt rapides ou plutôt lent.e.s.
-
 aujourd'hui, 
 
 la séquence du jeu-de-piste avec ping
-
-c'est à dire la séquence où mon robot vous parlait, entre le moment où il a ouvert la bouche et le moment où il s'est tu.
 
 a duré x minutes et x secondes.
 
@@ -1810,8 +1794,6 @@ la blague de dire quelles blagues vous ont fait rire (méta)
 oui / modéremment / non
 
 les autres blagues c'est plus difficile à dire parce que tout le monde était dans son propre rythme.
-
-c'était la xe représentation du tiret du six,
 
 merci,
 

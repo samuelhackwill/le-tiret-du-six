@@ -32,6 +32,13 @@ streamer.on('message', function(message) {
 			document.getElementsByClassName("faceTorch")[0].style.transition = "opacity 5"
 			document.getElementsByClassName("faceTorch")[0].style.opacity = "1"
 			break;
+
+			case "giveWordsToEverybody":
+			Session.set("wereAllWordsHarvested", true)
+			$('.toggleWordsBank').css("color", "grey");
+
+			break;
+
 			case "killLetter":
 			// killLetter(letterId, local)
 			// the first argument is the id of the letter to fade out,
@@ -96,6 +103,7 @@ streamer.on('message', function(message) {
 				// html stuff to display the winning message
 				document.getElementsByClassName("winner")[0].innerHTML = "🏁 "+ displayMessage + " 🏁"
 				document.getElementsByClassName("winner")[0].style.opacity=1
+				document.getElementsByClassName("winner")[0].style.zIndex=9999999
 				document.getElementsByClassName("winner")[0].style.transform = "translate(-50%,-50%) scale(200%)"
 				document.getElementsByClassName("racerContainer")[0].style.opacity=0
 
@@ -111,6 +119,12 @@ streamer.on('message', function(message) {
 						allRunners[i].style.left="0%";
 					}
 				},5000)
+				
+				setTimeout(function(){
+					document.getElementsByClassName("winner")[0].style.zIndex=-9999
+				},15000)
+
+
 			}
 			break;
 
@@ -186,7 +200,7 @@ Template.show.onRendered(function(){
 			}
 		}
 
-		if(event.keyCode==49){
+		if(event.keyCode==65){
 			// &
 			Meteor.call("showServerCall", false, environment, false)
 		}
