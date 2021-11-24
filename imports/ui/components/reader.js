@@ -52,7 +52,7 @@ Template.reader.onCreated(function(){
 })
 
 Template.reader.onRendered(function(){
-	Meteor.setTimeout(function(){			
+	Meteor.setTimeout(function(){
 		// when ppl arrive on reader, go to start of show.
 //
 		params = []
@@ -866,6 +866,27 @@ killLetter = function(letterId, local, lastLetter){
 		}
 		document.getElementById(letterId).parentNode.classList.remove("minable")
 		document.getElementById(letterId).parentNode.classList.add("collectedWord")
+
+
+		// clone of word being collected for animation
+		// get current coordinates of collected word
+		const wordCoordinates = document.getElementById(letterId).parentNode.getBoundingClientRect();
+		// create clone
+		var wordClone = $(document.getElementById(letterId).parentNode).clone();
+		// add class for animation in css and set same coordinates (clone will be on top of collected word )
+		wordClone.addClass('collectedWordClone').css({
+		  'left': wordCoordinates.x,
+		  'top': wordCoordinates.y,
+		});
+		// add event on animation end to remove the clone
+		wordClone.one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+		  // console.log('collected clone animation ended, this?', this);
+		  this.remove();
+		});
+		// append clone to document
+		wordClone.appendTo('body');
+
+		
 	}
 
 	if (local==true) {
