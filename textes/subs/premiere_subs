@@ -1,4 +1,4 @@
-TOUT BIEN
+TEST OK
 #bookmark startofACTEI
 // IL FAUT que ce bookmark soit au début du show sinon ça pète tout.
 
@@ -938,7 +938,7 @@ Le gérant de la plage vous toise et vous demande ce que vous désirez savoir.
 #act #goto silo.questions.edf
 #answer Y-a-t-il d'autres plages?
 #act #goto silo.questions.otherplages
-#answer pourquoi la plage est-elle fermée? (conclure)
+#answer pourquoi la plage est-elle fermée? (conclure, attention vous ne pourrez pas revenir en arrière!)
 #act #goto silo.questions.degradations
 
 LE GERANT DE LA PLAGE - il y a beaucoup d’autres plages, et beaucoup d’autres gérants de la plage, et beaucoup d’autres personnes en train de poser des questions aux gérants de la plage.
@@ -1142,7 +1142,7 @@ LE GERANT DE LA PLAGE - la plage est fermée depuis qu'il y a des dégradations.
 #act #goto silo.questions.degradations.comment
 #answer personne ne s'est plaint que la plage est maintenant fermée?
 #act #goto silo.questions.degradations.plaintes
-#answer est ce que vous n'auriez pas pu trouver une autre solution que de fermer la plage? (conclure)
+#answer est ce que vous n'auriez pas pu trouver une autre solution que de fermer la plage? (conclure, attention vous ne pourrez pas revenir en arrière!)
 #act #goto resolution
 
 LE GERANT DE LA PLAGE - des individus venaient faire des soirées ici, laissaient un tas de dêchets empilés sur les tables de camping que je devais nettoyer tous les matins.
@@ -1367,10 +1367,20 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 #act #goto end
 #answer bof
 #act #goto end
-#answer sisi j'ai bien rigolé (jet de dés sur 8)
-#act #dice 8 end end 
+#answer sisi j'ai bien rigolé (jet de dés sur 6)
+#act #dice 6 end.win end.fail 
 
-? - nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
+ah ben je suis content alors.
+#bookmark end.win
+#answer (dans votre tête) c'était sympa qu'il y ait des bugs en fait.
+#act #goto end
+
+ah ben je suis content alors.
+#bookmark end.fail
+#answer (dans votre tête) bon en soi j'aurais aussi bien passé ma soirée à jouer à un vrai jeu vidéo.
+#act #goto end
+
+? - ... nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
 #bookmark end
 
 ? - comme nous avons tous un rythme différent,
@@ -1412,8 +1422,10 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 ? - quand un mot est récolté par quelqu'un.e, 
 
 ? - ce mot disparaît pour tous.te.s les autres.
-//? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
-//? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
+
+? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
+
+? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
 
 ? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
 
@@ -1608,134 +1620,12 @@ on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
 félicitations!
 
 ça fait du bien de se dégourdir un peu les jambes.
-#getMean 
-#getScores race2
 
-ok donc maintenant, prenons des conclusions machinique plus ou moins stupides :
+et on peut finir avec une grande course où cette fois,
 
-le gérant de la plage a mesuré votre vitesse,
+vous jouez les un.e.s contre les autres.
 
-les 50% les moins rapides vont aller dans une poule
-
-qu'on va appeller "team sieste"
-
-et on va se dire que vous êtes peut-être les mêmes personnes qui ont un rapport plus contemplatif au texte.
-
-les 50% les plus rapides vont aller dans une autre poule
-
-qu'on va appeller les "spacebar athletes"
-
-et on va se dire que vous êtes peut-être les personnes qui ont eu un rapport immédiatement compétitif à la lecture.
-
-on va faire quelque chose pour que vous puissiez vous identifier, 
-
-on va réutiliser le truc de l'écran du serveur qui clignote;
-
-je vais éclairer vos écrans en rouge pour les spacebar athletes, et en vert pour la team sieste.
-
-n'hésitez pas à lever la tête pour voir à quoi ressemble la répartition dans la salle.
-
-show poules green/red
-#light 1
-
-super. J'espère que vous êtes content.e de l'équipe dans laquelle vous avez été classé.e.
-
-on va maintenant faire des courses par poule!
-
-On va afficher à nouveau les coureurs, mais seulement les spacebar athletes,
-
-c'est à dire vous
-#light 2
-
-pourrez courir pour le moment. Les autres sont spectateurs.trices.
-
-on affiche le champ de course
-
-GO
-#logtime race3
-#stepper race3
-
-FEU
-#startRace
-
-félicitations!
-
-on va utiliser à nouveau la lumière des écrans pour avoir les scores.
-#getScores race3
-
-la personne qui a gagné la course est cette personne!
-
-***
-#light 4
-
-félicitations.
-
-pour les spacebar athletes,
-
-comme ce qui est important c'est d'être stimulé par la compétition
-
-l'émulation de groupe,
-
-on va aussi montrer les personnes arrivées en seconde & troisième position.
-
-cette personne est arrivée seconde.
-
-***
-#light 5
-
-la prochaine fois c'est la bonne!
-
-et cette personne est arrivée troisième.
-#light 6
-
-Pas mal!
-
-Maintenant, passons à la team sieste.
-
-pour mémoire, c'est vous.
-
-***
-#light3
-
-on affiche le champ de course :
-
-GO
-#logtime race4
-#stepper race4
-
-FEU doucement
-#startRace
-
-magnifique.
-
-du côté de la team sieste,
-
-ce qui est important ce sont les individualités et comment elles s'expriment librement
-
-on va donc d'abord montrer qui a eu le courage d'affronter la pression du groupe et d'assumer son envie de prendre le temps, arrivant en dernière position ou ne courant pas du tout.
-
-c'est cette personne,
-
-***
-#light 7
-
-félicitations!
-
-mais on consière aussi que la personne qui est arrivée en première position mérite d'être célébrée :
-
-c'est cette personne,
-
-***
-#light 8
-
-félicitations!
-
-et la team sieste en profite également pour célébrer chacun.e de ses membres au passage.
-
-félicitations!
-#light 9
-
-et on peut finir avec une grande course où tout le monde peut participer.
+vous êtes prêt.e.s?
 #bookmark raceFFA
 
 ***

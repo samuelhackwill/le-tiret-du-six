@@ -1,5 +1,5 @@
 heure
-Avez-vous déjà beaucoup joué à un jeu? Quand j'étais adolescent, je me souviens d'une après-midi avec mon ami Thomas où nous étions parti explorer le menu d'un jeu vidéo auquel nous jouions régulièrement, "Super smash bros Melee". Une des options du menu permettait d'accéder à un ensemble de statistiques, et notamment le nombre d'heures passées à y jouer. Nous fûmes surpris de constater que nous avions passé 300 heures de notre vies (enfin, plus particulièrement la sienne puisque c'était sa console) non pas à "jouer" au jeu, mais plus spécifiquement à naviguer dans les *menus* du jeu, où il s'agit de sélectionner son personnage, les règles du jeu, etc (c'est un jeu de combat). 300 heures. Donc 37 journées de travail de 8 heures. Donc plus de deux mois de travail à 35 heures/semaine. Je ne vous dirai pas le nombre d'heures que nous avons passé en partie.
+Avez-vous déjà beaucoup joué à un jeu? Quand j'étais adolescent, je me souviens d'une après-midi avec mon ami Thomas où nous étions parti explorer le menu d'un jeu vidéo auquel nous jouions régulièrement, "Super smash bros Melee". Une des options du menu permettait d'accéder à un ensemble de statistiques, et notamment le nombre d'heures passées à y jouer. Nous fûmes surpris de constater que nous avions passé 300 heures de nos vies (enfin, plus particulièrement la sienne puisque c'était sa console) non pas à "jouer" au jeu, mais plus spécifiquement à naviguer dans les *menus* du jeu, où il s'agit de sélectionner son personnage, les règles du jeu, etc (c'est un jeu de combat). 300 heures. Donc 37 journées de travail de 8 heures. Donc plus de deux mois de travail à 35 heures/semaine. Je ne vous dirai pas le nombre d'heures que nous avons passé en partie.
 the rule goes like this: it takes 10,000 hours of intensive practice to achieve mastery of complex skills and materials, like playing the violin.
 Malcolm Gladwell
 
@@ -9,12 +9,12 @@ Au pied des falaises du mont Grelle, un lac absolument bleu s'étalait, bordé d
 Henri Vincenot, Les voyages du professeur Lorgnon
 
 noyez
-on disait tout à l'heure que "ping" était environ un programme d'environ 1000 lignes. Ça peut sembler beaucoup mais si on compare par exemple avec le tas de boue que j'ai écrit et qui fait fonctionner cette application web, on est plutôt aux alentours de 10 000 lignes de code. Le développeurs recherchent en général deux choses quand ils écrivent du code : qu'il soit lisible (on comprend qui fait quoi et où se trouvent les choses), et qu'il soit efficace (beaucoup d'effets avec peu de mots). Parfois ces deux standards sont en conflit l'un avec l'autre (écrire du code lisible nécéssite d'utiliser plus de mots), mais en principe, plus un programme contient de texte, plus on est susceptible de s'y perdre.
+on disait tout à l'heure que "ping" était un programme d'environ 1000 lignes. Ça peut sembler beaucoup mais si on compare par exemple avec le tas de boue que j'ai écrit et qui fait fonctionner cette application web, on est plutôt aux alentours de 10 000 lignes de code. Le développeurs recherchent en général deux choses quand ils écrivent du code : qu'il soit lisible (on comprend qui fait quoi et où se trouvent les choses), et qu'il soit efficace (beaucoup d'effets avec peu de mots). Parfois ces deux standards sont en conflit l'un avec l'autre (écrire du code lisible nécessite d'utiliser plus de mots), mais en principe, plus un programme contient de texte, plus on est susceptible de s'y perdre.
 "what is this piece of MF rubbish even supposed to do?"
 commentaire rageux de Samuel retiré depuis du code de cette web app
 
 maire
-Il y a deux ans, je me balladais en France avec mon vélo et j'ai constaté que dans de nombreux villages, la presse locale faisait ses titres sur des histoires pas possibles où des maires se faisaient agresser dans leurs communes. Dans la majorité des cas, les édiles s'étaient mis en situation de faire "respecter l'ordre", et se sont fait attaquer pour cette raison. La presse nationale a relayé ces histoires, vous en avez peut être entendu parler. On peut y voir un énième signe d'effondremment, ou une avarie des services de l'état. En étant très très de mauvaise foi (comme je le suis), on pourrait aussi y voir une opportunité de retour aux valeurs démocratiques antiques où chaque homme et femme politique était tout à la fois légiste, philosophe, soldat.e, policier.e.
+Il y a deux ans, je me baladais en France avec mon vélo et j'ai constaté que dans de nombreux villages, la presse locale faisait ses titres sur des histoires pas possibles où des maires se faisaient agresser dans leurs communes. Dans la majorité des cas, les édiles s'étaient mis en situation de faire "respecter l'ordre", et se sont fait attaquer pour cette raison. La presse nationale a relayé ces histoires, vous en avez peut être entendu parler. On peut y voir un énième signe d'effondremment, ou une avarie des services de l'état. En étant très très de mauvaise foi (comme je le suis), on pourrait aussi y voir une opportunité de retour aux valeurs démocratiques antiques où chaque homme et femme politique était tout à la fois légiste, philosophe, soldat.e, policier.e.
 Face aux violences envers les édiles, qui ont augmenté de 200% par rapport à 2019, le ministère de l'Intérieur propose une formation en gestion des incivilités et agressions encadrée par le GIGN (sic)
 Le Figaro, 2020.
 
@@ -64,7 +64,7 @@ Je suis curieux de savoir qui vous a prévenu qu'il se passait ça ici aujourd'h
 camille, ZAD de Notre Dame des Landes
 
 mais
-A ma connaissance il n'existe pas de ligne de code dans le programme que vous êtes en train d'utiliser, signifiant "mais". Il y a des "si", il y a des "donc", il y a des "ou", il y a des "et" ; pas de mais néanmoins. Si vous choisissez ce mot, c'est certainement que vous êtes contre l'informatique et contre les ordinateurs en général.
+A ma connaissance il n'existe pas de ligne de code dans le programme que vous êtes en train d'utiliser, signifiant "mais". Il y a des "si", il y a des "donc", il y a des "ou", il y a des "et" ; pas de mais néanmoins. Si vous avez miné ce mot, c'est certainement que vous êtes contre l'informatique et contre les ordinateurs en général.
 "Si, si la mer bouillait, il y aurait, comme on dit, bien des poissons de cuits" 
 Denis Diderot
 
@@ -104,7 +104,7 @@ Quand j'étais tout petit j'avais envie d'étudier le game design dans une écol
 André Breton
 
 dénommé
-J'ai hésité avant d'appeller cette pièce "le tiret du six". D'autres titres qui étaient en lice : "Bureaucraft" (c'est une référence à un jeu vidéo "Starcraft"), "les forets peuvent muter", "LAN", "Dominique Sommeveille".
+J'ai hésité avant d'appeller cette pièce "le tiret du six". D'autres titres qui étaient en lice : "Bureaucraft" (c'est une référence à un jeu vidéo "Starcraft"), "les forêts peuvent muter", "LAN", "Dominique Sommeveille".
 "that's not my name"
 The ting tings
 
@@ -120,7 +120,7 @@ Alizée Jacotey
 
 ouvert.
 Nous avons écrit le code informatique du tiret du six juchés sur les épaules d'un nombre incalculable de développeurs.développeuses ayant publié gratuitement leur travail sur internet. C'est ce qu'on appelle la culture de "l'open source" : non seulement on ne cache pas ses recettes de cuisine, mais on cuisine avec toujours en tête l'objectif que ces recettes soient comprises et puissent être réutilisées par d'autres. Bon c'est à distinguer du "librisme" mais ça si vous voulez en parler je vous invite à venir me voir à la fin.
-"the fundamental act of friendship among programmers is the sharing of programs" (Richard Stallman, the GNU manifesto)
+"L'acte fondamental d'amitié entre développeurs.euses est de partager ses programmes avec toutes.tous" (Richard Stallman, the GNU manifesto)
 
 Elle
 L'héroïne de cette histoire. Tout le monde la connaît, on la désigne avec dégoût ou la voix tremblante de crainte. C'est elle qui gagne pour le moment.
@@ -142,7 +142,7 @@ Quand quelqu'un.e refuse d'accepter le cadeau d'une autre personne, qui est fou?
 anonyme
 
 choisir
-Une des particularités des jeux, par rapport à d'autres medias, c'est qu'on nous donne une certaine liberté d'action ; on peut choisir de passer par la grande porte ou d'escalader un mur par exemple. Néanmoins il ne faudrait pas se voiler la face sur gnagna les choix faits par les auteurs de jeu vidéo + blague sur le fait qu'au collège on est incrédule à propos des figures de style
+Une des particularités des jeux, par rapport à d'autres medias, c'est qu'on nous donne une certaine liberté d'action ; on peut choisir de passer par la grande porte ou d'escalader un mur par exemple. Néanmoins il ne faudrait pas se voiler la face sur le fait que ce n'est qu'une illusion de choix, vous êtes bien placé.e pour le savoir.
 "The medium is the message" 
 Marshall Mc Luhan
 
@@ -152,7 +152,7 @@ Thé ou Café? Ville ou Campagne? Nature ou Culture? Propriétaire ou anticapita
 anonyme
 
 Ou
-Contrairement à laplupart des autres mots dans cette mine à ciel ouvert, celui-ci pourrait quasiment être issu directement du code de ce site web, puisque "ou" est une expression utilisée de manière commune en informatique. On peut aussi l'écrire ||. "e = e || window.event" est une ligne de code de ce site, où j'assigne la valeur "window.event" à la variable "e", sauf si la variable "e" est égale à autre chose que "0", "undefined", "null", "NaN", "", ou "false" (c'est ce qu'on appelle une évaluation en court-circuit).
+Contrairement à la plupart des autres mots dans cette mine à ciel ouvert, celui-ci pourrait quasiment être issu directement du code de ce site web, puisque "ou" est une expression utilisée de manière commune en informatique. On peut aussi l'écrire ||. "e = e || window.event" est une ligne de code de ce site, où j'assigne la valeur "window.event" à la variable "e", sauf si la variable "e" est égale à autre chose que "0", "undefined", "null", "NaN", "", ou "false" (c'est ce qu'on appelle une évaluation en court-circuit).
 "je code avec le cul"
 l'ermite moderne
 
@@ -164,16 +164,16 @@ Calvin, dans Calvin & Hobbes, Bill Waterson
 
 que
 Et vous, êtes vous à jour sur l'accord du COD? Faisons un exercice rapide. Doit-on écrire, les langues que j'ai apprises ou les langues que j'ai appris? Le gérant de la plage nous a raccompagné sur le parking, ou : le gérant de la plage nous a raccompagnés sur le parking?
-Qu’est-ce qui fait qu’une faute (j’ai manger) est plus grave qu’une autre (j’ai mengé) ? Pourquoi parle-t-on de faute et non d’erreur lors d’une dictée ? Pourquoi le niveau d’orthographe est devenu une forme de discrimination que tout le monde juge légitime ?
+Qu’est-ce qui fait qu’une faute (j’ai mengé) est plus grave qu’une autre (j’ai manger) ? Pourquoi parle-t-on de faute et non d’erreur lors d’une dictée ? Pourquoi le niveau d’orthographe est devenu une forme de discrimination que tout le monde juge légitime ?
 Arnaud Hoedt et Jérôme Piron, la Convivialité
 
 aimeriez
 Ceux qui pensent que les réseaux informatiques ne sont qu'une froide affaire de technique se trompent. Depuis le début, il ne s'est bien sûr s'agi que d'amour, du cri déséspéré de machines d'un bout à l'autre de l'océan Atlantique.	
-"Ich brauch ein Rendez-vous, ich brauch ein Rendez-vous" 
+"J'ai besoin d'un rendez-vous, j'ai besoin d'un rendez-vous" 
 Kraftwerk, computer liebe
 
-être
-Le fameux auxillière être, cela peut être vous le temps d'une soirée. Il ne vous reste plus qu'à vous trouver un bon petit verbe d'état.
+avoir
+Le fameux auxillière avoir, cela peut être vous le temps d'une soirée. Il ne vous reste plus qu'à vous trouver un bon petit verbe d'état.
 "Si j'aurais su"
 anonyme
 
@@ -183,7 +183,7 @@ Quand j'ai commencé à travailler sur le tiret du six je me suis interdit d'uti
 Samuel
 
 qui
-Si il est relativement complexe d'utiliser internet de manière anonyme, certaines techniques apportent quand même une protection partielle. Par exemple, on encourage les contributeurs de wikipedia d'utiliser un pseudonyme plutôt que leur vrai nom ; même si cela ne garantit pas que quelqu'un de motivé ne puisse retrouver votre trace (en analysant vos tics de langage par exemple, ou en utilisant des méthodes plus techniques), cela apporte tout de même un certain niveau de protection : le pseudonymat.
+S'il est relativement complexe d'utiliser internet de manière anonyme, certaines techniques apportent quand même une protection partielle. Par exemple, on encourage les contributeurs de wikipedia à utiliser un pseudonyme plutôt que leur vrai nom ; même si cela ne garantit pas que quelqu'un.e de motivé ne puisse retrouver votre trace (en analysant vos tics de langage par exemple, ou en utilisant des méthodes plus techniques), cela apporte tout de même un certain niveau de protection : le pseudonymat.
 "Cui Bono?" 'A qui cela profite-t-il?'
 Lucius Cassius Longinus Ravilla
 

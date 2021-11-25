@@ -736,24 +736,25 @@ const isOverflown = ({ clientHeight, scrollHeight }) => {
 
 // function to decrease font size if needed when the text overflows the element
 const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.01, unit = 'vw' }) => {
-  (elements || [element]).forEach(el => {
-    let i = maxSize
+  // (elements || [element]).forEach(el => {
+  //   let i = maxSize
 
-		let overflow = isOverflown(el);
+		// let overflow = isOverflown(el);
 
-		if(!overflow) el.style.fontSize = '';
+		// if(!overflow) el.style.fontSize = '';
 
-		while (overflow && i > minSize) {
-        el.style.fontSize = `${i}${unit}`
-        overflow = isOverflown(el)
+		// while (overflow && i > minSize) {
+  //       el.style.fontSize = `${i}${unit}`
+  //       overflow = isOverflown(el)
 
-      if (overflow) i -= step
-			i = parseFloat(i).toFixed(2)
-    }
+  //     if (overflow) i -= step
+		// 	i = parseFloat(i).toFixed(2)
+  //   }
 
-    // revert to last state where overflow happened
-    // el.style.fontSize = `${i - step}${unit}`
-  })
+  //   // revert to last state where overflow happened
+  //   // el.style.fontSize = `${i - step}${unit}`
+  // })
+  console.log("breaks old computers !!! neads polyfill")
 }
 
 startMining = function(){

@@ -172,7 +172,7 @@ ul::selection {
     opacity: .5;
 	content: '';
 	width: 100%;
-	height: calc(24 / 600 * 100vh);
+	height: calc(15 / 600 * 100vh);
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -191,7 +191,7 @@ ul::selection {
 	color: #FF0000;
 }
 .answersColumn li {
-	margin-bottom: calc(30 / 600 * 100vh);
+	margin-bottom: calc(12 / 600 * 100vh);
 }
 .answersColumn a {
 	color: #FF0000;

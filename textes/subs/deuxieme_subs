@@ -1,4 +1,4 @@
-TOUT BIEN
+TEST OK
 #bookmark startofACTEI
 // IL FAUT que ce bookmark soit au début du show sinon ça pète tout.
 
@@ -10,7 +10,7 @@ ce que j'aime bien dans cette séquence
 
 c'est que le silence revient dans la salle
 
-on entend juste les ordinateurs et les videoprojecteurs qui soufflent
+on entend juste les or	dinateurs et les videoprojecteurs qui soufflent
 
 quelque part ça me rappelle peut être
 
@@ -297,11 +297,13 @@ hélas.
 
 vous en avez peut-être entendu parler.
 
-plus de 2 millions de sites web étaient inaccessibles
+plus de 2 millions de sites web ont été touchés
 
-dont approximativement 2% de l'internet français
+parmi ces sites, il y avait beaucoup de sites français
 
-c'est-à-dire, 2% de la totalité des sites dont l'adresse finit en .fr
+en total, 2% de la totalité de l'internet français
+
+c'est-à-dire, 2% de la totalité des sites et adresses mail dont l'adresse finit en .fr
 
 ont brûlé.
 
@@ -414,7 +416,7 @@ plantait,
 
 boudait, 
 
-ou prennait feu,
+ou prenait feu,
 
 on serait bien embêté.e.s.
 
@@ -488,7 +490,7 @@ alors pour faire ça, il faut que je vous apprenne une nouvelle technologie
 
 après la barre espace,
 
-j'aimerais vous donner accès a un autre outil :
+j'aimerais vous donner accès à un autre outil :
 
 la touche "a".
 
@@ -516,7 +518,7 @@ et là on découvre une espèce de grosse autoroute et une lumière au loin
 
 (le serveur).
 
-on a découvert un autre levier qui lui fait changer la couleur de la lumière au loin.
+on a découvert un autre levier qui fait clignoter le serveur.
 
 (ça sert à rien mais c'est sympa)
 
@@ -575,13 +577,13 @@ Vous êtes arrivé.e au bout du chemin
 
 vous voilà dans l'avant-pays savoyard (vous avez repéré le blason de la savoie sur un panneau à l'entrée d'un village).
 
-Vous vous trouvez actuellement à proximité du lac d'Aiguebelette. Vous ne sentez plus du tout de présente malveillante. Vous vous sentez au contraire apaisé.e par la beauté du décor qui vous entoure.
+Vous vous trouvez actuellement à proximité du lac d'Aiguebelette. Vous ne sentez plus du tout de présence malveillante. Vous vous sentez au contraire apaisé.e par la beauté du décor qui vous entoure.
 
 L'immobilité, le vent qui souffle dans la ramée, les montagnes.
 
-Mais ou sont les eaux tant vantées du lac? (vous avez vu un panneau marron sur l'autoroute)
+Mais où sont les eaux tant vantées du lac? (vous avez vu un panneau marron sur l'autoroute)
 
-Vous aperçevez sur la gauche qu'un chemin quitte la route et qu'un accès à une plage semble possible. Il s'agit d'une plage communale.
+Vous apercevez sur la gauche qu'un chemin quitte la route et qu'un accès à une plage semble possible. Il s'agit d'une plage communale.
 
 Vous vous approchez de l’entrée de la plage. Un portail en acier, qu’on a eu la coquetterie de peindre en vert turquoise, vous barre le passage. Quelqu’un.e a verrouillé la porte d’entrée à l’aide d’un gros cadenas de laiton.
 #bookmark intro
@@ -609,12 +611,12 @@ On n’a qu’une seule chance de faire une bonne première impression.
 
 Le visage du gérant se fige un instant.
 #bookmark intro.police.win
-#answer Je suis de la gendarmerie de L****, est ce que c’est vous qui avez un chat coincé dans un arbre? 
+#answer Je suis de la gendarmerie de L***, est ce que c’est vous qui avez un chat coincé dans un arbre? 
 #act #goto intro.police.chat
 
 LE GÉRANT DE LA PLAGE - un chat? 
 #bookmark intro.police.chat
-#answer les chats ont du mal a descendre des arbres parce que leurs griffes sont incurvées comme des crochets et que leur instinct les pousse à descendre tête vers le bas (ce qui ne leur permet alors pas d'utiliser leurs griffes pour s'accrocher au tronc, en raison de leur courbure).
+#answer les chats ont du mal à descendre des arbres parce que leurs griffes sont incurvées comme des crochets et que leur instinct les pousse à descendre tête vers le bas (ce qui ne leur permet alors pas d'utiliser leurs griffes pour s'accrocher au tronc, en raison de leur courbure).
 #act #goto intro.police.chat.wut
 
 LE GÉRANT DE LA PLAGE - c'est standard d'envoyer un policier en civil pour débloquer un chat dans un arbre?
@@ -683,7 +685,7 @@ Vous n’êtes pas policier.e, vous êtes artiste. Vous êtes passé en gros de 
 C’est pas moi qui le dit, c’est le gérant de la plage qui pense tout haut.
 
 Il y a des oiseaux dans les arbres autour de vous qui sifflent. Cela vous fait envier ce que vous imaginez être la simplicité des rapports sociaux entre oiseaux.
-#answer est ce que je peux vous poser des questions à propos de la plage de L****?
+#answer est ce que je peux vous poser des questions à propos de la plage de L***?
 #act #goto silo
 
 Vous n’êtes pas policier.e, vous faites tout simplement une dépression. Ce qui explique votre comportement erratique, même si le désir irrépressible de se faire passer pour un gardien de la paix n'est pas un symptome courant de dépression caractérisée. 
@@ -724,15 +726,15 @@ LE GERANT DE LA PLAGE - “la plage est fermée en dehors de la saison touristiq
 vous êtes quand même blessé.e par la réaction du gérant de la plage : dans l’hypothèse où vous auriez été réellement déprimé et que le remède était juste là, derrière la grille, cette personne vous refuse clairement une guérison gratuite et immédiate pour des motifs certainement ridicules.
 
 Vous avez l’intuition qu’il en va de même pour de nombreuses souffrances humaines causées par des inflexibilités sociales injustifiables.
-#answer "est ce que je peux tout du moins vous poser des questions à propos de la plage de L****?"
+#answer "est ce que je peux tout du moins vous poser des questions à propos de la plage de L***?"
 #act #goto silo
 
-Vous n’êtes pas policier.e, vous êtes un agent immobilier. Vous ne savez pas si le gérant de la plage est logé à titre gratuit dans son logement de fonction par la mairie, s’il est titulaire d’un bail en emphytéose ou s’il est tout simplement propriétaire de sa maisonnée en bordure de plage.
+Vous n’êtes pas policier.e, vous êtes un agent.e immobilier.e. Vous ne savez pas si le gérant de la plage est logé à titre gratuit dans son logement de fonction par la mairie, s’il est titulaire d’un bail en emphytéose ou s’il est tout simplement propriétaire de sa maisonnée en bordure de plage.
 #bookmark intro.police.immo
 #loot 1 resolution.destruction (en agent immobilier, vous avez inérêt à récupérer le foncier de la plage)
 
 la maison n’a rien de spécial, mais le marché de l’immobilier est très tendu en ce moment autour du lac. Dans ce contexte, combien vaut cette maison sans étage? 150 000 euros? 200 000 euros?
-#answer est ce que je peux vous poser des questions à propos de la plage de L****?
+#answer est ce que je peux vous poser des questions à propos de la plage de L***?
 #act #goto silo
 
 Le gérant de la plage se redresse et vous regarde avec un air instantanément agaçé. Il vous jauge du regard. Cette personne a vu beaucoup de touristes hollandais.e.s dans sa vie. Il cherche manifestement des charactéristiques jugées hollandaises par lui dans votre présence physique.
@@ -760,11 +762,11 @@ Le gérant ne réagit pas à votre habile tentative de suggérer que le françai
 
 Il ne dit rien.
 
-Le passé, c’est concentrer à nouveau sur votre objectif : la plage de L****.
-#answer est ce que je peux vous poser des questions à propos de la plage de L****?
+Le passé, c’est concentrer à nouveau sur votre objectif : la plage de L***.
+#answer est ce que je peux vous poser des questions à propos de la plage de L***?
 #act #goto silo
 
-vous êtes soudainement paralysé par la myriade de choix qui s’offrent à vous pour traduire vos intentions en gestes. Vous commencez par découper la phrase, qu’il aurait été si facile d’énoncer à voix haute si vous n’étiez pas un.e touriste hollandaise, en éléments signifiants que vous allez devoir mimer :
+vous êtes soudainement paralysé.e par la myriade de choix qui s’offrent à vous pour traduire vos intentions en gestes. Vous commencez par découper la phrase, qu’il aurait été si facile d’énoncer à voix haute si vous n’étiez pas un.e touriste hollandaise, en éléments signifiants que vous allez devoir mimer :
 #bookmark intro.hollandais.mime
 #answer “je veux balader à la plage.”
 #act #goto intro.hollandais.mime.je
@@ -795,9 +797,9 @@ comment dire “je” avec votre corps?
 #act #goto intro.hollandais.mime.plage
 #answer à ce stade vous avez peur de lasser le gérant de la plage avec votre spectacle de mime, et vous décidez d’utiliser un nouveau médium : le son. Vous essayez tant bien que mal de reproduire avec votre bouche le bruit que font les chaussures sur le gravier.        
 #act #goto intro.hollandais.mime.plage
-#answer il n’y a vraiment aucune raison de vous toucher à nouveau le coeur. Vous vous touchez donc les molets (en principe, une partie du corps particulièrement sollicitée par la marche) tout en regardant le gérant depuis votre position courbée.        
+#answer il n’y a vraiment aucune raison de vous toucher à nouveau le coeur. Vous vous touchez donc les mollets (en principe, une partie du corps particulièrement sollicitée par la marche) tout en regardant le gérant depuis votre position courbée.        
 #act #goto intro.hollandais.mime.plage
-#answer vous enlevez une de vos chaussures et l’enfilez sur votre main avec laquelle vous faites mines de marcher en l’air. C’était une assez bonne idée mais maintenant votre main sent la chaussette et une de vos chaussettes est sale.
+#answer vous enlevez une de vos chaussures et l’enfilez sur votre main avec laquelle vous faites mine de marcher en l’air. C’était une assez bonne idée mais maintenant votre main sent la chaussette et une de vos chaussettes est sale.
 #act #goto intro.hollandais.mime.plage
 
 "à la plage?"
@@ -812,11 +814,11 @@ il se contente de dire “non” de la tête.
 
 et enfin il exécute à nouveau un geste de fermeture avec les bras.
 
-Vous êtes bluffé par l’efficacité des gestes que le gérant de la plage fait pour communiquer avec vous. Tout à l’air facile pour lui, pas d’hésitation, à peine un petit mouvement et le message est reçu 5 sur 5 par l’ensemble de la communauté internationale. La plage est fermée. Gesloten.
+Vous êtes bluffé.e par l’efficacité des gestes que le gérant de la plage fait pour communiquer avec vous. Tout à l’air facile pour lui, pas d’hésitation, à peine un petit mouvement et le message est reçu 5 sur 5 par l’ensemble de la communauté internationale. La plage est fermée. Gesloten.
 
-Après un petit moment de réflexion vous réalisez que 99% de l’effort de communication n’a en réalité pas effectué par le gérant de la plage mais par le cadenas qu’il a mis à la grille et que vous avez bien perçu avec vos sens.
+Après un petit moment de réflexion vous réalisez que 99% de l’effort de communication n’a en réalité pas été effectué par le gérant de la plage mais par le cadenas qu’il a mis à la grille et que vous avez bien perçu avec vos sens.
 
-vous êtes content.e de votre analyse (qui vous rassure sur votre propre performance de mime) mais vous vous sentez aussi un peu démuni.e face au pouvoir réthorique de la porte toujours-déjà fermée de la plage de l****.
+vous êtes content.e de votre analyse (qui vous rassure sur votre propre performance de mime) mais vous vous sentez aussi un peu démuni.e face au pouvoir réthorique de la porte toujours-déjà fermée de la plage de l***.
 #answer Do you speak english? 
 #act #goto intro.hollandais.gb
 
@@ -936,10 +938,6 @@ Le gérant de la plage vous toise et vous demande ce que vous désirez savoir.
 #act #goto silo.questions.description
 #answer à qui cette plage appartient-elle?
 #act #goto silo.questions.edf
-#answer Y-a-t-il d'autres plages?
-#act #goto silo.questions.otherplages
-#answer pourquoi la plage est-elle fermée? (conclure)
-#act #goto silo.questions.degradations
 
 LE GERANT DE LA PLAGE - il y a beaucoup d’autres plages, et beaucoup d’autres gérants de la plage, et beaucoup d’autres personnes en train de poser des questions aux gérants de la plage.
 #bookmark silo.questions.otherplages
@@ -978,8 +976,13 @@ le gérant de la plage ne trouve pas votre jeu amusant.
 
 LE GÉRANT DE LA PLAGE - je ne suis pas une machine.
 #bookmark silo.questions.ping.deusex
-#answer c'est ce que disent toutes les machines. (revenir aux questions)
-#act #goto silo.questions
+#answer C'est ce que disent toutes les machines. 
+#act #goto silo.questions.ping.deusexxx
+
+LE GÉRANT DE LA PLAGE - ... je ne suis pas une machine!
+#bookmark silo.questions.ping.deusexxx
+#answer Pourquoi la plage est-elle fermée? (en venir au fait).
+#act #goto silo.questions.degradations
 
 LE GÉRANT DE LA PLAGE - Le lac appartient à 50% à EDF (Électricité de France) et à 50% à la famille De Chambost.
 #bookmark silo.questions.edf
@@ -988,7 +991,7 @@ Le terrain de la plage, quant à lui, appartient à la commune. Le plan local d'
 
 c'est ce qui me donne le droit d'y avoir ma buvette aussi près de l'eau.
 
-Ceci étant dit je ne suis pas propriétaire, je suis seulement gérant. C'est pour ça que vous m'apellez "le gérant de la plage".
+Ceci étant dit je ne suis pas propriétaire, je suis seulement gérant. C'est pour ça que vous m'appellez "le gérant de la plage".
 #answer ça veut dire que moi aussi, un jour, je pourrais être le gérant de la plage?
 #act #goto silo.questions.moiaussi
 #answer à quel âge est ce que le lac a développé sa "vocation" touristique?
@@ -996,8 +999,8 @@ Ceci étant dit je ne suis pas propriétaire, je suis seulement gérant. C'est p
 
 LE GERANT DE LA PLAGE — certainement depuis l’arrivée du chemin de fer à la fin du XIXe siècle, C’est ce qui a permis aux notables de Lyon de venir acheter des résidences secondaires dans le coin, et aux gens de se balader en général.
 #bookmark silo.questions.vocation
-#answer C'est vrai que c'est sympa de se balader (revenir aux questions).
-#act #goto silo.questions
+#answer C'est vrai que c'est sympa de se balader. Y a-t-il d'autres plages autour du lac?
+#act #goto silo.questions.otherplages
 
 LE GERANT DE LA PLAGE — Dans une autre réalité peut être.
 #bookmark silo.questions.moiaussi
@@ -1005,8 +1008,8 @@ LE GERANT DE LA PLAGE — Dans une autre réalité peut être.
 // go to next silo
 
 Un instant, vous vous imaginez vivre dans cette maison, avec les responsabilités du gérant de la plage. Est ce que vous feriez un meilleur travail que lui? Qu’est ce que vous feriez différemment? Auriez-vous une plus grande habileté politique au sein de la communauté de communes du lac d’Aiguebelette?
-#anwser (revenir aux questions).
-#act #goto silo.questions
+#answer Y a-t-il d'autres plages autour du lac?
+#act #goto silo.questions.otherplages
 
 LE GERANT DE LA PLAGE — derrière la grille il y a un chemin de gravier, qui conduit tout droit à une petite prairie. Au bout de cette prairie, il y a du sable, et après le sable, l’eau. 
 #bookmark silo.questions.description
@@ -1071,18 +1074,16 @@ LE GERANT DE LA PLAGE - sans doute, et moi je ne me suis pas levé aujourd’hui
 LE GERANT DE LA PLAGE - et moi, si j’étais le glacier Würmien (-11 000 avant jésus christ) et que j’avais su qu’on viendrait fumer des chichas à la plage, je n’aurais pas creusé le bassin versant du lac.
 #bookmark silo.questions.description.wurm
 
-Le recul dont vient de se rendre capable le gérant de la plage vous prend de court. Vous prenez conscience de tout le travail géologique qui a été fait pendant des centaines de millions d’années pour que ce tout petit bassin se forme, lové au sein des colines et montagnes, et se remplisse d’eau.
+Le recul dont vient de se rendre capable le gérant de la plage vous prend de court. Vous prenez conscience de tout le travail géologique qui a été fait pendant des centaines de millions d’années pour que ce tout petit bassin se forme, lové au sein des collines et montagnes, et se remplisse d’eau.
 
-Vous n'en revenez pas que quelqu'un ait pu se permettre, avant un tout petit cadenas mesquin, de gâcher poiur toutes et tous la possibilité de profiter de ce bon boulot.
-#answer (dégoûté, vous revenez à vos questions précédentes)
-#act #goto silo.questions
+Vous n'en revenez pas que quelqu'un ait pu se permettre, avant un tout petit cadenas mesquin, de gâcher pour toutes et tous la possibilité de profiter de ce bon boulot.
+#answer Pourquoi la plage est-elle fermée? (en venir au fait).
+#act #goto silo.questions.degradations
 
 LE GERANT DE LA PLAGE - non.
 #bookmark silo.questions.description.tabac
 #answer vous êtes sûr que c’est pas *les personnes qui ont tendance à fumer la chicha* que vous cherchez à éloigner?
 #act #goto silo.questions.description.insinuez
-#answer j'ai d'autres questions sur la plage de l****.
-#act #goto silo.questions
 
 LE GERANT DE LA PLAGE — Qu’est ce que vous insinuez?
 #bookmark silo.questions.description.insinuez
@@ -1110,8 +1111,8 @@ LE GERANT DE LA PLAGE — au théâtre, tout le monde est de gauche. Les seuls p
 
 LE GERANT DE LA PLAGE — ah ben dans ce cas vous pouvez être de droite.
 #bookmark silo.questions.description.droite.ok
-#answer c'est bien ce que je disais (revenir aux questions générales sur la plage).
-#act #goto silo.questions
+#answer Pourquoi la plage est-elle fermée? (en venir au fait).
+#act #goto silo.questions.degradations
 
 LE GERANT DE LA PLAGE - “allez expliquer vos opinions politiques de gauche aux agriculteurs de cote d’ivoire ou de haïti qui vivent sous le seuil de pauvreté.”
 #bookmark silo.questions.description.chocolat
@@ -1129,21 +1130,13 @@ LE GERANT DE LA PLAGE - ah et vous allez y aller comment? vous avez entendu parl
 et quand je dis 6% je parle parle seulement d'émissions brutes, il est vraisemblable que les gaz a effets de serre (GES) produits à haute altitude génèrent un forcage radiatif (effet de serre) supérieur à ceux produits au sol.
 
 donc peut être que les avions comptent pour encore plus que 6% du réchauffement climatique grosso modo. Allez disons 8%. 
-#answer (vous ne vous attendiez pas à être battu sur le terrain des idées de gauche par le gérant de la plage) ... J'ai d'autres questions sur la plage de l****.
-#act #goto silo.questions
+#answer (vous ne vous attendiez pas à être battu sur le terrain des idées de gauche par le gérant de la plage) ... Pourquoi la plage est-elle fermée? (en venir au fait).
+#act #goto silo.questions.degradations
 
 LE GERANT DE LA PLAGE - la plage est fermée depuis qu'il y a des dégradations. 
 #bookmark silo.questions.degradations
-#answer qu'est ce qui est dégradé?
-#act #goto silo.questions.degradations.quoi
 #answer qui dégrade?
 #act #goto silo.questions.degradations.qui
-#answer à quels horaires la plage est-elle ouverte dorénavant?
-#act #goto silo.questions.degradations.comment
-#answer personne ne s'est plaint que la plage est maintenant fermée?
-#act #goto silo.questions.degradations.plaintes
-#answer est ce que vous n'auriez pas pu trouver une autre solution que de fermer la plage? (conclure)
-#act #goto resolution
 
 LE GERANT DE LA PLAGE - des individus venaient faire des soirées ici, laissaient un tas de dêchets empilés sur les tables de camping que je devais nettoyer tous les matins.
 #bookmark silo.questions.degradations.quoi
@@ -1151,15 +1144,15 @@ LE GERANT DE LA PLAGE - des individus venaient faire des soirées ici, laissaien
 et puis des personnes ont taggé la buvette.
 
 depuis qu’on a fait des travaux il y a deux ans pour rénover la buvette, pas question qu’elle se fasse souiller alors qu’on a mis des sous et des efforts dedans.
-#answer d'accord.
-#act #goto silo.questions.degradations
+#answer est ce que vous n'auriez pas pu trouver une autre solution que de fermer la plage? (conclure)
+#act #goto resolution
 
 LE GERANT DE LA PLAGE - la plage est fermée l’hiver quand il neige et que le lac gèle partiellement, la plage est fermée à l’automne quand les feuilles rouges sont reflétées sur la surface de l’eau, et enfin la plage est fermée au début du printemps quand le lac est couvert d’un brume que le soleil perce par endroits.
 #bookmark silo.questions.degradations.comment
 
 la plage est fermée le jour de noël quand on veut faire une balade digestive, ainsi qu’au lever du jour durant l’été quand on veut regarder le soleil dans les yeux.
-#answer d'accord.
-#act #goto silo.questions.degradations
+#answer est ce que vous n'auriez pas pu trouver une autre solution que de fermer la plage? (conclure)
+#act #goto resolution
 
 LE GERANT DE LA PLAGE - ça m’étonne que vous me demandiez, tout le monde sait qui dégrade. 
 #bookmark silo.questions.degradations.qui
@@ -1168,9 +1161,9 @@ ce sont soit : les jeunes des cités,
 
 soit : les jeunes en général. 
 
-avant, la plage de l****, c’était une ambiance familiale, alors qu’aujourd’hui on est envahis de bandes de jeunes. 
+avant, la plage de l***, c’était une ambiance familiale, alors qu’aujourd’hui on est envahis de bandes de jeunes. 
 
-vous êtes étonné de la haine que le gérant de la plage ressent contre des jeunes, lui qui, on le rappelle, était encore hier entouré d’adolescents en boite de nuit à C****.
+vous êtes étonné de la haine que le gérant de la plage ressent contre des jeunes, lui qui, on le rappelle, était encore hier entouré d’adolescents en boite de nuit à C***.
 #answer ah, ces sales jeunes!
 #act #goto silo.questions.degradations.qui.saljeunes
 #answer ah, ces sales cités!
@@ -1180,18 +1173,30 @@ vous êtes étonné de la haine que le gérant de la plage ressent contre des je
 
 Vous décidez de n'opposer aucune résistance aux opinions du gérant de la plage. C'est lâche, mais comme aucun.e journaliste ne semble être dans les parrages, vous en profitez pour prendre quelques largeurs dans le but de séduire le gérant de la plage. 
 #bookmark silo.questions.degradations.qui.saljeunes
-#answer (revenir aux questions)
-#act #goto silo.questions.degradations
+#answer qu'est ce qui est dégradé?
+#act #goto silo.questions.degradations.quoi
+#answer à quels horaires la plage est-elle ouverte dorénavant?
+#act #goto silo.questions.degradations.comment
+#answer personne ne s'est plaint que la plage est maintenant fermée?
+#act #goto silo.questions.degradations.plaintes
 
 Vous essayez de suggérer au gérant de la plage que tout le monde n’a pas eu la chance de grandir à deux pas d’une réserve naturelle. C’est une diversion, vous le savez, mais pourquoi est-ce qu’il ne pourrait pas aussi faire profiter un peu de sa haine par exemple à la plannification urbaine de l’après guerre, qui a érigé à la hâte des bâtiments mal isolés dans la banlieue Chambérienne?
 #bookmark silo.questions.degradations.qui.salcites
-#answer (revenir aux questions)
-#act #goto silo.questions.degradations
+#answer qu'est ce qui est dégradé?
+#act #goto silo.questions.degradations.quoi
+#answer à quels horaires la plage est-elle ouverte dorénavant?
+#act #goto silo.questions.degradations.comment
+#answer personne ne s'est plaint que la plage est maintenant fermée?
+#act #goto silo.questions.degradations.plaintes
 
 Vous avez très bien compris les opinions du gérant de la plage, mais vous décidez de faire semblant que ce qui posait problème pour lui, c’était principalement que des personnes viennent "en bande" à la plage. Vous imaginez un monde où on prendrait l’individualité très très au sérieux : la famille serait interdite, tout comportement grégaire réprimé, et l’autosatisfaction arrogante des groupes bannies de la plage de l***.
 #bookmark silo.questions.degradations.qui.salbandes
-#answer (revenir aux questions)
-#act #goto silo.questions.degradations
+#answer qu'est ce qui est dégradé?
+#act #goto silo.questions.degradations.quoi
+#answer à quels horaires la plage est-elle ouverte dorénavant?
+#act #goto silo.questions.degradations.comment
+#answer personne ne s'est plaint que la plage est maintenant fermée?
+#act #goto silo.questions.degradations.plaintes
 
 LE GERANT DE LA PLAGE - à ma connaissance non.
 #bookmark silo.questions.degradations.plaintes
@@ -1210,8 +1215,8 @@ que des voitures. Pas d'humains.
 Des voitures stationnées dans le parking de la gare de l*** en journée, puis stationnées devant les maisons neuves du tour du lac durant la nuit.
 
 Ces voitures, elles n'ont pas besoin de se balader à la plage de l***, donc je ferme.
-#answer ... daccord.
-#act #goto silo.questions.degradations
+#answer est ce que vous n'auriez pas pu trouver une autre solution que de fermer la plage? (conclure)
+#act #goto resolution
 
 LE GERANT DE LA PLAGE - quelle autre solution?
 #bookmark resolution
@@ -1233,7 +1238,7 @@ LE GERANT DE LA PLAGE - quelle autre solution?
 C'est le gérant lui-même qui s'est créé un problème avec sa buvette superfétatoire : vous n'en revenez pas qu'il ne soit pas lui même arrivé à la conclusion qu'il fallait tout raser, et restituer la plage à son état Mésolithique : une prairie, le lac, la montagne.
 #bookmark resolution.destruction
 
-C'est ce qu'était d'ailleurs la plage de l**** avant la guerre : une prairie.
+C'est ce qu'était d'ailleurs la plage de l*** avant la guerre : une prairie.
 
 les yeux fous, vous regardez tout ce qui a été construit : le parking, la maison du gérant, la buvette, le mobilier urbain. Chacune de ces constructions, une destruction.
 
@@ -1265,13 +1270,13 @@ Vous hésitez un court instant : est ce que vous êtes vraiment séduit.e par  l
 Et pourquoi ne pas organiser un rituel géant de punition, où on irait chercher les responsables (peu importe d'ailleurs si ce sont les coupables ou non) pour les humilier en place publique, et décourager les autres de peindre la buvette de la plage?
 #bookmark resolution.rituel
 
-Par exemple, idée de rituel : tout le monde se déguise en frites surgelées deégueulases de la plage, trouve des "coupables", les amène à la plage de l**** et les force à se prosterner devant la buvette, à lui présenter des excuses, etc.
+Par exemple, idée de rituel : tout le monde se déguise en frites surgelées deégueulases de la plage, trouve des "coupables", les amène à la plage de l*** et les force à se prosterner devant la buvette, à lui présenter des excuses, etc.
 
 - ça a pas besoin d'être un truc horrible hein! dites-vous au gérant de la plage, car vous êtes un peu inquiet quand même de la façon dont il va implémenter votre idée.
 #answer (conclure)
 #act #goto startofACTEIII
 
-Vous imagineriez bien une façon dont les habitants de la communauté de communes pourraient prendre en main le problème ensemble, y compris de manière festive ou ritualisée, mais pour celà il faudrait déjà qu'il y ait des gens qui habitent ici ; pas seulement des voitures garées à la gare de l**** le jour et des lumières aux fenêtres des maisons fermées à clé le soir.
+Vous imagineriez bien une façon dont les habitants de la communauté de communes pourraient prendre en main le problème ensemble, y compris de manière festive ou ritualisée, mais pour celà il faudrait déjà qu'il y ait des gens qui habitent ici ; pas seulement des voitures garées à la gare de l*** le jour et des lumières aux fenêtres des maisons fermées à clé le soir.
 #bookmark resolution.rituel.fail
 #answer (tenter une autre proposition)
 #act #goto resolution
@@ -1315,7 +1320,7 @@ Vous avez l’intuition déséspérée que le cadenas de laiton est le premier e
 #answer (tenter une autre proposition)
 #act #goto resolution
 
-Vous suggérez au gérant de la plage que la buvette est un bon début, mais que si il veut que son business décolle il va falloir passer à la vitesse supérieure. Vous lui parlez de la “Sharing economy”, et d’un système où il serait possible d’externaliser tous ses frais en employant indirectement les visiteurs de la plage de l****. 
+Vous suggérez au gérant de la plage que la buvette est un bon début, mais que si il veut que son business décolle il va falloir passer à la vitesse supérieure. Vous lui parlez de la “Sharing economy”, et d’un système où il serait possible d’externaliser tous ses frais en employant indirectement les visiteurs de la plage de l***. 
 
 Tout d’abord, il s’agirait de développer une application pour smartphone sur laquelle les baigneurs devraient s’inscrire afin d’avoir accès à la plage (leurs données personnelles seraient bien sûr vendues à un data broker). 
 #bookmark resolution.business
@@ -1356,7 +1361,7 @@ Vous ne reconnaissez plus la voix du gérant de la plage. Son ton boudeur et lac
 
 la personne qui habite maintenant le corps du gérant de la plage - car il est exclu qu'il s'agisse de la personne avec qui vous venez d'avoir une discussion -
 
-se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamais avoir besoin de respirer.
+se coupe-elle même la parole en permanence. Fait étrange, elle semble ne jamais avoir besoin de respirer.
 
 ? - la simulation est terminée. 
 #logtime race1
@@ -1367,10 +1372,20 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 #act #goto end
 #answer bof
 #act #goto end
-#answer sisi j'ai bien rigolé (jet de dés sur 8)
-#act #dice 8 end end 
+#answer sisi j'ai bien rigolé (jet de dés sur 6)
+#act #dice 6 end.win end.fail 
 
-? - nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l****.
+ah ben je suis content alors.
+#bookmark end.win
+#answer (dans votre tête) c'était sympa qu'il y ait des bugs en fait.
+#act #goto end
+
+ah ben je suis content alors.
+#bookmark end.fail
+#answer (dans votre tête) bon en soi j'aurais aussi bien passé ma soirée à jouer à un vrai jeu vidéo.
+#act #goto end
+
+? - ... nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l***.
 #bookmark end
 
 ? - comme nous avons tous un rythme différent,
@@ -1412,8 +1427,10 @@ se coupe-elle même la parole en permanance. Fait étrange, elle semble ne jamai
 ? - quand un mot est récolté par quelqu'un.e, 
 
 ? - ce mot disparaît pour tous.te.s les autres.
-//? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
-//? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
+
+? - à la fin de la moisson néanmoins, quand tous les mots auront été collectés,
+
+? - je mettrai l'ensemble des mots dans la "banque de mots" pour que vous puissiez aussi lire la définition des mots que les autres ont collecté.
 
 ? - nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
 
@@ -1608,134 +1625,12 @@ on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
 félicitations!
 
 ça fait du bien de se dégourdir un peu les jambes.
-#getMean 
-#getScores race2
 
-ok donc maintenant, prenons des conclusions machinique plus ou moins stupides :
+et on peut finir avec une grande course où cette fois,
 
-le gérant de la plage a mesuré votre vitesse,
+vous jouez les un.e.s contre les autres.
 
-les 50% les moins rapides vont aller dans une poule
-
-qu'on va appeller "team sieste"
-
-et on va se dire que vous êtes peut-être les mêmes personnes qui ont un rapport plus contemplatif au texte.
-
-les 50% les plus rapides vont aller dans une autre poule
-
-qu'on va appeller les "spacebar athletes"
-
-et on va se dire que vous êtes peut-être les personnes qui ont eu un rapport immédiatement compétitif à la lecture.
-
-on va faire quelque chose pour que vous puissiez vous identifier, 
-
-on va réutiliser le truc de l'écran du serveur qui clignote;
-
-je vais éclairer vos écrans en rouge pour les spacebar athletes, et en vert pour la team sieste.
-
-n'hésitez pas à lever la tête pour voir à quoi ressemble la répartition dans la salle.
-
-show poules green/red
-#light 1
-
-super. J'espère que vous êtes content.e de l'équipe dans laquelle vous avez été classé.e.
-
-on va maintenant faire des courses par poule!
-
-On va afficher à nouveau les coureurs, mais seulement les spacebar athletes,
-
-c'est à dire vous
-#light 2
-
-pourrez courir pour le moment. Les autres sont spectateurs.trices.
-
-on affiche le champ de course
-
-GO
-#logtime race3
-#stepper race3
-
-FEU
-#startRace
-
-félicitations!
-
-on va utiliser à nouveau la lumière des écrans pour avoir les scores.
-#getScores race3
-
-la personne qui a gagné la course est cette personne!
-
-***
-#light 4
-
-félicitations.
-
-pour les spacebar athletes,
-
-comme ce qui est important c'est d'être stimulé par la compétition
-
-l'émulation de groupe,
-
-on va aussi montrer les personnes arrivées en seconde & troisième position.
-
-cette personne est arrivée seconde.
-
-***
-#light 5
-
-la prochaine fois c'est la bonne!
-
-et cette personne est arrivée troisième.
-#light 6
-
-Pas mal!
-
-Maintenant, passons à la team sieste.
-
-pour mémoire, c'est vous.
-
-***
-#light3
-
-on affiche le champ de course :
-
-GO
-#logtime race4
-#stepper race4
-
-FEU doucement
-#startRace
-
-magnifique.
-
-du côté de la team sieste,
-
-ce qui est important ce sont les individualités et comment elles s'expriment librement
-
-on va donc d'abord montrer qui a eu le courage d'affronter la pression du groupe et d'assumer son envie de prendre le temps, arrivant en dernière position ou ne courant pas du tout.
-
-c'est cette personne,
-
-***
-#light 7
-
-félicitations!
-
-mais on consière aussi que la personne qui est arrivée en première position mérite d'être célébrée :
-
-c'est cette personne,
-
-***
-#light 8
-
-félicitations!
-
-et la team sieste en profite également pour célébrer chacun.e de ses membres au passage.
-
-félicitations!
-#light 9
-
-et on peut finir avec une grande course où tout le monde peut participer.
+vous êtes prêt.e.s?
 #bookmark raceFFA
 
 ***
