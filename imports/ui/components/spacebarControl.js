@@ -28,6 +28,12 @@ Template.spacebarControl.events({
 		// change status of spacebar
 		Meteor.call("showServerCall", true, environment, false)
 	},
+
+	"click button.giveWordsToEverybody"(){
+		// change status of spacebar
+		Meteor.call("giveWordsToEverybody", environment)
+	},
+
 	"click button.hideServer"(){
 		// change status of spacebar
 		Meteor.call("showServerCall", true, environment, true)

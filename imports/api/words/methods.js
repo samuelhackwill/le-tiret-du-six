@@ -14,5 +14,9 @@ Meteor.methods({
 		}else{
 			throw new Meteor.Error("validation error during db insert", wordsSchema.validationErrors())
 		}
+	},
+
+	giveWordsToEverybody(_env){
+		sendMessage({action:"giveWordsToEverybody", env:_env})
 	}
 });

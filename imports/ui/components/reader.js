@@ -760,7 +760,7 @@ const adjustText = ({ element, elements, minSize = 1, maxSize = 2.15, step = 0.0
 startMining = function(){
 	// startmining is called at the beggining of the word mining minigame
 	// locally (via a clientaction). This function parses HTML to subsitute
-	// spans of text with spans containing both "intert" text and words which
+	// spans of text with spans containing both "inert" text and words which
 	// players can click on. These words are spans of spans of letters,
 	// which have different CSS rules and onclick events associated.
 
@@ -773,7 +773,7 @@ startMining = function(){
 
 	for (var i = _wordsCollection.length - 1; i >= 0; i--) {
 		// we musn't look for words that have been collected already.
-		// players ariving late musn't see them as clickable.
+		// players arriving late musn't see them as clickable.
 		if (_wordsCollection[i].name == undefined || _wordsCollection[i].name.length == _wordsCollection[i].harvestedLetters.length ) {
 			console.log("this word ", _wordsCollection[i], " was already collected, or it's an empty word caused by trailing lines in the editor")
 		}else{
