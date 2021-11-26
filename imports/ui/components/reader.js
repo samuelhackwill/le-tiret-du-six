@@ -215,6 +215,43 @@ clientActions = function(_params){
 					})
 			break;
 
+			case "#showAchievement" : 
+			//countPeeps
+				if (_arg == "wonlost1" || _arg == "wonlost2") {
+					if (_arg == "wonlost1") {
+						// THIS WILL ABSOLUTELY BREAK if we change the text at then end.
+						oldResult = Number(document.getElementById("textColumn").children[3].innerText)
+						result = instance.achievements.find(str=>str.name==="samuelRobotEnd")?.value
+						hasTheyWon = result < oldResult || null
+						console.log("has he won or lost? ", hasTheyWon)
+
+						if (hasTheyWon == null) {
+							loadText(undefined, undefined,"on sait pas parce qu'il y a eu un bug manifestement.")					
+						}
+
+						if (hasTheyWon) {
+							loadText(undefined, undefined,"gagné!")					
+						}else{
+							loadText(undefined, undefined,"perdu")
+						}
+					}else{
+						if (hasTheyWon == null) {
+							loadText(undefined, undefined,"En théorie Samuel devrait nous raconter une anecdote.")					
+						}
+
+						if (hasTheyWon) {
+							loadText(undefined, undefined,"félicitations! Néanmoins ne vous réjouissez pas trop vite, votre titre sera remis en jeu lors de la prochaine représentation.")					
+						}else{
+							loadText(undefined, undefined,"ceci dit il n'est pas impossible que vous gagniez contre le prochain public. Vous pouvez éventuellement vous coordonner pour revenir lors de la prochaine représentation afin de saboter l'entrée public si vous désirez augmenter vos chances.")
+						}
+					}
+				}else{
+					result = instance.achievements.find(str=>str.name===_arg)?.value || "on sait pas trop, on devait pas être attentifs à ce moment. Ou alors il y a un bug."
+					loadText(undefined, undefined,result)					
+				}
+			break;
+
+
 			case "#serverstrobe":
 				// players.methods
 				Meteor.call("showServerCall", environment)
@@ -270,142 +307,142 @@ clientActions = function(_params){
 
 			break;
 
-			case "#race3results" :
-				// get score from method with callback.
+// 			case "#race3results" :
+// 				// get score from method with callback.
 
-				switch(_arg){
+// 				switch(_arg){
 
-					case "get":
-						Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename,
-							(error, result) =>{
-								instance.data.obj.race3 = {
-									"mediane":result.mediane,
-									"decile1":result.decile1,
-									"decile9":result.decile9,
-									"scoreSecs":result.diffTimeS,
-									"scoreDecs":result.diffTimeD,
-									"scoreRaw":result.diffTime
-								}
-						})
-					break;
+// 					case "get":
+// 						Meteor.call("calculateRaceDuration", environment, "race3", instance.aiguebename,
+// 							(error, result) =>{
+// 								instance.data.obj.race3 = {
+// 									"mediane":result.mediane,
+// 									"decile1":result.decile1,
+// 									"decile9":result.decile9,
+// 									"scoreSecs":result.diffTimeS,
+// 									"scoreDecs":result.diffTimeD,
+// 									"scoreRaw":result.diffTime
+// 								}
+// 						})
+// 					break;
 
-					case "1":
-						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
-						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
+// 					case "1":
+// 						let timeSecs = Math.floor((instance.data.obj.race3.mediane)/1000)
+// 						let timeDecs = Math.floor(((instance.data.obj.race3.mediane)%1000)/ 10)
 
-            loadText(undefined, undefined,
-`L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et
-${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe
-exactement en deux : la moitié des personnes présentes ici ont moins hésité que
-${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus
-hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
-            break;
+//             loadText(undefined, undefined,
+// `L'indice d'hésitation médian dans la salle est de ${timeSecs} secondes et
+// ${timeDecs} dixièmes (l'indice médian est la valeur qui sépare notre groupe
+// exactement en deux : la moitié des personnes présentes ici ont moins hésité que
+// ${timeSecs} secondes et ${timeDecs} dixièmes, alors que l'autre moitié à plus
+// hésité que ${timeSecs} secondes et ${timeDecs} dixièmes.)`)
+//             break;
 
-					case "2":
-						let Dec1Secs = Math.floor((instance.data.obj.race3.decile1)/1000)
-						let Dec1Decs = Math.floor(((instance.data.obj.race3.decile1)%1000)/ 10)
-						let not1 = ""
-						let not2 = ""
+// 					case "2":
+// 						let Dec1Secs = Math.floor((instance.data.obj.race3.decile1)/1000)
+// 						let Dec1Decs = Math.floor(((instance.data.obj.race3.decile1)%1000)/ 10)
+// 						let not1 = ""
+// 						let not2 = ""
 
-						if (instance.data.obj.race3.scoreRaw <= instance.data.obj.race3.decile1) {
-							not1 = "ne"
-							not2 = "pas"
-						}
+// 						if (instance.data.obj.race3.scoreRaw <= instance.data.obj.race3.decile1) {
+// 							not1 = "ne"
+// 							not2 = "pas"
+// 						}
 
-						loadText(undefined, undefined,
-`Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité,
-comprend toutes les personnes qui ont hésité exactement ${Dec1Secs}
-secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie
-du premier décile.`
-            )
-					break;
+// 						loadText(undefined, undefined,
+// `Le premier décile, c'est à dire les 10% de personnes ayant le moins hésité,
+// comprend toutes les personnes qui ont hésité exactement ${Dec1Secs}
+// secondes et ${Dec1Decs} dixièmes ou moins. Vous ${not1} faites ${not2} partie
+// du premier décile.`
+//             )
+// 					break;
 
-					case "3":
-						let Dec9Secs = Math.floor((instance.data.obj.race3.decile9)/1000)
-						let Dec9Decs = Math.floor(((instance.data.obj.race3.decile9)%1000)/ 10)
-						let not3 = ""
-						let not4 = ""
+// 					case "3":
+// 						let Dec9Secs = Math.floor((instance.data.obj.race3.decile9)/1000)
+// 						let Dec9Decs = Math.floor(((instance.data.obj.race3.decile9)%1000)/ 10)
+// 						let not3 = ""
+// 						let not4 = ""
 
-						if (instance.data.obj.race3.scoreRaw >= instance.data.obj.race3.decile9) {
-							not3 = "ne"
-							not4 = "pas"
-						}
+// 						if (instance.data.obj.race3.scoreRaw >= instance.data.obj.race3.decile9) {
+// 							not3 = "ne"
+// 							not4 = "pas"
+// 						}
 
-						loadText(undefined, undefined,
-`Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité,
-comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes
-et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du
-dernier décile.`
-						)
+// 						loadText(undefined, undefined,
+// `Le dernier décile, c'est à dire les 10% de personnes ayant le plus hésité,
+// comprend toutes les personnes qui ont hésité exactement ${Dec9Secs} secondes
+// et ${Dec9Decs} dixièmes ou plus. Vous ${not3} faites ${not4} partie du
+// dernier décile.`
+// 						)
 
-					break;
+// 					break;
 
-					case "4":
-					let scoreSec = instance.data.obj.race3.scoreSecs
-					let scoreDec = instance.data.obj.race3.scoreDecs
+// 					case "4":
+// 					let scoreSec = instance.data.obj.race3.scoreSecs
+// 					let scoreDec = instance.data.obj.race3.scoreDecs
 
-						loadText(undefined, undefined,
-`Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée
-entre l'instant où la question s'est affichée sur votre écran et le
-moment où vous y avez répondu.`
-						)
-					break;
-				}
-			break;
+// 						loadText(undefined, undefined,
+// `Une durée de ${scoreSec} secondes et ${scoreDec} dixièmes s'est écoulée
+// entre l'instant où la question s'est affichée sur votre écran et le
+// moment où vous y avez répondu.`
+// 						)
+// 					break;
+// 				}
+// 			break;
 
-			case "#stayWithTeam":
-				previousAnswer = instance.data.obj.answered[0]
-				if (previousAnswer==1) {
-					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined,
-"De la Team sieste."
-					)
+// 			case "#stayWithTeam":
+// 				previousAnswer = instance.data.obj.answered[0]
+// 				if (previousAnswer==1) {
+// 					instance.data.obj.team="teamSieste"
+// 					loadText(undefined, undefined,
+// "De la Team sieste."
+// 					)
 
-				}else{
-					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined,
-"Des Spacebar athletes."
-					)
-				}
-			break;
+// 				}else{
+// 					instance.data.obj.team="spacebarAthletes"
+// 					loadText(undefined, undefined,
+// "Des Spacebar athletes."
+// 					)
+// 				}
+// 			break;
 
-			case "#changeTeam":
-				previousAnswer = instance.data.obj.answered[0]
-				if (previousAnswer==2) {
-					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined,
-"De la Team sieste."
-					)
-				}else{
-					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined,
-"Des Spacebar athletes."
-					)
-				}
-			break;
+// 			case "#changeTeam":
+// 				previousAnswer = instance.data.obj.answered[0]
+// 				if (previousAnswer==2) {
+// 					instance.data.obj.team="teamSieste"
+// 					loadText(undefined, undefined,
+// "De la Team sieste."
+// 					)
+// 				}else{
+// 					instance.data.obj.team="spacebarAthletes"
+// 					loadText(undefined, undefined,
+// "Des Spacebar athletes."
+// 					)
+// 				}
+// 			break;
 
-			case "#showAlternateMessage":
-				previousAnswer = instance.data.obj.answered[0]
-				if (previousAnswer==2) {
-					instance.data.obj.team="spacebarAthletes"
-					loadText(undefined, undefined,
-"Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste."
-					)
-				}else{
-					instance.data.obj.team="teamSieste"
-					loadText(undefined, undefined,
-"Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete."
-					)
-				}
-			break;
+// 			case "#showAlternateMessage":
+// 				previousAnswer = instance.data.obj.answered[0]
+// 				if (previousAnswer==2) {
+// 					instance.data.obj.team="spacebarAthletes"
+// 					loadText(undefined, undefined,
+// "Bien que vous soyez content.e de constater la capacité de vos membres inférieurs à s'agiter de manière séquencée, vous vous êtes aussi rappelé.e pourquoi vous n'aimiez pas du tout ça : ça n'est même pas tant que vous ne pouvez pas courir vite, vous n'aimez simplement pas le *rituel* de la course à pied, ce qu'il peut avoir de criard et d'individualiste. Vous êtes fièr.e de faire partie de la team sieste."
+// 					)
+// 				}else{
+// 					instance.data.obj.team="teamSieste"
+// 					loadText(undefined, undefined,
+// "Vous êtes chez vous dans votre corps. Chez vous, mais pas dans le cadre d'un bail locatif : plutôt en vertu d'un titre de propriété. La puissance fibreuse de vos cuisses, vos muscles tendus et dociles, votre respiration parfaitement rythmée, machinique : cela vous appartient. Vous n'avez même pas besoin de regarder autour de vous pour le savoir, vous en avez le coeur net : vous êtes parmi les plus rapides, vous êtes un spacebar athelete."
+// 					)
+// 				}
+// 			break;
 
-			case "#showTeam":
-				if (instance.data.obj.team=="teamSieste") {
-					document.body.style.backgroundColor = "#1cff00"
-				}else{
-					document.body.style.backgroundColor = "red"
-				}
-			break;
+// 			case "#showTeam":
+// 				if (instance.data.obj.team=="teamSieste") {
+// 					document.body.style.backgroundColor = "#1cff00"
+// 				}else{
+// 					document.body.style.backgroundColor = "red"
+// 				}
+// 			break;
 
 			case "#askPseudo":
 				this.instance.data.stopped = true;
@@ -895,7 +932,7 @@ stopMining = function(){
 shouldIFlash = function(_arg){
 	// we need to show the faces of members of the audience by lighting
 	// their faces with the computer screens.
-	myScore = instance.data.obj.scores[0].race2.find(str=>str.aiguebename===instance.aiguebename).score
+	myScore = instance.data.obj.scores.race2.find(str=>str.aiguebename===instance.aiguebename).score
 	imaSpacebarAthlete = myScore < race2Mean
 
 	switch(_arg){
@@ -938,8 +975,8 @@ shouldIFlash = function(_arg){
 			return
 		}
 
-		topScore = instance.data.obj.scores[1].race3[0].score
-		myScore = instance.data.obj.scores[1].race3.find(str=>str.aiguebename===instance.aiguebename).score
+		topScore = instance.data.obj.scores.race3[0].score
+		myScore = instance.data.obj.scores.race3.find(str=>str.aiguebename===instance.aiguebename).score
 
 		if (imaSpacebarAthlete && myScore == topScore) {
 			flashLight("red")
@@ -950,8 +987,8 @@ shouldIFlash = function(_arg){
 		// light the 2nd of sa
 		// check my score of pool race 3, am i second best?
 
-		if (instance.data.obj.scores[1].race3[1]!=undefined) {
-			const second = instance.data.obj.scores[1].race3[1].score
+		if (instance.data.obj.scores.race3[1]!=undefined) {
+			const second = instance.data.obj.scores.race3[1].score
 
 			if (imaSpacebarAthlete && myScore == second) {
 				flashLight("red")
@@ -967,8 +1004,8 @@ shouldIFlash = function(_arg){
 		// light the 3rd of sa
 		// check my score of pool race 3, am i third best?
 
-		if (instance.data.obj.scores[1].race3[1]!=undefined) {
-			const third = instance.data.obj.scores[1].race3[2]?.score
+		if (instance.data.obj.scores.race3[1]!=undefined) {
+			const third = instance.data.obj.scores.race3[2]?.score
 			if (imaSpacebarAthlete && myScore == third) {
 				flashLight("red")
 			}else{
@@ -982,8 +1019,8 @@ shouldIFlash = function(_arg){
 		case "7" || 7 :
 		// light the last of ts
 		// check my score of pool race 4, am i the last one?
-		const lowScore = instance.data.obj.scores[2].race4[(instance.data.obj.scores[2].race4.length)-1].score
-		myScore = instance.data.obj.scores[2].race4.find(str=>str.aiguebename===instance.aiguebename).score
+		const lowScore = instance.data.obj.scores.race4[(instance.data.obj.scoresrace4.length)-1].score
+		myScore = instance.data.obj.scores.race4.find(str=>str.aiguebename===instance.aiguebename).score
 
 		if (!imaSpacebarAthlete && myScore == lowScore) {
 			flashLight("lime")
@@ -995,7 +1032,7 @@ shouldIFlash = function(_arg){
 		case "8" || 8 :
 		// light the 1st of ts
 		// check my score of pool race 4, am i the best?
-		const topScoreTS = instance.data.obj.scores[2].race4[0].score
+		const topScoreTS = instance.data.obj.scores.race4[0].score
 
 		if (!imaSpacebarAthlete && myScore == topScoreTS) {
 			flashLight("lime")
@@ -1009,8 +1046,8 @@ shouldIFlash = function(_arg){
 		// am i part of the team sieste? If that's the case, check
 		// my position in the array and either return (if i was first or last)
 		// or launch
-		if (instance.data.obj.scores[2].race4[1]!=undefined) {
-			factor = instance.data.obj.scores[2].race4.indexOf(myScore)
+		if (instance.data.obj.scores.race4!=undefined) {
+			factor = instance.data.obj.scores.race4.indexOf(myScore)
 
 			if (!imaSpacebarAthlete && myScore != lowScore && myScore != topScoreTS) {
 				setTimeout(function(){
@@ -1086,7 +1123,7 @@ getAllScores = function(race){
 		}
 	}
 
-	instance.data.obj.scores.push({[race]:_scores})
+	instance.data.obj.scores.[race]=_scores
 }
 
 askPseudo = function(){

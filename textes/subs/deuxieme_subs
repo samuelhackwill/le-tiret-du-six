@@ -1651,54 +1651,103 @@ Le Gérant de la plage - je dois vous dire qu'il va être temps de clore cette e
 Le Gérant de la plage - il se fait tard et *je n'ai toujours pas pu ranger mon bois*
 
 ***
-
-nous sommes x dans la salle.
 #bookmark startofACTEIV
 
-lors de la dernière représentation, nous étions 18.
+nous sommes :
 
-vous avez mis x secondes à entrer dans la salle.
+*** 
+#showAchievement publicCount
+
+dans la salle.
+
+lors de la dernière représentation, nous étions 39.
+// #showAchievement publicCountOld
+// A FAIRE
+
+vous avez mis :
+
+*** 
+#showAchievement entreePublicEnd
+
+secondes à entrer dans la salle.
 
 en termes de rapidité à entrer dans la salle,
 
-par rapport aux x autres publics qui ont joué au tiret du six,
+par rapport aux : 
 
-vous vous placez en xe position.
+3 
+// #showAchivement numberOfRepresentations
+// A FAIRE
+
+autres publics qui ont joué au tiret du six,
+
+vous vous placez en :
+
+2e
+// #showAchievement representationsRace
+// A FAIRE
+
+position.
 
 aujourd'hui, 
 
-la séquence du jeu-de-piste avec ping
+la séquence du jeu-de-piste avec samuel-le-robot
 
-a duré x minutes et x secondes.
+a duré :
 
-La dernière fois, comme il vous l'a dit lui-même en introduction, cette séquence a duré x minutes et x secondes.
+***
+#showAchievement samuelRobotEnd
 
-Vous avez donc gagné / perdu cette course contre le public précédent.
+secondes.
 
-félicitations! Néanmoins ne vous réjouissez pas trop vite, votre titre sera remis en jeu lors de la prochaine représentation. / ceci dit il n'est pas impossible que vous gagniez contre le prochain public. Vous pouvez éventuellement vous coordonner pour revenir lors de la prochaine représentation afin de saboter l'entrée public si vous désirez augmenter vos chances.
+La dernière fois, comme il vous l'a dit lui-même en introduction, cette séquence a duré : 
+
+***
+
+1301
+// A FAIRE
+
+secondes environ.
+
+Vous avez donc 
+
+***
+#showAchievement wonlost1
+// gagné / perdu 
+
+cette course contre le public précédent.
+
+***
+#showAchievement wonlost2
+// félicitations! Néanmoins ne vous réjouissez pas trop vite, votre titre sera remis en jeu lors de la prochaine représentation. / ceci dit il n'est pas impossible que vous gagniez contre le prochain public. Vous pouvez éventuellement vous coordonner pour revenir lors de la prochaine représentation afin de saboter cette course si vous désirez augmenter vos chances.
 
 les moments suivants de la performance vous ont manifestement fait rire :
 
 la blague de samuel le robot qui sort de l'écran (comique de situation)
 
-oui / modéremment / non
+***
+#showAchievement situation
 
 la blague de : "j'aime bien quand le silence revient dans la salle ça me fait penser à dominique sommeveille qui souffle avec son nez" (running gag)
 
-oui / modéremment / non
+***
+#showAchievement runningJoke
 
 la blague de : i like to move it move it (rupture de ton)
 
-oui / modéremment / non
+***
+#showAchievement ruptureDeTon
 
 la blague d'avoir affiché les financeurs de la performance dans le fond du stade lors de la séquence des courses (blague d'initiés)
 
-oui / modéremment / non
+***
+#showAchievement sponsors
 
 la blague de dire quelles blagues vous ont fait rire (méta)
-// attendre un peu que les gens comprennent, puis
+// ATTENDRE UN PEU AVANT DE DECIDER!
 
-oui / modéremment / non
+***
+#showAchievement metaJoke
 
 les autres blagues c'est plus difficile à dire parce que tout le monde était dans son propre rythme.
 

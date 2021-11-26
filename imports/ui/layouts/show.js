@@ -23,7 +23,7 @@ streamer.on('message', function(message) {
 	if(FlowRouter.getRouteName() == "show" && message.env == environment){
 		switch (message.action){
 			case "logAchievements":
-			instance.achievements.push({[message.name] : [message.value]})
+			instance.achievements.push({name : message.name, value : message.value})
 			break;
 
 			case "endTheShow":
