@@ -44,7 +44,7 @@ streamer.on('message', function(message) {
 			document.getElementsByClassName("flash")[0].style.backgroundColor = "red"
 			flash = setTimeout(function(){
 				document.getElementsByClassName("flash")[0].style.backgroundColor = "black"
-			},500)			
+			},333)			
 			break;
 		}
 	}
