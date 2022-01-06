@@ -646,6 +646,7 @@ Vous êtes sûr.e que c'est à vous? ça ne m'a pas l'air bien réglementaire.
 #act #dice 9 intro.police.chat.casquette.force.win intro.police.chat.casquette.force.fail
 
 Le gérant de la plage vous donne finalement la casquette "POLICE", content de s'en débarrasser. Vous en habillez votre tête. La casquette est un peu trop petite pour vous. C'était probablement celle d'un enfant.
+#bookmark intro.police.chat.casquette.svp
 #answer (poursuivre)
 #act #goto prenom.colere
 

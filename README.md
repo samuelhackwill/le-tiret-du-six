@@ -21,8 +21,8 @@ administrators of the show should access the webapp through one of :
 the **/admin** route is used during the show to monitor the audience's activities and interact with them.
 
 On this page, admins can :
-- monitor which line of text is being read by each invididual client in real time, by looking at the *tracker* component (on the left of the screen), which displays pipes (|) in front of each line of text. Two pipes (|) are coloured orange and violet. These represent the current position of the two first players to connect to the webapp. They are singled out because we need to make sure they both exist before starting the first race (at the beggining of the show).
-
+<!-- - monitor which line of text is being read by each invididual client in real time, by looking at the *tracker* component (on the left of the screen), which displays pipes (|) in front of each line of text. Two pipes (|) are coloured orange and violet. These represent the current position of the two first players to connect to the webapp. They are singled out because we need to make sure they both exist before starting the first race (at the beggining of the show).
+ -->
 - read the text of the show by looking at the *editor* component.
 
 - click on the *bookmarksLibrary* component, which will take all the players to the index of that particular bookmark (check the editor section below for more details)
