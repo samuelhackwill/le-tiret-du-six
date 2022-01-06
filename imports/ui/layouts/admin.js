@@ -42,6 +42,7 @@ streamer.on('message', function(message) {
 			if (message.winner == "bot") {
 				window.clearInterval(autorun)
 				document.getElementsByClassName("autorun")[0].innerText = "Bot autorun"				
+				document.getElementsByClassName("autorun")[0].classList.remove("activeButton")				
 				Meteor.call('stepperStopCall', _env = environment)
 			}
 			break;

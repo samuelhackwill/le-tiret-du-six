@@ -44,13 +44,14 @@ Template.spacebarControl.events({
 		if (instance.botAutorun) {
 			botAutorun()
 			t.currentTarget.innerText = "Bot running!"
-			t.currentTarget.classList.add("blinkRed")
+			t.currentTarget.classList.add("activeButton")
 			// we must also tell server that it should switch to
 			// endrace solo during
 		}else{
 			window.clearInterval(autorun)
 			t.currentTarget.innerText = "Bot autorun"
-			t.currentTarget.classList.remove("blinkRed")
+			t.currentTarget.classList.remove("activeButton")
+			Meteor.call("stepperStopCall", environment)
 		}
 	}
 
