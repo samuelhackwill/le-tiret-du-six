@@ -10,12 +10,12 @@ this repository contains the meteor.js web application used in Samuel Hackwill's
 
 administrators of the show should access the webapp through one of :
 
-    <local ip of computer hosting the app>:3000/admin/Dev/
-    <local ip of computer hosting the app>:3000/admin/Prod/
-    <local ip of computer hosting the app>:3000/editor/Dev/
-    <local ip of computer hosting the app>:3000/editor/Prod/
+    <local ip of computer hosting the app>:3000/admin
+    <local ip of computer hosting the app>:3000/editor
+    <local ip of computer hosting the app>:3000/showServ
 
-/Dev/ and /Prod/ defines which environment is going to be affected by the administrator's actions.
+and add either /Dev/ or /Prod/ at the end of the URL.
+/Dev/ and /Prod/ defines which environment is going to be affected by the administrator's actions (if players are in the Prod environment and admin calls a showServer action on the Dev environment, nothing will happen for the audience).
 
 ### /admin
 the **/admin** route is used during the show to monitor the audience's activities and interact with them.
@@ -27,7 +27,14 @@ On this page, admins can :
 
 - click on the *bookmarksLibrary* component, which will take all the players to the index of that particular bookmark (check the editor section below for more details)
 
-- click on the "admin"/"client" button of the *spacebarControl* component, which will either activate or deactivate the players' spacebar, which is used to fetch new lines of text during the show.
+- click on the "admin"/"client" button of the *Admin Calls* component, which will either give the spacebar to the audience or take it back.
+
+- click on the "Bot autorun" button of the *Admin Calls* component, which will cause the bot to start running during the 1 vs bot race (first race).
+
+- click on the "showServer" button of the *Admin Calls* component, which will cause the showServ window to start flashing red (during the show server sequence)
+
+- click on the "hideServer" button of the *Admin Calls* component, which will interupt the flashing of the showServ window.
+
 - press the spacebar, which will read the local index of the admin (instance.data.adminAtIndex), increment it by one, and broadcast it to every player. This will only work if the *spacebarControl* component is set to "admin".
 
 - click on the "reboot!" button of the *rebootControl* component, which will remove all players of the current environment and reinitialize that database.
@@ -88,6 +95,8 @@ On this page, admins can :
 
 - click on the dustbin emoji, which will delete the whole collection.
 
+### /showServ
+this window's sole purpose is to flash some light on the server to show where it's located in the room. It will flash either when the admin clicks on "show server" in his interface, or when any player presses "A" on her.his computer.
 
 ## Testers
 
