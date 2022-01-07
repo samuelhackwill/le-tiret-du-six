@@ -52,11 +52,11 @@ in the **Achievements** component :
 
 in the **💀 Sudo 💀** component :
 
-    - click on the "Erase all players!" button of the *rebootControl* component, which will remove all players of the current environment and reinitialize that database.
+- click on the "Erase all players!" button of the *rebootControl* component, which will remove all players of the current environment and reinitialize that database.
 
-    - click on the "Stop the race, go to reader" button of the *rebootControl* component, which will remove all players of the current environment and reinitialize that database.
+- click on the "Stop the race, go to reader" button of the *rebootControl* component, which will remove all players of the current environment and reinitialize that database.
 
-    - click on the "Noir" button, which will make all the player's screens fade to black.
+- click on the "Noir" button, which will make all the player's screens fade to black.
 
 ### /editor
 the **/editor** route is used to review and modify the text which will be displayed on the players' screens and what local events will be triggered on each computer.
