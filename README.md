@@ -30,25 +30,25 @@ On this page, admins can :
 
 in the **Bookmarks** component : 
 
-    - click on any button, which will take all the players to the index of that particular bookmark (check the editor section below for more details)
+- click on any button, which will take all the players to the index of that particular bookmark (check the editor section below for more details)
 
 in the **Admin Calls** component :
 
-    - click on the "admin"/"client" button, which will either give the spacebar to the audience or take it back.
+- click on the "admin"/"client" button, which will either give the spacebar to the audience or take it back.
 
-    - click on the "Bot autorun" button, which will cause the bot to start running during the 1 vs bot race (first race).
+- click on the "Bot autorun" button, which will cause the bot to start running during the 1 vs bot race (first race).
 
-    - click on the "showServer" button, which will cause the showServ window to start flashing red (during the show server sequence)
+- click on the "showServer" button, which will cause the showServ window to start flashing red (during the show server sequence)
 
-    - click on the "hideServer" button, which will interupt the flashing of the showServ window.
+- click on the "hideServer" button, which will interupt the flashing of the showServ window.
 
 in the **Achievements** component : 
 
-    - click on a number in the PublicCount section, which will select a number and broadcast it to the players (it's used at the very end of the show when players read statistics about the show)
+- click on a number in the PublicCount section, which will select a number and broadcast it to the players (it's used at the very end of the show when players read statistics about the show)
 
-    - click on the buttons in the Race section, which will also broadcast that score to players (buttons should be clicked in order from top to bottom or nothing will happen).
+- click on the buttons in the Race section, which will also broadcast that score to players (buttons should be clicked in order from top to bottom or nothing will happen).
 
-    - in the jokes section, select oui/modéremment/à priori non according to the audience's reaction to the specific jokes.
+- in the jokes section, select oui/modéremment/à priori non according to the audience's reaction to the specific jokes.
 
 in the **💀 Sudo 💀** component :
 
