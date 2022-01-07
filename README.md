@@ -66,7 +66,7 @@ On this page, admins can :
 
 - double-click on the text to make modifications. Clicking outside of the textarea will erase the current Story mongodb collection (in the current environment only), parse the text and insert it in the collection. 
 
-- The text should look something like this :
+- The text should look something like this (for a more detailed example see :
 
 ```
     salut 
@@ -76,38 +76,23 @@ On this page, admins can :
         #bookmark yea
         #stop
 
-    je pense que c'est cool
-        #logtime race1 
-    qu'on soit là aujourd'hui
-
-    à manger des fèves
-
-    ***
-        #logtime race1 
-        #bookmark silence
-
-    ***
-        #race1results left
-
-    ***
-
-    et maintenant on va regarder quel ordinateur héberge l'app
-
-    ***
-        #serverstrobecall
-
     ***
 ```
 
 - every block of instructions should always start with a line of text (which will be displayed on the screens of the players), followed by optional statements like :
-  - ```#bookmark``` ```<name of bookmark>``` *(bookmarks are used by the admins to make all the players jump to that line of text.)*
+  - ```#bookmark``` ```<name of bookmark>``` *(bookmarks are used by the admins to make all the players jump to that line of text. Bookmarks are also used )*
   - ```#stop``` *(a player can't go pass this line with his spacebar.)*
   - ```#logtime``` ```<name of race>``` *(this logs the local time on the server. When logtime is called the first time on a particular race, for instance race1 - the date is logged as the starting time. The second time it is called with the same argument, it logs the date as the ending time. So logtime should always be called twice for every race.)*
   - ```#race1results``` *(This prints the results of the first race - which must always be called "race1".)* 
-  - ```#stepper``` ```<name of race>``` *(This takes everybody to the racetrack and launches or terminates a loop on the server side which uses the streamer to update the position of the  runners during races in the race track.)*
-  - ```startRace``` *This actually launches the race*
-  - ```showAchievement```
-  - ```#qcm``` *(This starts a new QCM session. This keyword must always be followed by at least one #rep line and one #res line, in this order.)* ```#rep``` ```<1. answer number one>``` *(This is one of the possible answers that the player will be able to chose in the qcm. The argument must always contain a number, starting at 1.)* ```#res``` ```<response number one>``` *(This is the text which will be displayed when the players clicks on the corresponding answer.)*
+  - ```#stepper``` ```<name of race>``` *(This takes everybody to the racetrack and launches or terminates a loop on the server side which uses the streamer to update the position of the  runners during races in the race track. The name of race must always be race2 for the solo race vs bot and race0 for the FFA.)*
+  - ```#startRace``` *This actually launches the race (keystrokes won't have any effect before this button is clicked)*
+  - ```#showAchievement``` ```<name of achievement>``` *(This is used to log scores, so text which is calculated on the fly as opposed to pulled from the Story collection.)*
+  - ```#mining``` ```start``` *(This launches the mining session : from that point players can click on harvestable words to collect them, and also open the word cabinet on the left side)*
+  - ```#answer``` ```<text to be displayed>``` *(This displays a clickable dialog option on the right side. **Must** always be followed by an #act tag, see below)* 
+  - ```#act``` EITHER ```#goto``` ```<name of bookmark>``` OR ```#dice``` ```<minimum required to pass>``` ```<name of bookmark to goto in case of success>``` ```<name of bookmark to goto in case of failure>``` *(This tag must always follow an answer tag. It hydrates the span which was created by the #answer tag with an onclick event which either fires a goto or a dice function.)*
+<!--   - ```#loot``` ```<bonus points awarded>``` ```<for which ending>``` ```<reason the points were awarded>``` *(This isn't implemented, it's used to add modifiers to specific dice rolls.)*
+ --> 
+
   - ```//``` ```<comment>``` *(a comment.)*
   - and in any case, a block of instructions must always be terminated by two carriage returns.
 
@@ -139,3 +124,6 @@ which renders in the "Prod" environment by default. (same as /show/Prod)
 players :
 - read the text
 - press the spacebar to fetch new lines of text (only when it's permitted by the admins)
+- click on answers during the discussion with le gérant de la place
+- race with the bot during the first race
+- race with the other players during the FFA race
