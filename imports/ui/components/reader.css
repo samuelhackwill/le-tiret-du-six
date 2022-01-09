@@ -56,6 +56,8 @@
 	/* transition: transform 0.4s ease-in-out; */
 	transition: transform 0.4s cubic-bezier(.22,2.25,.64,.43);
 }
+
+/*
 .minable > span[data-hp="2"] {
 	transform: scale(1.1);
 }
@@ -69,6 +71,8 @@
 .minable > span.collectedLetter {
 	transform: scale(1.4);
 }
+*/
+
 .minableClone {
 	animation: : transform 0.4s ease-in-out;
 }
