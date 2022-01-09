@@ -40,7 +40,8 @@ streamer.on('message', function(message) {
 			// the third argument is true or false, it's to know when it's 
 			// the last letter which was harvested and thus we must kill the whole
 			// word.
-			killLetter(message.letterId, false, message.lastLetter)
+			console.log(message)
+			killLetter(message.letterId, false, message.lastLetter, message.killer)
 			break;
 
 			case "harvestWord":

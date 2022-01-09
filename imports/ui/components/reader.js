@@ -9,7 +9,7 @@ import './reader.css';
 
 // this is the number of clicks someone has to do on a letter
 // to harvest it during the mining game.
-const maxHP = 3
+const maxHP = 10
 
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
@@ -847,10 +847,11 @@ startMining = function(){
 	}
 }
 
-killLetter = function(letterId, local, lastLetter){
+killLetter = function(letterId, local, lastLetter, killer){
 
 	local = local || false
 	lastLetter = lastLetter || false
+	killer = killer || undefined
 
 	_params = letterId.match(/([A-zÀ-ÿ]+)\W([A-zÀ-ÿ])/)
 	_word = _params[1]
@@ -858,6 +859,9 @@ killLetter = function(letterId, local, lastLetter){
 
 	document.getElementById(letterId).classList.remove("letter")
 	document.getElementById(letterId).classList.add("collectedLetter")
+
+	console.log("killer?", killer)
+
 
 	if (lastLetter) {
 		console.log("HARVESTING WORD")
@@ -867,25 +871,30 @@ killLetter = function(letterId, local, lastLetter){
 		document.getElementById(letterId).parentNode.classList.remove("minable")
 		document.getElementById(letterId).parentNode.classList.add("collectedWord")
 
-
-		// clone of word being collected for animation
-		// get current coordinates of collected word
-		const wordCoordinates = document.getElementById(letterId).parentNode.getBoundingClientRect();
-		// create clone
-		var wordClone = $(document.getElementById(letterId).parentNode).clone();
-		// add class for animation in css and set same coordinates (clone will be on top of collected word )
-		wordClone.addClass('collectedWordClone').css({
-		  'left': wordCoordinates.x,
-		  'top': wordCoordinates.y,
-		});
-		// add event on animation end to remove the clone
-		wordClone.one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
-		  // console.log('collected clone animation ended, this?', this);
-		  this.remove();
-		});
-		// append clone to document
-		wordClone.appendTo('body');
-
+		if (killer==instance.aiguebename) {
+		// lastLetter & local are never true at the same time, because
+		// lastLetter calls are always made from the server after a harvest
+		// letter was called locally... so these variables are probably
+		// misnamed and should be refactored.
+			console.log("animating word")
+			// clone of word being collected for animation
+			// get current coordinates of collected word
+			const wordCoordinates = document.getElementById(letterId).parentNode.getBoundingClientRect();
+			// create clone
+			var wordClone = $(document.getElementById(letterId).parentNode).clone();
+			// add class for animation in css and set same coordinates (clone will be on top of collected word )
+			wordClone.addClass('collectedWordClone').css({
+			  'left': wordCoordinates.x,
+			  'top': wordCoordinates.y,
+			});
+			// add event on animation end to remove the clone
+			wordClone.one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+			  // console.log('collected clone animation ended, this?', this);
+			  this.remove();
+			});
+			// append clone to document
+			wordClone.appendTo('body');			
+		}
 		
 	}
 
