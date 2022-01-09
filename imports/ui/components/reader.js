@@ -9,7 +9,7 @@ import './reader.css';
 
 // this is the number of clicks someone has to do on a letter
 // to harvest it during the mining game.
-const maxHP = 10
+const maxHP = 20
 
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
@@ -68,6 +68,7 @@ Template.reader.events({
 		const partOfWord = e.currentTarget.parentNode.textContent
 		const letter = e.currentTarget.textContent
 		const hp = e.currentTarget.dataset.hp || null
+		const coords = {}
 
 		if (hp==null){
 			e.currentTarget.dataset.hp = maxHP -1
@@ -78,6 +79,13 @@ Template.reader.events({
 				return
 			}
 		}
+
+		letterBounce(e.currentTarget.id)
+
+		coords.y = e.currentTarget.offsetTop
+		coords.x = e.currentTarget.offsetLeft
+
+		showRemainingHp(coords , hp || maxHP)
 	},
 
 	"click .clickableAnswer"(e){
@@ -1132,5 +1140,29 @@ askPseudo = function(){
 			instance.data.stopped = false;
 		}
 	})
+
+}
+
+letterBounce = function(id){
+
+	randomRot = (Math.floor(Math.random()*30)+1) * (Math.round(Math.random()) * 2 - 1)
+	scaleDown = 0.8
+
+
+	document.getElementById(id).style.transform = 'rotate('+randomRot+'deg) scale('+scaleDown+')';
+
+	setTimeout(function(){
+		document.getElementById(id).style.transform = 'rotate(0deg) scale(1)';
+	},150)
+
+}
+
+showRemainingHp = function(coords, hp){
+	console.log(coords, hp)
+	let hpCount = document.createElement("div")
+	hpCount.classList.add("hpCount")
+	hpCount.innerHTML = hp
+	hpCount.style = "left : "+coords.x +"px;"+"top:"+coords.y+"px;"
+	document.body.appendChild(hpCount)
 
 }
