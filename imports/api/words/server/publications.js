@@ -29,7 +29,7 @@ Meteor.methods({
 
 		if (result.harvestedLetters.length == _word.length) {
 			Players.update({env:_env, "players.aiguebename":_aiguebename}, {$push : {["players.$.score.harvest"] : _word}})
-			sendMessage({action:"killLetter", letterId:_letterId, env:_env, lastLetter : true})
+			sendMessage({action:"killLetter", letterId:_letterId, env:_env, lastLetter : true, killer:_aiguebename})
 			sendMessage({action:"harvestWord", word:_word, aiguebename:_aiguebename, env:_env})
 
 			harvestedWordsCounter = harvestedWordsCounter +1
@@ -40,7 +40,7 @@ Meteor.methods({
 			}
 
 		}else{
-			sendMessage({action:"killLetter", letterId:_letterId, env:_env})
+			sendMessage({action:"killLetter", letterId:_letterId, env:_env, killer:_aiguebename})
 		}
 
 	}

@@ -9,7 +9,7 @@ import './reader.css';
 
 // this is the number of clicks someone has to do on a letter
 // to harvest it during the mining game.
-const maxHP = 3
+const maxHP = 100
 
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
@@ -52,7 +52,7 @@ Template.reader.onCreated(function(){
 })
 
 Template.reader.onRendered(function(){
-	Meteor.setTimeout(function(){			
+	Meteor.setTimeout(function(){
 		// when ppl arrive on reader, go to start of show.
 //
 		params = []
@@ -68,16 +68,27 @@ Template.reader.events({
 		const partOfWord = e.currentTarget.parentNode.textContent
 		const letter = e.currentTarget.textContent
 		const hp = e.currentTarget.dataset.hp || null
+		const coords = {}
+
+		const hit = Math.floor(Math.random()*3)+1
+
 
 		if (hp==null){
-			e.currentTarget.dataset.hp = maxHP -1
+			e.currentTarget.dataset.hp = maxHP - hit
 		}else{
-			e.currentTarget.dataset.hp = hp -1
-			if (hp==0) {
+			e.currentTarget.dataset.hp = hp - hit
+			if (hp<=0) {
 				killLetter(e.currentTarget.id, true)
 				return
 			}
 		}
+
+		letterBounce(e.currentTarget.id, hit)
+
+		coords.y = e.clientY
+		coords.x = e.clientX
+
+		showRemainingHp(coords , hp || maxHP)
 	},
 
 	"click .clickableAnswer"(e){
@@ -885,10 +896,11 @@ startMining = function(){
 	}
 }
 
-killLetter = function(letterId, local, lastLetter){
+killLetter = function(letterId, local, lastLetter, killer){
 
 	local = local || false
 	lastLetter = lastLetter || false
+	killer = killer || undefined
 
 	_params = letterId.match(/([A-zÀ-ÿ]+)\W([A-zÀ-ÿ])/)
 	_word = _params[1]
@@ -897,6 +909,9 @@ killLetter = function(letterId, local, lastLetter){
 	document.getElementById(letterId).classList.remove("letter")
 	document.getElementById(letterId).classList.add("collectedLetter")
 
+	console.log("killer?", killer)
+
+
 	if (lastLetter) {
 		console.log("HARVESTING WORD")
 		for (var i = document.getElementById(letterId).parentNode.children.length - 1; i >= 0; i--) {
@@ -904,6 +919,32 @@ killLetter = function(letterId, local, lastLetter){
 		}
 		document.getElementById(letterId).parentNode.classList.remove("minable")
 		document.getElementById(letterId).parentNode.classList.add("collectedWord")
+
+		if (killer==instance.aiguebename) {
+		// lastLetter & local are never true at the same time, because
+		// lastLetter calls are always made from the server after a harvest
+		// letter was called locally... so these variables are probably
+		// misnamed and should be refactored.
+			console.log("animating word")
+			// clone of word being collected for animation
+			// get current coordinates of collected word
+			const wordCoordinates = document.getElementById(letterId).parentNode.getBoundingClientRect();
+			// create clone
+			var wordClone = $(document.getElementById(letterId).parentNode).clone();
+			// add class for animation in css and set same coordinates (clone will be on top of collected word )
+			wordClone.addClass('collectedWordClone').css({
+			  'left': wordCoordinates.x,
+			  'top': wordCoordinates.y,
+			});
+			// add event on animation end to remove the clone
+			wordClone.one("animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd", function(){
+			  // console.log('collected clone animation ended, this?', this);
+			  this.remove();
+			});
+			// append clone to document
+			wordClone.appendTo('body');			
+		}
+		
 	}
 
 	if (local==true) {
@@ -1140,5 +1181,40 @@ askPseudo = function(){
 			instance.data.stopped = false;
 		}
 	})
+
+}
+
+letterBounce = function(id, hit){
+
+	// if (hit==3) {
+	// 	showRemainingHp({x:250, y:250},"CRITICAL!")
+	// }
+
+	randomRot = (Math.floor(Math.random()*hit*3)+1) * (Math.round(Math.random()) * 2 - 1)
+	scaleDown = 0.8
+
+
+	document.getElementById(id).style.transform = 'rotate('+randomRot+'deg) scale('+scaleDown+')';
+
+	setTimeout(function(){
+		document.getElementById(id).style.transform = 'rotate(0deg) scale(1)';
+	},150)
+
+}
+
+showRemainingHp = function(coords, hp){
+	console.log(coords, hp)
+	let hpCount = document.createElement("div")
+	hpCount.classList.add("hpCount")
+	hpCount.innerHTML = hp
+	hpCount.style = "left : "+(coords.x)+"px;"+"top:"+(coords.y-20)+"px;"
+	document.body.appendChild(hpCount)
+
+	randomTransX = (Math.floor(Math.random()*200)+100)
+	randomTransY = (Math.floor(Math.random()*200)+100)*-1
+
+	setTimeout(function(){
+		document.getElementsByClassName("hpCount")[document.getElementsByClassName("hpCount").length-1].style.transform = "translate("+randomTransX+"%,"+randomTransY+"%)"
+	},50)
 
 }
