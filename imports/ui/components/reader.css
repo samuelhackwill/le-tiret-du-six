@@ -58,7 +58,10 @@
 }
 
 .hpCount{
+	opacity: 0;
 	position: absolute;
+	transition: transform 1s linear;
+	animation: decay 1s ease-out;
 }
 
 /*
@@ -128,6 +131,11 @@ ul::selection {
 @keyframes collectWord {
 	50%{transform: scale(3);opacity: 1;}
 	100%{top: 50vh;left: 0vw;transform: scale(1);opacity: 0;}
+}
+
+@keyframes decay {
+	50%{opacity: 1;}
+	0%, 100%{opacity: 0; display: none;}
 }
 
 .readerColumn ul{

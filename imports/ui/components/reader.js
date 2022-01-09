@@ -9,7 +9,7 @@ import './reader.css';
 
 // this is the number of clicks someone has to do on a letter
 // to harvest it during the mining game.
-const maxHP = 20
+const maxHP = 100
 
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
@@ -70,20 +70,23 @@ Template.reader.events({
 		const hp = e.currentTarget.dataset.hp || null
 		const coords = {}
 
+		const hit = Math.floor(Math.random()*3)+1
+
+
 		if (hp==null){
-			e.currentTarget.dataset.hp = maxHP -1
+			e.currentTarget.dataset.hp = maxHP - hit
 		}else{
-			e.currentTarget.dataset.hp = hp -1
-			if (hp==0) {
+			e.currentTarget.dataset.hp = hp - hit
+			if (hp<=0) {
 				killLetter(e.currentTarget.id, true)
 				return
 			}
 		}
 
-		letterBounce(e.currentTarget.id)
+		letterBounce(e.currentTarget.id, hit)
 
-		coords.y = e.currentTarget.offsetTop
-		coords.x = e.currentTarget.offsetLeft
+		coords.y = e.clientY
+		coords.x = e.clientX
 
 		showRemainingHp(coords , hp || maxHP)
 	},
@@ -1143,9 +1146,13 @@ askPseudo = function(){
 
 }
 
-letterBounce = function(id){
+letterBounce = function(id, hit){
 
-	randomRot = (Math.floor(Math.random()*30)+1) * (Math.round(Math.random()) * 2 - 1)
+	// if (hit==3) {
+	// 	showRemainingHp({x:250, y:250},"CRITICAL!")
+	// }
+
+	randomRot = (Math.floor(Math.random()*hit*3)+1) * (Math.round(Math.random()) * 2 - 1)
 	scaleDown = 0.8
 
 
@@ -1162,7 +1169,14 @@ showRemainingHp = function(coords, hp){
 	let hpCount = document.createElement("div")
 	hpCount.classList.add("hpCount")
 	hpCount.innerHTML = hp
-	hpCount.style = "left : "+coords.x +"px;"+"top:"+coords.y+"px;"
+	hpCount.style = "left : "+(coords.x)+"px;"+"top:"+(coords.y-20)+"px;"
 	document.body.appendChild(hpCount)
+
+	randomTransX = (Math.floor(Math.random()*200)+100)
+	randomTransY = (Math.floor(Math.random()*200)+100)*-1
+
+	setTimeout(function(){
+		document.getElementsByClassName("hpCount")[document.getElementsByClassName("hpCount").length-1].style.transform = "translate("+randomTransX+"%,"+randomTransY+"%)"
+	},50)
 
 }
