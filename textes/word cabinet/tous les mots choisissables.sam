@@ -1,3 +1,8 @@
+ping
+Si vous avez envie de faire des éxperiences avec ping une fois renté.e chez vous (ou maintenant même), vous pouvez tout à fait essayer de pinger des sites web. Vous pouvez essayer les commandes suivantes : ping baidu.com / ping google.jp / ping google.fr / ping data.gouv.fr / ping 127.0.0.1 .Essayez d'entrer l'adresse IP que vous avez obtenu dans un navigateur web, comme on l'a fait au début de la performance. Qu'est ce que l'on constate?
+"it's bad etiquette to ping 8.8.8.8"
+Anonyme, reddit/sysadmin
+
 heure
 Avez-vous déjà beaucoup joué à un jeu? Quand j'étais adolescent, je me souviens d'une après-midi avec mon ami Thomas où nous étions parti explorer le menu d'un jeu vidéo auquel nous jouions régulièrement, "Super smash bros Melee". Une des options du menu permettait d'accéder à un ensemble de statistiques, et notamment le nombre d'heures passées à y jouer. Nous fûmes surpris de constater que nous avions passé 300 heures de nos vies (enfin, plus particulièrement la sienne puisque c'était sa console) non pas à "jouer" au jeu, mais plus spécifiquement à naviguer dans les *menus* du jeu, où il s'agit de sélectionner son personnage, les règles du jeu, etc (c'est un jeu de combat). 300 heures. Donc 37 journées de travail de 8 heures. Donc plus de deux mois de travail à 35 heures/semaine. Je ne vous dirai pas le nombre d'heures que nous avons passé en partie.
 the rule goes like this: it takes 10,000 hours of intensive practice to achieve mastery of complex skills and materials, like playing the violin.
@@ -11,7 +16,7 @@ Henri Vincenot, Les voyages du professeur Lorgnon
 noyez
 on disait tout à l'heure que "ping" était un programme d'environ 1000 lignes. Ça peut sembler beaucoup mais si on compare par exemple avec le tas de boue que j'ai écrit et qui fait fonctionner cette application web, on est plutôt aux alentours de 10 000 lignes de code. Le développeurs recherchent en général deux choses quand ils écrivent du code : qu'il soit lisible (on comprend qui fait quoi et où se trouvent les choses), et qu'il soit efficace (beaucoup d'effets avec peu de mots). Parfois ces deux standards sont en conflit l'un avec l'autre (écrire du code lisible nécessite d'utiliser plus de mots), mais en principe, plus un programme contient de texte, plus on est susceptible de s'y perdre.
 "what is this piece of MF rubbish even supposed to do?"
-commentaire rageux de Samuel retiré depuis du code de cette web app
+commentaire rageux de Samuel, depuis retiré du code de cette web app
 
 maire
 Il y a deux ans, je me baladais en France avec mon vélo et j'ai constaté que dans de nombreux villages, la presse locale faisait ses titres sur des histoires pas possibles où des maires se faisaient agresser dans leurs communes. Dans la majorité des cas, les édiles s'étaient mis en situation de faire "respecter l'ordre", et se sont fait attaquer pour cette raison. La presse nationale a relayé ces histoires, vous en avez peut être entendu parler. On peut y voir un énième signe d'effondremment, ou une avarie des services de l'état. En étant très très de mauvaise foi (comme je le suis), on pourrait aussi y voir une opportunité de retour aux valeurs démocratiques antiques où chaque homme et femme politique était tout à la fois légiste, philosophe, soldat.e, policier.e.
