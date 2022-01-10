@@ -833,138 +833,138 @@ stopMining = function(){
 	}
 }
 
-shouldIFlash = function(_arg){
-	// we need to show the faces of members of the audience by lighting
-	// their faces with the computer screens.
-	myScore = instance.data.obj.scores.race2.find(str=>str.aiguebename===instance.aiguebename).score
-	imaSpacebarAthlete = myScore < race2Mean
+// shouldIFlash = function(_arg){
+// 	// we need to show the faces of members of the audience by lighting
+// 	// their faces with the computer screens.
+// 	myScore = instance.data.obj.scores.race2.find(str=>str.aiguebename===instance.aiguebename).score
+// 	imaSpacebarAthlete = myScore < race2Mean
 
-	switch(_arg){
-		case  "1" || 1 :
-		// light both pools
-		// just check mean and my score. If i'm under, flash red.
-		// if i'm over, flash lime.
-		if (imaSpacebarAthlete) {
-			flashLight("red")
-		}else{
-			flashLight("lime")
-		}
+// 	switch(_arg){
+// 		case  "1" || 1 :
+// 		// light both pools
+// 		// just check mean and my score. If i'm under, flash red.
+// 		// if i'm over, flash lime.
+// 		if (imaSpacebarAthlete) {
+// 			flashLight("red")
+// 		}else{
+// 			flashLight("lime")
+// 		}
 
-		break;
-		case  "2" || 2 :
-		// light one pool : sa
-		// just check mean and my score. If i'm under, flash red.
-		if (imaSpacebarAthlete) {
-			flashLight("red")
-		}else{
-			flashLight("black")
-		}
-		break;
-		case  "3" || 3 :
-		// light one pool : ts
-		// just check mean and my score. If i'm over, flash lime.
-		if (imaSpacebarAthlete) {
-			flashLight("black")
-		}else{
-			flashLight("lime")
-		}
+// 		break;
+// 		case  "2" || 2 :
+// 		// light one pool : sa
+// 		// just check mean and my score. If i'm under, flash red.
+// 		if (imaSpacebarAthlete) {
+// 			flashLight("red")
+// 		}else{
+// 			flashLight("black")
+// 		}
+// 		break;
+// 		case  "3" || 3 :
+// 		// light one pool : ts
+// 		// just check mean and my score. If i'm over, flash lime.
+// 		if (imaSpacebarAthlete) {
+// 			flashLight("black")
+// 		}else{
+// 			flashLight("lime")
+// 		}
 
-		break;
-		case  "4" || 4 :
-		// light the winner of sa
-		// check my score of pool race 3, am i the best?
+// 		break;
+// 		case  "4" || 4 :
+// 		// light the winner of sa
+// 		// check my score of pool race 3, am i the best?
 
-		if (!imaSpacebarAthlete) {
-			flashLight("black")
-			return
-		}
+// 		if (!imaSpacebarAthlete) {
+// 			flashLight("black")
+// 			return
+// 		}
 
-		topScore = instance.data.obj.scores.race3[0].score
-		myScore = instance.data.obj.scores.race3.find(str=>str.aiguebename===instance.aiguebename).score
+// 		topScore = instance.data.obj.scores.race3[0].score
+// 		myScore = instance.data.obj.scores.race3.find(str=>str.aiguebename===instance.aiguebename).score
 
-		if (imaSpacebarAthlete && myScore == topScore) {
-			flashLight("red")
-		}
+// 		if (imaSpacebarAthlete && myScore == topScore) {
+// 			flashLight("red")
+// 		}
 
-		break;
-		case  "5" || 5 :
-		// light the 2nd of sa
-		// check my score of pool race 3, am i second best?
+// 		break;
+// 		case  "5" || 5 :
+// 		// light the 2nd of sa
+// 		// check my score of pool race 3, am i second best?
 
-		if (instance.data.obj.scores.race3[1]!=undefined) {
-			const second = instance.data.obj.scores.race3[1].score
+// 		if (instance.data.obj.scores.race3[1]!=undefined) {
+// 			const second = instance.data.obj.scores.race3[1].score
 
-			if (imaSpacebarAthlete && myScore == second) {
-				flashLight("red")
-			}else{
-				flashLight("black")
-			}
-		}else{
-			console.log("There is only one spacebar athlete! or zero even.")
-		}
+// 			if (imaSpacebarAthlete && myScore == second) {
+// 				flashLight("red")
+// 			}else{
+// 				flashLight("black")
+// 			}
+// 		}else{
+// 			console.log("There is only one spacebar athlete! or zero even.")
+// 		}
 
-		break;
-		case  "6" || 6 :
-		// light the 3rd of sa
-		// check my score of pool race 3, am i third best?
+// 		break;
+// 		case  "6" || 6 :
+// 		// light the 3rd of sa
+// 		// check my score of pool race 3, am i third best?
 
-		if (instance.data.obj.scores.race3[1]!=undefined) {
-			const third = instance.data.obj.scores.race3[2]?.score
-			if (imaSpacebarAthlete && myScore == third) {
-				flashLight("red")
-			}else{
-				flashLight("black")
-			}
-		}else{
-			console.log("There is only one spacebar athlete! or zero even.")
-		}
+// 		if (instance.data.obj.scores.race3[1]!=undefined) {
+// 			const third = instance.data.obj.scores.race3[2]?.score
+// 			if (imaSpacebarAthlete && myScore == third) {
+// 				flashLight("red")
+// 			}else{
+// 				flashLight("black")
+// 			}
+// 		}else{
+// 			console.log("There is only one spacebar athlete! or zero even.")
+// 		}
 
-		break;
-		case "7" || 7 :
-		// light the last of ts
-		// check my score of pool race 4, am i the last one?
-		const lowScore = instance.data.obj.scores.race4[(instance.data.obj.scoresrace4.length)-1].score
-		myScore = instance.data.obj.scores.race4.find(str=>str.aiguebename===instance.aiguebename).score
+// 		break;
+// 		case "7" || 7 :
+// 		// light the last of ts
+// 		// check my score of pool race 4, am i the last one?
+// 		const lowScore = instance.data.obj.scores.race4[(instance.data.obj.scoresrace4.length)-1].score
+// 		myScore = instance.data.obj.scores.race4.find(str=>str.aiguebename===instance.aiguebename).score
 
-		if (!imaSpacebarAthlete && myScore == lowScore) {
-			flashLight("lime")
-		}else{
-			flashLight("black")
-		}
+// 		if (!imaSpacebarAthlete && myScore == lowScore) {
+// 			flashLight("lime")
+// 		}else{
+// 			flashLight("black")
+// 		}
 
-		break;
-		case "8" || 8 :
-		// light the 1st of ts
-		// check my score of pool race 4, am i the best?
-		const topScoreTS = instance.data.obj.scores.race4[0].score
+// 		break;
+// 		case "8" || 8 :
+// 		// light the 1st of ts
+// 		// check my score of pool race 4, am i the best?
+// 		const topScoreTS = instance.data.obj.scores.race4[0].score
 
-		if (!imaSpacebarAthlete && myScore == topScoreTS) {
-			flashLight("lime")
-		}else{
-			flashLight("black")
-		}
+// 		if (!imaSpacebarAthlete && myScore == topScoreTS) {
+// 			flashLight("lime")
+// 		}else{
+// 			flashLight("black")
+// 		}
 
-		break;
-		case  "9" || 9 :
-		// light the reste of the ts!
-		// am i part of the team sieste? If that's the case, check
-		// my position in the array and either return (if i was first or last)
-		// or launch
-		if (instance.data.obj.scores.race4!=undefined) {
-			factor = instance.data.obj.scores.race4.indexOf(myScore)
+// 		break;
+// 		case  "9" || 9 :
+// 		// light the reste of the ts!
+// 		// am i part of the team sieste? If that's the case, check
+// 		// my position in the array and either return (if i was first or last)
+// 		// or launch
+// 		if (instance.data.obj.scores.race4!=undefined) {
+// 			factor = instance.data.obj.scores.race4.indexOf(myScore)
 
-			if (!imaSpacebarAthlete && myScore != lowScore && myScore != topScoreTS) {
-				setTimeout(function(){
-					flashLight("red")
-				},factor*3000)
-			}
-		}else{
-			console.log("well, there's only one team sieste ppl!")
-		}
+// 			if (!imaSpacebarAthlete && myScore != lowScore && myScore != topScoreTS) {
+// 				setTimeout(function(){
+// 					flashLight("red")
+// 				},factor*3000)
+// 			}
+// 		}else{
+// 			console.log("well, there's only one team sieste ppl!")
+// 		}
 
-		break;
-	}
-}
+// 		break;
+// 	}
+// }
 
 flashLight = function(color){
 	console.log("flashing the shit out of this")
