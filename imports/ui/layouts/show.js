@@ -202,8 +202,23 @@ Template.show.onRendered(function(){
 		}
 
 		if(event.keyCode==65){
-			// &
+			// A
 			Meteor.call("showServerCall", false, environment, false)
+		}
+
+		if(event.keyCode==90){
+			// Z
+			clap()
+		}
+
+		if(event.keyCode==69){
+			// E
+			clap()
+		}
+
+		if(event.keyCode==82){
+			// R
+			clap("vuvuzela")
 		}
 	}
 
@@ -271,5 +286,30 @@ switchToReaderAndResetRunners = function(){
 			allRunners[i].style.left="0%";
 		}
 	},3000)
+
+}
+
+clap = function(vuvuzela){
+
+	if (vuvuzela) {
+		var myAudio = new Audio("/sounds/horn2.mp3");
+		myAudio.play();
+		return
+	}
+
+	allAudio = []
+
+	// double claps
+	for(i=0; i<6; i++){
+		allAudio[i] = "/sounds/handclap"+(i+5)+".mp3"
+	}
+
+	// single claps
+	// for(i=0; i<4; i++){
+	// 	allAudio[i] = "/sounds/handclap"+(i+1)+".mp3"
+	// }
+
+	var myAudio = new Audio(allAudio[Math.floor(Math.random()*allAudio.length)]);
+	myAudio.play();
 
 }
