@@ -1,5 +1,5 @@
 ping
-Si vous avez envie de faire des éxperiences avec ping une fois renté.e chez vous (ou maintenant même), vous pouvez tout à fait essayer de pinger des sites web. Vous pouvez essayer les commandes suivantes : ping baidu.com / ping google.jp / ping google.fr / ping data.gouv.fr / ping 127.0.0.1 .Essayez d'entrer l'adresse IP que vous avez obtenu dans un navigateur web, comme on l'a fait au début de la performance. Qu'est ce que l'on constate?
+Si vous avez envie de faire des éxperiences avec ping une fois renté.e chez vous (ou maintenant même), vous pouvez essayer de pinger des sites web. C'est exactement la même démarche que ce qu'on a fait tout à l'heure : en théorie (un des) ordinateur(s) sur lesquels le site est hébergé vous répondra. Essayez de pinger un site hébergé sur un autre continent (comme par exemple, baidu.com). Que constatez vous? (en principe, s'il n'a a pas de problèmes de connection ou de routage, la vitesse de la lumière limite tout de même la vitesse à laquelle l'autre ordinateur vous répondra. Parler à un ordinateur à l'autre bout du monde peut prendre aux alentours de 200, 300 ms.) Essayez d'entrer l'adresse IP que vous avez obtenu dans un navigateur web, comme on l'a fait au début de la performance. Qu'est ce que l'on constate?
 "it's bad etiquette to ping 8.8.8.8"
 Anonyme, reddit/sysadmin
 
