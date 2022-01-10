@@ -206,20 +206,20 @@ Template.show.onRendered(function(){
 			Meteor.call("showServerCall", false, environment, false)
 		}
 
-		if(event.keyCode==90){
-			// Z
-			clap()
-		}
+		// if(event.keyCode==90){
+		// 	// Z
+		// 	clap()
+		// }
 
-		if(event.keyCode==69){
-			// E
-			clap()
-		}
+		// if(event.keyCode==69){
+		// 	// E
+		// 	clap()
+		// }
 
-		if(event.keyCode==82){
-			// R
-			clap("vuvuzela")
-		}
+		// if(event.keyCode==82){
+		// 	// R
+		// 	clap("vuvuzela")
+		// }
 	}
 
 	document.onkeydown = function(event){
