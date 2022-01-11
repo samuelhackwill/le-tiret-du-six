@@ -8,32 +8,33 @@ import './wordsBank.css';
 
 
 Template.wordsBank.onCreated(function(){
-	Session.set("wereAllWordsHarvested", false)
+	Session.set("harvest", [])
 });
 
 
 Template.wordsBank.helpers({
 	getCollectedWords:function(){
-		// we need to get all the words that were harvested by that player so
-		// we can display them in the word cabinet.
+		// we need to get all the words that were harvested by the
+		// group, but also underline the words that were harvested by
+		// the active player.
 
-		if(Session.get("wereAllWordsHarvested")){
-			harvest = []
-			allWords = instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
-			for (var i = allWords.length - 1; i >= 0; i--) {
-				harvest.push(allWords[i].name)
-			}
-			return harvest
+		// if(Session.get("wereAllWordsHarvested")){
+			// harvest = []
+			// allWords = instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
+			// for (var i = Session.get("harvest").length - 1; i >= 0; i--) {
+			// 	harvest.push(allWords[i].name)
+			// }
+			return Session.get("harvest")
 			
-		}else{
-		let allPlayers = this.obj.players.collection.findOne({env: environment})?.players
-		let player = allPlayers?.find(str=>str.aiguebename===instance.aiguebename)
-		let harvest = player?.score?.harvest
+		// }else{
+		// let allPlayers = this.obj.players.collection.findOne({env: environment})?.players
+		// let player = allPlayers?.find(str=>str.aiguebename===instance.aiguebename)
+		// let harvest = player?.score?.harvest
 
-		console.log(harvest)
+		// console.log(harvest)
 
-		return harvest
-		}
+		// return harvest
+		// }
 	},
 
 	miningStatus:function(){
@@ -69,7 +70,7 @@ Template.wordsBank.events({
 	'click .words ul li'(t){
 		console.log(t)
 		for (var i = t.currentTarget.parentNode.children.length - 1; i >= 0; i--) {
-			t.currentTarget.parentNode.children[i].children[0].className = ""
+			t.currentTarget.parentNode.children[i].children[0].classList.remove("is-active")
 		}
 
 		t.target.classList.add("is-active")

@@ -131,6 +131,9 @@
 }
 .words ul li a.is-active {
   color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+  text-decoration-style: double;
 }
 .words ul li a:hover {
   color: #FFFF00;
@@ -146,6 +149,7 @@
 	scrollbar-width: thin;
 }
 .wordTitle {
+  text-indent: 40px;
   font-family: 'Avara_Bold Italic';
   font-weight: bold;
   font-style: italic;
@@ -197,4 +201,12 @@
 }
 #wordsCountPlayer {
   color: #FFFF00;
+}
+
+.myWords{
+  color: red !important;
+}
+
+.myWords{
+  
 }

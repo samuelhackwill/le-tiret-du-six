@@ -13,7 +13,7 @@
       <div class="words">
         <ul>
           {{#each getCollectedWords}}
-            <li><a data-word-id="@index">{{this}}</a></li>
+            <li><a data-word-id="@index" class={{this.mine}}>{{this.word}}</a></li>
           {{/each}}
         </ul>
       </div>

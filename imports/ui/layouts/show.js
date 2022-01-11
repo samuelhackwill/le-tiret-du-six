@@ -52,10 +52,23 @@ streamer.on('message', function(message) {
 			break;
 
 			case "harvestWord":
+
+			console.log("HARVESTED ", message)
+			_harvest = Session.get("harvest")
+
 			if (message.aiguebename == instance.aiguebename) {
 				console.log("wouhouuu you've got a new word!")
 				$('.toggleWordsBank').css("color", "grey");
+				_harvest.push({word: message.word, mine:"myWords"})
+
+			}else{
+
+				_harvest.push({word: message.word, mine:"notMyWords"})
+			
 			}
+
+			Session.set("harvest", _harvest)
+
 			break;
 
 			case "adminSpacebarPress":
@@ -205,6 +218,8 @@ Template.show.onRendered(function(){
 			// A
 			Meteor.call("showServerCall", false, environment, false)
 		}
+
+		// clap claps
 
 		// if(event.keyCode==90){
 		// 	// Z
