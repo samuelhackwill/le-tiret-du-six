@@ -199,8 +199,12 @@
   font-style: italic;
 
 }
-#wordsCountPlayer {
+#wordsCountLeft {
   color: #FFFF00;
+}
+
+#wordsCountPlayer {
+  color: red;
 }
 
 .myWords{

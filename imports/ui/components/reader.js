@@ -7,9 +7,12 @@ import { Session } from 'meteor/session';
 import './reader.html';
 import './reader.css';
 
+// number of words converted during the mining game
+Session.get("toCollect", 0)
+
 // this is the number of clicks someone has to do on a letter
 // to harvest it during the mining game.
-const maxHP = 10
+const maxHP = 100
 
 // aiguebenames are attributed in sequence : the first client to load
 // will always be "Michèle Planche", and the second "Julien Montfalcon".
@@ -681,6 +684,7 @@ startMining = function(){
 
 	const _wordsCollection = this.instance.data.obj.words.collection.find({env:environment}).fetch()[0].data
 	let _words = []
+	let _toCollect = 0
 
 	for (var i = _wordsCollection.length - 1; i >= 0; i--) {
 		// we musn't look for words that have been collected already.
@@ -754,9 +758,15 @@ startMining = function(){
 				// so that we only have one copy of every clickable
 				// word.
 				_words.splice(z, 1)
+
+			// also increment the number of collectable words present 
+			_toCollect = _toCollect + 1
 			}
 		}
 	}
+
+	// this is the local number of minable words displayed on one's screen.
+	Session.set("toCollect", _toCollect)
 }
 
 killLetter = function(letterId, local, lastLetter, killer){
@@ -769,19 +779,19 @@ killLetter = function(letterId, local, lastLetter, killer){
 	_word = _params[1]
 	_letter = _params[2]
 
-	document.getElementById(letterId).classList.remove("letter")
-	document.getElementById(letterId).classList.add("collectedLetter")
+	document.getElementById(letterId)?.classList.remove("letter")
+	document.getElementById(letterId)?.classList.add("collectedLetter")
 
 	console.log("killer?", killer)
 
 
 	if (lastLetter) {
 		console.log("HARVESTING WORD")
-		for (var i = document.getElementById(letterId).parentNode.children.length - 1; i >= 0; i--) {
-			document.getElementById(letterId).parentNode.children[i].classList.remove("collectedLetter")
+		for (var i = document.getElementById(letterId)?.parentNode.children.length - 1; i >= 0; i--) {
+			document.getElementById(letterId)?.parentNode.children[i].classList.remove("collectedLetter")
 		}
-		document.getElementById(letterId).parentNode.classList.remove("minable")
-		document.getElementById(letterId).parentNode.classList.add("collectedWord")
+		document.getElementById(letterId)?.parentNode.classList.remove("minable")
+		document.getElementById(letterId)?.parentNode.classList.add("collectedWord")
 
 		if (killer==instance.aiguebename) {
 		// lastLetter & local are never true at the same time, because
@@ -1066,7 +1076,6 @@ letterBounce = function(id, hit){
 }
 
 showRemainingHp = function(coords, hp){
-	console.log(coords, hp)
 	let hpCount = document.createElement("div")
 	hpCount.classList.add("hpCount")
 	hpCount.innerHTML = hp
