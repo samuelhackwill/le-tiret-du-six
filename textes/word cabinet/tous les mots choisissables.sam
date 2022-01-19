@@ -1,6 +1,6 @@
 ping
 Si vous avez envie de faire des éxperiences avec ping une fois renté.e chez vous (ou maintenant même), vous pouvez essayer de pinger des sites web. C'est exactement la même démarche que ce qu'on a fait tout à l'heure : en théorie (un des) ordinateur(s) sur lesquels le site est hébergé vous répondra. Essayez de pinger un site hébergé sur un autre continent (comme par exemple, baidu.com). Que constatez vous? (en principe, s'il n'a a pas de problèmes de connection ou de routage, la vitesse de la lumière limite tout de même la vitesse à laquelle l'autre ordinateur vous répondra. Parler à un ordinateur à l'autre bout du monde peut prendre aux alentours de 200, 300 ms.) Essayez d'entrer l'adresse IP que vous avez obtenu dans un navigateur web, comme on l'a fait au début de la performance. Qu'est ce que l'on constate?
-"it's bad etiquette to ping 8.8.8.8"
+it's bad etiquette to ping 8.8.8.8
 Anonyme, reddit/sysadmin
 
 heure
@@ -15,7 +15,7 @@ Henri Vincenot, Les voyages du professeur Lorgnon
 
 noyez
 on disait tout à l'heure que "ping" était un programme d'environ 1000 lignes. Ça peut sembler beaucoup mais si on compare par exemple avec le tas de boue que j'ai écrit et qui fait fonctionner cette application web, on est plutôt aux alentours de 10 000 lignes de code. Le développeurs recherchent en général deux choses quand ils écrivent du code : qu'il soit lisible (on comprend qui fait quoi et où se trouvent les choses), et qu'il soit efficace (beaucoup d'effets avec peu de mots). Parfois ces deux standards sont en conflit l'un avec l'autre (écrire du code lisible nécessite d'utiliser plus de mots), mais en principe, plus un programme contient de texte, plus on est susceptible de s'y perdre.
-"what is this piece of MF rubbish even supposed to do?"
+what is this piece of MF rubbish even supposed to do?
 commentaire rageux de Samuel, depuis retiré du code de cette web app
 
 maire
@@ -30,17 +30,17 @@ Stargate SG-1, saison 1 épisode 16
 
 savoyard
 J'ai grandi dans l'avant-pays savoyard, qu'on appelle aussi parfois "bugey savoyard" ou "petit bugey". L'avant-pays ne ressemble pas à la savoie : ici point de montagnes et cols à 3000 mètres, seulement une chaine montagneuse (l'épine), qui ne fait d'ailleurs pas partie des Alpes, et des petites colines verdoyantes. C'est un décor assez doux à comparé aux paysages sublimes mais un peu inquiétants des parcs naturels alentour. Finalement on est pas mal dans l'avant-pays : c'est pas nous qui avons vendus nos montagnes aux sports d'hiver, mais l'autoroute qui a été construite pour acheminer les cars de touristes dessert aussi la région (et pollue le lac).
-"drè dans l'pentu (droit dans la pente)"
+drè dans l'pentu (droit dans la pente)
 Pâtois savoyard
 
 WCs
 Déboucher un évier est l'alpha et l'oméga de la vie moderne, et sa dignité, dans la mesure où nous sommes entourés d'objets techniques et d'une infrastructure qui nous maintient en permance en vie, et évacue nos déchêts ; l'expérience de déboucher des évier est ce qu'il y a de plus vrai, et notre horizon moral le plus sûr. Simplement rendre aux éviers ce qu'ils nous donnent, on ne devrait prétendre à aucune autre ambition. Ces tuyaux ne sont-ils pas aussi nos tuyaux? Ces tuyaux ne font-ils pas un peu partie de nos corps?
-"excuse moi, mal au bide tu sais ce que ça veut dire?"
+excuse moi, mal au bide tu sais ce que ça veut dire?
 La classe américaine, Michel Hazanavicius
 
 economy
 Vous voulez connaître le budget du tiret du six? Allez c'est parti. Nous avons dépensé 40 000 euros en tout sur 4 ans. Ça vous semble énorme? Voici ce que coûte une semaine de travail pour 2 personnes payés plus au moins au taux horaire minimum : 2500 euros. La répartition des postes s'est fait comme ça : pour les salaires, 27 000 euros environ. Pour les achats de matériel, 5000 euros environ. Le reste, ce sont des rémunérations extérieures (d'autres salaires) et des frais annexes (transport, hébergement, nourriture).
-"My god [...] It's as if the *less money* they had, the more ambitious their project became"
+My god [...] It's as if the *less money* they had, the more ambitious their project became
 Kim Kitsuragi, in Disco Elysium, ZA/UM studio.
 
 visiteurs
@@ -50,121 +50,123 @@ Albert Camus
 
 bon
 La bonté est quelque chose de positif. C'est bien d'être gentil.le. Par exemple, crier sur un employé parce qu'il refuse de faire des heures supplémentaires, c'est pas bien. Mais crier sur quelqu'un parce qu'il vient de vous éternuer dessus par négligeance alors qu'il avait la grippe, est ce que c'est pas bien? Jusqu'où êtes-vous prêt.e à aller pour faire rêgner la bonté dans le monde?
-"j'ai du bon tabac dans ma tabatière, j'ai du bon tabac tu n'en auras pas." 
+j'ai du bon tabac dans ma tabatière, j'ai du bon tabac tu n'en auras pas.
 Chanson populaire Française
 
 je
 Qui parle quand je dis "je"? A priori, vous pouvez retrouver les crédits de la pièce quelque part où on dit qui c'est qui l'a fabriquée (spoiler, c'est moi). Mais faut-il s'arrêter à mon nom? Ou faut-il considérer que comme les cellules de mon corps ont été fabriquées à partir de toute la nourriture que j'ai consommé pendant la période de création, faut-il considérer que ce "je" désigne aussi 3 ans de légumes et de pain?
-"Mon corps, topie impitoyable" 
+Mon corps, topie impitoyable
 Michel Foucault
 
 pas
 Combien de pas avez-vous fait dans votre vie? En faites-vous seulement dix mille par jour, comme c'est préconisé par l'OMS? Je regrette mais vous ne serez pas invité.e à en faire (physiquement) durant cette performance, enfin si vous voulez vous rattraper sur le compte de la journée vous pouvez toujours rentrer à pied.
-"Ils ont juste senti que c’était un nombre qui indiquait un style de vie actif et devait être sain" 
+Ils ont juste senti que c’était un nombre qui indiquait un style de vie actif et devait être sain 
 David Basset à propos de l'OMS
 
 prévenu
 Je suis curieux de savoir qui vous a prévenu qu'il se passait ça ici aujourd'hui. Peut-être était-ce moi? Je ne me fais pas d'illusion ; je sais très bien qu'une large proportion du public de cette pièce sera constitué d'ami.e.s ou de collègues du milieu artistique, "d'insiders" tel.le que vous?
-"dernière sommation, on va faire usage de la boue"
+dernière sommation, on va faire usage de la boue
 camille, ZAD de Notre Dame des Landes
 
 mais
 A ma connaissance il n'existe pas de ligne de code dans le programme que vous êtes en train d'utiliser, signifiant "mais". Il y a des "si", il y a des "donc", il y a des "ou", il y a des "et" ; pas de mais néanmoins. Si vous avez miné ce mot, c'est certainement que vous êtes contre l'informatique et contre les ordinateurs en général.
-"Si, si la mer bouillait, il y aurait, comme on dit, bien des poissons de cuits" 
+Si, si la mer bouillait, il y aurait, comme on dit, bien des poissons de cuits 
 Denis Diderot
 
 en
 Pronom atone de la 3e personne. Le théâtre? J'en sors. Atone ça veut dire que contrairement à un pronom comme "moi", par exemple, il n'est pas accenté dans une phrase, on ne s'arrête pas dessus. C'est un petit mot discret et succint et même élégant on pourrait dire.
-"Il faut qu'ils en bavent; ils n'en baveront jamais assez" 
+Il faut qu'ils en bavent; ils n'en baveront jamais assez 
 Jean-Paul Sartre
 
 fait
 Quand on fait quelque chose, on ne fait pas toutes les autres choses, et souvent c'est même pour ça qu'on fait quelque chose (pour ne pas faire les autres choses).
-"bien fait = pas fait = mal fait" 
+bien fait = pas fait = mal fait 
 Robert Filliou
 
 vous
-Qui êtes vous?
-"j'en ai bavé pas vous"
+Qui êtes-vous?
+j'en ai bavé pas vous
 Serge Gainsbourg
 
 train
 c'est vrai que c'est cool les trains. Franchement, c'était le bon vieux temps où claquer de l'acier au sol et brûler un tas de charbon étaient vus sans ambiguité comme un progrès pour l'humanité. Est ce que c'est pour ça qu'on trouve tant de geeks de l'histoire ferroviaire et des trains en général? Soyez fier de votre côté vieille france, vous tenez quelque chose.
-"J'ai, lorsqu'il en était temps encore, lutté par la parole contre l'avènement du railway. On n'a tenu aucun compte de mes avertissements. J'ai donc l'honneur de vous informer que je combattrai par tous les moyens, les armes à la main. Sur tous les points du territoire, j'attaquerai, sans préavis, la voie ferrée, les convois et les gares, jusqu'à ce que l'attention des pouvoirs publics ait été ainsi attirée sur la précarité, la fragilité, l'inanité et la malfaisance de ce dérisoire et dangereux moyen de transport [...]" 
+J'ai, lorsqu'il en était temps encore, lutté par la parole contre l'avènement du railway. On n'a tenu aucun compte de mes avertissements. J'ai donc l'honneur de vous informer que je combattrai par tous les moyens, les armes à la main. Sur tous les points du territoire, j'attaquerai, sans préavis, la voie ferrée, les convois et les gares, jusqu'à ce que l'attention des pouvoirs publics ait été ainsi attirée sur la précarité, la fragilité, l'inanité et la malfaisance de ce dérisoire et dangereux moyen de transport [...] 
 Les chevaliers du chaudron, Henri Vincenot
 
 jouer
 Les théoricien.ne.s ont plusieurs manières de définir le jeu. Un certain nombre de définitions placent à leur centre le concept de "Meaningful choices", ce qu'on pourrait traduire par ("des décisions pourvues de sens"). Mais d'autres théoriciens préfèrent parler d'"illusion de choix", et puis en fait on peut trouver plein d'exemples de jeux qui ne se donnent même pas la peine de faire semblant que le joueur évolue ailleurs que dans la petite prison intellectuelle conçue par les game designers. Sans parler des jeux de hasard d'ailleurs (quoi qu'on puisse considérer que le fait de secouer énergiquement des dés dans sa paume avant de jeter le dé est un "meaningful choice").
-" a game is a system in which players engage in an artificial conflict, defined by rules, that results in a quantifiable outcome. "
+a game is a system in which players engage in an artificial conflict, defined by rules, that results in a quantifiable outcome.
 Eric Zimmerman
 
 un
 Il y a une grande différence entre concevoir un jeu pour une personne (single-player), et concevoir un jeu multijoueur. Quoi qu'il en soit, au sein même de la catégorie multijoueur, ça n'a rien à voir de faire un jeu pour 4 ou pour 30. Considérez comment les rêgles du tarot changent en ajoutant ou en soustrayant juste une personne au groupe de joueuses.joueurs.
-"se joue de 7 à 77 ans"
+se joue de 7 à 77 ans
 anonyme
 
 jeu
 Quand j'étais tout petit j'avais envie d'étudier le game design dans une école privée de Valenciennes, supinfogame (coût de l'année : 9000 euros environ). Mes parents ont sans doute poussé un soupir audible plusieurs kilomètres à la ronde quand j'ai décidé d'aller plutôt aux beaux-arts (coût de l'année : 400 euros environ), où l'enjeu semblait moins de former des personnes-outils pour faire fonctionner l'industrie culturelle. Je ne regrette absolument pas mon choix, mais me voilà à essayer de faire un jeu vidéo sans savoir comment faire, ce qui a aussi pour conséquence que vous n'êtes pas en train de personnaliser la forme des sourcils d'un personnage en 3D comme c'est proposé d'habitude aux joueurs.joueuses de jeux modernes.
-"La vie est lente et l'homme ne sait guère la jouer." 
+La vie est lente et l'homme ne sait guère la jouer. 
 André Breton
 
 dénommé
 J'ai hésité avant d'appeller cette pièce "le tiret du six". D'autres titres qui étaient en lice : "Bureaucraft" (c'est une référence à un jeu vidéo "Starcraft"), "les forêts peuvent muter", "LAN", "Dominique Sommeveille".
-"that's not my name"
+that's not my name
 The ting tings
 
 contre
 Mon ami Régis jouait à Dofus et a fait une fois s'éffondrer l'économie d'un des serveurs du jeu. Mécontent que les boulangers de son serveur vendaient le pain trop cher, il décida en représailles de passer sa nuit à acheter toutes les céréales disponibles au prix fort, privant les autres boulangers de leur approvisionnement. Il profita ensuite de son monopole pour vendre son propre pain à un prix usurier. Il fut dénoncé aux modérateurs du jeu, mais ne fut pas puni et passa une bonne semaine à ricaner devant son ordinateur.
-"Nous ne savons renoncer à rien. Nous ne savons qu’échanger une chose contre une autre" 
+Nous ne savons renoncer à rien. Nous ne savons qu’échanger une chose contre une autre 
 Sigmund Freud
 
 à
 à est une préposition, a est un verbe conjugué. Pour ce qui me concerne, j'en suis encore rendu à dire tout haut dans ma tête "avait?" pour vérifier si j'ai le droit d'écrire ce mot comme je veux, avec ou sans accent.
-"c'est pas ma faute à moi" 
+c'est pas ma faute à moi
 Alizée Jacotey
 
 ouvert.
 Nous avons écrit le code informatique du tiret du six juchés sur les épaules d'un nombre incalculable de développeurs.développeuses ayant publié gratuitement leur travail sur internet. C'est ce qu'on appelle la culture de "l'open source" : non seulement on ne cache pas ses recettes de cuisine, mais on cuisine avec toujours en tête l'objectif que ces recettes soient comprises et puissent être réutilisées par d'autres. Bon c'est à distinguer du "librisme" mais ça si vous voulez en parler je vous invite à venir me voir à la fin.
-"L'acte fondamental d'amitié entre développeurs.euses est de partager ses programmes avec toutes.tous" (Richard Stallman, the GNU manifesto)
+L'acte fondamental d'amitié entre développeurs.euses est de partager ses programmes avec toutes.tous 
+Richard Stallman, the GNU manifesto
 
 Elle
 L'héroïne de cette histoire. Tout le monde la connaît, on la désigne avec dégoût ou la voix tremblante de crainte. C'est elle qui gagne pour le moment.
-"Pour un blessé que nous soignons par hasard, pour un enfant à qui nous donnons à manger, la guerre infatiguable en fait par centaines, elle, et tous les jours, des blessés, des malades et des abandonnés" (Charles Péguy)
+Pour un blessé que nous soignons par hasard, pour un enfant à qui nous donnons à manger, la guerre infatiguable en fait par centaines, elle, et tous les jours, des blessés, des malades et des abandonnés 
+Charles Péguy
 
 et
 c'est une conjonction dite copulative.
-"les mille et unes nuits"
+les mille et unes nuits
 AA. VV.
 
 voulais
 On pourrait aussi jouer au jeu de : "quels mots sont de droite et quels mots sont de gauche". Vouloir, en tant que mot, clairement, se situerait plutôt à droite de l'échiquier politique, comme un défi adressé à toutes les sciences sociales, à la psychanalyse, etc. Quand on veut, on peut, qu'on vous dit.
-"pouvoir, c'est vouloir" 
+pouvoir, c'est vouloir
 Amel Boukhatem
 
 offrir
 Quand quelqu'un.e refuse d'accepter le cadeau d'une autre personne, qui est fou? Le récipient, qui se trompe sur le geste en n'y voyant que du bluff et la volonté d'obliger? Ou est-ce plutôt la personne qui donne, se méprenant peut-être sur ses intentions et se rendant de toutes façons coupable de légèreté? 
-"donner c'est donner, reprendre c'est voler"
+donner c'est donner, reprendre c'est voler
 anonyme
 
 choisir
 Une des particularités des jeux, par rapport à d'autres medias, c'est qu'on nous donne une certaine liberté d'action ; on peut choisir de passer par la grande porte ou d'escalader un mur par exemple. Néanmoins il ne faudrait pas se voiler la face sur le fait que ce n'est qu'une illusion de choix, vous êtes bien placé.e pour le savoir.
-"The medium is the message" 
+The medium is the message
 Marshall Mc Luhan
 
 préférez
 Thé ou Café? Ville ou Campagne? Nature ou Culture? Propriétaire ou anticapitaliste? Voleur ou volé? Fromage ou dessert?
-"tu préfèrerais avoir des bras en mousse ou des dents en carton?"
+tu préfèrerais avoir des bras en mousse ou des dents en carton?
 anonyme
 
 Ou
 Contrairement à la plupart des autres mots dans cette mine à ciel ouvert, celui-ci pourrait quasiment être issu directement du code de ce site web, puisque "ou" est une expression utilisée de manière commune en informatique. On peut aussi l'écrire ||. "e = e || window.event" est une ligne de code de ce site, où j'assigne la valeur "window.event" à la variable "e", sauf si la variable "e" est égale à autre chose que "0", "undefined", "null", "NaN", "", ou "false" (c'est ce qu'on appelle une évaluation en court-circuit).
-"je code avec le cul"
+je code avec le cul
 l'ermite moderne
 
 
 plutôt
 A vrai dire, la seule raison pour laquelle j'ai opté pour cette politique du "premier arrivé, premier servi" pour cette séquence est que ça allait plus vite pour écrire le code. Mais on aurait très bien pu imaginer un système où chaque joueur aurait donné une estimation de son envie d'avoir un mot, de faire des choix hierarchisés, de négocier avec ses partenaires de jeu, etc.
-"a good compromise leaves everyone mad" 
+a good compromise leaves everyone mad 
 Calvin, dans Calvin & Hobbes, Bill Waterson
 
 que
@@ -174,26 +176,26 @@ Arnaud Hoedt et Jérôme Piron, la Convivialité
 
 aimeriez
 Ceux qui pensent que les réseaux informatiques ne sont qu'une froide affaire de technique se trompent. Depuis le début, il ne s'est bien sûr s'agi que d'amour, du cri déséspéré de machines d'un bout à l'autre de l'océan Atlantique.	
-"J'ai besoin d'un rendez-vous, j'ai besoin d'un rendez-vous" 
+J'ai besoin d'un rendez-vous, j'ai besoin d'un rendez-vous 
 Kraftwerk, computer liebe
 
 avoir
 Le fameux auxillière avoir, cela peut être vous le temps d'une soirée. Il ne vous reste plus qu'à vous trouver un bon petit verbe d'état.
-"Si j'aurais su"
+Si j'aurais su
 anonyme
 
 mot
 Quand j'ai commencé à travailler sur le tiret du six je me suis interdit d'utiliser les matériaux et le vocabulaire du jeu vidéo, notamment parce que je voulais pas faire peur aux néophytes avec du pixel-art ou je sais pas quoi. Je me suis dit : utilisons les matériaux du théâtre : les mots. Mais euh dans la séquence qui arrive je suis un peu parti en live vous allez voir.
-"réconcillier World of Warcraft et le Scrabble"
+réconcillier World of Warcraft et le Scrabble
 Samuel
 
 qui
 S'il est relativement complexe d'utiliser internet de manière anonyme, certaines techniques apportent quand même une protection partielle. Par exemple, on encourage les contributeurs de wikipedia à utiliser un pseudonyme plutôt que leur vrai nom ; même si cela ne garantit pas que quelqu'un.e de motivé ne puisse retrouver votre trace (en analysant vos tics de langage par exemple, ou en utilisant des méthodes plus techniques), cela apporte tout de même un certain niveau de protection : le pseudonymat.
-"Cui Bono?" 'A qui cela profite-t-il?'
+Cui Bono? A qui cela profite-t-il?
 Lucius Cassius Longinus Ravilla
 
 
 représenter
 Durant mes études à l'ecole d'art de saint-étienne, j'ai représenté les étudiant.e.s deux années de suite aux conseils d'administration de l'établissement. Un professeur qui y participait également m'avait dit un jour que le directeur de l'école & des services culturels de la ville préparaient les réunions avant et qu'ils s'assuraient d'avoir une majorité avant de nous faire voter ; le seul pouvoir qui nous était échu était celui de la contestation, mais pas celui d'infléchir les décisions.
-"- client d'IKEA : j'aimerais parler au manager. - employé d'IKEA : Et moi j'aimerais parler à vos parents."
+- client d'IKEA : j'aimerais parler au manager. - employé d'IKEA : Et moi j'aimerais parler à vos parents.
 Scott Seiss
