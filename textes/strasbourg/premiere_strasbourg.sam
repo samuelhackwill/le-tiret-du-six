@@ -1164,7 +1164,7 @@ soit : les jeunes en général.
 
 avant, la plage de l***, c’était une ambiance familiale, alors qu’aujourd’hui on est envahis de bandes de jeunes. 
 
-vous êtes étonné de la haine que le gérant de la plage ressent contre des jeunes, lui qui, on le rappelle, était encore hier entouré d’adolescents en boite de nuit à C***.
+vous êtes étonné de la haine que le gérant de la plage ressent spécifiquement contre les bandes de jeunes. Mais de quoi s'agit-il au juste?
 #answer ah, ces sales jeunes!
 #act #goto silo.questions.degradations.qui.saljeunes
 #answer ah, ces sales cités!
