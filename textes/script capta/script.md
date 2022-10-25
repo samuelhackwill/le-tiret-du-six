@@ -1,13 +1,13 @@
 Script capta trailer du six
 
 
-// cadre : soit la salle avec la scéno, soit un fond noir, hu? Il y a une chaise pour que samuel puisse s’asseoir. C’est un plan très large pour qu’on puisse voir samuel arriver en marchant.
+// cadre : la salle avec la scéno et tout, pleine lumière. C’est un plan très large pour qu’on puisse voir samuel arriver en marchant.
 
 
 // samuel entre par la gauche. C’est en fait un montage fait avec un fond vert : c’est une boucle teubée où il fait semblant de marcher. C’est pas bien fait mais ça a le droit d’être propre visuellement parlant.
 
 
-// il s’asseoit.
+// il s’asseoit à une table vide.
 
 
 Samuel - Bonjour. Je m’appelle Samuel Hackwill. Je vais vous raconter le tiret du six, une performance multijoueuse auto activée pour 30 ordinateurs que j’ai écrite en 2021.
@@ -150,3 +150,105 @@ Samuel - c’est une adresse IPv4, c’est une façon d’identifier un ordinate
 
 
 // on copie l’adresse IP en la surlignant et en faisant clic droit copier, puis on ouvre un navigateur web et on clic droit colle dans la barre d’adresse
+
+
+Samuel (VOIX OFF) - on arrive sur une application web que j’ai écrite et sur laquelle se déroule la suite de la performance.
+
+
+// là petite subtilité, on a en fait pas copié collé les mêmes chiffres dans la vidéo, puisque on veut voir à quoi ressemble le vrai site du tiret du six. (Donc on a ping le.tiretdusix.art pour l’exemple, c’est la bonne IP qui est montrée dans la vidéo, mais par contre on colle l’IP de tds-vault dans le navigateur.
+
+
+Samuel - alors en réalité, si vous avez tenté de reproduire exactement la manipulation là en suivant les instructions de cette vidéo, vous allez tomber sur un autre site (ce site, c’est le flyer officiel du tiret du six), parce qu’en fait l’application web du tiret du six n’est accessible que pendant la performance, en réseau local. L’application n’est pas sur le web. On ne peut jouer au tiret du six que quand tout le monde est réuni dans une salle et que j’ai amené mon serveur dans ma valise.
+
+
+// éventuellement un insert où je fais un geste désinvolte avec mon mac mini dans la main
+
+
+C’est le principe de la LAN party*, qui est  l’inspiration de cette performance.
+
+
+Sous titre, un poil trop rapidement pour être lu - LAN PARTY : plein d’adolescents dans un gymnase avec leurs ordinateurs pendant 48h non stop.
+
+
+// cut, on voit la salle avec tous les samuels, et samuel qui se ballade dans la salle pour vérifier que tout va bien. Des samuels se demandent de l’aide, un couple de samuel lève la main pour montrer qu’il est en galère. Plan panoramique?
+
+
+Samuel (VOIX OFF) - pendant cette séquence, qui se déroule encore en pleine lumière, on encourage à l’entraide, et on se ballade dans la salle pour débloquer les personnes qui pourraient être en difficulté. Nous ne passons pas à la séquence suivante tant qu’on est pas sûr que tout le monde y est arrivé. Pour vérifier que tout fonctionne à l’échelle de la salle, on a développé un système relativement simple : mon avatar interpelle le public, table par table : 
+
+
+// cut, on voit samuel le robot qui dit « j’appelle la commune d’Aiguebelette, gnagnagna » 
+
+
+Samuel (VOIX OFF) - et pis en fait les ordinateurs d’une même table ont tous en fond d’écran une image du panneau d’entrée de village d’une commune de l’avant-pays savoyard.
+
+
+// là on fait un plan général sur une table, puis plein de plans rapides des différents ordinateurs avec leurs fonds d’écran Aiguebelette.
+
+
+Les Samuels d’Aiguebelette - Oui ! (Un autre samuels : « ça va! »)
+
+
+Samuel - Quand tout le monde a donné sa confirmation, ou qu’on a réglé les derniers bugs, la deuxième partie de la performance débute.
+
+
+// la lumière descend à presque 0, puis fondu à l’interface de la web app. On affiche le texte suivant, avec le bruit de la barre espace à chaque nouvelle ligne
+
+
+(TEXTE) - à partir de ce moment,
+
+
+(TEXTE) - les joueuses et joueurs lisent du texte sur leur écran d’ordinateur.
+
+
+(TEXTE) - c’est le même texte pour tout le monde,
+
+
+(TEXTE) - et il s’affiche pour tout le monde en même temps.
+
+
+(TEXTE) - parce qu’en fait le bruit que vous entendez là
+
+
+(TEXTE) - c’est moi qui tape sur la barre espace de mon clavier,
+
+
+// au prochain « TAP » on cut et on montre mon doigt prêt à appuyer sur la barre espace de mon clavier, et puis au prochain « TAP » on revient à l’interface et la prochaine ligne :
+
+
+(TEXTE) - le plus fort possible pour que tout le monde entende bien,
+
+
+(TEXTE) - que c’est moi qui contrôle le défilement du texte.
+
+
+(TEXTE) - le texte, c’est ça :
+
+
+// fondu à une interface qui montre tout le texte apparaissant en accéléré jusqu’à l’autonomisation. Peut être en écran scindés comme ça on peut continuer à parler aux gens avec du texte
+
+
+(TEXTE) - en gros c’est une description à tendance facétieuse de la situation technique et artistique. J’explique que c’est moi qui appuie sur la barre espace pour faire défiler le texte, comment ça marche, qu’est ce que ça provoque comme situation d'énonciation.
+
+
+// cut, de retour avec tonton samuel brièvement
+
+Samuel - et là il se passe un truc important
+
+// cut, retour au plan précédent, puis zoom sur la dernière phrase « vous pouvez appuyer sur la barre espace s’il vous plaît », puis sur un plan ou je croise les bras ou quoi, puis sur la salle de samuels qui se mettent à taper sur la barre espace tentatively
+
+Samuel (VOIX OFF) - c'est que je donne la possibilité au public de contrôler individuellement le défilement du texte sur chaque ordinateur. Le but, c'est que tout le monde puisse lire à son rythme. Le texte de l'acte II, c'est ça :
+
+// idem écran scindés? avec du texte qui défile super-vite sur le côté droit, jusqu'à avant la première phrase qui nous propose de répondre.
+
+Samuel (VOIX OFF) - en gros c'est une digression sauvage qui passe par une description métaphorique du fonctionnement d'internet, un calligramme représentant mon nez, une histoire d'incendie de datacentre, et une observation sur le fait que la situation d'énonciation a changé puisque maintenant tout le monde progresse à un rythme différent dans le texte.
+
+// cut, de retour avec tonton sumer superbrièvement
+
+Samuel - puis
+
+// cut, on montre l'interface du jeu et une nouvelle phrase apparaît "vous allez partir pour un voyage", et la suite avec le moment tutoriel où il faut cliquer sur les phrases
+
+Samuel (VOIX OFF) - pour la séquence suivante, on mobilise une autre interface de l'ordinateur, le pointeur de souris. Celui-ci va permettre au public de choisir des options de dialogue dans une discussion que j'ai écrite avec un personnage fictif : le gérant de la plage de *mhh-mhh*, qui se situe dans l'avant-pays savoyard. Certaines options de dialogue sont soumises à un jet de dés, comme dans certains jeux vidéo ou jeux de rôle.
+
+// ESTIMATED READING TIME : 6 minutes environ
+
