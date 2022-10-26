@@ -193,9 +193,14 @@ Template.show.onCreated(function(){
 
 Template.show.onRendered(function(){
 	window.addEventListener("beforeunload", function (e) {
-		// when the window is closed, remove player from db.
-		playerRm()
+		// in Lyon, Dan accidentaly exited the show and that was a problem,
+		// so we should at least ask people a confirmation before closing the tab.
+		// the better solution would be to save state with cookies or something like that.
+		e.preventDefault();
+		e.returnValue = '';
 	});
+
+
 
 	instance.data.obj.spaceBarStatus = "reader"
 	// spacebar status defaults to "reader" mode,
