@@ -196,8 +196,14 @@ Template.show.onRendered(function(){
 		// in Lyon, Dan accidentaly exited the show and that was a problem,
 		// so we should at least ask people a confirmation before closing the tab.
 		// the better solution would be to save state with cookies or something like that.
-		e.preventDefault();
-		e.returnValue = '';
+
+		// in Dev mode, don't ask for reloads and auto-clean player.
+		if (environment == "Prod") {
+			e.preventDefault();
+			e.returnValue = '';
+		}else{
+			playerRm()
+		}
 	});
 
 
@@ -230,6 +236,7 @@ Template.show.onRendered(function(){
 
 		if(event.keyCode==65){
 			// A
+			event.preventDefault();
 			Meteor.call("showServerCall", false, environment, false)
 		}
 
