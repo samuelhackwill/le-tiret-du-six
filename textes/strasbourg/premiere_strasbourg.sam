@@ -10,7 +10,13 @@ ce que j'aime bien dans cette séquence
 
 c'est que le silence revient dans la salle
 
-on entend juste les ordinateurs et les videoprojecteurs qui soufflent
+on entend juste le videoprojecteur 
+
+(il est au plafond en face de l'écran)
+
+et les ordinateurs
+
+qui soufflent
 
 quelque part ça me rappelle peut être
 
@@ -45,13 +51,19 @@ bienvenue chez vous.
 
 chez vous c'est ici
 
-c'est un endroit où vous passez pas mal de temps
+c'est un endroit où vous passez peut-être pas mal de temps
 
-pour votre travail peut-être
+pour votre travail
 
-mais également pour vos loisirs
+ou pour vos loisirs
 
-fatalement, pour la plupart d'entre vous, c'est un endroit où vous passez beaucoup de temps.
+ou les deux
+
+fatalement, pour la plupart d'entre vous, c'est un endroit où vous passez
+
+ou passerez 
+
+beaucoup de temps.
 
 ***
 
@@ -63,9 +75,9 @@ je suis bien content d'être là avec vous
 
 peut-être sur "Facebook messenger"?
 
-où vous faites votre comptabilité
+où vous suivez un cours en ligne
 
-peut-être sur "Microsoft Excel"?
+peut-être sur "Zoom"?
 
 où vous regardez des documentaires dans votre lit le soir
 
@@ -191,7 +203,9 @@ voilà
 
 l'avantage de cette méthode
 
-c'est que je peux vous faire lire des trucs de manière synchronisée
+c'est qu'on est synchronisé.e.s.
+
+on lit ce texte dans nos têtes toutes et tous en même temps.
 
 mais le problème c'est que cette méthode de lecture n'est pas adaptée à votre singularité d'être humain.e
 
@@ -233,6 +247,7 @@ il aurait été impossible d'arriver ici.
 on a fait un peu de chemin ensemble.
 
 j'ai l'impression que je pourrais presque vous dire à nouveau bienvenue
+
 bienvenue donc.
 
 ***
@@ -247,7 +262,7 @@ et il y a une sorte de gros levier qui sort du sol
 
 (la barre espace)
 
-et quand vous actionez ce levier il y a un petit paquet qui arrive
+et quand vous actionnez ce levier il y a un petit paquet qui arrive
 
 (ce texte).
 
@@ -285,11 +300,9 @@ au lieu d'être, comme c'est d'habitude le cas, dans un datacentre,
 
 c'est à dire une usine pleine d'ordinateurs, située par exemple à Strasbourg.
 
-on est dans une configuration dite de : "réseau local".
+on est dans une configuration dite de "réseau local".
 
-je dis "à Strasbourg" parce qu'il y a justement un datacentre à Strasbourg
-
-qui a brûlé récemment :
+je dis "à Strasbourg" parce qu'il y a justement un datacentre à Strasbourg qui a brûlé l'année dernière
 
 hélas.
 
@@ -303,7 +316,7 @@ parmi ces sites, il y avait beaucoup de sites français
 
 en total, 2% de la totalité de l'internet français
 
-c'est-à-dire, 2% de la totalité des sites et adresses mail dont l'adresse finit en .fr
+c'est-à-dire, 2% de la totalité des sites et adresses mail dont l'adresse finit en ".fr"
 
 ont brûlé.
 
@@ -370,7 +383,9 @@ et voilà à quoi ressemble le nez de Jean Lasalle
 
 vous voyez de qui on parle maintenant?
 
-bref
+nan? 
+
+hmm bref
 
 ***
 
@@ -389,11 +404,11 @@ on va faire un truc
 
 comme c'est un ordinateur qui n'est pas muni d'un écran,
 
-un peu à la manière de ceux qui sont dans les datacentres, et qui n'en ont pas en règle générale
+un peu à la manière de ceux qui sont dans les datacentres
 
-et sont simplement "rackés" dans des sortes de grosses armoires électriques
+qui sont simplement "rackés" dans des sortes de grosses armoires électriques et n'ont pas d'écran
 
-on a disposé un soucre lumineuse à proximité qui va faire des trucs étranges,
+on a disposé un source lumineuse à proximité qui va faire des trucs étranges,
 
 comme ça vous pourrez repérer de quelle machine il s'agit.
 
@@ -416,7 +431,7 @@ plantait,
 
 boudait, 
 
-ou prenait feu,
+ou brûlait,
 
 on serait bien embêté.e.s.
 
@@ -496,13 +511,13 @@ la touche "a".
 
 appuyez voir dessus?
 
-normalement quand vous appuyez sur "a" ça devrait immédiatement éclairer le serveur.
+normalement quand vous appuyez sur "a" ça devrait brièvement éclairer le serveur.
 
 vous avez maintenant le pouvoir de faire clignoter notre serveur.
 
 voilà, la touche "a" ne sert qu'à ça. Vous pouvez appuyer dessus quand vous voulez, c'est pour vous.
 
-d'ailleurs au moment où vous lisez ces lignes il est possible qu'il y ait un embouteillage
+par contre au moment où vous lisez ces lignes il est possible qu'il y ait un embouteillage
 
 si ça clignote beaucoup c'est que pas mal de personnes sont en train d'appuyer sur la touche "a".
 
@@ -568,8 +583,10 @@ C'est pas grave cette fois! ça aurait été plus grave si vous aviez parié que
 #answer C'est vrai.
 #act #goto propedeut.end
 
-hé ben dites donc vous avez un sacré pot.
+hé ben ça alors si vous aviez fait un pari qui engageait plus votre sécurité personnelle on aurait pu être impressionné.
 #bookmark propedeut.win
+#answer C'est vrai mais non.
+#act #goto propedeut.end
 
 voilà, ça devrait vous servir pour la séquence qui vient bientôt.
 #bookmark propedeut.end
@@ -583,24 +600,26 @@ Vous êtes arrivé.e au bout du chemin
 // no comments in the #answers section please! breaks everything unfortunately.
 #bookmark startofACTEII
 
-vous voilà dans l'avant-pays savoyard (vous avez repéré le blason de la savoie sur un panneau à l'entrée d'un village).
+vous voilà dans l'avant-pays savoyard (vous avez repéré le blason de la Savoie sur un panneau à l'entrée d'un village).
 
 Vous vous trouvez actuellement à proximité du lac d'Aiguebelette. Vous ne sentez plus du tout de présence malveillante. Vous vous sentez au contraire apaisé.e par la beauté du décor qui vous entoure.
 
 L'immobilité, le vent qui souffle dans la ramée, les montagnes.
 
-Mais où sont les eaux tant vantées du lac? (vous avez vu un panneau marron sur l'autoroute)
+Mais où sont les eaux tant vantées du lac?
 
-Vous apercevez sur la gauche qu'un chemin quitte la route et qu'un accès à une plage semble possible. Il s'agit d'une plage communale.
+Vous apercevez sur la gauche qu'un chemin quitte la route et qu'un accès à une plage semble possible. 
+
+Il s'agit d'une plage communale.
 
 Vous vous approchez de l’entrée de la plage. Un portail en acier, qu’on a eu la coquetterie de peindre en vert turquoise, vous barre le passage. Quelqu’un.e a verrouillé la porte d’entrée à l’aide d’un gros cadenas de laiton.
 #bookmark intro
 
-Vous tirez la porte par aquit de conscience mais elle ne bouge pas du tout. Vous touchez le cadenas, ce qui vous donne immédiatement la confirmation qu’il est impossible de le casser à mains nues, ou en le mordant. C’est bien un vrai cadenas.
+Vous tirez la porte par acquit de conscience mais elle ne bouge pas du tout. Vous touchez le cadenas, ce qui vous donne immédiatement la confirmation qu’il est impossible de le casser à mains nues, ou en le mordant. C’est bien un vrai cadenas.
 
 Quelqu’un.e s’oppose à vos plans de balade. Quelqu’un.e se dresse entre vous et la nature. Mais aussi : quelqu’un.e a les clés de ce cadenas.
 
-alors que vous commencez à vous poser la question, inévitable, de l’identité de la personne s’étant rendue responsable de ce crime, un bruit sur votre gauche trahit la présence immédiate du gérant de la plage, qui, gants de travail aux mains, est en train de ranger du bois dans un petit appenti à proximité de sa maison (son garage).
+alors que vous commencez à vous poser la question, inévitable, de l’identité de la personne s’étant rendue responsable de ce crime, un bruit sur votre gauche trahit la présence immédiate du gérant de la plage, qui, gants de travail aux mains, est en train de ranger du bois dans un petit appentis à proximité de sa maison (son garage).
 #answer le gérant travaille pour la mairie, la mairie pour le peuple, et le peuple c’est moi! Il a le devoir de répondre à mes questions.
 #act #goto intro.impression
 
