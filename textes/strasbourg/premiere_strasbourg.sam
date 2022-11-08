@@ -1366,7 +1366,6 @@ se coupe-elle même la parole en permanence. Fait étrange, elle semble ne jamai
 ? - la simulation est terminée. 
 #logtime race1
 
-
 ? - j'espère que vous vous avez passé un bon moment.
 #answer ça va
 #act #goto end
