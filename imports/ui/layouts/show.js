@@ -71,17 +71,18 @@ streamer.on('message', function(message) {
 
 			break;
 
+			case "closeAllWordsBank":
+				// if people are still reading their collected words 
+				// when we resync, we need to close the word bank or else
+				// they won't know we've started reading again!
+				if($('.wordsBankContainer').hasClass("is-open")) {
+					$('.wordsBankContainer').removeClass('is-open');
+					$('.toggleWordsBank').removeClass('is-open');				
+				}
+			break;
+
 			case "adminSpacebarPress":
 			adminNext(message.adminAtIndex)
-
-			// if people are still reading their collected words 
-			// when we resync, we need to close the word bank or else
-			// they won't know we've started reading again!
-			if($('.wordsBankContainer').hasClass("is-open")) {
-				$('.wordsBankContainer').removeClass('is-open');
-				$('.toggleWordsBank').removeClass('is-open');				
-			}
-
 			break;
 
 			case "updateRunners":

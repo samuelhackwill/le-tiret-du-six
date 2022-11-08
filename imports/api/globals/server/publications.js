@@ -26,6 +26,10 @@ Meteor.methods({
 		sendMessage({action:"adminSpacebarPress", adminAtIndex:_atIndex, env:_env})
 	},
 
+	closeAllWordsBank(_env){
+		sendMessage({action:"closeAllWordsBank", env:_env})
+	},
+
 	stopMiningAdmin(_env){
 		// we need to reset the status of havested letters so that words
 		// will appear red and we can start over next time.

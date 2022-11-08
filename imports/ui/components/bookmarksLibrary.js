@@ -30,5 +30,12 @@ Template.bookmarksLibrary.events({
 		instance.data.adminAtIndex = _targetIndex
 		// and sync all clients.
 		Meteor.call("spacebarAdmin", environment, _targetIndex)
+
+
+		// we also need to tell all clients to stop reading the words library
+		// when we're resyncing. 
+		if (bookmarkTargetId=="resync") {
+			Meteor.call("closeAllWordsBank", environment)
+		}
 	}
 })
