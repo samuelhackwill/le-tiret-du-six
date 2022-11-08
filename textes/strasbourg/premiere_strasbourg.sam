@@ -619,7 +619,7 @@ Vous tirez la porte par acquit de conscience mais elle ne bouge pas du tout. Vou
 
 Quelqu’un.e s’oppose à vos plans de balade. Quelqu’un.e se dresse entre vous et la nature. Mais aussi : quelqu’un.e a les clés de ce cadenas.
 
-alors que vous commencez à vous poser la question, inévitable, de l’identité de la personne s’étant rendue responsable de ce crime, un bruit sur votre gauche trahit la présence immédiate du gérant de la plage, qui, gants de travail aux mains, est en train de ranger du bois dans un petit appentis à proximité de sa maison (son garage).
+alors que vous commencez à vous poser la question, inévitable, de l’identité de la personne s’étant rendue responsable de ce crime, un bruit sur votre gauche trahit la présence immédiate du gérant de la plage, qui, gants de travail aux mains, est en train de ranger du bois dans son garage.
 #answer le gérant travaille pour la mairie, la mairie pour le peuple, et le peuple c’est moi! Il a le devoir de répondre à mes questions.
 #act #goto intro.impression
 
@@ -691,14 +691,14 @@ néanmoins le résultat est là, vous mettez la casquette "POLICE" sur votre tê
 #answer (poursuivre)
 #act #goto intro.prenom.colere
 
-Vous vous débinez. Tout le monde sait à quoi ressemble un.e policier.ère. Vous ne ressemblez pas à un.e policier.ère. Vos cheveux, vos vêtements, votre langage corporel, votre timidité.
+Vous vous découragez. Tout le monde sait à quoi ressemble un.e policier.ère. Vous ne ressemblez pas à un.e policier.ère. Vos cheveux, vos vêtements, votre langage corporel, votre timidité.
 #bookmark intro.police.fail
 
 VOUS - “en fait non, je retire ce que j’ai dit, pas-police.”
 
 En improvisant cette formule vous vous rendez compte qu’il n’y a pas de mot pour désigner l’inverse de “police” ou “policier.ère”. Vous savez que certain.e.s gardiens de la paix usent du “civil” pour désigner tout individu non policier, mais c’est fautif, car “civil” ne s’oppose en principe qu’à “militaire”, or les policiers ne font pas partie de l’armée. Il n’y a pas de mot dans la langue française pour satisfaire leur désir de se placer au-dessus des autres citoyens. 
 
-bien que vous soyez mal à l’aise de n’avoir pas assumé votre mensonge, vous sentez une vague affection républicaine envers le gérant de la plage : comme vous n’êtes plus policier, vous voilà à nouveau parfaitement égaux en tout points. Vous avez envie de l’embrasser. Vous décidez de lui confier un petit morceau de votre intimité pour le dédommager de votre bref moment d’insincérité.
+bien que vous soyez mal à l’aise de n’avoir pas assumé votre mensonge, vous vous sentez pris.e d'une affection républicaine envers le gérant de la plage : comme vous ne faites plus partie de la police, vous voilà à nouveau parfaitement égaux en tout points. Vous avez envie de l’embrasser. Vous décidez de lui confier un petit morceau de votre intimité pour le dédommager de votre bref moment d’insincérité.
 #answer En réalité, je suis artiste.
 #act #goto intro.police.artiste
 #answer En réalité, je suis agent.e immobilier.
