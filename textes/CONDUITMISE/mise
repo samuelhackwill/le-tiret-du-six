@@ -14,21 +14,21 @@ Mise races
 Mise flingue
 	charger le flingue.
 Mise Resolume
+	le mac mini a fan control a fond
 	sambot présent / absent  - colone 60 61 et 70 71 food and drinks 
 	reset XTRA SamBot - colone 62 à 69
 	vérification que les commandes midi de la mixette sont au bon endroit
 Mise VP
 	en plein écran : une fenetre sublime text pour écrire dom som avec le curseur au bon endroit 
 	en plein écran : resolume avec la vue sur le lac
-	+ un firefox au cas où
 Mise de l'écran qui flashe
 	en plein écran : firefox sur localhost:3000/showServ/Prod
 Mise ordis admin
-	clavier bépo branché + mode bépo (pas le drapeau belge)
 	+ une vue firefox en pas plein écran pour monitorer le spectac
 	+ un terminal pour regarder où en sont lé gen dans le spectac
 	+ une petite listounette de à quel index sont les endroits importants à surveiller 
 	(#serverStrobe notamment, #startofACTEII, #end)
+	clavier bépo branché + mode bépo (pas le drapeau belge)
 Mise de l'ordi de sam (samAdmin)
 	firefox en pas plein écran pour piloter le spectac (tds-vault.local:3000/admin/Prod)
 Mise micro

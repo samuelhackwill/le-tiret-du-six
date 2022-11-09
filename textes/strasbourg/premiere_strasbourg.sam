@@ -1093,7 +1093,7 @@ LE GERANT DE LA PLAGE - les gens ne viennent pas à la plage pour respirer des o
 
 LE GERANT DE LA PLAGE - sans doute, et moi je ne me suis pas levé aujourd’hui pour me faire tenir la jambe par un inconnu alors que je veux ranger mon bois.
 #bookmark silo.questions.description.tenirlajambe
-#answer et moi, si j’avais su que la plage de l*** allait se faire condamner par vous, je serai plutôt né en Belgique, histoire d’être ici seulement quand la plage est ouverte.
+#answer et moi, si j’avais su que la plage de l*** allait se faire condamner par vous, je serais plutôt né en Belgique, histoire d’être ici seulement quand la plage est ouverte.
 #act #goto silo.questions.description.wurm
 
 LE GERANT DE LA PLAGE - et moi, si j’étais le glacier Würmien (-11 000 avant jésus christ) et que j’avais su qu’on viendrait fumer des chichas à la plage, je n’aurais pas creusé le bassin versant du lac.
@@ -1421,11 +1421,11 @@ certains mots de ce texte vont s'afficher en jaune.
 
 ils seront répartis sur l'ensemble du texte que vous avez affiché depuis le début de la performance
 
-ce qui fait que vous allez devoir redescendre dans le texte pour aller les chercher tous.
+ce qui fait que vous allez devoir <span class="blueTxt">redescendre dans le texte</span> pour aller les chercher tous.
 
 ce sont comme des petits œufs de pâques cachés dans le texte.
 
-pour les collecter, il faut cliquer plein de fois dessus.
+pour les collecter, il faut <span class="blueTxt">cliquer</span> plein de fois dessus.
 
 quand vous avez suffisamment cliqué sur un mot, une de ses lettres va disparaître,
 
@@ -1611,7 +1611,7 @@ le temps que vous avez mis à trouver l’adresse IP du serveur
 
 mais pour moi,
 
-ça serai déloyal 
+ça serait déloyal 
 
 parce que vous avez pas été prévenu.e.s qu'on vous chronométrait.
 
@@ -1638,8 +1638,11 @@ hop
 #startRace
 
 on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
+#stop
 
 félicitations!
+#bookmark raceFFA
+
 
 ça fait du bien de se dégourdir un peu les jambes.
 
@@ -1648,7 +1651,6 @@ et on peut finir avec une grande course où cette fois,
 vous jouez les un.e.s contre les autres.
 
 vous êtes prêt.e.s?
-#bookmark raceFFA
 
 ***
 #logtime race0
@@ -1677,7 +1679,7 @@ nous sommes :
 
 dans la salle.
 
-lors de la dernière représentation, nous étions 35.
+lors de la dernière représentation, nous étions 40.
 // #showAchievement publicCountOld
 // A FAIRE
 
@@ -1692,7 +1694,7 @@ en termes de rapidité à entrer dans la salle,
 
 par rapport aux : 
 
-4 
+5 
 // #showAchivement numberOfRepresentations
 // A FAIRE
 
@@ -1721,7 +1723,7 @@ La dernière fois, comme il vous l'a dit lui-même en introduction, cette séque
 
 ***
 
-1391
+2483
 // A FAIRE
 
 secondes environ.
