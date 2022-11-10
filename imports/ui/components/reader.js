@@ -260,7 +260,7 @@ clientActions = function(_params){
 						}
 					}
 				}else{
-					result = instance.achievements.find(str=>str.name===_arg)?.value || "on sait pas trop, on devait pas être attentifs à ce moment. Ou alors il y a un bug."
+					result = instance.achievements.find(str=>str.name===_arg)?.value || "<span class='blueTxt'>undefined</span> (absence de données)"
 					loadText(undefined, undefined,result)					
 				}
 			break;

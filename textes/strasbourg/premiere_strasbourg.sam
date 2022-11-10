@@ -1658,7 +1658,11 @@ vous êtes prêt.e.s?
 ***
 #startRace
 
+on va attendre que tout le monde ait fini sa course (ça prendra pas longtemps).
+#stop
+
 Le Gérant de la plage - qu'est ce que vous faites?
+#bookmark outro
 
 Dominique Sommeveille - on parle de l'industrie de la pub en ligne.
 
