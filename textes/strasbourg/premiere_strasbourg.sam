@@ -1404,7 +1404,7 @@ ah ben je suis content alors.
 #answer (dans votre tête) bon en soi j'aurais aussi bien passé ma soirée à jouer à un vrai jeu vidéo.
 #act #goto end
 
-... nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l***.
+... nous devons maintenant attendre que les autres joueurs.euses nous rejoignent sur le parking de la plage de l***, mais
 #bookmark end
 
 comme nous avons tous un rythme différent,
@@ -1697,7 +1697,7 @@ en termes de rapidité à entrer dans la salle,
 
 par rapport aux : 
 
-5 
+6 
 // #showAchivement numberOfRepresentations
 // A FAIRE
 
