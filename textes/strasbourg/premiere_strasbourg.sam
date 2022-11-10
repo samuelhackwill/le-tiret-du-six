@@ -1327,7 +1327,7 @@ Il n’y a que la guerre, il n’y a toujours eu que la guerre, et pour l’inst
 #act #goto resolution
 
 Vous encouragez le gérant de la plage à séparer ce qui dépend de lui et ce qui ne dépend pas de lui. Il peut, tel un archer, bander parfaitement la corde de son arc, mais il ne lui appartient pas de décider où la flèche va se planter. Si la buvette est peinte, tant pis, ça n’empêche pas de l’utiliser. 
-#bookmark resolution.stoicienne
+#bookmark resolution.stoicisme
 
 Si la buvette brûle, qu’importe? A-t-on besoin de boire de la bière? 
 
@@ -1668,6 +1668,14 @@ Dominique Sommeveille - on parle de l'industrie de la pub en ligne.
 
 Le Gérant de la plage - ah ok
 
+Le Gérant de la plage - et qui a gagné la course?
+
+Dominique Sommeveille - hmm 
+
+Dominique Sommeveille - c'est moi qui ai gagné la course.
+
+Le Gérant de la plage - ah bravo!
+
 Le Gérant de la plage - je dois vous dire qu'il va être temps de clore cette expérience.
 
 Le Gérant de la plage - il se fait tard et *je n'ai toujours pas pu ranger mon bois*
@@ -1682,7 +1690,7 @@ nous sommes :
 
 dans la salle.
 
-lors de la dernière représentation, nous étions 40.
+lors de la dernière représentation, nous étions 28.
 // #showAchievement publicCountOld
 // A FAIRE
 
@@ -1697,7 +1705,7 @@ en termes de rapidité à entrer dans la salle,
 
 par rapport aux : 
 
-6 
+8 
 // #showAchivement numberOfRepresentations
 // A FAIRE
 
@@ -1705,7 +1713,7 @@ autres publics qui ont joué au tiret du six,
 
 vous vous placez en :
 
-2e
+4e
 // #showAchievement representationsRace
 // A FAIRE
 
@@ -1726,7 +1734,7 @@ La dernière fois, comme il vous l'a dit lui-même en introduction, cette séque
 
 ***
 
-2483
+1675
 // A FAIRE
 
 secondes environ.
