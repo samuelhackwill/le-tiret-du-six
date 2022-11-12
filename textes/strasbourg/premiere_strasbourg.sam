@@ -59,11 +59,7 @@ ou pour vos loisirs
 
 ou les deux
 
-fatalement, pour la plupart d'entre vous, c'est un endroit où vous passez
-
-ou passerez 
-
-beaucoup de temps.
+fatalement, pour la plupart d'entre vous, c'est un endroit où vous passez beaucoup de temps.
 
 ***
 
@@ -99,13 +95,9 @@ c'est qui au juste ce type qui me souhaite la bienvenue sur MON ordinateur
 
 et qui pose un tas de questions rhétoriques là?
 
-seriez-vous en droit de vous demander.
-
-fort légitime
-
 alors pour répondre a cette question, donc
 
-qui suis-je
+qui suis-je?
 
 il faut déjà que je vous fasse remarquer que là, pour le moment 
 
@@ -1417,6 +1409,8 @@ je vais vous proposer de poursuivre votre lecture en attendant les autres
 
 cette fois-ci on ne vas pas utiliser la barre espace, mais le pointeur de souris.
 
+dans un petit moment, quand vous arriverez à la ligne qui dit "c'est parti!",
+
 certains mots de ce texte vont s'afficher en jaune.
 
 ils seront répartis sur l'ensemble du texte que vous avez affiché depuis le début de la performance
@@ -1451,7 +1445,7 @@ ce mot disparaît pour tous.te.s les autres.
 
 nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
 
-c'est parti.
+c'est parti!
 #stop
 #mining start
 
@@ -1690,7 +1684,7 @@ nous sommes :
 
 dans la salle.
 
-lors de la dernière représentation, nous étions 28.
+lors de la dernière représentation, nous étions 46.
 // #showAchievement publicCountOld
 // A FAIRE
 
@@ -1705,7 +1699,7 @@ en termes de rapidité à entrer dans la salle,
 
 par rapport aux : 
 
-8 
+9 
 // #showAchivement numberOfRepresentations
 // A FAIRE
 
@@ -1713,7 +1707,7 @@ autres publics qui ont joué au tiret du six,
 
 vous vous placez en :
 
-4e
+5e
 // #showAchievement representationsRace
 // A FAIRE
 
@@ -1734,7 +1728,7 @@ La dernière fois, comme il vous l'a dit lui-même en introduction, cette séque
 
 ***
 
-1675
+1300
 // A FAIRE
 
 secondes environ.
