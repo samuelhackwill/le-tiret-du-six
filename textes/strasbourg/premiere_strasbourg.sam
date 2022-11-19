@@ -59,11 +59,7 @@ ou pour vos loisirs
 
 ou les deux
 
-fatalement, pour la plupart d'entre vous, c'est un endroit où vous passez
-
-ou passerez 
-
-beaucoup de temps.
+fatalement, pour la plupart d'entre vous, c'est un endroit où vous passez beaucoup de temps.
 
 ***
 
@@ -99,13 +95,9 @@ c'est qui au juste ce type qui me souhaite la bienvenue sur MON ordinateur
 
 et qui pose un tas de questions rhétoriques là?
 
-seriez-vous en droit de vous demander.
-
-fort légitime
-
 alors pour répondre a cette question, donc
 
-qui suis-je
+qui suis-je?
 
 il faut déjà que je vous fasse remarquer que là, pour le moment 
 
@@ -1692,7 +1684,8 @@ nous sommes :
 
 dans la salle.
 
-lors de la dernière représentation, nous étions 47.
+lors de la dernière représentation, nous étions 68.
+
 // #showAchievement publicCountOld
 // A FAIRE
 
@@ -1707,7 +1700,8 @@ en termes de rapidité à entrer dans la salle,
 
 par rapport aux : 
 
-10 
+11 
+
 // #showAchivement numberOfRepresentations
 // A FAIRE
 
@@ -1715,7 +1709,7 @@ autres publics qui ont joué au tiret du six,
 
 vous vous placez en :
 
-4e
+5e
 // #showAchievement representationsRace
 // A FAIRE
 
@@ -1736,7 +1730,8 @@ La dernière fois, comme il vous l'a dit lui-même en introduction, cette séque
 
 ***
 
-1364
+1452
+
 // A FAIRE
 
 secondes environ.
