@@ -2,7 +2,7 @@ TEST OK
 #bookmark startofACTEI
 // IL FAUT que ce bookmark soit au début du show sinon ça pète tout.
 
-vous êtes bien arrivé.e.s sur la suite du spectacle de samuel
+vous êtes bien arrivé.e.s sur la suite du spectacle de Samuel
 
 félicitations.
 
@@ -220,7 +220,6 @@ vous allez pouvoir identifier mentalement la touche du clavier qu'on appelle com
 et <span class="blueTxt">appuyer dessus</span>.
 
 et encore
-#logtime race1
 
 ok
 
@@ -589,6 +588,7 @@ vous décidez de vous mettre en route dans la direction de la lumière.
 //fin de l'acte I
 
 hop
+#logtime race1
 
 hop
 
@@ -777,6 +777,7 @@ Vous
 arrivé.e 
 
 au bout 
+#logtime race1
 
 du chemin
 // no comments in the #answers section please! breaks everything unfortunately.
@@ -1566,7 +1567,6 @@ Le gérant de la plage - très bien, je vous remercie de votre participation!
 Vous ne reconnaissez plus la voix du gérant de la plage. Son ton boudeur et laconique a été remplacé par une diction très rapide, hachée, et désinvolte.
 
 la simulation est terminée. 
-#logtime race1
 
 j'espère que vous vous avez passé un bon moment.
 #answer ça va
@@ -1633,7 +1633,9 @@ quand un mot est récolté par quelqu'un.e,
 
 ce mot disparaît pour tous.te.s les autres.
 
-nous ne passerons à la suite que quand tous les mots auront été collectés par vous, et que tout le monde nous aura rejoint sur le parking.
+quand tous les mots auront été collectés par la salle,
+
+je prendrai le micro pour vous faire coucou et on pourra passer à la suite.
 
 c'est parti!
 #stop
@@ -1648,9 +1650,9 @@ je suis si heureux.
 
 chaque personne dans la salle lit ce texte simultanément.
 
-bon et au fait vous avez compris que c'était à nouveau samuel qui vous parle.
+bon et au fait vous avez compris que c'était à nouveau Samuel qui vous parle.
 
-entre temps je suis allé parler au gérant de la plage. 
+entre temps je suis allé voir le gérant de la plage. 
 
 Il m'a dit qu'il avait apprécié la discussion avec vous,
 
@@ -1663,6 +1665,12 @@ je vous propose qu'on aille y retrouver
 Dominique Sommeveille,
 
 qui nous y attend.
+
+hop
+
+hop
+
+hop
 
 hop
 
@@ -1706,7 +1714,7 @@ le silence n'est percé que par le cri des foulques au loin.
 
 Dominique Sommeveille - J'ai quelque chose à confesser.
 
-avec samuel tout à l'heure, on vous a pas dit
+avec Samuel tout à l'heure, on vous a pas dit
 
 mais dès qu'il vous a donné la possibilité de vous déplacer à votre rythme dans le texte,
 
@@ -1716,9 +1724,13 @@ euh qu'on a dénommé sobrement
 
 super mario barre espace
 
-pis bon ben vous faisiez la course les un.e.s contre les autres
+pis bon ben vous avez fait une course les un.e.s contre les autres
 
-ça a commencé au moment où la première personne a appuyé sur la barre espace
+ça a commencé au moment où vous vous êtes mis en route pour la lumière
+
+et qu'il y avait plein de "hop", vous vous souvenez?
+
+et vous avez traversé la ligne d'arrivée au dernier "hop".
 
 j'avoue c'est un peu abusé de pas vous avoir prévenu
 
@@ -1749,7 +1761,7 @@ et puis on en tire des conclusions machiniques plus ou moins stupides sur vos ce
 
 et alors depuis qu'on a des ordinateurs tout le temps dans la poche (les téléphones)
 
-c'est la fête, on peut mesurer des trucs marrants comme
+c'est la fête, on peut mesurer des trucs comme
 
 vous avez emmené votre téléphone à un concert
 
@@ -1940,7 +1952,7 @@ cette course contre le public précédent.
 
 les moments suivants de la performance vous ont manifestement fait rire :
 
-la blague de samuel le robot qui sort de l'écran (comique de situation)
+la blague de samuel-le-robot qui sort de l'écran (comique de situation)
 
 ***
 #showAchievement situation
