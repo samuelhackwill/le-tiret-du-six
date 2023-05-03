@@ -4,6 +4,9 @@ import '/imports/api/story/server/publications.js'
 import { Story } from '../../api/story/story.js';
 import { destroyStory } from '../../api/story/methods.js'
 
+import '/imports/api/highScore/server/publications.js'
+import { HighScore } from '../../api/highScore/highScore.js';
+
 import '/imports/api/globals/server/publications.js'
 import { Globals } from '../../api/globals/globals.js';
 import { spacebarInvert } from '../../api/globals/methods.js'

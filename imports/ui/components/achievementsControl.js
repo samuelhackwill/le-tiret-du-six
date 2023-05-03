@@ -5,11 +5,19 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 
 import './achievementsControl.html';
 import './achievementsControl.css';
+import { HighScore } from '../../api/highScore/highScore';
 
 
 Template.achievementsControl.onCreated(function(){
 	instance = this
 	instance.achievementsControl = []
+
+})
+
+Template.achievementsControl.helpers({
+	highScore(){
+		return this.highScore.collection.find({}).fetch()
+	}
 
 })
 
