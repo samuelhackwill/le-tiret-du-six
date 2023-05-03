@@ -9,15 +9,14 @@ PERIPHERALS
 - [] clavier apple
 - [] souris
 - [] carte son i2i
-- [] webcam
 
 ADAPTERS and CABLES
 - [] adaptateur USB-C HDMI
 - [] adaptateur multi USB-C VGA
-- [] adaptateurs RJ45
+- [] adaptaters RJ45
 - [] rallonge USB
 - [] hub USB
-- [] cable minijack / minijack *2
 
 USB KEYS
 - [] USB recovery key (god save le tiret du six)
+- [] OS USB keys (win10, etc)

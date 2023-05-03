@@ -59,7 +59,7 @@ ou pour vos loisirs
 
 ou les deux
 
-fatalement, pour la plupart d'entre vous, c'est un endroit où vous passez beaucoup de temps.
+fatalement, pour la plupart d'entre nous, c'est un endroit où nous passons beaucoup de temps.
 
 ***
 
@@ -211,7 +211,7 @@ ne permet pas à votre subjectivité de s'exprimer
 
 donc là, 
 
-dès que vous êtes prêt•e
+dès que vous êtes prêt.e
 
 vous allez pouvoir identifier mentalement la touche du clavier qu'on appelle communément
 
@@ -398,7 +398,7 @@ comme c'est un ordinateur qui n'est pas muni d'un écran,
 
 un peu à la manière de ceux qui sont dans les datacentres
 
-qui sont simplement "rackés" dans des sortes de grosses armoires électriques et n'ont pas d'écran
+qui sont simplement "rackés" dans des sortes de grosses armoires électriques
 
 on a disposé un source lumineuse à proximité qui va faire des trucs étranges,
 
@@ -441,7 +441,7 @@ bon et alors je sais pas si vous avez compris le truc de la lumière rouge qui c
 
 c'est peut-être allé un peu vite
 
-en gros, soit vous faites partie des gens qui, 
+en gros, soit vous faites partie des personnes qui, 
 
 découvrant la technologie de la barre espace, avez tapé comme un.e malade sur votre clavier
 
@@ -525,7 +525,7 @@ parce que mine de rien notre perception de l'espace a un peu changé encore
 
 dans notre terrain vague avec le gros levier qui fait venir les paquets
 
-on est allé.e.s au bout du terrain vague, on s'est penché.e. s en avant pour voir
+on est allé.e.s au bout du terrain vague, on s'est penché.e.s en avant pour voir
 
 d'où venaient les paquets
 
@@ -588,17 +588,207 @@ vous décidez de vous mettre en route dans la direction de la lumière.
 ***
 //fin de l'acte I
 
-Vous êtes arrivé.e au bout du chemin
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+là 
+
+sur
+
+votre
+
+droite
+
+il y a 
+
+un champ
+
+d'arbres
+
+très droits
+
+sans 
+
+doute
+
+des
+
+peupliers
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+une 
+
+voiture 
+
+vient 
+
+de vous 
+
+dépasser 
+
+avec 
+
+la musique
+
+très fort
+
+elle était 
+
+complètement 
+
+remplie 
+
+de gens
+
+et
+
+immatriculée
+
+73
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+tout 
+
+d'un 
+
+coup
+
+une vue 
+
+se 
+
+dégage
+
+sur votre côté 
+
+gauche 
+
+vous 
+
+voyez 
+
+un 
+
+lac!
+
+magnifique
+
+et
+
+couleur 
+
+émeraude
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+hop
+
+Vous 
+
+êtes 
+
+arrivé.e 
+
+au bout 
+
+du chemin
 // no comments in the #answers section please! breaks everything unfortunately.
 #bookmark startofACTEII
 
-vous voilà dans l'avant-pays savoyard (vous avez repéré le blason de la Savoie sur un panneau à l'entrée d'un village).
+Vous vous trouvez actuellement à proximité du lac d'Aiguebelette. 
 
-Vous vous trouvez actuellement à proximité du lac d'Aiguebelette. Vous ne sentez plus du tout de présence malveillante. Vous vous sentez au contraire apaisé.e par la beauté du décor qui vous entoure.
+Vous ne sentez plus du tout de présence malveillante. 
+
+Vous vous sentez au contraire apaisé.e par la beauté du décor qui vous entoure.
 
 L'immobilité, le vent qui souffle dans la ramée, les montagnes.
-
-Mais où sont les eaux tant vantées du lac?
 
 Vous apercevez sur la gauche qu'un chemin quitte la route et qu'un accès à une plage semble possible. 
 
@@ -1014,7 +1204,7 @@ Ceci étant dit je ne suis pas propriétaire, je suis seulement gérant. C'est p
 #answer à quel âge est ce que le lac a développé sa "vocation" touristique?
 #act #goto silo.questions.vocation
 
-LE GERANT DE LA PLAGE — certainement depuis l’arrivée du chemin de fer à la fin du XIXe siècle, C’est ce qui a permis aux notables de Lyon de venir acheter des résidences secondaires dans le coin, et aux gens de se balader en général.
+LE GERANT DE LA PLAGE — certainement depuis l’arrivée du chemin de fer à la fin du XIXe siècle, C’est ce qui a permis aux notables de Lyon de venir acheter des résidences secondaires dans le coin, et aux personnes de se balader en général.
 #bookmark silo.questions.vocation
 #answer C'est vrai que c'est sympa de se balader. Y a-t-il d'autres plages autour du lac?
 #act #goto silo.questions.otherplages
@@ -1504,7 +1694,7 @@ Dominique Sommeveille - je me baladais dans le coin et j'ai vu que la plage éta
 
 il est très beau aujourd'hui! 
 
-Avez vous remarqué sa couleur <span style="color:turquoise;">turquoise?</span>
+Avez vous remarqué sa couleur <span style="color:turquoise;">émeraude?</span>
 
 on m'a dit que c'était grâce à vous que la plage était ouverte.
 
