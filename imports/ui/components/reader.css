@@ -84,7 +84,7 @@
 */
 
 .minableClone {
-	animation: : transform 0.4s ease-in-out;
+	animation: transform 0.4s ease-in-out;
 }
 
 span::-moz-selection {
