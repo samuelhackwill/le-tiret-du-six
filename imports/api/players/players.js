@@ -61,7 +61,13 @@ export const playersSchema = new SimpleSchema({
 				"Jean-Jacques Amouyal", "Raymond Gentil-Beccot", 
 				"Pamela Hermant", "Véronique Chatard", "Cyrille Colombier",
 				"Florian Montfalcon", "Solange Barret", "Jacky Duport", 
-				"Michel Gatellier", "Olivier Collomb", "Thierry Bonnamour"]
+				"Michel Gatellier", "Olivier Collomb", "Thierry Bonnamour",
+				"Françoise Curtaud", "Rainer Cremonte", "Bruno Bologne",
+				"Mickael Campillo", "Lori Roussey", "Antoine Charmeau", 
+				"Lionel Chapuis", "Rémi François", "Cyril Malaquin", 
+				"Sebastien Canata", "Guillaume Gros", "Lionel Deleglise",
+				"Thomas Gotteland", "Antoine Toureix", "Benjamin Perrot-Minot",
+				"Ornella Salvaggio", "Laetitia Garnier"]
 			}	
 
 			chosen_aiguebename = aiguebenames.shift()
