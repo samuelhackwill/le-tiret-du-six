@@ -783,15 +783,33 @@ du chemin
 // no comments in the #answers section please! breaks everything unfortunately.
 #bookmark startofACTEII
 
-Vous vous trouvez actuellement à proximité du lac d'Aiguebelette. 
+Vous vous trouvez 
 
-Vous ne sentez plus du tout de présence malveillante. 
+actuellement 
 
-Vous vous sentez au contraire apaisé.e par la beauté du décor qui vous entoure.
+à proximité 
 
-L'immobilité, le vent qui souffle dans la ramée, les montagnes.
+du lac d'Aiguebelette. 
 
-Vous apercevez sur la gauche qu'un chemin quitte la route et qu'un accès à une plage semble possible. 
+Vous ne sentez plus du tout 
+
+de présence malveillante. 
+
+Vous vous sentez 
+
+au contraire 
+
+apaisé.e par la beauté 
+
+du décor qui vous entoure.
+
+L'immobilité, le vent qui souffle dans la ramée, 
+
+les montagnes.
+
+Vous apercevez sur la gauche qu'un chemin quitte la route 
+
+et qu'un accès à une plage semble possible. 
 
 Il s'agit d'une plage communale.
 
@@ -1162,7 +1180,7 @@ LE GERANT DE LA PLAGE - ...
 #answer ping?
 #act #goto silo.questions.ping
 #answer pung?
-#act #goto silo.questions.ping
+#act #goto silo.questions.pung
 
 Non seulement le gérant de la plage ne dit rien, mais en plus vous sentez que l'air qui vous entoure désapprouve ce que vous venez de dire.
 #bookmark silo.questions.pung
@@ -1379,7 +1397,7 @@ vous êtes étonné de la haine que le gérant de la plage ressent spécifiqueme
 #answer ah, ces sales bandes!
 #act #goto silo.questions.degradations.qui.salbandes
 
-Vous décidez de n'opposer aucune résistance aux opinions du gérant de la plage. C'est lâche, mais comme aucun.e journaliste ne semble être dans les parages, vous en profitez pour prendre quelques largeurs dans le but de séduire le gérant de la plage. 
+Vous décidez de n'opposer aucune résistance aux opinions du gérant de la plage. C'est lâche, mais comme aucun.e journaliste ne semble être dans les parages, vous en profitez pour prendre quelques largeurs dans le but de le séduire. 
 #bookmark silo.questions.degradations.qui.saljeunes
 #answer qu'est ce qui est dégradé?
 #act #goto silo.questions.degradations.quoi
@@ -1887,7 +1905,6 @@ nous sommes :
 dans la salle.
 
 lors de la dernière représentation, nous étions 68.
-
 // #showAchievement publicCountOld
 // A FAIRE
 
@@ -1903,7 +1920,6 @@ en termes de rapidité à entrer dans la salle,
 par rapport aux : 
 
 11 
-
 // #showAchivement numberOfRepresentations
 // A FAIRE
 
@@ -1933,7 +1949,6 @@ La dernière fois, comme il vous l'a dit lui-même en introduction, cette séque
 ***
 
 1452
-
 // A FAIRE
 
 secondes environ.

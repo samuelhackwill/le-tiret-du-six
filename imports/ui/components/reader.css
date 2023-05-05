@@ -300,7 +300,7 @@ ul::selection {
 }
 
 .blueTxt{
-	color: blue !important;
+	color: rgba(0,255,0,1) !important;
 }
 
 .dice {
