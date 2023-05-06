@@ -6,6 +6,9 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import './achievementsControl.html';
 import './achievementsControl.css';
 
+tempJaugeScore = []
+tempEntreeScore = []
+
 
 Template.achievementsControl.onCreated(function(){
 	instance = this
@@ -31,10 +34,11 @@ Template.achievementsControl.events({
 			if (result == NaN) {
 				e.currentTarget.innerText = result + "something went wrong!"
 			}else{
-				Meteor.call("logAchievement",_env = environment, name = _name, value = result )
+				tempEntreeScore[0] = _name
+				tempEntreeScore[1] = result
 			}
 		}
-
+		
 		if (e.currentTarget.id == "samuelRobotEnd") {
 			result = (instance.achievementsControl.samuelRobotEnd - instance.achievementsControl.samuelRobotStart)/1000
 			e.currentTarget.innerText = result + "s ping"
@@ -44,6 +48,8 @@ Template.achievementsControl.events({
 				e.currentTarget.innerText = result + "something went wrong!"
 			}else{
 				Meteor.call("logAchievement",_env = environment, name = _name, value = result )
+				Meteor.call("logAchievement",_env = environment, name = tempEntreeScore[0], value = tempEntreeScore[1] )
+				Meteor.call("logAchievement",_env = environment, name = tempJaugeScore[0], value = tempJaugeScore[1] )
 			}
 		}
 
@@ -56,7 +62,8 @@ Template.achievementsControl.events({
 		_name = e.currentTarget.parentElement.id
 		_value = e.currentTarget.innerText
 		console.log(_name, _value)
-		Meteor.call("logAchievement",_env = environment, name = _name, value = _value )
+		tempJaugeScore[0] = _name
+		tempJaugeScore[1] = _value
 	}
 })
 

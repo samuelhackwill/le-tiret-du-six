@@ -84,7 +84,7 @@
 */
 
 .minableClone {
-	animation: : transform 0.4s ease-in-out;
+	animation: transform 0.4s ease-in-out;
 }
 
 span::-moz-selection {
@@ -300,7 +300,7 @@ ul::selection {
 }
 
 .blueTxt{
-	color: blue !important;
+	color: rgb(0,255,0) !important;
 }
 
 .dice {
