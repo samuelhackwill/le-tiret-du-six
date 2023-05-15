@@ -4,6 +4,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { Story } from '../../api/story/story.js';
 import { Globals } from '../../api/globals/globals.js';
 import { Players } from '../../api/players/players.js';
+import { HighScore } from '../../api/highScore/highScore.js';
 
 import { streamer } from '../../api/streamer/streamer.js';
 
@@ -66,6 +67,7 @@ Template.admin.onCreated(function storyEditorOnCreated() {
 		instance.data.adminAtIndex = 0
 	});	
 	this.subscribe('players')
+	this.subscribe('highScore')
 	
 	instance = this
 });
@@ -110,7 +112,8 @@ Template.admin.helpers({
 		return{
 			players:Players.find({env:environment}),
 			story:Story.find({env: environment}),
-			globals:Globals.find({env:environment})
+			globals:Globals.find({env:environment}),
+			highScore:HighScore.find({env:environment})
 		}
 	},
 })

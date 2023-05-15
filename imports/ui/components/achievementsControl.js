@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Mongo } from 'meteor/mongo';
 import { FlowRouter } from 'meteor/kadira:flow-router';
+import { HighScore } from '../../api/highScore/highScore';
 
 import './achievementsControl.html';
 import './achievementsControl.css';
@@ -13,6 +14,13 @@ tempEntreeScore = []
 Template.achievementsControl.onCreated(function(){
 	instance = this
 	instance.achievementsControl = []
+
+})
+
+Template.achievementsControl.helpers({
+	highScore(){
+		return this.highScore.collection.find({}).fetch()
+	}
 
 })
 
