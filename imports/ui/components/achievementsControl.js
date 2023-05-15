@@ -7,7 +7,6 @@ import './achievementsControl.html';
 import './achievementsControl.css';
 import { HighScore } from '../../api/highScore/highScore';
 
-
 Template.achievementsControl.onCreated(function(){
 	instance = this
 	instance.achievementsControl = []
