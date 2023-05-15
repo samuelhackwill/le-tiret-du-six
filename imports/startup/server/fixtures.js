@@ -209,6 +209,20 @@ initiateHighScore = function(){
       entreePublic: 301,
       ping:1150
     },
+    {
+      name: "Chambéry R1",
+      date: Date.parse("2023-5-5T19:00:00"),
+      peepCount: 23,
+      entreePublic: 68,
+      ping:1380
+    },
+    {
+      name: "Chambéry R2",
+      date: Date.parse("2023-5-6T17:00:00"),
+      peepCount: 43,
+      entreePublic: 115,
+      ping:1370
+    },
   ]
 
   for (let x = 0; x < pastScores.length; x++) {

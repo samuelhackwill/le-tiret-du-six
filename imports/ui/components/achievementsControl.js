@@ -72,6 +72,9 @@ Template.achievementsControl.events({
 		console.log(_name, _value)
 		tempJaugeScore[0] = _name
 		tempJaugeScore[1] = _value
+
+		Meteor.call("logAchievement",_env = environment, name = _name, value = _value )
+
 	}
 })
 
