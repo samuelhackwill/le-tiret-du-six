@@ -23,6 +23,10 @@
 	background-color: lime;
 }
 
+.achCourse:nth-child(even){
+	background-color: red;
+}
+
 #publicCount > button{
 	width: 20%;
 	text-align: center;

@@ -64,9 +64,9 @@ Template.achievementsControl.events({
 
 
 	},
-
-	"click button.achievementButton"(e){		
-		e.currentTarget.style.backgroundColor = "lime"
+	
+	"click button.achievementButton"(e){	
+		e.currentTarget.style.backgroundColor = "lime !important"	
 		_name = e.currentTarget.parentElement.id
 		_value = e.currentTarget.innerText
 		console.log(_name, _value)
