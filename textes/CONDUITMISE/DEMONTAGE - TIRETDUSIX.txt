@@ -13,7 +13,7 @@ DEMONTAGE - TIRETDUSIX
 	ranger ordi dans marinade
 	glisser marinade(ordi) dans caisse(ordi)
 		environ 6 ordis par caisse
-		ranger ensemble les ordis par commune
+		ranger ensemble les ordis d'une commune
 
 2/ BUREAUX - plateaux
 	délicatement les désassembler
