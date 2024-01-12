@@ -223,6 +223,14 @@ initiateHighScore = function(){
       entreePublic: 115,
       ping:1370
     },
+    {
+      name: "Fives R1",
+      date: Date.parse("2023-5-6T17:00:00"),
+      peepCount: 52,
+      entreePublic: 163,
+      ping:1443
+    },
+
   ]
 
   for (let x = 0; x < pastScores.length; x++) {
