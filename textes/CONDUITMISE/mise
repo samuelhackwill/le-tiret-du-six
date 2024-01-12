@@ -22,23 +22,32 @@ Mise Resolume
 	le mac mini a fan control a fond
 	vérifier all layers visibles
 	maj food and drinks 
+	maj scores (entrée dans la salle)
 	sambot présent / absent  - colone 60 61 et 70 71 
 	reset XTRA SamBot - colone 62 à 69
 	vérification que les commandes midi de la mixette sont au bon endroit
-Mise de l'écran qui flashe
-	en plein écran : firefox sur localhost:3000/showServ/Prod
+Mise des écrans :
+	> écran qui flashe :
+		- fullscreened firefox sur localhost:3000/showServ/Prod
+	> VP :
+		- buro1 : sublime text windowed
+		- buro2 : output resolume fullscreened
+	> écran principal :
+		- buro1 :	settings moniteurs ouvert + VLC
+		- buro2 :	resolume
+		- buro3 :	+ terminal pour regarder où en sont 
+					lé gen dans le spectac
+					+ listounette de à quel index sont les endroits importants à surveiller  (#serverStrobe notamment, #startofACTEII, #end)
+					+ ouvrir une vue client dans firefox (/show/Prod) ou la rafraîchir si elle était déjà ouverte
+		- focus sur le buro 2 (resolume)
+		- clavier bepo + mode bepo
+
 Mise de l'ordi de sam (samAdmin)
-	firefox en pas plein écran pour piloter le spectac (tds-vault.local:3000/admin/Prod)
+	firefox en pas plein écran pour piloter le spectac (tds-vault.local:3000/admin/Prod) + un ti client pour mater
 Mise micro
 	il est au bon volume & y'a le jazz qui est prêt quelque part	
-Mise ordis admin
-	+ une vue firefox en pas plein écran pour monitorer le spectac
-	+ un terminal pour regarder où en sont lé gen dans le spectac
-	+ une petite listounette de à quel index sont les endroits importants à surveiller 
-	(#serverStrobe notamment, #startofACTEII, #end)
-	clavier bépo branché + mode bépo (pas le drapeau belge)
+
 Mise VP
-	en plein écran : resolume avec la vue sur le lac
-	en plein écran : une fenetre sublime text pour écrire dom som avec le curseur au bon endroit et gros texte lisible moult svp tdb
+	focus sur la fenetre sublime text pour écrire dom som avec le curseur au bon endroit et gros texte lisible moult svp tdb
 
 
